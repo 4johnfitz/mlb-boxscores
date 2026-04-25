@@ -11,8 +11,8 @@
   <!-- Archive list -->
   <div id="list"></div>
 
-  <h2>Standings</h2>
-  <div id="standings">Loading standings...</div>
+  <h2>League Leaders</h2>
+  <div id="leaders">Loading leaders...</div>
 
   <script>
     // -------------------------
@@ -35,64 +35,69 @@
       });
 
     // -------------------------
-    // STANDINGS
+    // LEAGUE LEADERS
     // -------------------------
-    async function loadStandings() {
-      try {
-        const res = await fetch(
-          "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
-        );
+    async function loadLeaders() {
+      const stats = [
+        { label: "Home Runs", stat: "homeRuns" },
+        { label: "RBI", stat: "rbi" },
+        { label: "Batting Avg", stat: "battingAverage" },
+        { label: "Wins", stat: "wins" },
+        { label: "ERA", stat: "earnedRunAverage" },
+        { label: "Strikeouts", stat: "strikeOuts" }
+      ];
 
-        const data = await res.json();
-        const records = data.records || [];
+      let html = "";
 
-        let html = "";
+      for (const s of stats) {
+        try {
+          const res = await fetch(
+            `https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${s.stat}&season=2026&limit=5`
+          );
 
-        records.forEach(division => {
+          const data = await res.json();
 
-          // ✅ FIX: correct grouping label
-          const league =
-            division.league?.name ||
-            division.teamRecords?.[0]?.league?.name ||
-            "MLB";
+          const items =
+            data.leagueLeaders?.[0]?.leaders ||
+            data.leagueLeaders?.[0]?.leaderStats || [];
 
-          html += `<h3>${league}</h3>`;
+          html += `<h3>${s.label}</h3>`;
 
           html += `
             <table border="1" cellpadding="4" cellspacing="0">
               <tr>
-                <th>Team</th>
-                <th>W</th>
-                <th>L</th>
-                <th>GB</th>
+                <th>Player</th>
+                <th>Value</th>
               </tr>
           `;
 
-          division.teamRecords.forEach(team => {
+          items.forEach(p => {
+            const name =
+              p.person?.fullName ||
+              p.name ||
+              "Unknown";
+
             html += `
               <tr>
-                <td>${team.team.name}</td>
-                <td>${team.wins}</td>
-                <td>${team.losses}</td>
-                <td>${team.gamesBack || "-"}</td>
+                <td>${name}</td>
+                <td>${p.value}</td>
               </tr>
             `;
           });
 
           html += `</table><br>`;
-        });
 
-        document.getElementById("standings").innerHTML = html;
-
-      } catch (err) {
-        console.error("Standings error:", err);
-        document.getElementById("standings").innerHTML =
-          "Failed to load standings.";
+        } catch (err) {
+          console.error("Leader error:", s.stat, err);
+          html += `<p>Failed to load ${s.label}</p>`;
+        }
       }
+
+      document.getElementById("leaders").innerHTML = html;
     }
 
-    // Run standings
-    loadStandings();
+    // Run leaders
+    loadLeaders();
   </script>
 </body>
 </html>
