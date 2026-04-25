@@ -13,34 +13,88 @@
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 30px;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      margin-top: 25px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     th, td {
       border: 1px solid #ddd;
       padding: 6px;
       font-size: 14px;
+      vertical-align: middle;
     }
 
     th {
       background: #f3f3f3;
-      text-align: left;
     }
 
-    h2 {
-      margin-top: 0;
+    .player {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .card {
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
+    .player img.headshot {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+    }
+
+    .team-logo {
+      width: 22px;
+      height: 22px;
+      margin-left: 6px;
+      opacity: 0.9;
+    }
+
+    /* -------------------------
+       MOBILE STACKED LAYOUT
+    --------------------------*/
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+      }
+
+      tr {
+        margin-bottom: 12px;
+        border: 1px solid #ddd;
+        padding: 8px;
+        border-radius: 6px;
+        background: #fff;
+      }
+
+      th {
+        display: none;
+      }
+
+      td {
+        border: none;
+        padding: 4px 0;
+      }
+
+      td:first-child {
+        font-weight: bold;
+      }
     }
   </style>
 </head>
@@ -49,61 +103,88 @@
 
 <h1>League Leaders</h1>
 
-<div id="leaders">Loading...</div>
+<div class="grid">
+  <div id="al"></div>
+  <div id="nl"></div>
+</div>
 
 <script>
-async function loadLeaders() {
-  const categories = [
-    { title: "Home Runs", stat: "homeRuns" },
-    { title: "RBI", stat: "rbi" },
-    { title: "Batting Avg", stat: "avg" },
-    { title: "Wins", stat: "wins" },
-    { title: "ERA", stat: "era" },
-    { title: "Strikeouts", stat: "strikeOuts" }
-  ];
 
-  let html = `<div class="grid">`;
+const stats = [
+  { label: "Home Runs", stat: "homeRuns" },
+  { label: "RBI", stat: "rbi" },
+  { label: "Batting Avg", stat: "avg" },
+  { label: "Wins", stat: "wins" },
+  { label: "ERA", stat: "era" },
+  { label: "Strikeouts", stat: "strikeOuts" }
+];
 
-  for (const cat of categories) {
+function teamLogo(teamId) {
+  return `https://www.mlbstatic.com/team-logos/${teamId}.svg`;
+}
+
+async function loadLeague(leagueId, elementId, title) {
+
+  let html = `<h2>${title}</h2>`;
+
+  for (const s of stats) {
 
     const url =
-      `https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${cat.stat}&season=2026&statGroup=pitching,hitting&limit=5`;
+      `https://statsapi.mlb.com/api/v1/stats/leaders` +
+      `?leaderCategories=${s.stat}` +
+      `&leagueId=${leagueId}` +
+      `&limit=5`;
 
     const res = await fetch(url);
     const data = await res.json();
 
-    const leaderData = data.leagueLeaders?.[0]?.leaders || [];
+    const leaders = data.leagueLeaders?.[0]?.leaders || [];
+
+    html += `<h3>${s.label}</h3>`;
 
     html += `
-      <div class="card">
-        <h2>${cat.title}</h2>
-        <table>
-          <tr>
-            <th>Player</th>
-            <th>Team</th>
-            <th>Value</th>
-          </tr>
+      <table>
+        <tr>
+          <th>Player</th>
+          <th>Team</th>
+          <th>Value</th>
+        </tr>
     `;
 
-    leaderData.slice(0, 5).forEach(player => {
+    leaders.forEach(p => {
+      const id = p.person?.id;
+      const teamId = p.team?.id;
+
       html += `
         <tr>
-          <td>${player.person.fullName}</td>
-          <td>${player.team.name}</td>
-          <td>${player.value}</td>
+          <td>
+            <div class="player">
+              <img class="headshot"
+                src="https://img.mlbstatic.com/mlb-photos/image/upload/w_100,q_auto:best/v1/people/${id}/headshot/67/current">
+              ${p.person?.fullName || "Unknown"}
+            </div>
+          </td>
+
+          <td>
+            ${p.team?.name || "-"}
+            ${teamId ? `<img class="team-logo" src="${teamLogo(teamId)}">` : ""}
+          </td>
+
+          <td>${p.value ?? "-"}</td>
         </tr>
       `;
     });
 
-    html += `</table></div>`;
+    html += `</table>`;
   }
 
-  html += `</div>`;
-
-  document.getElementById("leaders").innerHTML = html;
+  document.getElementById(elementId).innerHTML = html;
 }
 
-loadLeaders();
+// INIT
+loadLeague(103, "al", "American League");
+loadLeague(104, "nl", "National League");
+
 </script>
 
 </body>
