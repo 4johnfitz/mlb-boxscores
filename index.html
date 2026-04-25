@@ -1,101 +1,133 @@
+
 <!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MLB Boxscore Archive</title>
+  <title>MLB Dashboard</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .team {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .team img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .player {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .player img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>MLB Boxscore Archive</h1>
+  <h1>MLB Dashboard</h1>
 
-  <!-- ARCHIVE -->
-  <div id="list"></div>
+  <div class="grid">
 
-  <!-- STANDINGS -->
-  <h2>Standings</h2>
-  <div id="standings">Loading standings...</div>
+    <!-- ARCHIVE -->
+    <div>
+      <h2>Games Archive</h2>
+      <div id="list"></div>
+    </div>
+
+    <!-- STANDINGS -->
+    <div>
+      <h2>Standings</h2>
+      <div id="standings">Loading...</div>
+    </div>
+
+  </div>
 
   <!-- LEADERS -->
   <h2>League Leaders</h2>
-  <div id="leaders">Loading leaders...</div>
+  <div id="leaders">Loading...</div>
 
   <script>
     // -------------------------
-    // ARCHIVE DATES
+    // ARCHIVE
     // -------------------------
     fetch("/mlb-boxscores/data/index.json")
       .then(r => r.json())
       .then(dates => {
         dates.sort().reverse();
-
         document.getElementById("list").innerHTML =
           dates.map(d =>
-            `<p><a href="day.html?date=${d}">${d}</a></p>`
+            `<div class="card"><a href="day.html?date=${d}">${d}</a></div>`
           ).join("");
-      })
-      .catch(err => {
-        console.error("Index load error:", err);
-        document.getElementById("list").innerHTML =
-          "Failed to load archive.";
       });
 
     // -------------------------
-    // STANDINGS
+    // STANDINGS (CARDS + LOGOS)
     // -------------------------
     async function loadStandings() {
-      try {
-        const res = await fetch(
-          "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
-        );
+      const res = await fetch(
+        "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
+      );
 
-        const data = await res.json();
-        const records = data.records || [];
+      const data = await res.json();
+      const records = data.records || [];
 
-        let html = "";
+      let html = "";
 
-        records.forEach(group => {
-          const league =
-            group.league?.name ||
-            group.teamRecords?.[0]?.league?.name ||
-            "MLB";
+      records.forEach(group => {
+        html += `<h3>${group.league?.name || "MLB"}</h3>`;
 
-          html += `<h3>${league}</h3>`;
+        group.teamRecords.forEach(team => {
+          const id = team.team.id;
 
           html += `
-            <table border="1" cellpadding="4" cellspacing="0">
-              <tr>
-                <th>Team</th>
-                <th>W</th>
-                <th>L</th>
-                <th>GB</th>
-              </tr>
+            <div class="card">
+              <div class="team">
+                <img src="https://www.mlbstatic.com/team-logos/team-cap-on-dark/${id}.svg">
+                <strong>${team.team.name}</strong>
+              </div>
+              <div>
+                ${team.wins}-${team.losses} • GB: ${team.gamesBack || "-"}
+              </div>
+            </div>
           `;
-
-          group.teamRecords.forEach(team => {
-            html += `
-              <tr>
-                <td>${team.team.name}</td>
-                <td>${team.wins}</td>
-                <td>${team.losses}</td>
-                <td>${team.gamesBack || "-"}</td>
-              </tr>
-            `;
-          });
-
-          html += `</table><br>`;
         });
+      });
 
-        document.getElementById("standings").innerHTML = html;
-
-      } catch (err) {
-        console.error("Standings error:", err);
-        document.getElementById("standings").innerHTML =
-          "Failed to load standings.";
-      }
+      document.getElementById("standings").innerHTML = html;
     }
 
     // -------------------------
-    // LEAGUE LEADERS
+    // LEADERS (WITH PHOTOS)
     // -------------------------
     async function loadLeaders() {
       const stats = [
@@ -110,56 +142,36 @@
       let html = "";
 
       for (const s of stats) {
-        try {
-          const res = await fetch(
-            `https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${s.stat}&limit=5`
-          );
+        const res = await fetch(
+          `https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${s.stat}&limit=5`
+        );
 
-          const data = await res.json();
+        const data = await res.json();
 
-          const leaders =
-            data.leagueLeaders?.[0]?.leaders ||
-            data.leagueLeaders?.[0]?.leaderStats ||
-            [];
+        const leaders =
+          data.leagueLeaders?.[0]?.leaders || [];
 
-          html += `<h3>${s.label}</h3>`;
+        html += `<h3>${s.label}</h3>`;
 
-          if (!leaders.length) {
-            html += `<p>No data available</p>`;
-            continue;
-          }
+        leaders.forEach(p => {
+          const id = p.person?.id;
 
           html += `
-            <table border="1" cellpadding="4" cellspacing="0">
-              <tr>
-                <th>Player</th>
-                <th>Value</th>
-              </tr>
+            <div class="card player">
+              <img src="https://img.mlbstatic.com/mlb-photos/image/upload/w_200,q_auto:best/v1/people/${id}/headshot/67/current">
+              <div>
+                <strong>${p.person?.fullName}</strong><br>
+                ${p.value}
+              </div>
+            </div>
           `;
-
-          leaders.forEach(p => {
-            html += `
-              <tr>
-                <td>${p.person?.fullName || "Unknown"}</td>
-                <td>${p.value ?? "-"}</td>
-              </tr>
-            `;
-          });
-
-          html += `</table><br>`;
-
-        } catch (err) {
-          console.error("Leader error:", s.stat, err);
-          html += `<p>Error loading ${s.label}</p>`;
-        }
+        });
       }
 
       document.getElementById("leaders").innerHTML = html;
     }
 
-    // -------------------------
     // INIT
-    // -------------------------
     loadStandings();
     loadLeaders();
   </script>
