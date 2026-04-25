@@ -81,70 +81,31 @@ async function run() {
 
   for (const game of games) {
 
-  const state = game.status?.abstractGameState;
-  const detailed = game.status?.detailedState;
+    const state = game.status?.abstractGameState;
+    const detailed = game.status?.detailedState;
 
-  // -------------------------
-  // GAME STATE CLASSIFICATION
-  // -------------------------
-  let gameState = "Other";
+    // -------------------------
+    // GAME STATE CLASSIFICATION
+    // -------------------------
+    const isFinal =
+      state === "Final" ||
+      detailed === "Final" ||
+      detailed === "Game Over" ||
+      detailed === "Completed Early";
 
-  const isFinal =
-    state === "Final" ||
-    detailed === "Final" ||
-    detailed === "Game Over" ||
-    detailed === "Completed Early";
+    const isLive =
+      state === "Live" ||
+      state === "In Progress" ||
+      detailed === "In Progress" ||
+      detailed === "In Progress - Official";
 
-  const isLive =
-    state === "Live" ||
-    state === "In Progress" ||
-    detailed === "In Progress" ||
-    detailed === "In Progress - Official";
+    if (!isFinal && !isLive) continue;
 
-  if (isFinal) {
-    gameState = "Final";
-  } else if (isLive) {
-    gameState = "Live";
-  } else {
-    continue; // skip scheduled, postponed, etc.
-  }
+    const gameState = isFinal ? "Final" : "Live";
 
-  // -------------------------
-  // GAME DATA
-  // -------------------------
-  const gamePk = game.gamePk;
-  const awayName = game.teams.away.team.name;
-  const homeName = game.teams.home.team.name;
-
-  const [, line] = await Promise.all([
-    getBoxscore(gamePk),
-    getLinescore(gamePk),
-  ]);
-
-  const lineScoreText = formatLineScore(line, awayName, homeName);
-
-  const text = `
-${awayName} @ ${homeName}
---------------------------------
-${lineScoreText}
-`;
-
-  // -------------------------
-  // PUSH RESULT
-  // -------------------------
-  results.push({
-    gamePk,
-    away: awayName,
-    home: homeName,
-    state: gameState,
-    text: text.trim()
-  });
-}
-    const status = game.status;
-
-    // Only completed games
-    if (!status?.isFinal) continue;
-
+    // -------------------------
+    // GAME DATA
+    // -------------------------
     const gamePk = game.gamePk;
     const awayName = game.teams.away.team.name;
     const homeName = game.teams.home.team.name;
@@ -162,32 +123,38 @@ ${awayName} @ ${homeName}
 ${lineScoreText}
 `;
 
+    // -------------------------
+    // PUSH RESULT
+    // -------------------------
     results.push({
       gamePk,
       away: awayName,
       home: homeName,
-      text: text.trim(),
+      state: gameState,
+      text: text.trim()
     });
   }
 
-  // Ensure data folder exists
+  // -------------------------
+  // WRITE FILES
+  // -------------------------
   if (!fs.existsSync("./data")) {
     fs.mkdirSync("./data");
   }
 
-  // Write JSON
   fs.writeFileSync(
     `./data/boxscores-${date}.json`,
     JSON.stringify(results, null, 2)
   );
 
-  // Write TXT
   fs.writeFileSync(
     `./data/boxscores-${date}.txt`,
-    results.map((g) => g.text).join("\n\n====================\n\n")
+    results.map(g => g.text).join("\n\n====================\n\n")
   );
 
-  // Update index
+  // -------------------------
+  // UPDATE INDEX
+  // -------------------------
   const indexPath = "./data/index.json";
 
   const existing = fs.existsSync(indexPath)
