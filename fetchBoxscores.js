@@ -2,16 +2,27 @@ const fs = require("fs");
 const fetch = require("node-fetch");
 
 // -------------------------
-// GET YESTERDAY (SOURCE OF TRUTH)
+// GET TARGET DATE (Pacific Time)
+// GitHub Actions runs in UTC — this ensures we always use PT "yesterday"
 // -------------------------
 function getYesterday() {
-  const d = new Date();
-  d.setDate(d.getDate() - 1);
-
+  // Get current time in Pacific (handles PST/PDT automatically)
+  const now = new Date();
+  const ptString = now.toLocaleDateString("en-US", {
+    timeZone: "America/Los_Angeles",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  });
+  // ptString is "MM/DD/YYYY"
+  const [month, day, year] = ptString.split("/");
+  // Subtract 1 day
+  const pt = new Date(`${year}-${month}-${day}T00:00:00`);
+  pt.setDate(pt.getDate() - 1);
   return [
-    d.getFullYear(),
-    String(d.getMonth() + 1).padStart(2, "0"),
-    String(d.getDate()).padStart(2, "0")
+    pt.getFullYear(),
+    String(pt.getMonth() + 1).padStart(2, "0"),
+    String(pt.getDate()).padStart(2, "0")
   ].join("-");
 }
 
@@ -41,14 +52,12 @@ async function getLinescore(gamePk) {
 // -------------------------
 function formatLineScore(linescore, awayName, homeName) {
   const innings = linescore.innings || [];
-
   let header = "Team     ";
   innings.forEach((_, i) => header += `${i + 1} `);
   header += " R  H  E";
 
   function teamLine(team, name) {
     let line = name.padEnd(9);
-
     innings.forEach(inning => {
       const runs =
         team === "away"
@@ -56,10 +65,8 @@ function formatLineScore(linescore, awayName, homeName) {
           : inning.home?.runs ?? "-";
       line += `${runs} `;
     });
-
     const totals =
       team === "away" ? linescore.teams.away : linescore.teams.home;
-
     line += ` ${totals?.runs ?? 0}  ${totals?.hits ?? 0}  ${totals?.errors ?? 0}`;
     return line;
   }
@@ -76,7 +83,6 @@ function formatLineScore(linescore, awayName, homeName) {
 // -------------------------
 async function run() {
   const date = getYesterday();
-
   console.log("RUNNING FOR DATE:", date);
 
   const games = await getSchedule(date);
@@ -85,81 +91,7 @@ async function run() {
   const results = [];
 
   for (const game of games) {
-
     const status = game.status || {};
     const state = status.abstractGameState || "";
 
-    // skip only unplayed
-    if (state === "Preview") continue;
-
-    const gamePk = game.gamePk;
-    const awayName = game.teams.away.team.name;
-    const homeName = game.teams.home.team.name;
-
-    // -------------------------
-    // SAFE SCORE FETCH (FIXED)
-    // -------------------------
-    let awayScore = 0;
-    let homeScore = 0;
-
-    try {
-      const line = await getLinescore(gamePk);
-      awayScore = line?.teams?.away?.runs ?? 0;
-      homeScore = line?.teams?.home?.runs ?? 0;
-    } catch (e) {
-      console.log("No linescore:", gamePk);
-    }
-
-    let lineText = "";
-
-    try {
-      const line = await getLinescore(gamePk);
-      lineText = formatLineScore(line, awayName, homeName);
-    } catch {
-      lineText = "No line score available";
-    }
-
-    const text = `
-${awayName} @ ${homeName}
---------------------------------
-${lineText}
-`;
-
-    results.push({
-      gamePk,
-      away: awayName,
-      home: homeName,
-      awayScore,
-      homeScore,
-      state,
-      text: text.trim()
-    });
-  }
-
-  // -------------------------
-  // SAVE FILES
-  // -------------------------
-  if (!fs.existsSync("./data")) fs.mkdirSync("./data");
-
-  fs.writeFileSync(
-    `./data/boxscores-${date}.json`,
-    JSON.stringify(results, null, 2)
-  );
-
-  // index update
-  const indexPath = "./data/index.json";
-
-  const existing = fs.existsSync(indexPath)
-    ? JSON.parse(fs.readFileSync(indexPath))
-    : [];
-
-  if (!existing.includes(date)) {
-    existing.push(date);
-  }
-
-  fs.writeFileSync(indexPath, JSON.stringify(existing.sort(), null, 2));
-
-  console.log("DONE:", results.length, "games saved");
-}
-
-run();
+    // Skip only unplayed games
