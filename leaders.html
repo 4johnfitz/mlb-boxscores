@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MLB League Leaders</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 25px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 6px;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f3f3f3;
+      text-align: left;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .card {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>League Leaders</h1>
+
+<div id="leaders">Loading...</div>
+
+<script>
+async function loadLeaders() {
+  const categories = [
+    { title: "Home Runs", stat: "homeRuns" },
+    { title: "RBI", stat: "rbi" },
+    { title: "Batting Avg", stat: "avg" },
+    { title: "Wins", stat: "wins" },
+    { title: "ERA", stat: "era" },
+    { title: "Strikeouts", stat: "strikeOuts" }
+  ];
+
+  let html = `<div class="grid">`;
+
+  for (const cat of categories) {
+
+    const url =
+      `https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${cat.stat}&season=2026&statGroup=pitching,hitting&limit=5`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+
+    const leaderData = data.leagueLeaders?.[0]?.leaders || [];
+
+    html += `
+      <div class="card">
+        <h2>${cat.title}</h2>
+        <table>
+          <tr>
+            <th>Player</th>
+            <th>Team</th>
+            <th>Value</th>
+          </tr>
+    `;
+
+    leaderData.slice(0, 5).forEach(player => {
+      html += `
+        <tr>
+          <td>${player.person.fullName}</td>
+          <td>${player.team.name}</td>
+          <td>${player.value}</td>
+        </tr>
+      `;
+    });
+
+    html += `</table></div>`;
+  }
+
+  html += `</div>`;
+
+  document.getElementById("leaders").innerHTML = html;
+}
+
+loadLeaders();
+</script>
+
+</body>
+</html>
