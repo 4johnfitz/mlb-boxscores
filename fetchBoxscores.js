@@ -2,7 +2,7 @@ const fs = require("fs");
 const fetch = require("node-fetch");
 
 // -------------------------
-// YESTERDAY (LOCAL TIME)
+// GET YESTERDAY (SOURCE OF TRUTH)
 // -------------------------
 function getYesterday() {
   const d = new Date();
@@ -37,21 +37,19 @@ async function getLinescore(gamePk) {
 }
 
 // -------------------------
-// FORMAT LINE SCORE
+// FORMAT LINESCORE
 // -------------------------
 function formatLineScore(linescore, awayName, homeName) {
   const innings = linescore.innings || [];
 
   let header = "Team     ";
-  innings.forEach((_, i) => {
-    header += `${i + 1} `;
-  });
+  innings.forEach((_, i) => header += `${i + 1} `);
   header += " R  H  E";
 
   function teamLine(team, name) {
     let line = name.padEnd(9);
 
-    innings.forEach((inning) => {
+    innings.forEach(inning => {
       const runs =
         team === "away"
           ? inning.away?.runs ?? "-"
@@ -69,83 +67,86 @@ function formatLineScore(linescore, awayName, homeName) {
   return [
     header,
     teamLine("away", awayName),
-    teamLine("home", homeName),
+    teamLine("home", homeName)
   ].join("\n");
 }
 
 // -------------------------
-// MAIN RUNNER
+// RUN
 // -------------------------
 async function run() {
   const date = getYesterday();
 
-  console.log("Generating YESTERDAY:", date);
+  console.log("RUNNING FOR DATE:", date);
 
   const games = await getSchedule(date);
-  console.log("Games found:", games.length);
+  console.log("GAMES FOUND:", games.length);
 
   const results = [];
 
   for (const game of games) {
 
     const status = game.status || {};
-    const textStatus = `
-      ${status.abstractGameState || ""}
-      ${status.detailedState || ""}
-    `.toLowerCase();
+    const state = status.abstractGameState || "";
 
     // skip only unplayed
-    if (textStatus.includes("preview") || textStatus.includes("scheduled")) {
-      continue;
-    }
+    if (state === "Preview") continue;
 
     const gamePk = game.gamePk;
     const awayName = game.teams.away.team.name;
     const homeName = game.teams.home.team.name;
 
-    const awayScore = game.teams.away.score ?? 0;
-    const homeScore = game.teams.home.score ?? 0;
-
-    let lineScoreText = "";
+    // -------------------------
+    // SAFE SCORE FETCH (FIXED)
+    // -------------------------
+    let awayScore = 0;
+    let homeScore = 0;
 
     try {
       const line = await getLinescore(gamePk);
-      lineScoreText = formatLineScore(line, awayName, homeName);
-    } catch (err) {
-      console.error("Linescore error:", gamePk);
+      awayScore = line?.teams?.away?.runs ?? 0;
+      homeScore = line?.teams?.home?.runs ?? 0;
+    } catch (e) {
+      console.log("No linescore:", gamePk);
     }
 
-    const formatted = `
+    let lineText = "";
+
+    try {
+      const line = await getLinescore(gamePk);
+      lineText = formatLineScore(line, awayName, homeName);
+    } catch {
+      lineText = "No line score available";
+    }
+
+    const text = `
 ${awayName} @ ${homeName}
 --------------------------------
-${lineScoreText}
+${lineText}
 `;
 
     results.push({
       gamePk,
       away: awayName,
       home: homeName,
-      awayScore: awayScore,
-      homeScore: homeScore,
-      state: status.abstractGameState || "Unknown",
-      text: formatted.trim()
+      awayScore,
+      homeScore,
+      state,
+      text: text.trim()
     });
   }
 
-  if (!fs.existsSync("./data")) {
-    fs.mkdirSync("./data");
-  }
+  // -------------------------
+  // SAVE FILES
+  // -------------------------
+  if (!fs.existsSync("./data")) fs.mkdirSync("./data");
 
   fs.writeFileSync(
     `./data/boxscores-${date}.json`,
     JSON.stringify(results, null, 2)
   );
 
-  fs.writeFileSync(
-    `./data/boxscores-${date}.txt`,
-    results.map(g => g.text).join("\n\n====================\n\n")
-  );
-
+  // index update
   const indexPath = "./data/index.json";
 
   const existing = fs.existsSync(indexPath)
@@ -156,12 +157,9 @@ ${lineScoreText}
     existing.push(date);
   }
 
-  fs.writeFileSync(
-    indexPath,
-    JSON.stringify(existing.sort(), null, 2)
-  );
+  fs.writeFileSync(indexPath, JSON.stringify(existing.sort(), null, 2));
 
-  console.log(`Saved ${results.length} games for ${date}`);
+  console.log("DONE:", results.length, "games saved");
 }
 
 run();
