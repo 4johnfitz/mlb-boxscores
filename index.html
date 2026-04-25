@@ -3,48 +3,43 @@
 <head>
   <meta charset="utf-8">
   <title>MLB Boxscores</title>
-
   <style>
     body { font-family: Arial; margin: 20px; }
-
     .top-nav a { margin-right: 10px; }
-
     .games div {
       margin-bottom: 8px;
     }
-
     .date {
       color: #666;
       margin-left: 10px;
     }
+    .no-score {
+      color: #999;
+      font-style: italic;
+    }
   </style>
 </head>
-
 <body>
-
 <h1>Latest Games <span id="dateLabel" class="date"></span></h1>
-
 <div class="games" id="games">Loading...</div>
-
 <script>
-
 // -------------------------
 // GET LATEST DATE FROM INDEX
 // -------------------------
 async function getLatestDate() {
   const res = await fetch("/mlb-boxscores/data/index.json");
   const dates = await res.json();
-
   if (!dates.length) return null;
-
   return dates.sort().reverse()[0];
 }
 
 // -------------------------
 // FORMAT DATE
+// Fix: append T00:00:00 to force LOCAL time parsing instead of UTC
+// Without this, "2026-04-24" is parsed as UTC midnight = Apr 23 in Pacific
 // -------------------------
 function pretty(dateStr) {
-  const d = new Date(dateStr);
+  const d = new Date(dateStr + "T00:00:00");
   return d.toLocaleDateString(undefined, {
     weekday: "short",
     month: "short",
@@ -57,7 +52,6 @@ function pretty(dateStr) {
 // -------------------------
 async function loadGames() {
   const date = await getLatestDate();
-
   if (!date) {
     document.getElementById("games").innerHTML = "No data.";
     return;
@@ -68,15 +62,26 @@ async function loadGames() {
   const res = await fetch(`/mlb-boxscores/data/boxscores-${date}.json`);
   const games = await res.json();
 
-  let html = "";
+  if (!games.length) {
+    document.getElementById("games").innerHTML = "No games found for this date.";
+    return;
+  }
 
+  let html = "";
   games.forEach(g => {
+    // Safely handle missing or undefined scores
+    const awayScore = g.awayScore ?? g.awayRuns ?? g.away_score;
+    const homeScore = g.homeScore ?? g.homeRuns ?? g.home_score;
+    const hasScore = awayScore !== undefined && homeScore !== undefined;
+
+    const scoreText = hasScore
+      ? `${g.away} ${awayScore}, ${g.home} ${homeScore}`
+      : `<span class="no-score">${g.away} vs. ${g.home} — score unavailable</span>`;
+
     html += `
       <div>
-        <a href="game.html?gamePk=${g.gamePk}">
-          ${g.away} ${g.awayScore}, ${g.home} ${g.homeScore}
-        </a>
-        <span>${g.state}</span>
+        <a href="game.html?gamePk=${g.gamePk}">${scoreText}</a>
+        <span> — ${g.state ?? "Unknown"}</span>
       </div>
     `;
   });
@@ -85,8 +90,6 @@ async function loadGames() {
 }
 
 loadGames();
-
 </script>
-
 </body>
 </html>
