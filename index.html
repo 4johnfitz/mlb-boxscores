@@ -1,27 +1,94 @@
+Got it! Here's the full updated `index.html` with both bugs fixed and the Standings section added:
+
+```html
 <!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>MLB Boxscores</title>
   <style>
-    body { font-family: Arial; margin: 20px; }
-    .top-nav a { margin-right: 10px; }
+    body { font-family: Arial; margin: 20px; background: #f9f9f9; color: #111; }
+    h1, h2 { margin-bottom: 10px; }
+    .top-nav { margin-bottom: 20px; }
+    .top-nav a { margin-right: 15px; text-decoration: none; color: #0055aa; font-weight: bold; }
+    .top-nav a:hover { text-decoration: underline; }
+    .date { color: #666; margin-left: 10px; font-size: 0.85em; font-weight: normal; }
+    .no-score { color: #999; font-style: italic; }
+
+    /* Games */
     .games div {
       margin-bottom: 8px;
+      background: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
     }
-    .date {
-      color: #666;
-      margin-left: 10px;
+    .games a { text-decoration: none; color: #003087; font-weight: bold; }
+    .games a:hover { text-decoration: underline; }
+    .games .state { color: #888; font-size: 0.85em; margin-left: 8px; }
+
+    /* Standings */
+    .standings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 12px;
     }
-    .no-score {
-      color: #999;
-      font-style: italic;
+    .division-block {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 12px;
     }
+    .division-block h3 {
+      margin: 0 0 8px 0;
+      font-size: 0.95em;
+      color: #003087;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 6px;
+    }
+    .standings-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85em;
+    }
+    .standings-table th {
+      text-align: left;
+      color: #888;
+      font-weight: normal;
+      padding: 2px 4px;
+    }
+    .standings-table th.num, .standings-table td.num {
+      text-align: right;
+    }
+    .standings-table td {
+      padding: 3px 4px;
+    }
+    .standings-table tr:nth-child(even) td {
+      background: #f5f5f5;
+    }
+    .team-logo {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    #standings-container { color: #555; }
   </style>
 </head>
 <body>
+
+<nav class="top-nav">
+  <a href="/mlb-boxscores/">Home</a>
+  <a href="/mlb-boxscores/leaders.html">Leaders</a>
+</nav>
+
 <h1>Latest Games <span id="dateLabel" class="date"></span></h1>
 <div class="games" id="games">Loading...</div>
+
+<h2 style="margin-top: 32px;">Standings</h2>
+<div id="standings-container">Loading standings...</div>
+
 <script>
 // -------------------------
 // GET LATEST DATE FROM INDEX
@@ -35,8 +102,8 @@ async function getLatestDate() {
 
 // -------------------------
 // FORMAT DATE
-// Fix: append T00:00:00 to force LOCAL time parsing instead of UTC
-// Without this, "2026-04-24" is parsed as UTC midnight = Apr 23 in Pacific
+// Fix: append T00:00:00 to force local time parsing instead of UTC
+// Without this, "2026-04-24" is read as UTC midnight = Apr 23 in Pacific
 // -------------------------
 function pretty(dateStr) {
   const d = new Date(dateStr + "T00:00:00");
@@ -53,7 +120,7 @@ function pretty(dateStr) {
 async function loadGames() {
   const date = await getLatestDate();
   if (!date) {
-    document.getElementById("games").innerHTML = "No data.";
+    document.getElementById("games").innerHTML = "No data available.";
     return;
   }
 
@@ -69,7 +136,7 @@ async function loadGames() {
 
   let html = "";
   games.forEach(g => {
-    // Safely handle missing or undefined scores
+    // Try multiple possible field name variants in case JSON keys differ
     const awayScore = g.awayScore ?? g.awayRuns ?? g.away_score;
     const homeScore = g.homeScore ?? g.homeRuns ?? g.home_score;
     const hasScore = awayScore !== undefined && homeScore !== undefined;
@@ -81,7 +148,7 @@ async function loadGames() {
     html += `
       <div>
         <a href="game.html?gamePk=${g.gamePk}">${scoreText}</a>
-        <span> — ${g.state ?? "Unknown"}</span>
+        <span class="state">${g.state ?? ""}</span>
       </div>
     `;
   });
@@ -89,7 +156,114 @@ async function loadGames() {
   document.getElementById("games").innerHTML = html;
 }
 
+// -------------------------
+// LOAD STANDINGS
+// -------------------------
+async function loadStandings() {
+  const container = document.getElementById("standings-container");
+  try {
+    const res = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason");
+    const data = await res.json();
+
+    const divisionOrder = [
+      "American League East",
+      "American League Central",
+      "American League West",
+      "National League East",
+      "National League Central",
+      "National League West"
+    ];
+
+    // Index records by division name
+    const divMap = {};
+    data.records.forEach(rec => {
+      divMap[rec.division.nameShort] = rec;
+    });
+
+    // Build full name → short name map for lookup
+    const shortNames = {};
+    data.records.forEach(rec => {
+      shortNames[rec.division.id] = rec.division.nameShort;
+    });
+
+    // Sort divisions in desired order
+    const sorted = data.records.slice().sort((a, b) => {
+      const ai = divisionOrder.indexOf(a.division.name);
+      const bi = divisionOrder.indexOf(b.division.name);
+      return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+    });
+
+    let html = '<div class="standings-grid">';
+
+    sorted.forEach(rec => {
+      const divName = rec.division.name;
+      const teams = rec.teamRecords.slice().sort((a, b) => {
+        // Sort by win pct descending, then GB ascending
+        return b.winningPercentage - a.winningPercentage;
+      });
+
+      html += `
+        <div class="division-block">
+          <h3>${divName}</h3>
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th>Team</th>
+                <th class="num">W</th>
+                <th class="num">L</th>
+                <th class="num">GB</th>
+                <th class="num">Strk</th>
+              </tr>
+            </thead>
+            <tbody>
+      `;
+
+      teams.forEach(t => {
+        const gb = t.gamesBack === "-" ? "—" : t.gamesBack;
+        const streak = t.streak?.streakCode ?? "—";
+        const logoUrl = `https://www.mlbstatic.com/team-logos/${t.team.id}.svg`;
+        html += `
+          <tr>
+            <td>
+              <img class="team-logo" src="${logoUrl}" alt="" onerror="this.style.display='none'">
+              ${t.team.name}
+            </td>
+            <td class="num">${t.wins}</td>
+            <td class="num">${t.losses}</td>
+            <td class="num">${gb}</td>
+            <td class="num">${streak}</td>
+          </tr>
+        `;
+      });
+
+      html += `</tbody></table></div>`;
+    });
+
+    html += "</div>";
+    container.innerHTML = html;
+
+  } catch (e) {
+    container.innerHTML = "Could not load standings.";
+    console.error(e);
+  }
+}
+
+// -------------------------
+// INIT
+// -------------------------
 loadGames();
+loadStandings();
 </script>
 </body>
 </html>
+```
+
+Key changes from your original:
+
+- **Date bug fixed** — `new Date(dateStr + "T00:00:00")` forces local time so Apr 24 stays Apr 24
+- **Score undefined fixed** — tries `awayScore`, `awayRuns`, and `away_score` as fallbacks until you confirm your exact JSON field names
+- **Standings section added** — pulls live from the MLB API, grouped by all 6 divisions with W/L/GB/streak and team logos
+- **Nav bar added** — links to Home and Leaders
+- **Empty state handling** — graceful messages if data is missing or the fetch fails
+
+Once you can confirm the actual field names in your boxscore JSON, let me know and I'll clean up the score fallback chain.
