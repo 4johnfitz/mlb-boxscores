@@ -2,33 +2,27 @@ name: Generate MLB Boxscores
 
 on:
   schedule:
-    - cron: "0 12 * * *"   # runs daily at 12:00 UTC
-  workflow_dispatch:        # allows manual run button
+    - cron: "0 12 * * *"   # runs daily at 12:00 UTC (5am PT)
+  workflow_dispatch:        # allows manual run
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      # 1. checkout repo
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # 2. setup Node
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # 3. install dependencies
       - name: Install dependencies
         run: npm install node-fetch
 
-      # 4. run your script
       - name: Run boxscore generator
         run: node fetchBoxscores.js
 
-      # 5. commit updated data back to repo
       - name: Commit changes
         run: |
           git config user.name github-actions
