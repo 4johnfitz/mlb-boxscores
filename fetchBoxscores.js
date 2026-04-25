@@ -2,17 +2,17 @@ const fs = require("fs");
 const fetch = require("node-fetch");
 
 // -------------------------
-// DATE (FIXED - LOCAL TIME)
+// YESTERDAY (ONLY SOURCE OF TRUTH)
 // -------------------------
 function getYesterday() {
   const d = new Date();
   d.setDate(d.getDate() - 1);
 
-  return [
-    d.getFullYear(),
-    String(d.getMonth() + 1).padStart(2, "0"),
-    String(d.getDate()).padStart(2, "0")
-  ].join("-");
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
 }
 
 // -------------------------
@@ -22,6 +22,7 @@ async function getSchedule(date) {
   const res = await fetch(
     `https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${date}`
   );
+
   const data = await res.json();
   return data.dates?.[0]?.games || [];
 }
@@ -81,37 +82,25 @@ function formatLineScore(linescore, awayName, homeName) {
 }
 
 // -------------------------
-// MAIN RUNNER
+// MAIN RUNNER (YESTERDAY ONLY)
 // -------------------------
 async function run() {
   const date = getYesterday();
 
-  console.log("Fetching games for:", date);
+  console.log("Generating YESTERDAY ONLY:", date);
 
   const games = await getSchedule(date);
+
   console.log("Games found:", games.length);
 
   const results = [];
 
   for (const game of games) {
-
     const state = game.status?.abstractGameState;
 
-    // -------------------------
-    // SAFE FILTER (FIXED)
-    // -------------------------
-    const isRelevant =
-      state === "Final" ||
-      state === "Live" ||
-      state === "In Progress";
+    // ONLY FINAL GAMES (STRICT)
+    if (state !== "Final") continue;
 
-    if (!isRelevant) continue;
-
-    const gameState = state === "Final" ? "Final" : "Live";
-
-    // -------------------------
-    // GAME DATA
-    // -------------------------
     const gamePk = game.gamePk;
     const awayName = game.teams.away.team.name;
     const homeName = game.teams.home.team.name;
@@ -133,13 +122,13 @@ ${lineScoreText}
       gamePk,
       away: awayName,
       home: homeName,
-      state: gameState,
+      state: "Final",
       text: text.trim()
     });
   }
 
   // -------------------------
-  // OUTPUT FILES
+  // OUTPUT
   // -------------------------
   if (!fs.existsSync("./data")) {
     fs.mkdirSync("./data");
@@ -168,9 +157,12 @@ ${lineScoreText}
     existing.push(date);
   }
 
-  fs.writeFileSync(indexPath, JSON.stringify(existing.sort(), null, 2));
+  fs.writeFileSync(
+    indexPath,
+    JSON.stringify(existing.sort(), null, 2)
+  );
 
-  console.log(`Saved ${results.length} games.`);
+  console.log(`Saved ${results.length} FINAL games for ${date}`);
 }
 
 run();
