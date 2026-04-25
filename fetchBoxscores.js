@@ -10,20 +10,26 @@ function getYesterday() {
 
 // Fetch schedule
 async function getSchedule(date) {
-  const res = await fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${date}`);
+  const res = await fetch(
+    `https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${date}`
+  );
   const data = await res.json();
   return data.dates?.[0]?.games || [];
 }
 
 // Fetch boxscore
 async function getBoxscore(gamePk) {
-  const res = await fetch(`https://statsapi.mlb.com/api/v1/game/${gamePk}/boxscore`);
+  const res = await fetch(
+    `https://statsapi.mlb.com/api/v1/game/${gamePk}/boxscore`
+  );
   return await res.json();
 }
 
 // Fetch linescore
 async function getLinescore(gamePk) {
-  const res = await fetch(`https://statsapi.mlb.com/api/v1/game/${gamePk}/linescore`);
+  const res = await fetch(
+    `https://statsapi.mlb.com/api/v1/game/${gamePk}/linescore`
+  );
   return await res.json();
 }
 
@@ -41,15 +47,15 @@ function formatLineScore(linescore, awayName, homeName) {
     let line = name.padEnd(9);
 
     innings.forEach((inning) => {
-      const runs = team === "away"
-        ? inning.away?.runs ?? "-"
-        : inning.home?.runs ?? "-";
+      const runs =
+        team === "away"
+          ? inning.away?.runs ?? "-"
+          : inning.home?.runs ?? "-";
       line += `${runs} `;
     });
 
-    const totals = team === "away"
-      ? linescore.teams.away
-      : linescore.teams.home;
+    const totals =
+      team === "away" ? linescore.teams.away : linescore.teams.home;
 
     line += ` ${totals.runs}  ${totals.hits}  ${totals.errors}`;
     return line;
@@ -58,7 +64,7 @@ function formatLineScore(linescore, awayName, homeName) {
   return [
     header,
     teamLine("away", awayName),
-    teamLine("home", homeName)
+    teamLine("home", homeName),
   ].join("\n");
 }
 
@@ -69,19 +75,22 @@ async function run() {
 
   const games = await getSchedule(date);
   console.log("Games found:", games.length);
+
   const results = [];
 
   for (const game of games) {
     const status = game.status;
-if (!status?.isFinal) continue;
+
+    // Only keep completed games
+    if (!status?.isFinal) continue;
 
     const gamePk = game.gamePk;
     const awayName = game.teams.away.team.name;
     const homeName = game.teams.home.team.name;
 
-    const [box, line] = await Promise.all([
+    const [, line] = await Promise.all([
       getBoxscore(gamePk),
-      getLinescore(gamePk)
+      getLinescore(gamePk),
     ]);
 
     const lineScoreText = formatLineScore(line, awayName, homeName);
@@ -96,41 +105,39 @@ ${lineScoreText}
       gamePk,
       away: awayName,
       home: homeName,
-      text: text.trim()
+      text: text.trim(),
     });
   }
 
-  // Make sure data folder exists
+  // Ensure data folder exists
   if (!fs.existsSync("./data")) {
     fs.mkdirSync("./data");
   }
 
-fs.writeFileSync(
-  `./data/boxscores-${date}.json`,
-  JSON.stringify(results, null, 2)
-);
+  // Write JSON
+  fs.writeFileSync(
+    `./data/boxscores-${date}.json`,
+    JSON.stringify(results, null, 2)
+  );
 
-fs.writeFileSync(
-  `./data/boxscores-${date}.txt`,
-  results.map(g => g.text).join("\n\n====================\n\n")
-);
+  // Write TXT
+  fs.writeFileSync(
+    `./data/boxscores-${date}.txt`,
+    results.map((g) => g.text).join("\n\n====================\n\n")
+  );
 
-// ---- ADD THIS BELOW ----
+  // Update index
+  const indexPath = "./data/index.json";
 
-const indexPath = "./data/index.json";
+  const existing = fs.existsSync(indexPath)
+    ? JSON.parse(fs.readFileSync(indexPath))
+    : [];
 
-const existing = fs.existsSync(indexPath)
-  ? JSON.parse(fs.readFileSync(indexPath))
-  : [];
+  if (!existing.includes(date)) {
+    existing.push(date);
+  }
 
-if (!existing.includes(date)) {
-  existing.push(date);
-}
-
-fs.writeFileSync(
-  indexPath,
-  JSON.stringify(existing.sort(), null, 2)
-);
+  fs.writeFileSync(indexPath, JSON.stringify(existing.sort(), null, 2));
 
   console.log(`Saved ${results.length} games.`);
 }
