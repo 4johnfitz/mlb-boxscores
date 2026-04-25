@@ -4,8 +4,11 @@
   <meta charset="utf-8">
   <title>Game Boxscore</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; color: #111; }
     h1, h2 { margin-bottom: 10px; }
+    .top-nav { margin-bottom: 20px; }
+    .top-nav a { margin-right: 15px; text-decoration: none; color: #0055aa; font-weight: bold; }
+    .top-nav a:hover { text-decoration: underline; }
     .teams {
       display: flex;
       align-items: center;
@@ -26,10 +29,104 @@
     }
     th { background: #f2f2f2; }
     .section { margin-top: 25px; }
+    pre { background: #f0f0f0; padding: 12px; border-radius: 4px; font-size: 13px; overflow-x: auto; }
+    .score-line { font-size: 1.3em; font-weight: bold; margin-bottom: 10px; }
+    .state { color: #888; font-size: 0.9em; margin-left: 10px; }
+    .error { color: red; }
   </style>
 </head>
 <body>
+
+<nav class="top-nav">
+  <a href="/mlb-boxscores/">Home</a>
+  <a href="/mlb-boxscores/leaders.html">Leaders</a>
+</nav>
+
 <h1 id="title">Loading...</h1>
+<div id="score-line" class="score-line"></div>
 <div class="teams" id="teams"></div>
+
 <div class="section">
-  <h2>Line Score
+  <h2>Line Score</h2>
+  <div id="linescore"></div>
+</div>
+
+<script>
+var gamePk = new URLSearchParams(window.location.search).get("gamePk");
+
+if (!gamePk) {
+  document.getElementById("title").textContent = "No game specified.";
+}
+
+async function loadGame() {
+  var titleEl = document.getElementById("title");
+
+  var indexRes;
+  try {
+    indexRes = await fetch("/mlb-boxscores/data/index.json");
+    if (!indexRes.ok) throw new Error("index.json failed: " + indexRes.status);
+  } catch (err) {
+    titleEl.textContent = "Error loading index: " + err.message;
+    return;
+  }
+
+  var dates = await indexRes.json();
+  dates = dates.slice().reverse();
+
+  var foundGame = null;
+
+  for (var i = 0; i < dates.length; i++) {
+    var date = dates[i];
+    try {
+      var res = await fetch("/mlb-boxscores/data/boxscores-" + date + ".json");
+      if (!res.ok) continue;
+      var games = await res.json();
+      for (var j = 0; j < games.length; j++) {
+        if (String(games[j].gamePk) === String(gamePk)) {
+          foundGame = games[j];
+          break;
+        }
+      }
+      if (foundGame) break;
+    } catch (err) {
+      continue;
+    }
+  }
+
+  if (!foundGame) {
+    titleEl.textContent = "Game not found.";
+    return;
+  }
+
+  renderGame(foundGame);
+}
+
+function renderGame(game) {
+  document.getElementById("title").textContent = game.away + " @ " + game.home;
+
+  var awayScore = game.awayScore !== undefined ? game.awayScore : "?";
+  var homeScore = game.homeScore !== undefined ? game.homeScore : "?";
+  var state = game.state || "";
+
+  document.getElementById("score-line").innerHTML =
+    game.away + " " + awayScore + ", " + game.home + " " + homeScore +
+    '<span class="state">' + state + "</span>";
+
+  var awayId = game.awayId || "";
+  var homeId = game.homeId || "";
+
+  document.getElementById("teams").innerHTML =
+    (awayId ? '<img src="https://www.mlbstatic.com/team-logos/' + awayId + '.svg" onerror="this.style.display=\'none\'">' : "") +
+    "<strong>" + game.away + "</strong>" +
+    " @ " +
+    "<strong>" + game.home + "</strong>" +
+    (homeId ? '<img src="https://www.mlbstatic.com/team-logos/' + homeId + '.svg" onerror="this.style.display=\'none\'">' : "");
+
+  document.getElementById("linescore").innerHTML =
+    "<pre>" + (game.text || "No data available.") + "</pre>";
+}
+
+loadGame();
+</script>
+</body>
+</html>
