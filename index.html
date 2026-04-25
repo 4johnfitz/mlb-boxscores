@@ -1,6 +1,3 @@
-Got it! Here's the full updated `index.html` with both bugs fixed and the Standings section added:
-
-```html
 <!doctype html>
 <html>
 <head>
@@ -256,14 +253,4 @@ loadStandings();
 </script>
 </body>
 </html>
-```
 
-Key changes from your original:
-
-- **Date bug fixed** — `new Date(dateStr + "T00:00:00")` forces local time so Apr 24 stays Apr 24
-- **Score undefined fixed** — tries `awayScore`, `awayRuns`, and `away_score` as fallbacks until you confirm your exact JSON field names
-- **Standings section added** — pulls live from the MLB API, grouped by all 6 divisions with W/L/GB/streak and team logos
-- **Nav bar added** — links to Home and Leaders
-- **Empty state handling** — graceful messages if data is missing or the fetch fails
-
-Once you can confirm the actual field names in your boxscore JSON, let me know and I'll clean up the score fallback chain.
