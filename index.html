@@ -1,9 +1,8 @@
-
 <!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MLB Dashboard</title>
+  <title>MLB Boxscore Archive</title>
 
   <style>
     body {
@@ -11,169 +10,173 @@
       margin: 20px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+    .section {
+      margin-bottom: 30px;
     }
 
-    .card {
-      border: 1px solid #ddd;
-      padding: 10px;
-      border-radius: 8px;
-      margin-bottom: 10px;
+    table {
+      border-collapse: collapse;
+      margin-bottom: 15px;
+      width: 100%;
+      max-width: 600px;
     }
 
-    .team {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px;
+      text-align: left;
     }
 
-    .team img {
-      width: 24px;
-      height: 24px;
-    }
-
-    .player {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .player img {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+    th {
+      background: #f2f2f2;
     }
 
     h2 {
       margin-top: 30px;
     }
+
+    h3 {
+      margin-top: 20px;
+    }
   </style>
 </head>
 
 <body>
-  <h1>MLB Dashboard</h1>
 
-  <div class="grid">
+<h1>MLB Boxscore Archive</h1>
 
-    <!-- ARCHIVE -->
-    <div>
-      <h2>Games Archive</h2>
-      <div id="list"></div>
-    </div>
+<!-- ARCHIVE -->
+<div class="section">
+  <h2>Games Archive</h2>
+  <div id="list"></div>
+</div>
 
-    <!-- STANDINGS -->
-    <div>
-      <h2>Standings</h2>
-      <div id="standings">Loading...</div>
-    </div>
+<!-- STANDINGS + LEADERS TOGETHER -->
+<div class="section">
+  <h2>Standings & League Leaders</h2>
 
-  </div>
+  <h3>Standings</h3>
+  <div id="standings">Loading standings...</div>
 
-  <!-- LEADERS -->
-  <h2>League Leaders</h2>
-  <div id="leaders">Loading...</div>
+  <h3>American League Leaders</h3>
+  <div id="al-leaders">Loading AL leaders...</div>
 
-  <script>
-    // -------------------------
-    // ARCHIVE
-    // -------------------------
-    fetch("/mlb-boxscores/data/index.json")
-      .then(r => r.json())
-      .then(dates => {
-        dates.sort().reverse();
-        document.getElementById("list").innerHTML =
-          dates.map(d =>
-            `<div class="card"><a href="day.html?date=${d}">${d}</a></div>`
-          ).join("");
+  <h3>National League Leaders</h3>
+  <div id="nl-leaders">Loading NL leaders...</div>
+</div>
+
+<script>
+  // -------------------------
+  // ARCHIVE
+  // -------------------------
+  fetch("/mlb-boxscores/data/index.json")
+    .then(r => r.json())
+    .then(dates => {
+      dates.sort().reverse();
+
+      document.getElementById("list").innerHTML =
+        dates.map(d =>
+          `<p><a href="day.html?date=${d}">${d}</a></p>`
+        ).join("");
+    });
+
+  // -------------------------
+  // STANDINGS (OLD SCHOOL TABLES)
+  // -------------------------
+  async function loadStandings() {
+    const res = await fetch(
+      "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
+    );
+
+    const data = await res.json();
+    const records = data.records || [];
+
+    let html = "";
+
+    records.forEach(group => {
+      html += `<h4>${group.league?.name || "MLB"}</h4>`;
+
+      html += `
+        <table>
+          <tr>
+            <th>Team</th>
+            <th>W</th>
+            <th>L</th>
+            <th>GB</th>
+          </tr>
+      `;
+
+      group.teamRecords.forEach(team => {
+        html += `
+          <tr>
+            <td>${team.team.name}</td>
+            <td>${team.wins}</td>
+            <td>${team.losses}</td>
+            <td>${team.gamesBack || "-"}</td>
+          </tr>
+        `;
       });
 
-    // -------------------------
-    // STANDINGS (CARDS + LOGOS)
-    // -------------------------
-    async function loadStandings() {
+      html += `</table>`;
+    });
+
+    document.getElementById("standings").innerHTML = html;
+  }
+
+  // -------------------------
+  // LEAGUE LEADERS (AL / NL SPLIT)
+  // -------------------------
+  async function loadLeagueLeaders(leagueId, elementId, label) {
+    const stats = [
+      { label: "Home Runs", stat: "homeRuns" },
+      { label: "RBI", stat: "rbi" },
+      { label: "Batting Avg", stat: "battingAverage" },
+      { label: "Wins", stat: "wins" },
+      { label: "ERA", stat: "earnedRunAverage" },
+      { label: "Strikeouts", stat: "strikeOuts" }
+    ];
+
+    let html = "";
+
+    for (const s of stats) {
       const res = await fetch(
-        "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
+        `https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${s.stat}&leagueId=${leagueId}&limit=5`
       );
 
       const data = await res.json();
-      const records = data.records || [];
 
-      let html = "";
+      const leaders = data.leagueLeaders?.[0]?.leaders || [];
 
-      records.forEach(group => {
-        html += `<h3>${group.league?.name || "MLB"}</h3>`;
+      html += `<h4>${s.label}</h4>`;
 
-        group.teamRecords.forEach(team => {
-          const id = team.team.id;
+      html += `
+        <table>
+          <tr>
+            <th>Player</th>
+            <th>Value</th>
+          </tr>
+      `;
 
-          html += `
-            <div class="card">
-              <div class="team">
-                <img src="https://www.mlbstatic.com/team-logos/team-cap-on-dark/${id}.svg">
-                <strong>${team.team.name}</strong>
-              </div>
-              <div>
-                ${team.wins}-${team.losses} • GB: ${team.gamesBack || "-"}
-              </div>
-            </div>
-          `;
-        });
+      leaders.forEach(p => {
+        html += `
+          <tr>
+            <td>${p.person?.fullName || "Unknown"}</td>
+            <td>${p.value ?? "-"}</td>
+          </tr>
+        `;
       });
 
-      document.getElementById("standings").innerHTML = html;
+      html += `</table>`;
     }
 
-    // -------------------------
-    // LEADERS (WITH PHOTOS)
-    // -------------------------
-    async function loadLeaders() {
-      const stats = [
-        { label: "Home Runs", stat: "homeRuns" },
-        { label: "RBI", stat: "rbi" },
-        { label: "Batting Avg", stat: "battingAverage" },
-        { label: "Wins", stat: "wins" },
-        { label: "ERA", stat: "earnedRunAverage" },
-        { label: "Strikeouts", stat: "strikeOuts" }
-      ];
+    document.getElementById(elementId).innerHTML = html;
+  }
 
-      let html = "";
+  // INIT
+  loadStandings();
+  loadLeagueLeaders(103, "al-leaders", "AL"); // American League
+  loadLeagueLeaders(104, "nl-leaders", "NL"); // National League
+</script>
 
-      for (const s of stats) {
-        const res = await fetch(
-          `https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${s.stat}&limit=5`
-        );
-
-        const data = await res.json();
-
-        const leaders =
-          data.leagueLeaders?.[0]?.leaders || [];
-
-        html += `<h3>${s.label}</h3>`;
-
-        leaders.forEach(p => {
-          const id = p.person?.id;
-
-          html += `
-            <div class="card player">
-              <img src="https://img.mlbstatic.com/mlb-photos/image/upload/w_200,q_auto:best/v1/people/${id}/headshot/67/current">
-              <div>
-                <strong>${p.person?.fullName}</strong><br>
-                ${p.value}
-              </div>
-            </div>
-          `;
-        });
-      }
-
-      document.getElementById("leaders").innerHTML = html;
-    }
-
-    // INIT
-    loadStandings();
-    loadLeaders();
-  </script>
 </body>
 </html>
