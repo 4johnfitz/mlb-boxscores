@@ -68,6 +68,7 @@ async function run() {
   console.log(`Fetching games for ${date}...`);
 
   const games = await getSchedule(date);
+  console.log("Games found:", games.length);
   const results = [];
 
   for (const game of games) {
