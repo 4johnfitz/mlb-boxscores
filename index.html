@@ -8,9 +8,14 @@
 <body>
   <h1>MLB Boxscore Archive</h1>
 
-  <!-- Archive list -->
+  <!-- ARCHIVE -->
   <div id="list"></div>
 
+  <!-- STANDINGS -->
+  <h2>Standings</h2>
+  <div id="standings">Loading standings...</div>
+
+  <!-- LEADERS -->
   <h2>League Leaders</h2>
   <div id="leaders">Loading leaders...</div>
 
@@ -35,6 +40,61 @@
       });
 
     // -------------------------
+    // STANDINGS
+    // -------------------------
+    async function loadStandings() {
+      try {
+        const res = await fetch(
+          "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
+        );
+
+        const data = await res.json();
+        const records = data.records || [];
+
+        let html = "";
+
+        records.forEach(group => {
+          const league =
+            group.league?.name ||
+            group.teamRecords?.[0]?.league?.name ||
+            "MLB";
+
+          html += `<h3>${league}</h3>`;
+
+          html += `
+            <table border="1" cellpadding="4" cellspacing="0">
+              <tr>
+                <th>Team</th>
+                <th>W</th>
+                <th>L</th>
+                <th>GB</th>
+              </tr>
+          `;
+
+          group.teamRecords.forEach(team => {
+            html += `
+              <tr>
+                <td>${team.team.name}</td>
+                <td>${team.wins}</td>
+                <td>${team.losses}</td>
+                <td>${team.gamesBack || "-"}</td>
+              </tr>
+            `;
+          });
+
+          html += `</table><br>`;
+        });
+
+        document.getElementById("standings").innerHTML = html;
+
+      } catch (err) {
+        console.error("Standings error:", err);
+        document.getElementById("standings").innerHTML =
+          "Failed to load standings.";
+      }
+    }
+
+    // -------------------------
     // LEAGUE LEADERS
     // -------------------------
     async function loadLeaders() {
@@ -52,16 +112,22 @@
       for (const s of stats) {
         try {
           const res = await fetch(
-            `https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${s.stat}&season=2026&limit=5`
+            `https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=${s.stat}&limit=5`
           );
 
           const data = await res.json();
 
-          const items =
+          const leaders =
             data.leagueLeaders?.[0]?.leaders ||
-            data.leagueLeaders?.[0]?.leaderStats || [];
+            data.leagueLeaders?.[0]?.leaderStats ||
+            [];
 
           html += `<h3>${s.label}</h3>`;
+
+          if (!leaders.length) {
+            html += `<p>No data available</p>`;
+            continue;
+          }
 
           html += `
             <table border="1" cellpadding="4" cellspacing="0">
@@ -71,16 +137,11 @@
               </tr>
           `;
 
-          items.forEach(p => {
-            const name =
-              p.person?.fullName ||
-              p.name ||
-              "Unknown";
-
+          leaders.forEach(p => {
             html += `
               <tr>
-                <td>${name}</td>
-                <td>${p.value}</td>
+                <td>${p.person?.fullName || "Unknown"}</td>
+                <td>${p.value ?? "-"}</td>
               </tr>
             `;
           });
@@ -89,14 +150,17 @@
 
         } catch (err) {
           console.error("Leader error:", s.stat, err);
-          html += `<p>Failed to load ${s.label}</p>`;
+          html += `<p>Error loading ${s.label}</p>`;
         }
       }
 
       document.getElementById("leaders").innerHTML = html;
     }
 
-    // Run leaders
+    // -------------------------
+    // INIT
+    // -------------------------
+    loadStandings();
     loadLeaders();
   </script>
 </body>
