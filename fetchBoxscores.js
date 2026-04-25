@@ -73,8 +73,7 @@ async function run() {
 
   for (const game of games) {
     const status = game.status;
-if (!status.isFinal) continue;
-if (!status.isFinal) continue;
+if (!status?.isFinal) continue;
 
     const gamePk = game.gamePk;
     const awayName = game.teams.away.team.name;
