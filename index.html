@@ -2,59 +2,48 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MLB Boxscore Archive</title>
+  <title>MLB Boxscores</title>
 
   <style>
     body { font-family: Arial; margin: 20px; }
-    .top-nav { margin-bottom: 20px; }
-    .top-nav a { margin-right: 15px; color: blue; text-decoration: none; }
 
-    table { width: 100%; border-collapse: collapse; }
-    th, td { border: 1px solid #ccc; padding: 6px; }
-    th { background: #f2f2f2; }
+    .top-nav a { margin-right: 10px; }
 
-    .team-cell { display: flex; align-items: center; gap: 8px; }
-    .team-cell img { width: 18px; height: 18px; }
+    .games div {
+      margin-bottom: 8px;
+    }
 
-    .games-list div { margin-bottom: 8px; }
-    .state { margin-left: 10px; font-size: 12px; color: #666; }
-    .date-label { margin-left: 10px; color: #666; }
+    .date {
+      color: #666;
+      margin-left: 10px;
+    }
   </style>
 </head>
 
 <body>
 
-<h1>MLB Boxscore Archive</h1>
+<h1>Latest Games <span id="dateLabel" class="date"></span></h1>
 
-<div class="top-nav">
-  <a href="index.html">Home</a>
-  <a href="leaders.html">League Leaders</a>
-</div>
-
-<h2>
-  Latest Games
-  <span id="latest-date" class="date-label"></span>
-</h2>
-
-<div id="latest-games">Loading...</div>
-
-<h2>Standings</h2>
-<div id="standings">Loading...</div>
+<div class="games" id="games">Loading...</div>
 
 <script>
 
-function getYesterday() {
-  const d = new Date();
-  d.setDate(d.getDate() - 1);
+// -------------------------
+// GET LATEST DATE FROM INDEX
+// -------------------------
+async function getLatestDate() {
+  const res = await fetch("/mlb-boxscores/data/index.json");
+  const dates = await res.json();
 
-  return [
-    d.getFullYear(),
-    String(d.getMonth() + 1).padStart(2, "0"),
-    String(d.getDate()).padStart(2, "0")
-  ].join("-");
+  if (!dates.length) return null;
+
+  return dates.sort().reverse()[0];
 }
 
-function formatDate(dateStr) {
+// -------------------------
+// FORMAT DATE
+// -------------------------
+function pretty(dateStr) {
   const d = new Date(dateStr);
   return d.toLocaleDateString(undefined, {
     weekday: "short",
@@ -63,90 +52,39 @@ function formatDate(dateStr) {
   });
 }
 
-async function loadLatestGames() {
-  try {
-    const date = getYesterday();
+// -------------------------
+// LOAD GAMES
+// -------------------------
+async function loadGames() {
+  const date = await getLatestDate();
 
-    document.getElementById("latest-date").textContent =
-      `(${formatDate(date)})`;
-
-    const res = await fetch(`/mlb-boxscores/data/boxscores-${date}.json`);
-    const games = await res.json();
-
-    if (!games.length) {
-      document.getElementById("latest-games").innerHTML =
-        "No games found.";
-      return;
-    }
-
-    let html = `<div class="games-list">`;
-
-    games.forEach(g => {
-      html += `
-        <div>
-          <a href="game.html?gamePk=${g.gamePk}">
-            ${g.away} ${g.awayScore}, ${g.home} ${g.homeScore}
-          </a>
-          <span class="state">${g.state}</span>
-        </div>
-      `;
-    });
-
-    html += `</div>`;
-
-    document.getElementById("latest-games").innerHTML = html;
-
-  } catch (e) {
-    document.getElementById("latest-games").innerHTML = "Error loading games.";
+  if (!date) {
+    document.getElementById("games").innerHTML = "No data.";
+    return;
   }
-}
 
-async function loadStandings() {
-  const res = await fetch(
-    "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
-  );
-  const data = await res.json();
+  document.getElementById("dateLabel").textContent = `(${pretty(date)})`;
 
-  const map = {
-    "American League East": "AL East",
-    "American League Central": "AL Central",
-    "American League West": "AL West",
-    "National League East": "NL East",
-    "National League Central": "NL Central",
-    "National League West": "NL West"
-  };
+  const res = await fetch(`/mlb-boxscores/data/boxscores-${date}.json`);
+  const games = await res.json();
 
   let html = "";
 
-  data.records.forEach(group => {
-    const name = map[group.division.name] || group.division.name;
-
-    html += `<h3>${name}</h3><table>
-      <tr><th>Team</th><th>W</th><th>L</th><th>GB</th><th>Streak</th></tr>`;
-
-    group.teamRecords.forEach(t => {
-      html += `
-        <tr>
-          <td class="team-cell">
-            <img src="https://www.mlbstatic.com/team-logos/${t.team.id}.svg">
-            ${t.team.name}
-          </td>
-          <td>${t.wins}</td>
-          <td>${t.losses}</td>
-          <td>${t.gamesBack || "-"}</td>
-          <td>${t.streak?.streakCode || "-"}</td>
-        </tr>
-      `;
-    });
-
-    html += `</table>`;
+  games.forEach(g => {
+    html += `
+      <div>
+        <a href="game.html?gamePk=${g.gamePk}">
+          ${g.away} ${g.awayScore}, ${g.home} ${g.homeScore}
+        </a>
+        <span>${g.state}</span>
+      </div>
+    `;
   });
 
-  document.getElementById("standings").innerHTML = html;
+  document.getElementById("games").innerHTML = html;
 }
 
-loadLatestGames();
-loadStandings();
+loadGames();
 
 </script>
 
