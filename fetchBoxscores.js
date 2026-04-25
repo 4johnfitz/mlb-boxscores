@@ -2,17 +2,17 @@ const fs = require("fs");
 const fetch = require("node-fetch");
 
 // -------------------------
-// YESTERDAY (ONLY SOURCE OF TRUTH)
+// YESTERDAY (LOCAL TIME)
 // -------------------------
 function getYesterday() {
   const d = new Date();
   d.setDate(d.getDate() - 1);
 
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-
-  return `${year}-${month}-${day}`;
+  return [
+    d.getFullYear(),
+    String(d.getMonth() + 1).padStart(2, "0"),
+    String(d.getDate()).padStart(2, "0")
+  ].join("-");
 }
 
 // -------------------------
@@ -22,20 +22,14 @@ async function getSchedule(date) {
   const res = await fetch(
     `https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${date}`
   );
+
   const data = await res.json();
   return data.dates?.[0]?.games || [];
 }
 
 // -------------------------
-// BOX + LINE SCORES
+// LINE SCORE
 // -------------------------
-async function getBoxscore(gamePk) {
-  const res = await fetch(
-    `https://statsapi.mlb.com/api/v1/game/${gamePk}/boxscore`
-  );
-  return await res.json();
-}
-
 async function getLinescore(gamePk) {
   const res = await fetch(
     `https://statsapi.mlb.com/api/v1/game/${gamePk}/linescore`
@@ -44,7 +38,7 @@ async function getLinescore(gamePk) {
 }
 
 // -------------------------
-// FORMAT SCORE
+// FORMAT LINE SCORE
 // -------------------------
 function formatLineScore(linescore, awayName, homeName) {
   const innings = linescore.innings || [];
@@ -69,7 +63,7 @@ function formatLineScore(linescore, awayName, homeName) {
     const totals =
       team === "away" ? linescore.teams.away : linescore.teams.home;
 
-    line += ` ${totals.runs}  ${totals.hits}  ${totals.errors}`;
+    line += ` ${totals?.runs ?? 0}  ${totals?.hits ?? 0}  ${totals?.errors ?? 0}`;
     return line;
   }
 
@@ -81,15 +75,14 @@ function formatLineScore(linescore, awayName, homeName) {
 }
 
 // -------------------------
-// MAIN RUNNER (YESTERDAY ONLY)
+// MAIN RUNNER
 // -------------------------
 async function run() {
   const date = getYesterday();
 
-  console.log("Generating YESTERDAY ONLY:", date);
+  console.log("Generating YESTERDAY:", date);
 
   const games = await getSchedule(date);
-
   console.log("Games found:", games.length);
 
   const results = [];
@@ -97,30 +90,31 @@ async function run() {
   for (const game of games) {
 
     const status = game.status || {};
-
-    const text = `
+    const textStatus = `
       ${status.abstractGameState || ""}
       ${status.detailedState || ""}
-      ${status.codedGameState || ""}
     `.toLowerCase();
 
-    // only skip clearly unplayed games
-    const isUnplayed =
-      text.includes("preview") ||
-      text.includes("scheduled");
-
-    if (isUnplayed) continue;
+    // ONLY skip clearly unplayed games
+    if (textStatus.includes("preview") || textStatus.includes("scheduled")) {
+      continue;
+    }
 
     const gamePk = game.gamePk;
     const awayName = game.teams.away.team.name;
     const homeName = game.teams.home.team.name;
 
-    const [, line] = await Promise.all([
-      getBoxscore(gamePk),
-      getLinescore(gamePk),
-    ]);
+    const awayScore = game.teams.away.score ?? 0;
+    const homeScore = game.teams.home.score ?? 0;
 
-    const lineScoreText = formatLineScore(line, awayName, homeName);
+    let lineScoreText = "";
+
+    try {
+      const line = await getLinescore(gamePk);
+      lineScoreText = formatLineScore(line, awayName, homeName);
+    } catch (err) {
+      console.error("Linescore error:", gamePk);
+    }
 
     const formatted = `
 ${awayName} @ ${homeName}
@@ -132,30 +126,38 @@ ${lineScoreText}
       gamePk,
       away: awayName,
       home: homeName,
+      awayScore,
+      homeScore,
       state: status.abstractGameState || "Unknown",
       text: formatted.trim()
     });
   }
 
   // -------------------------
-  // OUTPUT FILES
+  // ENSURE DATA DIR
   // -------------------------
   if (!fs.existsSync("./data")) {
     fs.mkdirSync("./data");
   }
 
+  // -------------------------
+  // WRITE JSON
+  // -------------------------
   fs.writeFileSync(
     `./data/boxscores-${date}.json`,
     JSON.stringify(results, null, 2)
   );
 
+  // -------------------------
+  // WRITE TXT
+  // -------------------------
   fs.writeFileSync(
     `./data/boxscores-${date}.txt`,
     results.map(g => g.text).join("\n\n====================\n\n")
   );
 
   // -------------------------
-  // INDEX UPDATE
+  // UPDATE INDEX
   // -------------------------
   const indexPath = "./data/index.json";
 
