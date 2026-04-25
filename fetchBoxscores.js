@@ -80,6 +80,66 @@ async function run() {
   const results = [];
 
   for (const game of games) {
+
+  const state = game.status?.abstractGameState;
+  const detailed = game.status?.detailedState;
+
+  // -------------------------
+  // GAME STATE CLASSIFICATION
+  // -------------------------
+  let gameState = "Other";
+
+  const isFinal =
+    state === "Final" ||
+    detailed === "Final" ||
+    detailed === "Game Over" ||
+    detailed === "Completed Early";
+
+  const isLive =
+    state === "Live" ||
+    state === "In Progress" ||
+    detailed === "In Progress" ||
+    detailed === "In Progress - Official";
+
+  if (isFinal) {
+    gameState = "Final";
+  } else if (isLive) {
+    gameState = "Live";
+  } else {
+    continue; // skip scheduled, postponed, etc.
+  }
+
+  // -------------------------
+  // GAME DATA
+  // -------------------------
+  const gamePk = game.gamePk;
+  const awayName = game.teams.away.team.name;
+  const homeName = game.teams.home.team.name;
+
+  const [, line] = await Promise.all([
+    getBoxscore(gamePk),
+    getLinescore(gamePk),
+  ]);
+
+  const lineScoreText = formatLineScore(line, awayName, homeName);
+
+  const text = `
+${awayName} @ ${homeName}
+--------------------------------
+${lineScoreText}
+`;
+
+  // -------------------------
+  // PUSH RESULT
+  // -------------------------
+  results.push({
+    gamePk,
+    away: awayName,
+    home: homeName,
+    state: gameState,
+    text: text.trim()
+  });
+}
     const status = game.status;
 
     // Only completed games
