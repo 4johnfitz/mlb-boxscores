@@ -4,11 +4,17 @@
   <meta charset="utf-8">
   <title>MLB Boxscore Archive</title>
 </head>
+
 <body>
   <h1>MLB Boxscore Archive</h1>
+
   <div id="list"></div>
 
+  <h2>Standings</h2>
+  <div id="standings">Loading...</div>
+
   <script>
+    // Load archive dates
     fetch("/mlb-boxscores/data/index.json")
       .then(r => r.json())
       .then(dates => {
@@ -19,6 +25,34 @@
             `<p><a href="day.html?date=${d}">${d}</a></p>`
           ).join("");
       });
+
+    // Load standings
+    async function loadStandings() {
+      const res = await fetch(
+        "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
+      );
+      const data = await res.json();
+
+      const records = data.records || [];
+
+      let html = "";
+
+      records.forEach(division => {
+        html += `<h3>${division.division.name}</h3>`;
+        html += `<pre>`;
+
+        division.teamRecords.forEach(team => {
+          html += `${team.team.name.padEnd(25)} ${team.wins}-${team.losses}  GB:${team.gamesBack}\n`;
+        });
+
+        html += `</pre>`;
+      });
+
+      document.getElementById("standings").innerHTML = html;
+    }
+
+    // IMPORTANT: actually run it
+    loadStandings();
   </script>
 </body>
 </html>
