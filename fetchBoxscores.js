@@ -45,7 +45,7 @@ async function getLinescore(gamePk) {
 }
 
 // -------------------------
-// FORMAT SCORE
+// FORMAT LINE SCORE
 // -------------------------
 function formatLineScore(linescore, awayName, homeName) {
   const innings = linescore.innings || [];
@@ -87,7 +87,7 @@ function formatLineScore(linescore, awayName, homeName) {
 async function run() {
   const date = getYesterday();
 
-  console.log("Generating YESTERDAY ONLY:", date);
+  console.log("Generating YESTERDAY:", date);
 
   const games = await getSchedule(date);
 
@@ -98,8 +98,10 @@ async function run() {
   for (const game of games) {
     const state = game.status?.abstractGameState;
 
-    // ONLY FINAL GAMES (STRICT)
-    if (state !== "Final") continue;
+    // -------------------------
+    // SAFE FILTER (DO NOT OVER-FILTER)
+    // -------------------------
+    if (state === "Preview") continue;
 
     const gamePk = game.gamePk;
     const awayName = game.teams.away.team.name;
@@ -122,13 +124,13 @@ ${lineScoreText}
       gamePk,
       away: awayName,
       home: homeName,
-      state: "Final",
+      state: state,
       text: text.trim()
     });
   }
 
   // -------------------------
-  // OUTPUT
+  // OUTPUT FILES
   // -------------------------
   if (!fs.existsSync("./data")) {
     fs.mkdirSync("./data");
@@ -162,7 +164,7 @@ ${lineScoreText}
     JSON.stringify(existing.sort(), null, 2)
   );
 
-  console.log(`Saved ${results.length} FINAL games for ${date}`);
+  console.log(`Saved ${results.length} games for ${date}`);
 }
 
 run();
