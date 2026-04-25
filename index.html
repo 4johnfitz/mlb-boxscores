@@ -160,7 +160,70 @@ async function loadStandings() {
   }
 }
 
-loadStandings();
+async function loadStandings() {
+  try {
+    const res = await fetch(
+      "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
+    );
+
+    const data = await res.json();
+    const records = data.records || [];
+
+    // get latest date from your archive
+    const indexRes = await fetch("/mlb-boxscores/data/index.json");
+    const dates = await indexRes.json();
+    const latestDate = dates.sort().reverse()[0];
+
+    let html = "";
+
+    records.forEach(group => {
+
+      html += `<h3>${group.league?.name || "MLB"}</h3>`;
+
+      html += `
+        <table>
+          <tr>
+            <th>Team</th>
+            <th>W</th>
+            <th>L</th>
+            <th>GB</th>
+            <th>Streak</th>
+            <th>Last Game</th>
+          </tr>
+      `;
+
+      group.teamRecords.forEach(team => {
+
+        const streak = team.streak?.streakCode || "-";
+
+        // NOTE: we only have latest date link (not per-team game yet)
+        const lastGameLink = latestDate
+          ? `<a href="day.html?date=${latestDate}">View</a>`
+          : "-";
+
+        html += `
+          <tr>
+            <td>${team.team.name}</td>
+            <td>${team.wins}</td>
+            <td>${team.losses}</td>
+            <td>${team.gamesBack || "-"}</td>
+            <td>${streak}</td>
+            <td>${lastGameLink}</td>
+          </tr>
+        `;
+      });
+
+      html += `</table>`;
+    });
+
+    document.getElementById("standings").innerHTML = html;
+
+  } catch (err) {
+    console.error("Standings error:", err);
+    document.getElementById("standings").innerHTML =
+      "Failed to load standings.";
+  }
+}
 
 </script>
 
