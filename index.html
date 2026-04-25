@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MLB League Leaders</title>
+  <title>MLB Boxscore Archive</title>
 
   <style>
     body {
@@ -10,20 +10,25 @@
       margin: 20px;
     }
 
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .top-nav {
+      margin-bottom: 20px;
+    }
+
+    .top-nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: blue;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 30px;
-    }
-
-    h2 {
-      margin-top: 10px;
-    }
-
-    h3 {
-      margin-top: 25px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
+      align-items: start;
     }
 
     table {
@@ -33,101 +38,129 @@
     }
 
     th, td {
-      border: 1px solid #ddd;
+      border: 1px solid #ccc;
       padding: 6px;
       font-size: 14px;
     }
 
     th {
-      background: #f3f3f3;
+      background: #f2f2f2;
+      text-align: left;
     }
 
-    .player {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    h2 {
+      margin-top: 0;
     }
 
-    .player img {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
+    h3 {
+      margin-top: 15px;
     }
   </style>
 </head>
 
 <body>
 
-<h1>League Leaders</h1>
+<h1>MLB Boxscore Archive</h1>
 
+<!-- NAV -->
+<div class="top-nav">
+  <a href="index.html">Home</a>
+  <a href="leaders.html">League Leaders</a>
+</div>
+
+<!-- ARCHIVE -->
+<div>
+  <h2>Games Archive</h2>
+  <div id="list">Loading...</div>
+</div>
+
+<!-- GRID -->
 <div class="grid">
-  <div id="al"></div>
-  <div id="nl"></div>
+
+  <!-- STANDINGS -->
+  <div>
+    <h2>Standings</h2>
+    <div id="standings">Loading standings...</div>
+  </div>
+
 </div>
 
 <script>
 
-const stats = [
-  { label: "Home Runs", stat: "homeRuns" },
-  { label: "RBI", stat: "rbi" },
-  { label: "Batting Avg", stat: "avg" },
-  { label: "Wins", stat: "wins" },
-  { label: "ERA", stat: "era" },
-  { label: "Strikeouts", stat: "strikeOuts" }
-];
+//
+// -------------------------
+// ARCHIVE DATES
+// -------------------------
+//
+fetch("/mlb-boxscores/data/index.json")
+  .then(r => r.json())
+  .then(dates => {
+    dates.sort().reverse();
 
-async function loadLeague(leagueId, elementId, title) {
+    document.getElementById("list").innerHTML =
+      dates.map(d =>
+        `<p><a href="day.html?date=${d}">${d}</a></p>`
+      ).join("");
+  })
+  .catch(err => {
+    console.error("Index load error:", err);
+    document.getElementById("list").innerHTML =
+      "Failed to load archive.";
+  });
 
-  let html = `<h2>${title}</h2>`;
+//
+// -------------------------
+// STANDINGS
+// -------------------------
+//
+async function loadStandings() {
+  try {
+    const res = await fetch(
+      "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
+    );
 
-  for (const s of stats) {
-
-    const url =
-      `https://statsapi.mlb.com/api/v1/stats/leaders` +
-      `?leaderCategories=${s.stat}` +
-      `&leagueId=${leagueId}` +
-      `&limit=5`;
-
-    const res = await fetch(url);
     const data = await res.json();
+    const records = data.records || [];
 
-    const leaders = data.leagueLeaders?.[0]?.leaders || [];
+    let html = "";
 
-    html += `<h3>${s.label}</h3>`;
-
-    html += `
-      <table>
-        <tr>
-          <th>Player</th>
-          <th>Value</th>
-        </tr>
-    `;
-
-    leaders.forEach(p => {
-      const id = p.person?.id;
+    records.forEach(group => {
+      html += `<h3>${group.league?.name || "MLB"}</h3>`;
 
       html += `
-        <tr>
-          <td>
-            <div class="player">
-              <img src="https://img.mlbstatic.com/mlb-photos/image/upload/w_100,q_auto:best/v1/people/${id}/headshot/67/current">
-              ${p.person?.fullName || "Unknown"}
-            </div>
-          </td>
-          <td>${p.value ?? "-"}</td>
-        </tr>
+        <table>
+          <tr>
+            <th>Team</th>
+            <th>W</th>
+            <th>L</th>
+            <th>GB</th>
+          </tr>
       `;
+
+      group.teamRecords.forEach(team => {
+        html += `
+          <tr>
+            <td>${team.team.name}</td>
+            <td>${team.wins}</td>
+            <td>${team.losses}</td>
+            <td>${team.gamesBack || "-"}</td>
+          </tr>
+        `;
+      });
+
+      html += `</table>`;
     });
 
-    html += `</table>`;
-  }
+    document.getElementById("standings").innerHTML = html;
 
-  document.getElementById(elementId).innerHTML = html;
+  } catch (err) {
+    console.error("Standings error:", err);
+    document.getElementById("standings").innerHTML =
+      "Failed to load standings.";
+  }
 }
 
-// INIT
-loadLeague(103, "al", "American League");
-loadLeague(104, "nl", "National League");
+loadStandings();
 
 </script>
 
