@@ -139,82 +139,79 @@ async function loadGames() {
 // LOAD STANDINGS
 // -------------------------
 async function loadStandings() {
-  const container = document.getElementById("standings-container");
+  var container = document.getElementById("standings-container");
+
+  var divisionNames = {
+    200: "American League West",
+    201: "American League East",
+    202: "American League Central",
+    203: "National League West",
+    204: "National League East",
+    205: "National League Central"
+  };
+
+  var divisionOrder = [201, 202, 200, 204, 205, 203];
+
   try {
-    const res = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason");
-    if (!res.ok) throw new Error(`Standings fetch failed: ${res.status} ${res.statusText}`);
-    const data = await res.json();
+    var res = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason");
+    if (!res.ok) throw new Error("Standings fetch failed: " + res.status);
+    var data = await res.json();
 
-    const divisionOrder = [
-      "American League East",
-      "American League Central",
-      "American League West",
-      "National League East",
-      "National League Central",
-      "National League West"
-    ];
-
-    const sorted = data.records.slice().sort((a, b) => {
-      const ai = divisionOrder.indexOf(a.division.name);
-      const bi = divisionOrder.indexOf(b.division.name);
+    var sorted = data.records.slice().sort(function(a, b) {
+      var ai = divisionOrder.indexOf(a.division.id);
+      var bi = divisionOrder.indexOf(b.division.id);
       return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
     });
 
-    let html = '<div class="standings-grid">';
+    var html = '<div class="standings-grid">';
 
-    sorted.forEach(rec => {
-      const divName = rec.division.name;
-      const teams = rec.teamRecords.slice().sort((a, b) =>
-        b.winningPercentage - a.winningPercentage
-      );
+    for (var i = 0; i < sorted.length; i++) {
+      var rec = sorted[i];
+      var divName = divisionNames[rec.division.id] || ("Division " + rec.division.id);
 
-      html += `
-        <div class="division-block">
-          <h3>${divName}</h3>
-          <table class="standings-table">
-            <thead>
-              <tr>
-                <th>Team</th>
-                <th class="num">W</th>
-                <th class="num">L</th>
-                <th class="num">GB</th>
-                <th class="num">Strk</th>
-              </tr>
-            </thead>
-            <tbody>
-      `;
-
-      teams.forEach(t => {
-        const gb = t.gamesBack === "-" ? "—" : t.gamesBack;
-        const streak = t.streak?.streakCode ?? "—";
-        const logoUrl = `https://www.mlbstatic.com/team-logos/${t.team.id}.svg`;
-        html += `
-          <tr>
-            <td>
-              <img class="team-logo" src="${logoUrl}" alt="" onerror="this.style.display='none'">
-              ${t.team.name}
-            </td>
-            <td class="num">${t.wins}</td>
-            <td class="num">${t.losses}</td>
-            <td class="num">${gb}</td>
-            <td class="num">${streak}</td>
-          </tr>
-        `;
+      var teams = rec.teamRecords.slice().sort(function(a, b) {
+        return parseFloat(b.winningPercentage) - parseFloat(a.winningPercentage);
       });
 
-      html += `</tbody></table></div>`;
-    });
+      html += '<div class="division-block">';
+      html += "<h3>" + divName + "</h3>";
+      html += '<table class="standings-table">';
+      html += "<thead><tr>";
+      html += "<th>Team</th>";
+      html += '<th class="num">W</th>';
+      html += '<th class="num">L</th>';
+      html += '<th class="num">GB</th>';
+      html += '<th class="num">Strk</th>';
+      html += "</tr></thead><tbody>";
+
+      for (var j = 0; j < teams.length; j++) {
+        var t = teams[j];
+        var gb = t.gamesBack === "-" ? "&mdash;" : t.gamesBack;
+        var streak = t.streak && t.streak.streakCode ? t.streak.streakCode : "&mdash;";
+        var logoUrl = "https://www.mlbstatic.com/team-logos/" + t.team.id + ".svg";
+        var w = t.leagueRecord ? t.leagueRecord.wins : t.wins;
+        var l = t.leagueRecord ? t.leagueRecord.losses : t.losses;
+        html += "<tr><td>";
+        html += '<img class="team-logo" src="' + logoUrl + '" alt="" onerror="this.style.display=\'none\'">';
+        html += t.team.name;
+        html += "</td>";
+        html += '<td class="num">' + w + "</td>";
+        html += '<td class="num">' + l + "</td>";
+        html += '<td class="num">' + gb + "</td>";
+        html += '<td class="num">' + streak + "</td>";
+        html += "</tr>";
+      }
+
+      html += "</tbody></table></div>";
+    }
 
     html += "</div>";
     container.innerHTML = html;
 
   } catch (e) {
-    container.innerHTML = `Error loading standings: ${e.message}`;
+    container.innerHTML = "Error loading standings: " + e.message;
   }
 }
-
-// -------------------------
-// INIT
 // -------------------------
 loadGames();
 loadStandings();
