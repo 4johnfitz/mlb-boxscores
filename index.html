@@ -26,9 +26,8 @@
 
     .grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 30px;
-      align-items: start;
     }
 
     table {
@@ -69,12 +68,13 @@
     }
 
     .games-list div {
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .games-list a {
       text-decoration: none;
       color: black;
+      font-weight: 500;
     }
 
     .games-list a:hover {
@@ -82,9 +82,15 @@
     }
 
     .state {
-      margin-left: 8px;
+      margin-left: 10px;
       font-size: 12px;
       color: #666;
+    }
+
+    .date-label {
+      font-size: 14px;
+      color: #666;
+      margin-left: 10px;
     }
   </style>
 </head>
@@ -100,32 +106,40 @@
 
 <!-- LATEST GAMES -->
 <div>
-  <h2>Latest Games</h2>
+  <h2>
+    Latest Games
+    <span id="latest-date" class="date-label"></span>
+  </h2>
   <div id="latest-games">Loading...</div>
 </div>
 
-<!-- GRID -->
+<!-- STANDINGS -->
 <div class="grid">
-
-  <!-- STANDINGS -->
   <div>
     <h2>Standings</h2>
     <div id="standings">Loading standings...</div>
   </div>
-
-  <!-- ARCHIVE -->
-  <div>
-    <h2>Games Archive</h2>
-    <div id="list">Loading...</div>
-  </div>
-
 </div>
 
 <script>
 
 //
 // -------------------------
-// LATEST GAMES (NEW)
+// FORMAT DATE
+// -------------------------
+//
+function formatDate(dateStr) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString(undefined, {
+    weekday: "short",
+    month: "short",
+    day: "numeric"
+  });
+}
+
+//
+// -------------------------
+// LATEST GAMES
 // -------------------------
 //
 async function loadLatestGames() {
@@ -134,6 +148,9 @@ async function loadLatestGames() {
     const dates = await res.json();
 
     const latestDate = dates.sort().reverse()[0];
+
+    document.getElementById("latest-date").textContent =
+      `(${formatDate(latestDate)})`;
 
     const gamesRes = await fetch(
       `/mlb-boxscores/data/boxscores-${latestDate}.json`
@@ -147,7 +164,7 @@ async function loadLatestGames() {
       html += `
         <div>
           <a href="game.html?gamePk=${g.gamePk}">
-            ${g.away} @ ${g.home}
+            ${g.away} ${g.awayScore}, ${g.home} ${g.homeScore}
           </a>
           <span class="state">${g.state}</span>
         </div>
@@ -164,22 +181,6 @@ async function loadLatestGames() {
       "Failed to load games.";
   }
 }
-
-//
-// -------------------------
-// ARCHIVE DATES
-// -------------------------
-//
-fetch("/mlb-boxscores/data/index.json")
-  .then(r => r.json())
-  .then(dates => {
-    dates.sort().reverse();
-
-    document.getElementById("list").innerHTML =
-      dates.map(d =>
-        `<p><a href="day.html?date=${d}">${d}</a></p>`
-      ).join("");
-  });
 
 //
 // -------------------------
