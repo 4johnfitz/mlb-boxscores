@@ -1,6 +1,13 @@
 const fs = require("fs");
 const fetch = require("node-fetch");
 
+// Get yesterday's date (production mode)
+function getYesterday() {
+  const d = new Date();
+  d.setDate(d.getDate() - 1);
+  return d.toISOString().split("T")[0];
+}
+
 // Fetch schedule
 async function getSchedule(date) {
   const res = await fetch(
@@ -63,8 +70,7 @@ function formatLineScore(linescore, awayName, homeName) {
 
 // Main runner
 async function run() {
-  // 🔥 TEST DATE (change later back to getYesterday)
-  const date = "2026-04-23";
+  const date = getYesterday();
 
   console.log(`Fetching games for ${date}...`);
 
@@ -76,7 +82,7 @@ async function run() {
   for (const game of games) {
     const status = game.status;
 
-    // safer filter
+    // Only completed games
     if (!status?.isFinal) continue;
 
     const gamePk = game.gamePk;
