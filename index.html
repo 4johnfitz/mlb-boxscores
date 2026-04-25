@@ -9,12 +9,13 @@
   <div id="list"></div>
 
   <script>
-    // simple static list generator (we’ll improve later)
     fetch("../data/index.json")
       .then(r => r.json())
-      .then(days => {
+      .then(dates => {
+        dates.sort().reverse();
+
         document.getElementById("list").innerHTML =
-          days.map(d =>
+          dates.map(d =>
             `<p><a href="day.html?date=${d}">${d}</a></p>`
           ).join("");
       });
