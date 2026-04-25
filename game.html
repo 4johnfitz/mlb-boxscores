@@ -13,26 +13,36 @@
       display: flex;
       align-items: center;
       gap: 15px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
-    .teams img { width: 40px; height: 40px; }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-bottom: 25px;
+    .teams img { width: 48px; height: 48px; }
+    .score-line { font-size: 1.4em; font-weight: bold; margin-bottom: 6px; }
+    .state { color: #888; font-size: 0.85em; margin-left: 10px; font-weight: normal; }
+    .section { margin-top: 28px; }
+    .section h2 { font-size: 1em; text-transform: uppercase; color: #003087; border-bottom: 2px solid #003087; padding-bottom: 4px; margin-bottom: 10px; }
+    pre {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 14px;
+      font-size: 13px;
+      font-family: "Courier New", Courier, monospace;
+      overflow-x: auto;
+      line-height: 1.6;
     }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 6px;
-      font-size: 14px;
-      text-align: left;
+    .batting-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
-    th { background: #f2f2f2; }
-    .section { margin-top: 25px; }
-    pre { background: #f0f0f0; padding: 12px; border-radius: 4px; font-size: 13px; overflow-x: auto; }
-    .score-line { font-size: 1.3em; font-weight: bold; margin-bottom: 10px; }
-    .state { color: #888; font-size: 0.9em; margin-left: 10px; }
-    .error { color: red; }
+    .pitching-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 700px) {
+      .batting-grid, .pitching-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -42,13 +52,29 @@
   <a href="/mlb-boxscores/leaders.html">Leaders</a>
 </nav>
 
-<h1 id="title">Loading...</h1>
-<div id="score-line" class="score-line"></div>
 <div class="teams" id="teams"></div>
+<div class="score-line" id="score-line"></div>
+<h1 id="title">Loading...</h1>
 
 <div class="section">
   <h2>Line Score</h2>
   <div id="linescore"></div>
+</div>
+
+<div class="section">
+  <h2>Batting</h2>
+  <div class="batting-grid">
+    <div id="away-batting"></div>
+    <div id="home-batting"></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Pitching</h2>
+  <div class="pitching-grid">
+    <div id="away-pitching"></div>
+    <div id="home-pitching"></div>
+  </div>
 </div>
 
 <script>
@@ -123,7 +149,19 @@ function renderGame(game) {
     (homeId ? '<img src="https://www.mlbstatic.com/team-logos/' + homeId + '.svg" onerror="this.style.display=\'none\'">' : "");
 
   document.getElementById("linescore").innerHTML =
-    "<pre>" + (game.text || "No data available.") + "</pre>";
+    "<pre>" + (game.lineText || game.text || "No line score available.") + "</pre>";
+
+  document.getElementById("away-batting").innerHTML =
+    game.awayBatting ? "<pre>" + game.awayBatting + "</pre>" : "<p>No batting data.</p>";
+
+  document.getElementById("home-batting").innerHTML =
+    game.homeBatting ? "<pre>" + game.homeBatting + "</pre>" : "<p>No batting data.</p>";
+
+  document.getElementById("away-pitching").innerHTML =
+    game.awayPitching ? "<pre>" + game.awayPitching + "</pre>" : "<p>No pitching data.</p>";
+
+  document.getElementById("home-pitching").innerHTML =
+    game.homePitching ? "<pre>" + game.homePitching + "</pre>" : "<p>No pitching data.</p>";
 }
 
 loadGame();
