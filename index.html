@@ -8,13 +8,17 @@
 <body>
   <h1>MLB Boxscore Archive</h1>
 
+  <!-- Archive list -->
   <div id="list"></div>
 
+  <!-- Standings -->
   <h2>Standings</h2>
-  <div id="standings">Loading...</div>
+  <div id="standings">Loading standings...</div>
 
   <script>
-    // Load archive dates
+    // -------------------------
+    // ARCHIVE DATES
+    // -------------------------
     fetch("/mlb-boxscores/data/index.json")
       .then(r => r.json())
       .then(dates => {
@@ -24,31 +28,61 @@
           dates.map(d =>
             `<p><a href="day.html?date=${d}">${d}</a></p>`
           ).join("");
+      })
+      .catch(err => {
+        console.error("Index load error:", err);
+        document.getElementById("list").innerHTML =
+          "Failed to load archive.";
       });
 
-    // Load standings
+    // -------------------------
+    // STANDINGS
+    // -------------------------
     async function loadStandings() {
-      const res = await fetch(
-        "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
-      );
-      const data = await res.json();
+      try {
+        const res = await fetch(
+          "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104"
+        );
 
-      const records = data.records || [];
+        const data = await res.json();
+        const records = data.records || [];
 
-      let html = "";
+        let html = "";
 
-      records.forEach(division => {
-        html += `<h3>${division.division.name}</h3>`;
-        html += `<pre>`;
+        records.forEach(division => {
+          html += `<h3>${division.division.name}</h3>`;
 
-        division.teamRecords.forEach(team => {
-          html += `${team.team.name.padEnd(25)} ${team.wins}-${team.losses}  GB:${team.gamesBack}\n`;
+          html += `
+            <table border="1" cellpadding="4" cellspacing="0">
+              <tr>
+                <th>Team</th>
+                <th>W</th>
+                <th>L</th>
+                <th>GB</th>
+              </tr>
+          `;
+
+          division.teamRecords.forEach(team => {
+            html += `
+              <tr>
+                <td>${team.team.name}</td>
+                <td>${team.wins}</td>
+                <td>${team.losses}</td>
+                <td>${team.gamesBack || "-"}</td>
+              </tr>
+            `;
+          });
+
+          html += `</table><br>`;
         });
 
-        html += `</pre>`;
-      });
+        document.getElementById("standings").innerHTML = html;
 
-      document.getElementById("standings").innerHTML = html;
+      } catch (err) {
+        console.error("Standings error:", err);
+        document.getElementById("standings").innerHTML =
+          "Failed to load standings.";
+      }
     }
 
     // IMPORTANT: actually run it
