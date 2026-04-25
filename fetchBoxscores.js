@@ -22,7 +22,6 @@ async function getSchedule(date) {
   const res = await fetch(
     `https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${date}`
   );
-
   const data = await res.json();
   return data.dates?.[0]?.games || [];
 }
@@ -95,7 +94,7 @@ async function run() {
       ${status.detailedState || ""}
     `.toLowerCase();
 
-    // ONLY skip clearly unplayed games
+    // skip only unplayed
     if (textStatus.includes("preview") || textStatus.includes("scheduled")) {
       continue;
     }
@@ -126,39 +125,27 @@ ${lineScoreText}
       gamePk,
       away: awayName,
       home: homeName,
-      awayScore,
-      homeScore,
+      awayScore: awayScore,
+      homeScore: homeScore,
       state: status.abstractGameState || "Unknown",
       text: formatted.trim()
     });
   }
 
-  // -------------------------
-  // ENSURE DATA DIR
-  // -------------------------
   if (!fs.existsSync("./data")) {
     fs.mkdirSync("./data");
   }
 
-  // -------------------------
-  // WRITE JSON
-  // -------------------------
   fs.writeFileSync(
     `./data/boxscores-${date}.json`,
     JSON.stringify(results, null, 2)
   );
 
-  // -------------------------
-  // WRITE TXT
-  // -------------------------
   fs.writeFileSync(
     `./data/boxscores-${date}.txt`,
     results.map(g => g.text).join("\n\n====================\n\n")
   );
 
-  // -------------------------
-  // UPDATE INDEX
-  // -------------------------
   const indexPath = "./data/index.json";
 
   const existing = fs.existsSync(indexPath)
