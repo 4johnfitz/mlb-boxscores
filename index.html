@@ -109,7 +109,7 @@ fetch("/mlb-boxscores/data/index.json")
 
 //
 // -------------------------
-// STANDINGS (FINAL FIXED VERSION)
+// STANDINGS (FIXED + NORMALIZED DIVISIONS)
 // -------------------------
 //
 async function loadStandings() {
@@ -127,9 +127,27 @@ async function loadStandings() {
 
     let html = "";
 
+    const divisionMap = {
+      "American League East": "AL East",
+      "American League Central": "AL Central",
+      "American League West": "AL West",
+      "National League East": "NL East",
+      "National League Central": "NL Central",
+      "National League West": "NL West"
+    };
+
     records.forEach(group => {
 
-      html += `<h3>${group.league?.name || "MLB"}</h3>`;
+      const rawName =
+        group.division?.name ||
+        group.division?.nameShort ||
+        group.division?.abbreviation ||
+        group.league?.name ||
+        "MLB";
+
+      const divisionName = divisionMap[rawName] || rawName;
+
+      html += `<h3>${divisionName}</h3>`;
 
       html += `
         <table>
