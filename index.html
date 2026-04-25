@@ -10,17 +10,11 @@
     .top-nav a { margin-right: 15px; text-decoration: none; color: #0055aa; font-weight: bold; }
     .top-nav a:hover { text-decoration: underline; }
     .date { color: #666; margin-left: 10px; font-size: 0.85em; font-weight: normal; }
-    .no-score { color: #999; font-style: italic; }
 
     /* Games */
-    .games div {
-      margin-bottom: 8px;
-      background: white;
-      padding: 8px 12px;
-      border-radius: 6px;
-      border: 1px solid #ddd;
-    }
-    .games a { text-decoration: none; color: #003087; font-weight: bold; }
+    .games { margin-bottom: 30px; }
+    .games div { margin-bottom: 6px; }
+    .games a { text-decoration: none; color: #003087; }
     .games a:hover { text-decoration: underline; }
     .games .state { color: #888; font-size: 0.85em; margin-left: 8px; }
 
@@ -55,21 +49,10 @@
       font-weight: normal;
       padding: 2px 4px;
     }
-    .standings-table th.num, .standings-table td.num {
-      text-align: right;
-    }
-    .standings-table td {
-      padding: 3px 4px;
-    }
-    .standings-table tr:nth-child(even) td {
-      background: #f5f5f5;
-    }
-    .team-logo {
-      width: 18px;
-      height: 18px;
-      vertical-align: middle;
-      margin-right: 5px;
-    }
+    .standings-table th.num, .standings-table td.num { text-align: right; }
+    .standings-table td { padding: 3px 4px; }
+    .standings-table tr:nth-child(even) td { background: #f5f5f5; }
+    .team-logo { width: 18px; height: 18px; vertical-align: middle; margin-right: 5px; }
     #standings-container { color: #555; }
   </style>
 </head>
@@ -81,176 +64,4 @@
 </nav>
 
 <h1>Latest Games <span id="dateLabel" class="date"></span></h1>
-<div class="games" id="games">Loading...</div>
-
-<h2 style="margin-top: 32px;">Standings</h2>
-<div id="standings-container">Loading standings...</div>
-
-<script>
-// -------------------------
-// GET LATEST DATE FROM INDEX
-// -------------------------
-async function getLatestDate() {
-  const res = await fetch("/mlb-boxscores/data/index.json");
-  const dates = await res.json();
-  if (!dates.length) return null;
-  return dates.sort().reverse()[0];
-}
-
-// -------------------------
-// FORMAT DATE
-// Fix: append T00:00:00 to force local time parsing instead of UTC
-// Without this, "2026-04-24" is read as UTC midnight = Apr 23 in Pacific
-// -------------------------
-function pretty(dateStr) {
-  const d = new Date(dateStr + "T00:00:00");
-  return d.toLocaleDateString(undefined, {
-    weekday: "short",
-    month: "short",
-    day: "numeric"
-  });
-}
-
-// -------------------------
-// LOAD GAMES
-// -------------------------
-async function loadGames() {
-  const date = await getLatestDate();
-  if (!date) {
-    document.getElementById("games").innerHTML = "No data available.";
-    return;
-  }
-
-  document.getElementById("dateLabel").textContent = `(${pretty(date)})`;
-
-  const res = await fetch(`/mlb-boxscores/data/boxscores-${date}.json`);
-  const games = await res.json();
-
-  if (!games.length) {
-    document.getElementById("games").innerHTML = "No games found for this date.";
-    return;
-  }
-
-  let html = "";
-  games.forEach(g => {
-    // Try multiple possible field name variants in case JSON keys differ
-    const awayScore = g.awayScore ?? g.awayRuns ?? g.away_score;
-    const homeScore = g.homeScore ?? g.homeRuns ?? g.home_score;
-    const hasScore = awayScore !== undefined && homeScore !== undefined;
-
-    const scoreText = hasScore
-      ? `${g.away} ${awayScore}, ${g.home} ${homeScore}`
-      : `<span class="no-score">${g.away} vs. ${g.home} — score unavailable</span>`;
-
-    html += `
-      <div>
-        <a href="game.html?gamePk=${g.gamePk}">${scoreText}</a>
-        <span class="state">${g.state ?? ""}</span>
-      </div>
-    `;
-  });
-
-  document.getElementById("games").innerHTML = html;
-}
-
-// -------------------------
-// LOAD STANDINGS
-// -------------------------
-async function loadStandings() {
-  const container = document.getElementById("standings-container");
-  try {
-    const res = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason");
-    const data = await res.json();
-
-    const divisionOrder = [
-      "American League East",
-      "American League Central",
-      "American League West",
-      "National League East",
-      "National League Central",
-      "National League West"
-    ];
-
-    // Index records by division name
-    const divMap = {};
-    data.records.forEach(rec => {
-      divMap[rec.division.nameShort] = rec;
-    });
-
-    // Build full name → short name map for lookup
-    const shortNames = {};
-    data.records.forEach(rec => {
-      shortNames[rec.division.id] = rec.division.nameShort;
-    });
-
-    // Sort divisions in desired order
-    const sorted = data.records.slice().sort((a, b) => {
-      const ai = divisionOrder.indexOf(a.division.name);
-      const bi = divisionOrder.indexOf(b.division.name);
-      return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
-    });
-
-    let html = '<div class="standings-grid">';
-
-    sorted.forEach(rec => {
-      const divName = rec.division.name;
-      const teams = rec.teamRecords.slice().sort((a, b) => {
-        // Sort by win pct descending, then GB ascending
-        return b.winningPercentage - a.winningPercentage;
-      });
-
-      html += `
-        <div class="division-block">
-          <h3>${divName}</h3>
-          <table class="standings-table">
-            <thead>
-              <tr>
-                <th>Team</th>
-                <th class="num">W</th>
-                <th class="num">L</th>
-                <th class="num">GB</th>
-                <th class="num">Strk</th>
-              </tr>
-            </thead>
-            <tbody>
-      `;
-
-      teams.forEach(t => {
-        const gb = t.gamesBack === "-" ? "—" : t.gamesBack;
-        const streak = t.streak?.streakCode ?? "—";
-        const logoUrl = `https://www.mlbstatic.com/team-logos/${t.team.id}.svg`;
-        html += `
-          <tr>
-            <td>
-              <img class="team-logo" src="${logoUrl}" alt="" onerror="this.style.display='none'">
-              ${t.team.name}
-            </td>
-            <td class="num">${t.wins}</td>
-            <td class="num">${t.losses}</td>
-            <td class="num">${gb}</td>
-            <td class="num">${streak}</td>
-          </tr>
-        `;
-      });
-
-      html += `</tbody></table></div>`;
-    });
-
-    html += "</div>";
-    container.innerHTML = html;
-
-  } catch (e) {
-    container.innerHTML = "Could not load standings.";
-    console.error(e);
-  }
-}
-
-// -------------------------
-// INIT
-// -------------------------
-loadGames();
-loadStandings();
-</script>
-</body>
-</html>
-
+<div class="games" id="games">Loading...</
