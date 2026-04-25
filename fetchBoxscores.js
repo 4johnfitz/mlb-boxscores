@@ -22,13 +22,12 @@ async function getSchedule(date) {
   const res = await fetch(
     `https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${date}`
   );
-
   const data = await res.json();
   return data.dates?.[0]?.games || [];
 }
 
 // -------------------------
-// BOX / LINE SCORES
+// BOX + LINE SCORES
 // -------------------------
 async function getBoxscore(gamePk) {
   const res = await fetch(
@@ -45,7 +44,7 @@ async function getLinescore(gamePk) {
 }
 
 // -------------------------
-// FORMAT LINE SCORE
+// FORMAT SCORE
 // -------------------------
 function formatLineScore(linescore, awayName, homeName) {
   const innings = linescore.innings || [];
@@ -87,7 +86,7 @@ function formatLineScore(linescore, awayName, homeName) {
 async function run() {
   const date = getYesterday();
 
-  console.log("Generating YESTERDAY:", date);
+  console.log("Generating YESTERDAY ONLY:", date);
 
   const games = await getSchedule(date);
 
@@ -96,12 +95,21 @@ async function run() {
   const results = [];
 
   for (const game of games) {
-    const state = game.status?.abstractGameState;
 
-    // -------------------------
-    // SAFE FILTER (DO NOT OVER-FILTER)
-    // -------------------------
-    if (state === "Preview") continue;
+    const status = game.status || {};
+
+    const text = `
+      ${status.abstractGameState || ""}
+      ${status.detailedState || ""}
+      ${status.codedGameState || ""}
+    `.toLowerCase();
+
+    // only skip clearly unplayed games
+    const isUnplayed =
+      text.includes("preview") ||
+      text.includes("scheduled");
+
+    if (isUnplayed) continue;
 
     const gamePk = game.gamePk;
     const awayName = game.teams.away.team.name;
@@ -114,7 +122,7 @@ async function run() {
 
     const lineScoreText = formatLineScore(line, awayName, homeName);
 
-    const text = `
+    const formatted = `
 ${awayName} @ ${homeName}
 --------------------------------
 ${lineScoreText}
@@ -124,8 +132,8 @@ ${lineScoreText}
       gamePk,
       away: awayName,
       home: homeName,
-      state: state,
-      text: text.trim()
+      state: status.abstractGameState || "Unknown",
+      text: formatted.trim()
     });
   }
 
