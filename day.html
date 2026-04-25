@@ -17,7 +17,7 @@
 
     document.getElementById("title").textContent = date;
 
-    fetch(`../data/boxscores-${date}.json`)
+    fetch(`/mlb-boxscores/data/boxscores-${date}.json`)
       .then(r => r.json())
       .then(games => {
         document.getElementById("content").innerHTML =
