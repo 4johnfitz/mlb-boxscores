@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MLB Boxscore Archive</title>
+</head>
+<body>
+  <h1>MLB Boxscore Archive</h1>
+  <div id="list"></div>
+
+  <script>
+    // simple static list generator (we’ll improve later)
+    fetch("../data/index.json")
+      .then(r => r.json())
+      .then(days => {
+        document.getElementById("list").innerHTML =
+          days.map(d =>
+            `<p><a href="day.html?date=${d}">${d}</a></p>`
+          ).join("");
+      });
+  </script>
+</body>
+</html>
