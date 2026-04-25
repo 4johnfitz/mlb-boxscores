@@ -107,6 +107,11 @@ fetch("/mlb-boxscores/data/index.json")
       dates.map(d =>
         `<p><a href="day.html?date=${d}">${d}</a></p>`
       ).join("");
+  })
+  .catch(err => {
+    console.error("Index load error:", err);
+    document.getElementById("list").innerHTML =
+      "Failed to load archive.";
   });
 
 async function loadStandings() {
@@ -117,10 +122,6 @@ async function loadStandings() {
 
     const data = await res.json();
     const records = data.records || [];
-
-    const indexRes = await fetch("/mlb-boxscores/data/index.json");
-    const dates = await indexRes.json();
-    const latestDate = dates.sort().reverse()[0];
 
     const divisionMap = {
       "American League East": "AL East",
@@ -152,22 +153,13 @@ async function loadStandings() {
             <th>W</th>
             <th>L</th>
             <th>GB</th>
-            <th>Streak</th>
-            <th>Last Game</th>
           </tr>
       `;
 
       group.teamRecords.forEach(team => {
 
         const teamId = team.team.id;
-
         const logo = `https://www.mlbstatic.com/team-logos/${teamId}.svg`;
-
-        const streak = team.streak?.streakCode || "-";
-
-        const lastGameLink = latestDate
-          ? `<a href="day.html?date=${latestDate}">View</a>`
-          : "-";
 
         html += `
           <tr>
@@ -180,8 +172,6 @@ async function loadStandings() {
             <td>${team.wins}</td>
             <td>${team.losses}</td>
             <td>${team.gamesBack || "-"}</td>
-            <td>${streak}</td>
-            <td>${lastGameLink}</td>
           </tr>
         `;
       });
