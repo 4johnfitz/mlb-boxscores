@@ -13,8 +13,7 @@
   <div id="content"></div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const date = params.get("date");
+    const date = new URLSearchParams(window.location.search).get("date");
 
     document.getElementById("title").textContent = date;
 
