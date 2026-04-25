@@ -10,10 +10,6 @@
       margin: 20px;
     }
 
-    .top {
-      margin-bottom: 30px;
-    }
-
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -23,18 +19,31 @@
 
     table {
       border-collapse: collapse;
-      margin-bottom: 15px;
       width: 100%;
+      margin-bottom: 20px;
     }
 
     th, td {
       border: 1px solid #ccc;
       padding: 6px;
       text-align: left;
+      vertical-align: middle;
     }
 
     th {
       background: #f2f2f2;
+    }
+
+    .player {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .player img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
     }
 
     h2 {
@@ -44,10 +53,6 @@
     h3 {
       margin-top: 20px;
     }
-
-    .section {
-      margin-bottom: 25px;
-    }
   </style>
 </head>
 
@@ -56,18 +61,18 @@
 <h1>MLB Boxscore Archive</h1>
 
 <!-- ARCHIVE -->
-<div class="top">
+<div>
   <h2>Games Archive</h2>
   <div id="list"></div>
 </div>
 
-<!-- SIDE BY SIDE -->
+<!-- GRID -->
 <div class="grid">
 
   <!-- STANDINGS -->
   <div>
     <h2>Standings</h2>
-    <div id="standings">Loading standings...</div>
+    <div id="standings">Loading...</div>
   </div>
 
   <!-- LEADERS -->
@@ -99,7 +104,7 @@
     });
 
   // -------------------------
-  // STANDINGS (TABLES)
+  // STANDINGS (UNCHANGED)
   // -------------------------
   async function loadStandings() {
     const res = await fetch(
@@ -142,7 +147,7 @@
   }
 
   // -------------------------
-  // LEADERS (AL / NL SPLIT)
+  // LEADERS (WITH PLAYER PHOTOS)
   // -------------------------
   async function loadLeagueLeaders(leagueId, elementId) {
     const stats = [
@@ -162,7 +167,6 @@
       );
 
       const data = await res.json();
-
       const leaders = data.leagueLeaders?.[0]?.leaders || [];
 
       html += `<h4>${s.label}</h4>`;
@@ -176,9 +180,16 @@
       `;
 
       leaders.forEach(p => {
+        const id = p.person?.id;
+
         html += `
           <tr>
-            <td>${p.person?.fullName || "Unknown"}</td>
+            <td>
+              <div class="player">
+                <img src="https://img.mlbstatic.com/mlb-photos/image/upload/w_100,q_auto:best/v1/people/${id}/headshot/67/current">
+                ${p.person?.fullName || "Unknown"}
+              </div>
+            </td>
             <td>${p.value ?? "-"}</td>
           </tr>
         `;
@@ -192,8 +203,8 @@
 
   // INIT
   loadStandings();
-  loadLeagueLeaders(103, "al-leaders"); // AL
-  loadLeagueLeaders(104, "nl-leaders"); // NL
+  loadLeagueLeaders(103, "al-leaders");
+  loadLeagueLeaders(104, "nl-leaders");
 </script>
 
 </body>
