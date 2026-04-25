@@ -42,6 +42,7 @@
       padding: 6px;
       font-size: 14px;
       text-align: left;
+      vertical-align: middle;
     }
 
     th {
@@ -54,6 +55,17 @@
 
     h3 {
       margin-top: 15px;
+    }
+
+    .team-cell {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .team-cell img {
+      width: 18px;
+      height: 18px;
     }
   </style>
 </head>
@@ -86,11 +98,6 @@
 
 <script>
 
-//
-// -------------------------
-// ARCHIVE DATES
-// -------------------------
-//
 fetch("/mlb-boxscores/data/index.json")
   .then(r => r.json())
   .then(dates => {
@@ -100,18 +107,8 @@ fetch("/mlb-boxscores/data/index.json")
       dates.map(d =>
         `<p><a href="day.html?date=${d}">${d}</a></p>`
       ).join("");
-  })
-  .catch(err => {
-    console.error("Index load error:", err);
-    document.getElementById("list").innerHTML =
-      "Failed to load archive.";
   });
 
-//
-// -------------------------
-// STANDINGS (FIXED + NORMALIZED DIVISIONS)
-// -------------------------
-//
 async function loadStandings() {
   try {
     const res = await fetch(
@@ -125,8 +122,6 @@ async function loadStandings() {
     const dates = await indexRes.json();
     const latestDate = dates.sort().reverse()[0];
 
-    let html = "";
-
     const divisionMap = {
       "American League East": "AL East",
       "American League Central": "AL Central",
@@ -136,12 +131,13 @@ async function loadStandings() {
       "National League West": "NL West"
     };
 
+    let html = "";
+
     records.forEach(group => {
 
       const rawName =
         group.division?.name ||
         group.division?.nameShort ||
-        group.division?.abbreviation ||
         group.league?.name ||
         "MLB";
 
@@ -163,6 +159,10 @@ async function loadStandings() {
 
       group.teamRecords.forEach(team => {
 
+        const teamId = team.team.id;
+
+        const logo = `https://www.mlbstatic.com/team-logos/${teamId}.svg`;
+
         const streak = team.streak?.streakCode || "-";
 
         const lastGameLink = latestDate
@@ -171,7 +171,12 @@ async function loadStandings() {
 
         html += `
           <tr>
-            <td>${team.team.name}</td>
+            <td>
+              <div class="team-cell">
+                <img src="${logo}" alt="">
+                ${team.team.name}
+              </div>
+            </td>
             <td>${team.wins}</td>
             <td>${team.losses}</td>
             <td>${team.gamesBack || "-"}</td>
@@ -193,9 +198,6 @@ async function loadStandings() {
   }
 }
 
-//
-// INIT
-//
 loadStandings();
 
 </script>
