@@ -5,6 +5,9 @@ on:
     - cron: "0 14 * * *"   # 7am PT / 2pm UTC — catches all previous night's games
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
