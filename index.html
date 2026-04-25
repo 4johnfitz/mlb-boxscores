@@ -64,4 +64,160 @@
 </nav>
 
 <h1>Latest Games <span id="dateLabel" class="date"></span></h1>
-<div class="games" id="games">Loading...</
+<div class="games" id="games">Loading...</div>
+
+<h2 style="margin-top: 32px;">Standings</h2>
+<div id="standings-container">Loading standings...</div>
+
+<script>
+// -------------------------
+// FORMAT DATE
+// -------------------------
+function pretty(dateStr) {
+  const d = new Date(dateStr + "T00:00:00");
+  return d.toLocaleDateString(undefined, {
+    weekday: "short",
+    month: "short",
+    day: "numeric"
+  });
+}
+
+// -------------------------
+// LOAD GAMES
+// -------------------------
+async function loadGames() {
+  const gamesDiv = document.getElementById("games");
+
+  let dates;
+  try {
+    const res = await fetch("/mlb-boxscores/data/index.json");
+    if (!res.ok) throw new Error(`index.json fetch failed: ${res.status} ${res.statusText}`);
+    dates = await res.json();
+    if (!dates.length) {
+      gamesDiv.innerHTML = "index.json is empty.";
+      return;
+    }
+  } catch (e) {
+    gamesDiv.innerHTML = `Error loading index.json: ${e.message}`;
+    return;
+  }
+
+  const date = dates.sort().reverse()[0];
+  document.getElementById("dateLabel").textContent = `(${pretty(date)})`;
+
+  let games;
+  try {
+    const res = await fetch(`/mlb-boxscores/data/boxscores-${date}.json`);
+    if (!res.ok) throw new Error(`boxscores fetch failed: ${res.status} ${res.statusText}`);
+    games = await res.json();
+  } catch (e) {
+    gamesDiv.innerHTML = `Error loading boxscores: ${e.message}`;
+    return;
+  }
+
+  if (!games.length) {
+    gamesDiv.innerHTML = "No games found for this date.";
+    return;
+  }
+
+  let html = "";
+  games.forEach(g => {
+    html += `
+      <div>
+        <a href="/mlb-boxscores/game.html?gamePk=${g.gamePk}">
+          ${g.away} ${g.awayScore}, ${g.home} ${g.homeScore}
+        </a>
+        <span class="state">— Final</span>
+      </div>
+    `;
+  });
+
+  gamesDiv.innerHTML = html;
+}
+
+// -------------------------
+// LOAD STANDINGS
+// -------------------------
+async function loadStandings() {
+  const container = document.getElementById("standings-container");
+  try {
+    const res = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason");
+    if (!res.ok) throw new Error(`Standings fetch failed: ${res.status} ${res.statusText}`);
+    const data = await res.json();
+
+    const divisionOrder = [
+      "American League East",
+      "American League Central",
+      "American League West",
+      "National League East",
+      "National League Central",
+      "National League West"
+    ];
+
+    const sorted = data.records.slice().sort((a, b) => {
+      const ai = divisionOrder.indexOf(a.division.name);
+      const bi = divisionOrder.indexOf(b.division.name);
+      return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+    });
+
+    let html = '<div class="standings-grid">';
+
+    sorted.forEach(rec => {
+      const divName = rec.division.name;
+      const teams = rec.teamRecords.slice().sort((a, b) =>
+        b.winningPercentage - a.winningPercentage
+      );
+
+      html += `
+        <div class="division-block">
+          <h3>${divName}</h3>
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th>Team</th>
+                <th class="num">W</th>
+                <th class="num">L</th>
+                <th class="num">GB</th>
+                <th class="num">Strk</th>
+              </tr>
+            </thead>
+            <tbody>
+      `;
+
+      teams.forEach(t => {
+        const gb = t.gamesBack === "-" ? "—" : t.gamesBack;
+        const streak = t.streak?.streakCode ?? "—";
+        const logoUrl = `https://www.mlbstatic.com/team-logos/${t.team.id}.svg`;
+        html += `
+          <tr>
+            <td>
+              <img class="team-logo" src="${logoUrl}" alt="" onerror="this.style.display='none'">
+              ${t.team.name}
+            </td>
+            <td class="num">${t.wins}</td>
+            <td class="num">${t.losses}</td>
+            <td class="num">${gb}</td>
+            <td class="num">${streak}</td>
+          </tr>
+        `;
+      });
+
+      html += `</tbody></table></div>`;
+    });
+
+    html += "</div>";
+    container.innerHTML = html;
+
+  } catch (e) {
+    container.innerHTML = `Error loading standings: ${e.message}`;
+  }
+}
+
+// -------------------------
+// INIT
+// -------------------------
+loadGames();
+loadStandings();
+</script>
+</body>
+</html>
