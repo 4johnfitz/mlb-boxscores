@@ -1,14 +1,23 @@
 const fs = require("fs");
 const fetch = require("node-fetch");
 
-// Get yesterday's date (production mode)
+// -------------------------
+// DATE (FIXED - LOCAL TIME)
+// -------------------------
 function getYesterday() {
   const d = new Date();
   d.setDate(d.getDate() - 1);
-  return d.toISOString().split("T")[0];
+
+  return [
+    d.getFullYear(),
+    String(d.getMonth() + 1).padStart(2, "0"),
+    String(d.getDate()).padStart(2, "0")
+  ].join("-");
 }
 
-// Fetch schedule
+// -------------------------
+// MLB SCHEDULE
+// -------------------------
 async function getSchedule(date) {
   const res = await fetch(
     `https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${date}`
@@ -17,7 +26,9 @@ async function getSchedule(date) {
   return data.dates?.[0]?.games || [];
 }
 
-// Fetch boxscore
+// -------------------------
+// BOX / LINE SCORES
+// -------------------------
 async function getBoxscore(gamePk) {
   const res = await fetch(
     `https://statsapi.mlb.com/api/v1/game/${gamePk}/boxscore`
@@ -25,7 +36,6 @@ async function getBoxscore(gamePk) {
   return await res.json();
 }
 
-// Fetch linescore
 async function getLinescore(gamePk) {
   const res = await fetch(
     `https://statsapi.mlb.com/api/v1/game/${gamePk}/linescore`
@@ -33,7 +43,9 @@ async function getLinescore(gamePk) {
   return await res.json();
 }
 
-// Format line score
+// -------------------------
+// FORMAT SCORE
+// -------------------------
 function formatLineScore(linescore, awayName, homeName) {
   const innings = linescore.innings || [];
 
@@ -68,11 +80,13 @@ function formatLineScore(linescore, awayName, homeName) {
   ].join("\n");
 }
 
-// Main runner
+// -------------------------
+// MAIN RUNNER
+// -------------------------
 async function run() {
   const date = getYesterday();
 
-  console.log(`Fetching games for ${date}...`);
+  console.log("Fetching games for:", date);
 
   const games = await getSchedule(date);
   console.log("Games found:", games.length);
@@ -82,26 +96,18 @@ async function run() {
   for (const game of games) {
 
     const state = game.status?.abstractGameState;
-    const detailed = game.status?.detailedState;
 
     // -------------------------
-    // GAME STATE CLASSIFICATION
+    // SAFE FILTER (FIXED)
     // -------------------------
-    const isFinal =
+    const isRelevant =
       state === "Final" ||
-      detailed === "Final" ||
-      detailed === "Game Over" ||
-      detailed === "Completed Early";
-
-    const isLive =
       state === "Live" ||
-      state === "In Progress" ||
-      detailed === "In Progress" ||
-      detailed === "In Progress - Official";
+      state === "In Progress";
 
-    if (!isFinal && !isLive) continue;
+    if (!isRelevant) continue;
 
-    const gameState = isFinal ? "Final" : "Live";
+    const gameState = state === "Final" ? "Final" : "Live";
 
     // -------------------------
     // GAME DATA
@@ -123,9 +129,6 @@ ${awayName} @ ${homeName}
 ${lineScoreText}
 `;
 
-    // -------------------------
-    // PUSH RESULT
-    // -------------------------
     results.push({
       gamePk,
       away: awayName,
@@ -136,7 +139,7 @@ ${lineScoreText}
   }
 
   // -------------------------
-  // WRITE FILES
+  // OUTPUT FILES
   // -------------------------
   if (!fs.existsSync("./data")) {
     fs.mkdirSync("./data");
@@ -153,7 +156,7 @@ ${lineScoreText}
   );
 
   // -------------------------
-  // UPDATE INDEX
+  // INDEX UPDATE
   // -------------------------
   const indexPath = "./data/index.json";
 
