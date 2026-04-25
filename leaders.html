@@ -20,8 +20,22 @@
       margin-top: 10px;
     }
 
+    details {
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 10px;
+      background: #fafafa;
+    }
+
+    summary {
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     h3 {
-      margin-top: 25px;
+      margin-top: 15px;
       border-bottom: 1px solid #ddd;
       padding-bottom: 5px;
     }
@@ -29,7 +43,8 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+      background: white;
     }
 
     th, td {
@@ -49,51 +64,21 @@
       gap: 10px;
     }
 
-    .player img.headshot {
+    .player img {
       width: 34px;
       height: 34px;
       border-radius: 50%;
     }
 
     .team-logo {
-      width: 22px;
-      height: 22px;
-      margin-left: 6px;
-      opacity: 0.9;
+      width: 20px;
+      height: 20px;
+      margin-left: 5px;
     }
 
-    /* -------------------------
-       MOBILE STACKED LAYOUT
-    --------------------------*/
     @media (max-width: 800px) {
       .grid {
         grid-template-columns: 1fr;
-      }
-
-      table, thead, tbody, th, td, tr {
-        display: block;
-        width: 100%;
-      }
-
-      tr {
-        margin-bottom: 12px;
-        border: 1px solid #ddd;
-        padding: 8px;
-        border-radius: 6px;
-        background: #fff;
-      }
-
-      th {
-        display: none;
-      }
-
-      td {
-        border: none;
-        padding: 4px 0;
-      }
-
-      td:first-child {
-        font-weight: bold;
       }
     }
   </style>
@@ -110,74 +95,105 @@
 
 <script>
 
-const stats = [
+const hittingStats = [
   { label: "Home Runs", stat: "homeRuns" },
   { label: "RBI", stat: "rbi" },
-  { label: "Batting Avg", stat: "avg" },
+  { label: "Batting Avg", stat: "avg" }
+];
+
+const pitchingStats = [
   { label: "Wins", stat: "wins" },
   { label: "ERA", stat: "era" },
   { label: "Strikeouts", stat: "strikeOuts" }
 ];
 
-function teamLogo(teamId) {
-  return `https://www.mlbstatic.com/team-logos/${teamId}.svg`;
+function teamLogo(id) {
+  return `https://www.mlbstatic.com/team-logos/${id}.svg`;
 }
 
-async function loadLeague(leagueId, elementId, title) {
+async function loadGroup(title, leagueId, stats) {
 
   let html = `<h2>${title}</h2>`;
 
-  for (const s of stats) {
+  // COLLAPSIBLE HITTING / PITCHING WRAPPER
+  html += `<details open><summary>Hitting</summary>`;
 
-    const url =
-      `https://statsapi.mlb.com/api/v1/stats/leaders` +
-      `?leaderCategories=${s.stat}` +
-      `&leagueId=${leagueId}` +
-      `&limit=5`;
-
-    const res = await fetch(url);
-    const data = await res.json();
-
-    const leaders = data.leagueLeaders?.[0]?.leaders || [];
-
-    html += `<h3>${s.label}</h3>`;
-
-    html += `
-      <table>
-        <tr>
-          <th>Player</th>
-          <th>Team</th>
-          <th>Value</th>
-        </tr>
-    `;
-
-    leaders.forEach(p => {
-      const id = p.person?.id;
-      const teamId = p.team?.id;
-
-      html += `
-        <tr>
-          <td>
-            <div class="player">
-              <img class="headshot"
-                src="https://img.mlbstatic.com/mlb-photos/image/upload/w_100,q_auto:best/v1/people/${id}/headshot/67/current">
-              ${p.person?.fullName || "Unknown"}
-            </div>
-          </td>
-
-          <td>
-            ${p.team?.name || "-"}
-            ${teamId ? `<img class="team-logo" src="${teamLogo(teamId)}">` : ""}
-          </td>
-
-          <td>${p.value ?? "-"}</td>
-        </tr>
-      `;
-    });
-
-    html += `</table>`;
+  for (const s of stats.hitting) {
+    html += await buildTable(s, leagueId);
   }
 
+  html += `</details>`;
+
+  html += `<details><summary>Pitching</summary>`;
+
+  for (const s of stats.pitching) {
+    html += await buildTable(s, leagueId);
+  }
+
+  html += `</details>`;
+
+  return html;
+}
+
+async function buildTable(s, leagueId) {
+
+  const url =
+    `https://statsapi.mlb.com/api/v1/stats/leaders` +
+    `?leaderCategories=${s.stat}` +
+    `&leagueId=${leagueId}` +
+    `&limit=5`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const leaders = data.leagueLeaders?.[0]?.leaders || [];
+
+  let html = `<h3>${s.label}</h3>`;
+
+  html += `
+    <table>
+      <tr>
+        <th>Player</th>
+        <th>Team</th>
+        <th>Value</th>
+      </tr>
+  `;
+
+  leaders.forEach(p => {
+    const id = p.person?.id;
+    const teamId = p.team?.id;
+
+    html += `
+      <tr>
+        <td>
+          <div class="player">
+            <img src="https://img.mlbstatic.com/mlb-photos/image/upload/w_100,q_auto:best/v1/people/${id}/headshot/67/current">
+            ${p.person?.fullName || "Unknown"}
+          </div>
+        </td>
+
+        <td>
+          ${p.team?.name || "-"}
+          ${teamId ? `<img class="team-logo" src="${teamLogo(teamId)}">` : ""}
+        </td>
+
+        <td>${p.value ?? "-"}</td>
+      </tr>
+    `;
+  });
+
+  html += `</table>`;
+
+  return html;
+}
+
+async function loadLeague(leagueId, elementId, title) {
+  const stats = {
+    hitting: hittingStats,
+    pitching: pitchingStats
+  };
+
+  const html = await loadGroup(title, leagueId, stats);
   document.getElementById(elementId).innerHTML = html;
 }
 
