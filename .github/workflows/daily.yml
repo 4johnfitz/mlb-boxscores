@@ -1,1 +1,33 @@
+name: Daily MLB Boxscores
 
+on:
+  schedule:
+    - cron: "0 11 * * *"   # runs daily (UTC morning)
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run script
+        run: node fetchBoxscores.js
+
+      - name: Commit results
+        run: |
+          git config user.name "mlb-bot"
+          git config user.email "mlb-bot@users.noreply.github.com"
+          git add data/
+          git commit -m "daily boxscores" || echo "no changes"
+          git push
