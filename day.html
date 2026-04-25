@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Box Score</title>
+  <style>
+    body { font-family: monospace; padding: 20px; }
+    pre { background: #fff; }
+  </style>
+</head>
+<body>
+  <h2 id="title"></h2>
+  <div id="content"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const date = params.get("date");
+
+    document.getElementById("title").textContent = date;
+
+    fetch(`../data/boxscores-${date}.json`)
+      .then(r => r.json())
+      .then(games => {
+        document.getElementById("content").innerHTML =
+          games.map(g => `<pre>${g.text}</pre>`).join("");
+      });
+  </script>
+</body>
+</html>
