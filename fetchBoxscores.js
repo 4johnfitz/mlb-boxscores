@@ -103,15 +103,32 @@ ${lineScoreText}
     fs.mkdirSync("./data");
   }
 
-  fs.writeFileSync(
-    `./data/boxscores-${date}.json`,
-    JSON.stringify(results, null, 2)
-  );
+fs.writeFileSync(
+  `./data/boxscores-${date}.json`,
+  JSON.stringify(results, null, 2)
+);
 
-  fs.writeFileSync(
-    `./data/boxscores-${date}.txt`,
-    results.map(g => g.text).join("\n\n====================\n\n")
-  );
+fs.writeFileSync(
+  `./data/boxscores-${date}.txt`,
+  results.map(g => g.text).join("\n\n====================\n\n")
+);
+
+// ---- ADD THIS BELOW ----
+
+const indexPath = "./data/index.json";
+
+const existing = fs.existsSync(indexPath)
+  ? JSON.parse(fs.readFileSync(indexPath))
+  : [];
+
+if (!existing.includes(date)) {
+  existing.push(date);
+}
+
+fs.writeFileSync(
+  indexPath,
+  JSON.stringify(existing.sort(), null, 2)
+);
 
   console.log(`Saved ${results.length} games.`);
 }
