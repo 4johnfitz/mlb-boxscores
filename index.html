@@ -1,21 +1,90 @@
-async function loadLeagueLeaders(leagueId, elementId, statGroup) {
-  const stats = [
-    { label: "Home Runs", stat: "homeRuns" },
-    { label: "RBI", stat: "rbi" },
-    { label: "Batting Avg", stat: "avg" },
-    { label: "Wins", stat: "wins" },
-    { label: "ERA", stat: "era" },
-    { label: "Strikeouts", stat: "strikeOuts" }
-  ];
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MLB League Leaders</title>
 
-  let html = "";
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    h3 {
+      margin-top: 25px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 6px;
+      font-size: 14px;
+    }
+
+    th {
+      background: #f3f3f3;
+    }
+
+    .player {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .player img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>League Leaders</h1>
+
+<div class="grid">
+  <div id="al"></div>
+  <div id="nl"></div>
+</div>
+
+<script>
+
+const stats = [
+  { label: "Home Runs", stat: "homeRuns" },
+  { label: "RBI", stat: "rbi" },
+  { label: "Batting Avg", stat: "avg" },
+  { label: "Wins", stat: "wins" },
+  { label: "ERA", stat: "era" },
+  { label: "Strikeouts", stat: "strikeOuts" }
+];
+
+async function loadLeague(leagueId, elementId, title) {
+
+  let html = `<h2>${title}</h2>`;
 
   for (const s of stats) {
 
     const url =
       `https://statsapi.mlb.com/api/v1/stats/leaders` +
       `?leaderCategories=${s.stat}` +
-      `&statGroup=${statGroup}` +
       `&leagueId=${leagueId}` +
       `&limit=5`;
 
@@ -24,7 +93,7 @@ async function loadLeagueLeaders(leagueId, elementId, statGroup) {
 
     const leaders = data.leagueLeaders?.[0]?.leaders || [];
 
-    html += `<h4>${s.label}</h4>`;
+    html += `<h3>${s.label}</h3>`;
 
     html += `
       <table>
@@ -56,7 +125,11 @@ async function loadLeagueLeaders(leagueId, elementId, statGroup) {
   document.getElementById(elementId).innerHTML = html;
 }
 
-// INIT (FIXED)
-loadStandings();
-loadLeagueLeaders(103, "al-leaders", "hitting");
-loadLeagueLeaders(104, "nl-leaders", "hitting");
+// INIT
+loadLeague(103, "al", "American League");
+loadLeague(104, "nl", "National League");
+
+</script>
+
+</body>
+</html>
