@@ -9,7 +9,7 @@
   <div id="list"></div>
 
   <script>
-    fetch("../data/index.json")
+    fetch("/mlb-boxscores/data/index.json")
       .then(r => r.json())
       .then(dates => {
         dates.sort().reverse();
