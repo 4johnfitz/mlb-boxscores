@@ -4,11 +4,34 @@
   <meta charset="utf-8">
   <title>MLB Boxscores</title>
   <style>
-    body { font-family: Arial; margin: 20px; background: #f9f9f9; color: #111; }
+    body { font-family: Arial; margin: 0; padding: 20px; background: #f9f9f9; color: #111; }
     h1, h2 { margin-bottom: 10px; }
-    .top-nav { margin-bottom: 20px; }
+
+    /* Top nav */
+    .top-nav { margin-bottom: 12px; }
     .top-nav a { margin-right: 15px; text-decoration: none; color: #0055aa; font-weight: bold; }
     .top-nav a:hover { text-decoration: underline; }
+
+    /* Jump nav */
+    .jump-nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
+    .jump-nav a {
+      text-decoration: none;
+      color: #003087;
+      font-weight: bold;
+      font-size: 0.9em;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: white;
+      border: 1px solid #ddd;
+    }
+    .jump-nav a:hover { background: #003087; color: white; }
+
     .date { color: #666; margin-left: 10px; font-size: 0.85em; font-weight: normal; }
 
     /* Games */
@@ -27,9 +50,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
-    @media (max-width: 700px) {
-      .standings-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 700px) { .standings-grid { grid-template-columns: 1fr; } }
     .division-block {
       background: white;
       border: 1px solid #ddd;
@@ -43,22 +64,137 @@
       border-bottom: 1px solid #eee;
       padding-bottom: 6px;
     }
-    .standings-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.85em;
-    }
-    .standings-table th {
-      text-align: left;
-      color: #888;
-      font-weight: normal;
-      padding: 2px 4px;
-    }
+    .standings-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
+    .standings-table th { text-align: left; color: #888; font-weight: normal; padding: 2px 4px; }
     .standings-table th.num, .standings-table td.num { text-align: right; }
     .standings-table td { padding: 3px 4px; }
     .standings-table tr:nth-child(even) td { background: #f5f5f5; }
     .team-logo { width: 18px; height: 18px; vertical-align: middle; margin-right: 5px; }
+    .team-link { color: #003087; text-decoration: none; border-bottom: 1px dotted #003087; cursor: pointer; font-size: 0.85em; }
+    .team-link:hover { color: #0055aa; }
+
+    /* Leaders */
+    .leaders-wrapper { margin-top: 12px; }
+    .leaders-league { margin-bottom: 28px; }
+    .leaders-league-title { font-size: 1em; font-weight: bold; color: #003087; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .leaders-group-title {
+      font-size: 0.8em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #555;
+      margin: 14px 0 6px;
+    }
+    .leaders-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 700px) { .leaders-grid { grid-template-columns: 1fr; } }
+    .leader-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+    .leader-card-title {
+      font-size: 0.75em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #003087;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+    }
+    .leader-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 0.83em;
+    }
+    .leader-row img.headshot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #eee;
+      flex-shrink: 0;
+    }
+    .leader-row img.tlogo {
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .leader-name { flex: 1; color: #111; }
+    .leader-value { font-weight: bold; color: #003087; min-width: 36px; text-align: right; }
+    .leader-rank { color: #aaa; font-size: 0.85em; min-width: 16px; }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white;
+      border-radius: 10px;
+      width: 420px;
+      max-width: 95vw;
+      max-height: 88vh;
+      overflow-y: auto;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid #eee;
+      position: relative;
+    }
+    .modal-header img.team-logo-lg { width: 52px; height: 52px; }
+    .modal-header .modal-team-name { font-size: 1.1em; font-weight: bold; color: #003087; }
+    .modal-header .modal-team-record { font-size: 0.85em; color: #888; margin-top: 2px; }
+    .modal-close {
+      position: absolute; top: 12px; right: 14px;
+      font-size: 1.4em; color: #aaa; cursor: pointer;
+      background: none; border: none; padding: 0;
+    }
+    .modal-close:hover { color: #333; }
+    .modal-body { padding: 14px 20px 20px; font-size: 0.85em; }
+    .modal-stat-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .modal-stat-row:last-child { border-bottom: none; }
+    .modal-stat-label { color: #555; }
+    .modal-stat-value { font-weight: bold; color: #003087; }
+    .modal-section-title {
+      font-size: 0.75em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #003087;
+      margin: 14px 0 6px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #eee;
+    }
+    .modal-loading { color: #aaa; text-align: center; padding: 20px 0; }
+
     #standings-container { color: #555; }
+    #leaders-container { color: #555; }
+
+    section { margin-bottom: 40px; }
   </style>
 </head>
 <body>
@@ -68,34 +204,64 @@
   <a href="/mlb-boxscores/leaders.html">Leaders</a>
 </nav>
 
-<h1>Yesterday's Games <span id="dateLabel" class="date"></span></h1>
-<div class="games" id="games">Loading...</div>
+<div class="jump-nav">
+  <a href="#games">Yesterday's Games</a>
+  <a href="#standings">Standings</a>
+  <a href="#leaders">Leaders</a>
+</div>
 
-<h2 style="margin-top: 32px;">Standings</h2>
-<div id="standings-container">Loading standings...</div>
+<section id="games">
+  <h1>Yesterday's Games <span id="dateLabel" class="date"></span></h1>
+  <div class="games" id="games">Loading...</div>
+</section>
+
+<section id="standings">
+  <h2>Standings</h2>
+  <div id="standings-container">Loading standings...</div>
+</section>
+
+<section id="leaders">
+  <h2>League Leaders</h2>
+  <div id="leaders-container">Loading leaders...</div>
+</section>
+
+<!-- Team Modal -->
+<div class="modal-overlay" id="teamModal">
+  <div class="modal">
+    <div class="modal-header">
+      <img class="team-logo-lg" id="modalTeamLogo" src="" alt="" onerror="this.style.display='none'">
+      <div>
+        <div class="modal-team-name" id="modalTeamName"></div>
+        <div class="modal-team-record" id="modalTeamRecord"></div>
+      </div>
+      <button class="modal-close" onclick="closeTeamModal()">x</button>
+    </div>
+    <div class="modal-body" id="modalTeamBody">
+      <div class="modal-loading">Loading...</div>
+    </div>
+  </div>
+</div>
 
 <script>
+// -------------------------
+// FORMAT DATE
+// -------------------------
 function pretty(dateStr) {
   var d = new Date(dateStr + "T00:00:00");
-  return d.toLocaleDateString(undefined, {
-    weekday: "short",
-    month: "short",
-    day: "numeric"
-  });
+  return d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
 }
 
+// -------------------------
+// LOAD GAMES
+// -------------------------
 async function loadGames() {
   var gamesDiv = document.getElementById("games");
-
   var dates;
   try {
     var res = await fetch("/mlb-boxscores/data/index.json");
     if (!res.ok) throw new Error("index.json fetch failed: " + res.status);
     dates = await res.json();
-    if (!dates.length) {
-      gamesDiv.innerHTML = "index.json is empty.";
-      return;
-    }
+    if (!dates.length) { gamesDiv.innerHTML = "index.json is empty."; return; }
   } catch (e) {
     gamesDiv.innerHTML = "Error loading index.json: " + e.message;
     return;
@@ -114,47 +280,101 @@ async function loadGames() {
     return;
   }
 
-  if (!games.length) {
-    gamesDiv.innerHTML = "No games found for this date.";
-    return;
-  }
+  if (!games.length) { gamesDiv.innerHTML = "No games found for this date."; return; }
 
   var html = "";
   for (var i = 0; i < games.length; i++) {
     var g = games[i];
     var awayWon = g.awayScore > g.homeScore;
     var homeWon = g.homeScore > g.awayScore;
-
-    var awayStr = awayWon
-      ? "<strong>" + g.away + " " + g.awayScore + "</strong>"
-      : g.away + " " + g.awayScore;
-    var homeStr = homeWon
-      ? "<strong>" + g.home + " " + g.homeScore + "</strong>"
-      : g.home + " " + g.homeScore;
-
-    html += "<div>" +
-      '<a href="/mlb-boxscores/game.html?gamePk=' + g.gamePk + '">' +
-      awayStr + ", " + homeStr +
-      "</a>" +
-      '<span class="state"> — Final</span>' +
-      "</div>";
+    var awayStr = awayWon ? "<strong>" + g.away + " " + g.awayScore + "</strong>" : g.away + " " + g.awayScore;
+    var homeStr = homeWon ? "<strong>" + g.home + " " + g.homeScore + "</strong>" : g.home + " " + g.homeScore;
+    html += "<div><a href=\"/mlb-boxscores/game.html?gamePk=" + g.gamePk + "\">" + awayStr + ", " + homeStr + "</a><span class=\"state\"> — Final</span></div>";
   }
-
   gamesDiv.innerHTML = html;
 }
 
+// -------------------------
+// TEAM MODAL
+// -------------------------
+var currentTeamData = null;
+
+document.getElementById("teamModal").addEventListener("click", function(e) {
+  if (e.target === this) closeTeamModal();
+});
+
+function closeTeamModal() {
+  document.getElementById("teamModal").classList.remove("open");
+}
+
+async function showTeam(teamId, teamName, wins, losses, pct) {
+  document.getElementById("modalTeamLogo").src = "https://www.mlbstatic.com/team-logos/" + teamId + ".svg";
+  document.getElementById("modalTeamName").textContent = teamName;
+  document.getElementById("modalTeamRecord").textContent = wins + "-" + losses + " (" + pct + ")";
+  document.getElementById("modalTeamBody").innerHTML = "<div class=\"modal-loading\">Loading...</div>";
+  document.getElementById("teamModal").classList.add("open");
+
+  try {
+    var season = new Date().getFullYear();
+    var res = await fetch("https://statsapi.mlb.com/api/v1/teams/" + teamId + "/stats?stats=season&season=" + season + "&group=hitting,pitching&sportId=1");
+    var data = await res.json();
+
+    var html = "";
+
+    if (!data.stats || !data.stats.length) {
+      html = "No stats available.";
+    } else {
+      for (var i = 0; i < data.stats.length; i++) {
+        var group = data.stats[i];
+        var groupName = group.group && group.group.displayName ? group.group.displayName : "";
+        var splits = group.splits;
+        if (!splits || !splits.length) continue;
+        var s = splits[0].stat;
+
+        if (groupName === "hitting") {
+          html += "<div class=\"modal-section-title\">Team Batting</div>";
+          html += makeStatRow("AVG", s.avg || ".000");
+          html += makeStatRow("OBP", s.obp || ".000");
+          html += makeStatRow("SLG", s.slg || ".000");
+          html += makeStatRow("OPS", s.ops || ".000");
+          html += makeStatRow("HR", s.homeRuns || 0);
+          html += makeStatRow("RBI", s.rbi || 0);
+          html += makeStatRow("R", s.runs || 0);
+          html += makeStatRow("SB", s.stolenBases || 0);
+          html += makeStatRow("SO", s.strikeOuts || 0);
+        }
+
+        if (groupName === "pitching") {
+          html += "<div class=\"modal-section-title\">Team Pitching</div>";
+          html += makeStatRow("ERA", s.era || "-.--");
+          html += makeStatRow("WHIP", s.whip || "-.--");
+          html += makeStatRow("SO", s.strikeOuts || 0);
+          html += makeStatRow("BB", s.baseOnBalls || 0);
+          html += makeStatRow("HR Allowed", s.homeRuns || 0);
+          html += makeStatRow("Saves", s.saves || 0);
+        }
+      }
+    }
+
+    document.getElementById("modalTeamBody").innerHTML = html;
+  } catch (e) {
+    document.getElementById("modalTeamBody").innerHTML = "Error loading team stats: " + e.message;
+  }
+}
+
+function makeStatRow(label, value) {
+  return "<div class=\"modal-stat-row\"><span class=\"modal-stat-label\">" + label + "</span><span class=\"modal-stat-value\">" + value + "</span></div>";
+}
+
+// -------------------------
+// LOAD STANDINGS
+// -------------------------
 async function loadStandings() {
   var container = document.getElementById("standings-container");
-
   var divisionNames = {
-    200: "AL West",
-    201: "AL East",
-    202: "AL Central",
-    203: "NL West",
-    204: "NL East",
-    205: "NL Central"
+    200: "AL West", 201: "AL East", 202: "AL Central",
+    203: "NL West", 204: "NL East", 205: "NL Central"
   };
-
   var alOrder = [201, 202, 200];
   var nlOrder = [204, 205, 203];
 
@@ -171,39 +391,28 @@ async function loadStandings() {
     function getRecord(splitRecords, type) {
       if (!splitRecords) return "0-0";
       for (var i = 0; i < splitRecords.length; i++) {
-        if (splitRecords[i].type === type) {
-          return splitRecords[i].wins + "-" + splitRecords[i].losses;
-        }
+        if (splitRecords[i].type === type) return splitRecords[i].wins + "-" + splitRecords[i].losses;
       }
       return "0-0";
     }
 
     function buildLeague(divOrder, leagueLabel) {
-      var html = '<div class="standings-league">';
-      html += '<div class="standings-league-title">' + leagueLabel + "</div>";
-      html += '<div class="standings-grid">';
+      var html = "<div class=\"standings-league\">";
+      html += "<div class=\"standings-league-title\">" + leagueLabel + "</div>";
+      html += "<div class=\"standings-grid\">";
 
       for (var i = 0; i < divOrder.length; i++) {
         var rec = recMap[divOrder[i]];
         if (!rec) continue;
         var divName = divisionNames[divOrder[i]] || ("Division " + divOrder[i]);
-
         var teams = rec.teamRecords.slice().sort(function(a, b) {
           return parseFloat(b.winningPercentage) - parseFloat(a.winningPercentage);
         });
 
-        html += '<div class="division-block">';
+        html += "<div class=\"division-block\">";
         html += "<h3>" + divName + "</h3>";
-        html += '<table class="standings-table">';
-        html += "<thead><tr>";
-        html += "<th>Team</th>";
-        html += '<th class="num">W</th>';
-        html += '<th class="num">L</th>';
-        html += '<th class="num">PCT</th>';
-        html += '<th class="num">GB</th>';
-        html += '<th class="num">Home</th>';
-        html += '<th class="num">Away</th>';
-        html += '<th class="num">Strk</th>';
+        html += "<table class=\"standings-table\"><thead><tr>";
+        html += "<th>Team</th><th class=\"num\">W</th><th class=\"num\">L</th><th class=\"num\">PCT</th><th class=\"num\">GB</th><th class=\"num\">Home</th><th class=\"num\">Away</th><th class=\"num\">Strk</th>";
         html += "</tr></thead><tbody>";
 
         for (var j = 0; j < teams.length; j++) {
@@ -213,22 +422,22 @@ async function loadStandings() {
           var logoUrl = "https://www.mlbstatic.com/team-logos/" + t.team.id + ".svg";
           var w = t.leagueRecord ? t.leagueRecord.wins : t.wins;
           var l = t.leagueRecord ? t.leagueRecord.losses : t.losses;
-          var pct = t.winningPercentage ? t.winningPercentage : ".000";
+          var pct = t.winningPercentage || ".000";
           var splits = t.records ? t.records.splitRecords : null;
           var homeRec = getRecord(splits, "home");
           var awayRec = getRecord(splits, "away");
 
           html += "<tr><td>";
-          html += '<img class="team-logo" src="' + logoUrl + '" alt="" onerror="this.style.display=\'none\'">';
-          html += t.team.name;
+          html += "<img class=\"team-logo\" src=\"" + logoUrl + "\" alt=\"\" onerror=\"this.style.display='none'\">";
+          html += "<a class=\"team-link\" onclick=\"showTeam(" + t.team.id + ", '" + t.team.name.replace(/'/g, "\\'") + "', " + w + ", " + l + ", '" + pct + "')\">" + t.team.name + "</a>";
           html += "</td>";
-          html += '<td class="num">' + w + "</td>";
-          html += '<td class="num">' + l + "</td>";
-          html += '<td class="num">' + pct + "</td>";
-          html += '<td class="num">' + gb + "</td>";
-          html += '<td class="num">' + homeRec + "</td>";
-          html += '<td class="num">' + awayRec + "</td>";
-          html += '<td class="num">' + streak + "</td>";
+          html += "<td class=\"num\">" + w + "</td>";
+          html += "<td class=\"num\">" + l + "</td>";
+          html += "<td class=\"num\">" + pct + "</td>";
+          html += "<td class=\"num\">" + gb + "</td>";
+          html += "<td class=\"num\">" + homeRec + "</td>";
+          html += "<td class=\"num\">" + awayRec + "</td>";
+          html += "<td class=\"num\">" + streak + "</td>";
           html += "</tr>";
         }
 
@@ -239,7 +448,7 @@ async function loadStandings() {
       return html;
     }
 
-    var html = '<div class="standings-wrapper">';
+    var html = "<div class=\"standings-wrapper\">";
     html += buildLeague(alOrder, "American League");
     html += buildLeague(nlOrder, "National League");
     html += "</div>";
@@ -250,8 +459,98 @@ async function loadStandings() {
   }
 }
 
+// -------------------------
+// LOAD LEADERS
+// -------------------------
+var hittingStats = [
+  { label: "Batting Avg", stat: "avg" },
+  { label: "Home Runs", stat: "homeRuns" },
+  { label: "RBI", stat: "rbi" }
+];
+var pitchingStats = [
+  { label: "Wins", stat: "wins" },
+  { label: "Strikeouts", stat: "strikeOuts" },
+  { label: "ERA", stat: "era" }
+];
+
+async function fetchLeaders(stat, leagueId) {
+  var res = await fetch(
+    "https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=" + stat + "&leagueId=" + leagueId + "&limit=5"
+  );
+  var data = await res.json();
+  return (data.leagueLeaders && data.leagueLeaders[0] && data.leagueLeaders[0].leaders) ? data.leagueLeaders[0].leaders : [];
+}
+
+function buildLeaderCard(label, leaders) {
+  var html = "<div class=\"leader-card\">";
+  html += "<div class=\"leader-card-title\">" + label + "</div>";
+  for (var i = 0; i < leaders.length; i++) {
+    var p = leaders[i];
+    var personId = p.person && p.person.id ? p.person.id : "";
+    var teamId = p.team && p.team.id ? p.team.id : "";
+    var name = p.person && p.person.fullName ? p.person.fullName : "Unknown";
+    html += "<div class=\"leader-row\">";
+    html += "<span class=\"leader-rank\">" + (i + 1) + "</span>";
+    if (personId) {
+      html += "<img class=\"headshot\" src=\"https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/" + personId + "/headshot/67/current\" onerror=\"this.style.display='none'\">";
+    }
+    html += "<span class=\"leader-name\">" + name + (teamId ? " <img class=\"tlogo\" src=\"https://www.mlbstatic.com/team-logos/" + teamId + ".svg\" onerror=\"this.style.display='none'\">" : "") + "</span>";
+    html += "<span class=\"leader-value\">" + (p.value !== undefined ? p.value : "-") + "</span>";
+    html += "</div>";
+  }
+  html += "</div>";
+  return html;
+}
+
+async function loadLeaders() {
+  var container = document.getElementById("leaders-container");
+
+  try {
+    var html = "<div class=\"leaders-wrapper\">";
+
+    var leagues = [
+      { id: 103, name: "American League" },
+      { id: 104, name: "National League" }
+    ];
+
+    for (var li = 0; li < leagues.length; li++) {
+      var league = leagues[li];
+      html += "<div class=\"leaders-league\">";
+      html += "<div class=\"leaders-league-title\">" + league.name + "</div>";
+
+      html += "<div class=\"leaders-group-title\">Hitting</div>";
+      html += "<div class=\"leaders-grid\">";
+      for (var hi = 0; hi < hittingStats.length; hi++) {
+        var leaders = await fetchLeaders(hittingStats[hi].stat, league.id);
+        html += buildLeaderCard(hittingStats[hi].label, leaders);
+      }
+      html += "</div>";
+
+      html += "<div class=\"leaders-group-title\">Pitching</div>";
+      html += "<div class=\"leaders-grid\">";
+      for (var pi = 0; pi < pitchingStats.length; pi++) {
+        var pleaders = await fetchLeaders(pitchingStats[pi].stat, league.id);
+        html += buildLeaderCard(pitchingStats[pi].label, pleaders);
+      }
+      html += "</div>";
+
+      html += "</div>";
+    }
+
+    html += "</div>";
+    container.innerHTML = html;
+
+  } catch (e) {
+    container.innerHTML = "Error loading leaders: " + e.message;
+  }
+}
+
+// -------------------------
+// INIT
+// -------------------------
 loadGames();
 loadStandings();
+loadLeaders();
 </script>
 </body>
 </html>
