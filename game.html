@@ -71,8 +71,9 @@
 
     .linescore-table thead th { text-align: center; }
     .linescore-table tbody td { text-align: center; }
-    .linescore-table tbody td.left { text-align: left; font-weight: bold; }
-    .linescore-table tbody td.rhe { font-weight: bold; }
+    .linescore-table tbody td.left { text-align: left; font-weight: bold; min-width: 140px; }
+    .linescore-table tbody td.rhe { font-weight: bold; border-left: 1px solid #eee; }
+    .linescore-table thead th.rhe { border-left: 1px solid #eee; }
 
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
@@ -99,9 +100,8 @@
     }
     .note-row { font-size: 0.85em; line-height: 1.7; margin-bottom: 2px; }
     .note-label { font-weight: bold; }
-
-    .winner { font-weight: bold; }
     .pitcher-note { color: #003087; font-weight: bold; font-size: 0.85em; margin-left: 4px; }
+    .winner { font-weight: bold; }
   </style>
 </head>
 <body>
@@ -182,12 +182,10 @@ function renderGame(g) {
   html += "</div>";
 
   // Linescore
-  if (g.lineText) {
-    html += '<div class="section">';
-    html += '<div class="section-title">Line Score</div>';
-    html += buildLinescoreTable(g.lineText);
-    html += "</div>";
-  }
+  html += '<div class="section">';
+  html += '<div class="section-title">Line Score</div>';
+  html += buildLinescoreTable(g.linescoreData);
+  html += "</div>";
 
   // Batting
   html += '<div class="section">';
@@ -225,38 +223,36 @@ function renderGame(g) {
   document.getElementById("content").innerHTML = html;
 }
 
-function buildLinescoreTable(lineText) {
-  var lines = lineText.split("\n");
-  if (lines.length < 3) return "<pre>" + lineText + "</pre>";
+function buildLinescoreTable(ld) {
+  if (!ld) return "<p>No line score available.</p>";
 
-  function parseLine(line) {
-    return line.trim().split(/\s+/);
-  }
-
-  var headerParts = parseLine(lines[0]);
-  var awayParts = parseLine(lines[1]);
-  var homeParts = parseLine(lines[2]);
+  var numInnings = ld.innings || 9;
 
   var html = '<table class="linescore-table"><thead><tr>';
   html += '<th class="left">Team</th>';
-  for (var i = 1; i < headerParts.length; i++) {
-    html += "<th>" + headerParts[i] + "</th>";
+  for (var i = 1; i <= numInnings; i++) {
+    html += "<th>" + i + "</th>";
   }
+  html += '<th class="rhe">R</th>';
+  html += '<th class="rhe">H</th>';
+  html += '<th class="rhe">E</th>';
   html += "</tr></thead><tbody>";
 
-  function buildRow(parts) {
-    var row = '<tr><td class="left">' + parts[0] + "</td>";
-    var total = parts.length;
-    for (var i = 1; i < total; i++) {
-      var cls = (i >= total - 3) ? ' class="rhe"' : "";
-      row += "<td" + cls + ">" + parts[i] + "</td>";
+  function buildRow(team) {
+    var row = '<tr><td class="left">' + team.name + "</td>";
+    for (var i = 0; i < numInnings; i++) {
+      var val = team.innings[i] !== undefined ? team.innings[i] : "-";
+      row += "<td>" + val + "</td>";
     }
+    row += '<td class="rhe">' + team.r + "</td>";
+    row += '<td class="rhe">' + team.h + "</td>";
+    row += '<td class="rhe">' + team.e + "</td>";
     row += "</tr>";
     return row;
   }
 
-  html += buildRow(awayParts);
-  html += buildRow(homeParts);
+  html += buildRow(ld.away);
+  html += buildRow(ld.home);
   html += "</tbody></table>";
   return html;
 }
