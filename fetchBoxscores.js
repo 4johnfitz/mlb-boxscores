@@ -82,13 +82,15 @@ function extractBatters(teamBoxscore) {
   if (!teamBoxscore || !teamBoxscore.batters || !teamBoxscore.players) return rows;
   var batters = teamBoxscore.batters;
   for (var i = 0; i < batters.length; i++) {
-    var id = "ID" + batters[i];
+    var playerId = batters[i];
+    var id = "ID" + playerId;
     var player = teamBoxscore.players[id];
     if (!player) continue;
     var name = player.person ? player.person.fullName : "Unknown";
     var pos = player.position ? player.position.abbreviation : "";
     var s = player.stats && player.stats.batting ? player.stats.batting : {};
     rows.push({
+      id: playerId,
       name: name,
       pos: pos,
       ab: s.atBats !== undefined ? s.atBats : 0,
@@ -102,6 +104,7 @@ function extractBatters(teamBoxscore) {
   }
   var ts = teamBoxscore.teamStats && teamBoxscore.teamStats.batting ? teamBoxscore.teamStats.batting : {};
   rows.push({
+    id: null,
     name: "TOTALS",
     pos: "",
     ab: ts.atBats !== undefined ? ts.atBats : 0,
@@ -121,7 +124,8 @@ function extractPitchers(teamBoxscore) {
   if (!teamBoxscore || !teamBoxscore.pitchers || !teamBoxscore.players) return rows;
   var pitchers = teamBoxscore.pitchers;
   for (var i = 0; i < pitchers.length; i++) {
-    var id = "ID" + pitchers[i];
+    var playerId = pitchers[i];
+    var id = "ID" + playerId;
     var player = teamBoxscore.players[id];
     if (!player) continue;
     var name = player.person ? player.person.fullName : "Unknown";
@@ -133,6 +137,7 @@ function extractPitchers(teamBoxscore) {
     else if (s.holds > 0) note = "H";
     else if (s.blownSaves > 0) note = "BS";
     rows.push({
+      id: playerId,
       name: name,
       note: note,
       ip: s.inningsPitched !== undefined ? s.inningsPitched : "0.0",
