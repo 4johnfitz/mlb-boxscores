@@ -8,7 +8,43 @@
     "awayScore": 17,
     "homeScore": 1,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9  R  H  E\nBoston Re  0 3 0 1 3 0 0 0 10  17  17  1\nBaltimore  0 0 0 0 0 0 1 0 0  1  6  3",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "Boston Red Sox",
+        "innings": [
+          0,
+          3,
+          0,
+          1,
+          3,
+          0,
+          0,
+          0,
+          10
+        ],
+        "r": 17,
+        "h": 17,
+        "e": 1
+      },
+      "home": {
+        "name": "Baltimore Orioles",
+        "innings": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "r": 1,
+        "h": 6,
+        "e": 3
+      }
+    },
     "awayBatters": [
       {
         "name": "Ceddanne Rafaela",
@@ -637,7 +673,43 @@
     "awayScore": 11,
     "homeScore": 9,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9  R  H  E\nSeattle M  2 2 0 1 1 1 0 2 2  11  19  0\nSt. Louis  2 1 4 0 0 0 2 0 0  9  14  0",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "Seattle Mariners",
+        "innings": [
+          2,
+          2,
+          0,
+          1,
+          1,
+          1,
+          0,
+          2,
+          2
+        ],
+        "r": 11,
+        "h": 19,
+        "e": 0
+      },
+      "home": {
+        "name": "St. Louis Cardinals",
+        "innings": [
+          2,
+          1,
+          4,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        "r": 9,
+        "h": 14,
+        "e": 0
+      }
+    },
     "awayBatters": [
       {
         "name": "Rob Refsnyder",
@@ -1419,7 +1491,43 @@
     "awayScore": 3,
     "homeScore": 5,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9  R  H  E\nCleveland  0 0 1 0 0 0 1 0 1  3  9  1\nToronto B  0 0 0 1 0 3 1 0 -  5  9  0",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "Cleveland Guardians",
+        "innings": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        "r": 3,
+        "h": 9,
+        "e": 1
+      },
+      "home": {
+        "name": "Toronto Blue Jays",
+        "innings": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          3,
+          1,
+          0,
+          "-"
+        ],
+        "r": 5,
+        "h": 9,
+        "e": 0
+      }
+    },
     "awayBatters": [
       {
         "name": "Angel Martínez",
@@ -2034,7 +2142,43 @@
     "awayScore": 2,
     "homeScore": 6,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9  R  H  E\nMiami Mar  0 0 1 0 0 0 0 0 1  2  6  0\nSan Franc  0 0 0 0 1 3 0 2 -  6  11  1",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "Miami Marlins",
+        "innings": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "r": 2,
+        "h": 6,
+        "e": 0
+      },
+      "home": {
+        "name": "San Francisco Giants",
+        "innings": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          3,
+          0,
+          2,
+          "-"
+        ],
+        "r": 6,
+        "h": 11,
+        "e": 1
+      }
+    },
     "awayBatters": [
       {
         "name": "Agustín Ramírez",
@@ -2640,7 +2784,43 @@
     "awayScore": 1,
     "homeScore": 6,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9  R  H  E\nMinnesota  0 0 0 0 0 0 0 0 1  1  5  0\nTampa Bay  0 0 0 2 0 0 3 1 -  6  8  3",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "Minnesota Twins",
+        "innings": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "r": 1,
+        "h": 5,
+        "e": 0
+      },
+      "home": {
+        "name": "Tampa Bay Rays",
+        "innings": [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          3,
+          1,
+          "-"
+        ],
+        "r": 6,
+        "h": 8,
+        "e": 3
+      }
+    },
     "awayBatters": [
       {
         "name": "Byron Buxton",
@@ -3253,7 +3433,45 @@
     "awayScore": 6,
     "homeScore": 3,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9 10  R  H  E\nWashingto  0 0 0 2 0 0 0 0 0 4  6  6  1\nChicago W  0 0 0 0 0 0 0 2 0 1  3  7  0",
+    "linescoreData": {
+      "innings": 10,
+      "away": {
+        "name": "Washington Nationals",
+        "innings": [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4
+        ],
+        "r": 6,
+        "h": 6,
+        "e": 1
+      },
+      "home": {
+        "name": "Chicago White Sox",
+        "innings": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          1
+        ],
+        "r": 3,
+        "h": 7,
+        "e": 0
+      }
+    },
     "awayBatters": [
       {
         "name": "James Wood",
@@ -3996,7 +4214,43 @@
     "awayScore": 6,
     "homeScore": 4,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9  R  H  E\nSan Diego  0 0 0 0 1 0 4 0 1  6  6  1\nArizona D  0 4 0 0 0 0 0 0 0  4  7  3",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "San Diego Padres",
+        "innings": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          4,
+          0,
+          1
+        ],
+        "r": 6,
+        "h": 6,
+        "e": 1
+      },
+      "home": {
+        "name": "Arizona Diamondbacks",
+        "innings": [
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "r": 4,
+        "h": 7,
+        "e": 3
+      }
+    },
     "awayBatters": [
       {
         "name": "Ramón Laureano",
@@ -4641,7 +4895,43 @@
     "awayScore": 3,
     "homeScore": 4,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9  R  H  E\nAthletics  0 1 2 0 0 0 0 0 0  3  7  0\nTexas Ran  0 0 2 0 0 2 0 0 -  4  5  1",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "Athletics",
+        "innings": [
+          0,
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "r": 3,
+        "h": 7,
+        "e": 0
+      },
+      "home": {
+        "name": "Texas Rangers",
+        "innings": [
+          0,
+          0,
+          2,
+          0,
+          0,
+          2,
+          0,
+          0,
+          "-"
+        ],
+        "r": 4,
+        "h": 5,
+        "e": 1
+      }
+    },
     "awayBatters": [
       {
         "name": "Shea Langeliers",
@@ -5229,7 +5519,43 @@
     "awayScore": 1,
     "homeScore": 12,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9  R  H  E\nLos Angel  0 0 0 1 0 0 0 0 0  1  8  3\nKansas Ci  0 2 2 0 0 1 3 4 -  12  14  0",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "Los Angeles Angels",
+        "innings": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "r": 1,
+        "h": 8,
+        "e": 3
+      },
+      "home": {
+        "name": "Kansas City Royals",
+        "innings": [
+          0,
+          2,
+          2,
+          0,
+          0,
+          1,
+          3,
+          4,
+          "-"
+        ],
+        "r": 12,
+        "h": 14,
+        "e": 0
+      }
+    },
     "awayBatters": [
       {
         "name": "Zach Neto",
@@ -5904,7 +6230,43 @@
     "awayScore": 8,
     "homeScore": 3,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9  R  H  E\nNew York   0 0 1 0 1 0 3 1 2  8  12  0\nHouston A  1 0 0 0 0 1 0 0 1  3  7  0",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "New York Yankees",
+        "innings": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          3,
+          1,
+          2
+        ],
+        "r": 8,
+        "h": 12,
+        "e": 0
+      },
+      "home": {
+        "name": "Houston Astros",
+        "innings": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "r": 3,
+        "h": 7,
+        "e": 0
+      }
+    },
     "awayBatters": [
       {
         "name": "Trent Grisham",
@@ -6564,7 +6926,45 @@
     "awayScore": 6,
     "homeScore": 3,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9 10  R  H  E\nPittsburg  0 0 0 2 0 1 0 0 0 3  6  9  1\nMilwaukee  0 0 0 2 0 1 0 0 0 0  3  6  1",
+    "linescoreData": {
+      "innings": 10,
+      "away": {
+        "name": "Pittsburgh Pirates",
+        "innings": [
+          0,
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          3
+        ],
+        "r": 6,
+        "h": 9,
+        "e": 1
+      },
+      "home": {
+        "name": "Milwaukee Brewers",
+        "innings": [
+          0,
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "r": 3,
+        "h": 6,
+        "e": 1
+      }
+    },
     "awayBatters": [
       {
         "name": "Oneil Cruz",
@@ -7248,7 +7648,43 @@
     "awayScore": 2,
     "homeScore": 9,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9  R  H  E\nDetroit T  1 0 0 1 0 0 0 0 0  2  10  0\nCincinnat  4 2 0 0 0 2 0 1 -  9  10  0",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "Detroit Tigers",
+        "innings": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "r": 2,
+        "h": 10,
+        "e": 0
+      },
+      "home": {
+        "name": "Cincinnati Reds",
+        "innings": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          2,
+          0,
+          1,
+          "-"
+        ],
+        "r": 9,
+        "h": 10,
+        "e": 0
+      }
+    },
     "awayBatters": [
       {
         "name": "Kevin McGonigle",
@@ -7905,7 +8341,43 @@
     "awayScore": 4,
     "homeScore": 12,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9  R  H  E\nChicago C  0 1 1 1 1 0 0 0 0  4  9  0\nLos Angel  0 0 2 6 0 4 0 0 -  12  14  1",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "Chicago Cubs",
+        "innings": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "r": 4,
+        "h": 9,
+        "e": 0
+      },
+      "home": {
+        "name": "Los Angeles Dodgers",
+        "innings": [
+          0,
+          0,
+          2,
+          6,
+          0,
+          4,
+          0,
+          0,
+          "-"
+        ],
+        "r": 12,
+        "h": 14,
+        "e": 1
+      }
+    },
     "awayBatters": [
       {
         "name": "Nico Hoerner",
@@ -8536,7 +9008,45 @@
     "awayScore": 8,
     "homeScore": 5,
     "state": "Final",
-    "lineText": "Team       1 2 3 4 5 6 7 8 9 10  R  H  E\nPhiladelp  1 0 0 1 1 0 0 1 0 4  8  11  0\nAtlanta B  0 0 0 2 0 2 0 0 0 1  5  9  0",
+    "linescoreData": {
+      "innings": 10,
+      "away": {
+        "name": "Philadelphia Phillies",
+        "innings": [
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          4
+        ],
+        "r": 8,
+        "h": 11,
+        "e": 0
+      },
+      "home": {
+        "name": "Atlanta Braves",
+        "innings": [
+          0,
+          0,
+          0,
+          2,
+          0,
+          2,
+          0,
+          0,
+          0,
+          1
+        ],
+        "r": 5,
+        "h": 9,
+        "e": 0
+      }
+    },
     "awayBatters": [
       {
         "name": "Trea Turner",
@@ -9213,7 +9723,29 @@
     "awayScore": 1,
     "homeScore": 0,
     "state": "Final",
-    "lineText": "Team       1 2  R  H  E\nColorado   0 1  1  1  0\nNew York   0 -  0  1  0",
+    "linescoreData": {
+      "innings": 2,
+      "away": {
+        "name": "Colorado Rockies",
+        "innings": [
+          0,
+          1
+        ],
+        "r": 1,
+        "h": 1,
+        "e": 0
+      },
+      "home": {
+        "name": "New York Mets",
+        "innings": [
+          0,
+          0
+        ],
+        "r": 0,
+        "h": 2,
+        "e": 0
+      }
+    },
     "awayBatters": [
       {
         "name": "Edouard Julien",
@@ -9295,7 +9827,7 @@
       {
         "name": "Ezequiel Tovar",
         "pos": "SS",
-        "ab": 0,
+        "ab": 1,
         "r": 0,
         "h": 0,
         "rbi": 0,
@@ -9306,7 +9838,7 @@
       {
         "name": "Brenton Doyle",
         "pos": "CF",
-        "ab": 0,
+        "ab": 1,
         "r": 0,
         "h": 0,
         "rbi": 0,
@@ -9328,7 +9860,7 @@
       {
         "name": "TOTALS",
         "pos": "",
-        "ab": 5,
+        "ab": 7,
         "r": 1,
         "h": 1,
         "rbi": 1,
@@ -9397,9 +9929,9 @@
       {
         "name": "Marcus Semien",
         "pos": "2B",
-        "ab": 0,
+        "ab": 1,
         "r": 0,
-        "h": 0,
+        "h": 1,
         "rbi": 0,
         "bb": 0,
         "so": 0,
@@ -9408,7 +9940,7 @@
       {
         "name": "Carson Benge",
         "pos": "RF",
-        "ab": 0,
+        "ab": 1,
         "r": 0,
         "h": 0,
         "rbi": 0,
@@ -9419,12 +9951,12 @@
       {
         "name": "Ronny Mauricio",
         "pos": "SS",
-        "ab": 0,
+        "ab": 1,
         "r": 0,
         "h": 0,
         "rbi": 0,
         "bb": 0,
-        "so": 0,
+        "so": 1,
         "avg": ""
       },
       {
@@ -9452,12 +9984,12 @@
       {
         "name": "TOTALS",
         "pos": "",
-        "ab": 4,
+        "ab": 7,
         "r": 0,
-        "h": 1,
+        "h": 2,
         "rbi": 0,
         "bb": 1,
-        "so": 1,
+        "so": 2,
         "avg": "",
         "isTotal": true
       }
@@ -9466,12 +9998,12 @@
       {
         "name": "Chase Dollander",
         "note": "",
-        "ip": "1.0",
-        "h": 1,
+        "ip": "2.0",
+        "h": 2,
         "r": 0,
         "er": 0,
         "bb": 1,
-        "so": 1,
+        "so": 2,
         "era": ""
       }
     ],
@@ -9479,7 +10011,7 @@
       {
         "name": "Kodai Senga",
         "note": "",
-        "ip": "1.1",
+        "ip": "2.0",
         "h": 1,
         "r": 1,
         "er": 1,
@@ -9501,8 +10033,16 @@
             "value": "Johnston, T (16)."
           },
           {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Doyle, B."
+          },
+          {
             "label": "Team RISP",
-            "value": "1-for-2."
+            "value": "1-for-4."
+          },
+          {
+            "label": "Team LOB",
+            "value": "2."
           }
         ]
       },
@@ -9520,7 +10060,7 @@
         "fields": [
           {
             "label": "TB",
-            "value": "Soto, J."
+            "value": "Semien; Soto, J."
           },
           {
             "label": "Runners left in scoring position, 2 out",
@@ -9537,6 +10077,15 @@
         ]
       },
       {
+        "title": "New York Mets BASERUNNING",
+        "fields": [
+          {
+            "label": "CS",
+            "value": "Semien (1, 2nd base by Dollander/Goodman)."
+          }
+        ]
+      },
+      {
         "title": "GAME INFO",
         "fields": [
           {
@@ -9545,15 +10094,15 @@
           },
           {
             "label": "Pitches-strikes",
-            "value": "Dollander 23-10; Senga 25-16."
+            "value": "Dollander 35-18; Senga 34-23."
           },
           {
             "label": "Groundouts-flyouts",
-            "value": "Dollander 1-1; Senga 2-1."
+            "value": "Dollander 2-1; Senga 2-2."
           },
           {
             "label": "Batters faced",
-            "value": "Dollander 5; Senga 7."
+            "value": "Dollander 8; Senga 9."
           },
           {
             "label": "Umpires",
