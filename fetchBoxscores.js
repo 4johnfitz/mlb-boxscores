@@ -44,35 +44,37 @@ async function getBoxscore(gamePk) {
   return await res.json();
 }
 
-function formatLineScore(linescore, awayName, homeName) {
-  const innings = linescore.innings || [];
-  let header = "Team      ";
-  for (let i = 0; i < innings.length; i++) {
-    header += " " + (i + 1);
-  }
-  header += "  R  H  E";
+function extractLinescore(linescore, awayName, homeName) {
+  var innings = linescore.innings || [];
+  var awayInnings = [];
+  var homeInnings = [];
 
-  function teamLine(team, name) {
-    let line = name.substring(0, 9).padEnd(10);
-    for (let i = 0; i < innings.length; i++) {
-      var inning = innings[i];
-      var runs;
-      if (team === "away") {
-        runs = inning.away && inning.away.runs !== undefined ? inning.away.runs : "-";
-      } else {
-        runs = inning.home && inning.home.runs !== undefined ? inning.home.runs : "-";
-      }
-      line += " " + runs;
+  for (var i = 0; i < innings.length; i++) {
+    var inning = innings[i];
+    awayInnings.push(inning.away && inning.away.runs !== undefined ? inning.away.runs : "-");
+    homeInnings.push(inning.home && inning.home.runs !== undefined ? inning.home.runs : "-");
+  }
+
+  var awayTotals = linescore.teams && linescore.teams.away ? linescore.teams.away : {};
+  var homeTotals = linescore.teams && linescore.teams.home ? linescore.teams.home : {};
+
+  return {
+    innings: innings.length,
+    away: {
+      name: awayName,
+      innings: awayInnings,
+      r: awayTotals.runs !== undefined ? awayTotals.runs : 0,
+      h: awayTotals.hits !== undefined ? awayTotals.hits : 0,
+      e: awayTotals.errors !== undefined ? awayTotals.errors : 0
+    },
+    home: {
+      name: homeName,
+      innings: homeInnings,
+      r: homeTotals.runs !== undefined ? homeTotals.runs : 0,
+      h: homeTotals.hits !== undefined ? homeTotals.hits : 0,
+      e: homeTotals.errors !== undefined ? homeTotals.errors : 0
     }
-    var totals = team === "away" ? linescore.teams.away : linescore.teams.home;
-    var r = totals && totals.runs !== undefined ? totals.runs : 0;
-    var h = totals && totals.hits !== undefined ? totals.hits : 0;
-    var e = totals && totals.errors !== undefined ? totals.errors : 0;
-    line += "  " + r + "  " + h + "  " + e;
-    return line;
-  }
-
-  return header + "\n" + teamLine("away", awayName) + "\n" + teamLine("home", homeName);
+  };
 }
 
 function extractBatters(teamBoxscore) {
@@ -148,8 +150,6 @@ function extractPitchers(teamBoxscore) {
 function extractNotes(boxscore, awayName, homeName) {
   var sections = [];
 
-  // Team-level notes (BATTING, BASERUNNING, FIELDING per team)
-  // Structure: teams.away.info = [{title: "BATTING", fieldList: [{label, value}, ...]}, ...]
   function processTeamInfo(infoArr, teamLabel) {
     if (!infoArr || !infoArr.length) return;
     for (var i = 0; i < infoArr.length; i++) {
@@ -173,8 +173,6 @@ function extractNotes(boxscore, awayName, homeName) {
     if (boxscore.teams.home) processTeamInfo(boxscore.teams.home.info, homeName);
   }
 
-  // Game-level notes (HBP, weather, umpires, attendance etc.)
-  // Structure: info = [{label, value}, ...]
   if (boxscore.info && boxscore.info.length) {
     var gameFields = [];
     for (var i = 0; i < boxscore.info.length; i++) {
@@ -238,12 +236,12 @@ async function run() {
       }
     }
 
-    var lineText = "No line score available";
+    var linescoreData = null;
     if (linescore) {
       try {
-        lineText = formatLineScore(linescore, awayName, homeName);
+        linescoreData = extractLinescore(linescore, awayName, homeName);
       } catch (err) {
-        console.log("Error formatting linescore: " + gamePk);
+        console.log("Error extracting linescore: " + gamePk);
       }
     }
 
@@ -270,7 +268,7 @@ async function run() {
       awayScore: awayScore,
       homeScore: homeScore,
       state: state,
-      lineText: lineText,
+      linescoreData: linescoreData,
       awayBatters: awayBatters,
       homeBatters: homeBatters,
       awayPitchers: awayPitchers,
