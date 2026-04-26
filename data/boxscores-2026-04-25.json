@@ -7822,7 +7822,7 @@
     "awayScore": 0,
     "homeScore": 0,
     "state": "Final",
-    "lineText": "Team       1  R  H  E\nColorado   0  0  0  0\nNew York   0  0  1  0",
+    "lineText": "Team       1 2  R  H  E\nColorado   0 -  0  0  0\nNew York   0 -  0  1  0",
     "awayBatters": [
       {
         "name": "Edouard Julien",
@@ -8114,8 +8114,12 @@
         "isHeader": true
       },
       {
+        "label": "HBP",
+        "value": "Freeman, T (by Senga)."
+      },
+      {
         "label": "Pitches-strikes",
-        "value": "Dollander 23-10; Senga 8-7."
+        "value": "Dollander 23-10; Senga 11-8."
       },
       {
         "label": "Groundouts-flyouts",
@@ -8123,7 +8127,7 @@
       },
       {
         "label": "Batters faced",
-        "value": "Dollander 5; Senga 3."
+        "value": "Dollander 5; Senga 4."
       },
       {
         "label": "Umpires",
