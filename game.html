@@ -102,6 +102,99 @@
     .note-label { font-weight: bold; }
     .pitcher-note { color: #003087; font-weight: bold; font-size: 0.85em; margin-left: 4px; }
     .winner { font-weight: bold; }
+
+    /* Player link */
+    .player-link {
+      color: #003087;
+      text-decoration: none;
+      cursor: pointer;
+      border-bottom: 1px dotted #003087;
+    }
+    .player-link:hover { color: #0055aa; }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white;
+      border-radius: 10px;
+      padding: 0;
+      width: 480px;
+      max-width: 95vw;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 20px 16px;
+      border-bottom: 1px solid #eee;
+      position: relative;
+    }
+    .modal-header img.player-photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #f0f0f0;
+      border: 1px solid #ddd;
+    }
+    .modal-header .player-info { flex: 1; }
+    .modal-header .player-name { font-size: 1.1em; font-weight: bold; color: #003087; }
+    .modal-header .player-meta { font-size: 0.82em; color: #888; margin-top: 2px; }
+    .modal-close {
+      position: absolute;
+      top: 12px; right: 14px;
+      font-size: 1.4em;
+      color: #aaa;
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .modal-close:hover { color: #333; }
+    .modal-body { padding: 16px 20px 20px; }
+    .modal-stat-title {
+      font-size: 0.75em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #003087;
+      margin-bottom: 10px;
+    }
+    .modal-stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85em;
+    }
+    .modal-stats-table th {
+      text-align: right;
+      color: #888;
+      font-weight: normal;
+      font-size: 0.8em;
+      padding: 4px 8px;
+      border-bottom: 1px solid #eee;
+    }
+    .modal-stats-table th.left { text-align: left; }
+    .modal-stats-table td {
+      text-align: right;
+      padding: 6px 8px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .modal-stats-table td.left { text-align: left; font-weight: bold; }
+    .modal-loading { color: #aaa; font-size: 0.9em; padding: 20px 0; text-align: center; }
+    .modal-error { color: #c00; font-size: 0.85em; padding: 10px 0; }
   </style>
 </head>
 <body>
@@ -113,8 +206,114 @@
 
 <div id="content">Loading...</div>
 
+<!-- Player Modal -->
+<div class="modal-overlay" id="playerModal">
+  <div class="modal">
+    <div class="modal-header" id="modalHeader">
+      <img class="player-photo" id="modalPhoto" src="" alt="">
+      <div class="player-info">
+        <div class="player-name" id="modalName"></div>
+        <div class="player-meta" id="modalMeta"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">x</button>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <div class="modal-loading">Loading stats...</div>
+    </div>
+  </div>
+</div>
+
 <script>
 var gamePk = new URLSearchParams(window.location.search).get("gamePk");
+
+// Close modal on overlay click
+document.getElementById("playerModal").addEventListener("click", function(e) {
+  if (e.target === this) closeModal();
+});
+
+function openModal() {
+  document.getElementById("playerModal").classList.add("open");
+}
+
+function closeModal() {
+  document.getElementById("playerModal").classList.remove("open");
+}
+
+async function showPlayer(playerId, playerName, playerPos, playerType) {
+  document.getElementById("modalName").textContent = playerName;
+  document.getElementById("modalMeta").textContent = playerPos;
+  document.getElementById("modalPhoto").src = "https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_120,q_auto:best/v1/people/" + playerId + "/headshot/67/current";
+  document.getElementById("modalBody").innerHTML = '<div class="modal-loading">Loading stats...</div>';
+  openModal();
+
+  try {
+    var season = new Date().getFullYear();
+    var url = "https://statsapi.mlb.com/api/v1/people/" + playerId + "/stats?stats=season&season=" + season + "&group=hitting,pitching&sportId=1";
+    var res = await fetch(url);
+    var data = await res.json();
+
+    var html = "";
+
+    if (!data.stats || !data.stats.length) {
+      html = '<div class="modal-error">No season stats available.</div>';
+    } else {
+      for (var i = 0; i < data.stats.length; i++) {
+        var statGroup = data.stats[i];
+        var groupType = statGroup.group && statGroup.group.displayName ? statGroup.group.displayName : "";
+        var splits = statGroup.splits;
+        if (!splits || !splits.length) continue;
+        var s = splits[0].stat;
+
+        if (groupType === "hitting") {
+          html += '<div class="modal-stat-title">2026 Batting</div>';
+          html += '<table class="modal-stats-table"><thead><tr>';
+          html += "<th>G</th><th>AB</th><th>R</th><th>H</th><th>2B</th><th>3B</th><th>HR</th><th>RBI</th><th>BB</th><th>SO</th><th>AVG</th><th>OBP</th><th>SLG</th>";
+          html += "</tr></thead><tbody><tr>";
+          html += "<td>" + (s.gamesPlayed || 0) + "</td>";
+          html += "<td>" + (s.atBats || 0) + "</td>";
+          html += "<td>" + (s.runs || 0) + "</td>";
+          html += "<td>" + (s.hits || 0) + "</td>";
+          html += "<td>" + (s.doubles || 0) + "</td>";
+          html += "<td>" + (s.triples || 0) + "</td>";
+          html += "<td>" + (s.homeRuns || 0) + "</td>";
+          html += "<td>" + (s.rbi || 0) + "</td>";
+          html += "<td>" + (s.baseOnBalls || 0) + "</td>";
+          html += "<td>" + (s.strikeOuts || 0) + "</td>";
+          html += "<td>" + (s.avg || ".000") + "</td>";
+          html += "<td>" + (s.obp || ".000") + "</td>";
+          html += "<td>" + (s.slg || ".000") + "</td>";
+          html += "</tr></tbody></table>";
+        }
+
+        if (groupType === "pitching") {
+          html += '<div class="modal-stat-title" style="margin-top:14px;">2026 Pitching</div>';
+          html += '<table class="modal-stats-table"><thead><tr>';
+          html += "<th>G</th><th>GS</th><th>W</th><th>L</th><th>SV</th><th>IP</th><th>H</th><th>ER</th><th>BB</th><th>SO</th><th>ERA</th><th>WHIP</th>";
+          html += "</tr></thead><tbody><tr>";
+          html += "<td>" + (s.gamesPlayed || 0) + "</td>";
+          html += "<td>" + (s.gamesStarted || 0) + "</td>";
+          html += "<td>" + (s.wins || 0) + "</td>";
+          html += "<td>" + (s.losses || 0) + "</td>";
+          html += "<td>" + (s.saves || 0) + "</td>";
+          html += "<td>" + (s.inningsPitched || "0.0") + "</td>";
+          html += "<td>" + (s.hits || 0) + "</td>";
+          html += "<td>" + (s.earnedRuns || 0) + "</td>";
+          html += "<td>" + (s.baseOnBalls || 0) + "</td>";
+          html += "<td>" + (s.strikeOuts || 0) + "</td>";
+          html += "<td>" + (s.era || "-.--") + "</td>";
+          html += "<td>" + (s.whip || "-.--") + "</td>";
+          html += "</tr></tbody></table>";
+        }
+      }
+    }
+
+    if (!html) html = '<div class="modal-error">No stats found.</div>';
+    document.getElementById("modalBody").innerHTML = html;
+
+  } catch (err) {
+    document.getElementById("modalBody").innerHTML = '<div class="modal-error">Error loading stats: ' + err.message + "</div>";
+  }
+}
 
 async function loadGame() {
   var content = document.getElementById("content");
@@ -155,6 +354,10 @@ async function loadGame() {
   renderGame(game);
 }
 
+function playerLink(playerId, playerName, playerPos, playerType) {
+  return '<a class="player-link" onclick="showPlayer(' + playerId + ', \'' + playerName.replace(/'/g, "\\'") + '\', \'' + playerPos + '\', \'' + playerType + '\')">' + playerName + "</a>";
+}
+
 function renderGame(g) {
   var awayScore = g.awayScore !== undefined ? g.awayScore : "?";
   var homeScore = g.homeScore !== undefined ? g.homeScore : "?";
@@ -172,7 +375,7 @@ function renderGame(g) {
   html += '<span class="team-name' + (awayWon ? " winner" : "") + '">' + g.away + "</span>";
   html += '<div class="score">';
   html += '<span class="' + (awayWon ? "winner" : "") + '">' + awayScore + "</span>";
-  html += '<span class="sep">—</span>';
+  html += '<span class="sep">—</span>";
   html += '<span class="' + (homeWon ? "winner" : "") + '">' + homeScore + "</span>";
   html += "</div>";
   html += '<span class="team-name' + (homeWon ? " winner" : "") + '">' + g.home + "</span>";
@@ -225,17 +428,13 @@ function renderGame(g) {
 
 function buildLinescoreTable(ld) {
   if (!ld) return "<p>No line score available.</p>";
-
   var numInnings = ld.innings || 9;
-
   var html = '<table class="linescore-table"><thead><tr>';
   html += '<th class="left">Team</th>';
   for (var i = 1; i <= numInnings; i++) {
     html += "<th>" + i + "</th>";
   }
-  html += '<th class="rhe">R</th>';
-  html += '<th class="rhe">H</th>';
-  html += '<th class="rhe">E</th>';
+  html += '<th class="rhe">R</th><th class="rhe">H</th><th class="rhe">E</th>';
   html += "</tr></thead><tbody>";
 
   function buildRow(team) {
@@ -266,7 +465,13 @@ function buildBattingTable(batters) {
   for (var i = 0; i < batters.length; i++) {
     var b = batters[i];
     var rowClass = b.isTotal ? ' class="total-row"' : "";
-    var nameStr = b.isTotal ? "TOTALS" : b.name + (b.pos ? ' <span style="color:#aaa;font-size:0.85em;">' + b.pos + "</span>" : "");
+    var nameStr;
+    if (b.isTotal) {
+      nameStr = "TOTALS";
+    } else {
+      nameStr = playerLink(b.id, b.name, b.pos, "batter") +
+        (b.pos ? ' <span style="color:#aaa;font-size:0.85em;">' + b.pos + "</span>" : "");
+    }
     html += "<tr" + rowClass + ">";
     html += '<td class="left">' + nameStr + "</td>";
     html += "<td>" + b.ab + "</td>";
@@ -290,7 +495,8 @@ function buildPitchingTable(pitchers) {
   html += "</tr></thead><tbody>";
   for (var i = 0; i < pitchers.length; i++) {
     var p = pitchers[i];
-    var nameStr = p.name + (p.note ? '<span class="pitcher-note">(' + p.note + ")</span>" : "");
+    var nameStr = playerLink(p.id, p.name, "P", "pitcher") +
+      (p.note ? '<span class="pitcher-note">(' + p.note + ")</span>" : "");
     html += "<tr>";
     html += '<td class="left">' + nameStr + "</td>";
     html += "<td>" + p.ip + "</td>";
