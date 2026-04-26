@@ -10,7 +10,6 @@
     .top-nav a { margin-right: 15px; text-decoration: none; color: #0055aa; font-weight: bold; font-size: 0.9em; }
     .top-nav a:hover { text-decoration: underline; }
 
-    /* Game header */
     .game-header {
       background: white;
       border: 1px solid #ddd;
@@ -30,7 +29,6 @@
     .game-header .score .sep { color: #aaa; margin: 0 8px; font-weight: normal; }
     .game-header .state { font-size: 0.85em; color: #888; margin-top: 4px; }
 
-    /* Linescore */
     .section {
       background: white;
       border: 1px solid #ddd;
@@ -50,7 +48,6 @@
       margin-bottom: 12px;
     }
 
-    /* Tables */
     table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
     thead th {
       text-align: right;
@@ -72,13 +69,11 @@
     tbody tr:hover td { background: #f9f9f9; }
     tbody tr.total-row:hover td { background: #fafafa; }
 
-    /* Linescore table */
     .linescore-table thead th { text-align: center; }
     .linescore-table tbody td { text-align: center; }
     .linescore-table tbody td.left { text-align: left; font-weight: bold; }
     .linescore-table tbody td.rhe { font-weight: bold; }
 
-    /* Side by side batting/pitching */
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
 
@@ -91,13 +86,22 @@
       letter-spacing: 0.05em;
     }
 
-    /* Notes */
-    .notes-block { font-size: 0.85em; line-height: 1.7; }
-    .notes-block .note-header { font-weight: bold; margin-top: 10px; margin-bottom: 2px; color: #003087; }
-    .notes-block .note-row { margin-bottom: 2px; }
-    .notes-block .note-label { font-weight: bold; }
+    .notes-section { margin-bottom: 16px; }
+    .notes-section-title {
+      font-size: 0.8em;
+      font-weight: bold;
+      color: #003087;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #eee;
+    }
+    .note-row { font-size: 0.85em; line-height: 1.7; margin-bottom: 2px; }
+    .note-label { font-weight: bold; }
 
     .winner { font-weight: bold; }
+    .pitcher-note { color: #003087; font-weight: bold; font-size: 0.85em; margin-left: 4px; }
   </style>
 </head>
 <body>
@@ -156,7 +160,6 @@ function renderGame(g) {
   var homeScore = g.homeScore !== undefined ? g.homeScore : "?";
   var awayWon = awayScore > homeScore;
   var homeWon = homeScore > awayScore;
-
   var awayId = g.awayId || "";
   var homeId = g.homeId || "";
 
@@ -166,56 +169,57 @@ function renderGame(g) {
   html += '<div class="game-header">';
   html += '<div class="matchup">';
   if (awayId) html += '<img src="https://www.mlbstatic.com/team-logos/' + awayId + '.svg" onerror="this.style.display=\'none\'">';
-  html += '<span class="team-name' + (awayWon ? ' winner' : '') + '">' + g.away + '</span>';
+  html += '<span class="team-name' + (awayWon ? " winner" : "") + '">' + g.away + "</span>";
   html += '<div class="score">';
-  html += '<span class="' + (awayWon ? 'winner' : '') + '">' + awayScore + '</span>';
+  html += '<span class="' + (awayWon ? "winner" : "") + '">' + awayScore + "</span>";
   html += '<span class="sep">—</span>';
-  html += '<span class="' + (homeWon ? 'winner' : '') + '">' + homeScore + '</span>';
-  html += '</div>';
-  html += '<span class="team-name' + (homeWon ? ' winner' : '') + '">' + g.home + '</span>';
+  html += '<span class="' + (homeWon ? "winner" : "") + '">' + homeScore + "</span>";
+  html += "</div>";
+  html += '<span class="team-name' + (homeWon ? " winner" : "") + '">' + g.home + "</span>";
   if (homeId) html += '<img src="https://www.mlbstatic.com/team-logos/' + homeId + '.svg" onerror="this.style.display=\'none\'">';
-  html += '</div>';
-  html += '<div class="state">' + (g.state || "Final") + '</div>';
-  html += '</div>';
+  html += "</div>";
+  html += '<div class="state">' + (g.state || "Final") + "</div>";
+  html += "</div>";
 
   // Linescore
   if (g.lineText) {
     html += '<div class="section">';
     html += '<div class="section-title">Line Score</div>';
     html += buildLinescoreTable(g.lineText);
-    html += '</div>';
+    html += "</div>";
   }
 
   // Batting
   html += '<div class="section">';
   html += '<div class="section-title">Batting</div>';
   html += '<div class="two-col">';
-  html += '<div><div class="team-label">' + g.away + '</div>' + buildBattingTable(g.awayBatters) + '</div>';
-  html += '<div><div class="team-label">' + g.home + '</div>' + buildBattingTable(g.homeBatters) + '</div>';
-  html += '</div></div>';
+  html += '<div><div class="team-label">' + g.away + "</div>" + buildBattingTable(g.awayBatters) + "</div>";
+  html += '<div><div class="team-label">' + g.home + "</div>" + buildBattingTable(g.homeBatters) + "</div>";
+  html += "</div></div>";
 
   // Pitching
   html += '<div class="section">';
   html += '<div class="section-title">Pitching</div>';
   html += '<div class="two-col">';
-  html += '<div><div class="team-label">' + g.away + '</div>' + buildPitchingTable(g.awayPitchers) + '</div>';
-  html += '<div><div class="team-label">' + g.home + '</div>' + buildPitchingTable(g.homePitchers) + '</div>';
-  html += '</div></div>';
+  html += '<div><div class="team-label">' + g.away + "</div>" + buildPitchingTable(g.awayPitchers) + "</div>";
+  html += '<div><div class="team-label">' + g.home + "</div>" + buildPitchingTable(g.homePitchers) + "</div>";
+  html += "</div></div>";
 
   // Notes
   if (g.notes && g.notes.length) {
     html += '<div class="section">';
     html += '<div class="section-title">Game Notes</div>';
-    html += '<div class="notes-block">';
     for (var i = 0; i < g.notes.length; i++) {
-      var note = g.notes[i];
-      if (note.isHeader) {
-        html += '<div class="note-header">' + note.label + '</div>';
-      } else {
-        html += '<div class="note-row"><span class="note-label">' + note.label + ':</span> ' + note.value + '</div>';
+      var section = g.notes[i];
+      html += '<div class="notes-section">';
+      html += '<div class="notes-section-title">' + section.title + "</div>";
+      for (var j = 0; j < section.fields.length; j++) {
+        var f = section.fields[j];
+        html += '<div class="note-row"><span class="note-label">' + f.label + ":</span> " + f.value + "</div>";
       }
+      html += "</div>";
     }
-    html += '</div></div>';
+    html += "</div>";
   }
 
   document.getElementById("content").innerHTML = html;
@@ -225,89 +229,84 @@ function buildLinescoreTable(lineText) {
   var lines = lineText.split("\n");
   if (lines.length < 3) return "<pre>" + lineText + "</pre>";
 
-  var headerLine = lines[0];
-  var awayLine = lines[1];
-  var homeLine = lines[2];
-
   function parseLine(line) {
-    var parts = line.trim().split(/\s+/);
-    return parts;
+    return line.trim().split(/\s+/);
   }
 
-  var headerParts = parseLine(headerLine);
-  var awayParts = parseLine(awayLine);
-  var homeParts = parseLine(homeLine);
+  var headerParts = parseLine(lines[0]);
+  var awayParts = parseLine(lines[1]);
+  var homeParts = parseLine(lines[2]);
 
   var html = '<table class="linescore-table"><thead><tr>';
   html += '<th class="left">Team</th>';
   for (var i = 1; i < headerParts.length; i++) {
-    html += '<th>' + headerParts[i] + '</th>';
+    html += "<th>" + headerParts[i] + "</th>";
   }
-  html += '</tr></thead><tbody>';
+  html += "</tr></thead><tbody>";
 
   function buildRow(parts) {
-    var row = '<tr><td class="left">' + parts[0] + '</td>';
+    var row = '<tr><td class="left">' + parts[0] + "</td>";
     var total = parts.length;
     for (var i = 1; i < total; i++) {
-      var cls = (i >= total - 3) ? ' class="rhe"' : '';
-      row += '<td' + cls + '>' + parts[i] + '</td>';
+      var cls = (i >= total - 3) ? ' class="rhe"' : "";
+      row += "<td" + cls + ">" + parts[i] + "</td>";
     }
-    row += '</tr>';
+    row += "</tr>";
     return row;
   }
 
   html += buildRow(awayParts);
   html += buildRow(homeParts);
-  html += '</tbody></table>';
+  html += "</tbody></table>";
   return html;
 }
 
 function buildBattingTable(batters) {
   if (!batters || !batters.length) return '<p style="color:#aaa;font-size:0.85em;">No data.</p>';
-  var html = '<table><thead><tr>';
+  var html = "<table><thead><tr>";
   html += '<th class="left">Player</th>';
-  html += '<th>AB</th><th>R</th><th>H</th><th>RBI</th><th>BB</th><th>SO</th><th>AVG</th>';
-  html += '</tr></thead><tbody>';
+  html += "<th>AB</th><th>R</th><th>H</th><th>RBI</th><th>BB</th><th>SO</th><th>AVG</th>";
+  html += "</tr></thead><tbody>";
   for (var i = 0; i < batters.length; i++) {
     var b = batters[i];
-    var rowClass = b.isTotal ? ' class="total-row"' : '';
-    var nameStr = b.isTotal ? 'TOTALS' : b.name + (b.pos ? ' <span style="color:#aaa;font-size:0.85em;">' + b.pos + '</span>' : '');
-    html += '<tr' + rowClass + '>';
-    html += '<td class="left">' + nameStr + '</td>';
-    html += '<td>' + b.ab + '</td>';
-    html += '<td>' + b.r + '</td>';
-    html += '<td>' + b.h + '</td>';
-    html += '<td>' + b.rbi + '</td>';
-    html += '<td>' + b.bb + '</td>';
-    html += '<td>' + b.so + '</td>';
-    html += '<td>' + (b.avg || '') + '</td>';
-    html += '</tr>';
+    var rowClass = b.isTotal ? ' class="total-row"' : "";
+    var nameStr = b.isTotal ? "TOTALS" : b.name + (b.pos ? ' <span style="color:#aaa;font-size:0.85em;">' + b.pos + "</span>" : "");
+    html += "<tr" + rowClass + ">";
+    html += '<td class="left">' + nameStr + "</td>";
+    html += "<td>" + b.ab + "</td>";
+    html += "<td>" + b.r + "</td>";
+    html += "<td>" + b.h + "</td>";
+    html += "<td>" + b.rbi + "</td>";
+    html += "<td>" + b.bb + "</td>";
+    html += "<td>" + b.so + "</td>";
+    html += "<td>" + (b.avg || "") + "</td>";
+    html += "</tr>";
   }
-  html += '</tbody></table>';
+  html += "</tbody></table>";
   return html;
 }
 
 function buildPitchingTable(pitchers) {
   if (!pitchers || !pitchers.length) return '<p style="color:#aaa;font-size:0.85em;">No data.</p>';
-  var html = '<table><thead><tr>';
+  var html = "<table><thead><tr>";
   html += '<th class="left">Pitcher</th>';
-  html += '<th>IP</th><th>H</th><th>R</th><th>ER</th><th>BB</th><th>SO</th><th>ERA</th>';
-  html += '</tr></thead><tbody>';
+  html += "<th>IP</th><th>H</th><th>R</th><th>ER</th><th>BB</th><th>SO</th><th>ERA</th>";
+  html += "</tr></thead><tbody>";
   for (var i = 0; i < pitchers.length; i++) {
     var p = pitchers[i];
-    var nameStr = p.name + (p.note ? ' <span style="color:#003087;font-weight:bold;font-size:0.85em;">(' + p.note + ')</span>' : '');
-    html += '<tr>';
-    html += '<td class="left">' + nameStr + '</td>';
-    html += '<td>' + p.ip + '</td>';
-    html += '<td>' + p.h + '</td>';
-    html += '<td>' + p.r + '</td>';
-    html += '<td>' + p.er + '</td>';
-    html += '<td>' + p.bb + '</td>';
-    html += '<td>' + p.so + '</td>';
-    html += '<td>' + (p.era || '') + '</td>';
-    html += '</tr>';
+    var nameStr = p.name + (p.note ? '<span class="pitcher-note">(' + p.note + ")</span>" : "");
+    html += "<tr>";
+    html += '<td class="left">' + nameStr + "</td>";
+    html += "<td>" + p.ip + "</td>";
+    html += "<td>" + p.h + "</td>";
+    html += "<td>" + p.r + "</td>";
+    html += "<td>" + p.er + "</td>";
+    html += "<td>" + p.bb + "</td>";
+    html += "<td>" + p.so + "</td>";
+    html += "<td>" + (p.era || "") + "</td>";
+    html += "</tr>";
   }
-  html += '</tbody></table>';
+  html += "</tbody></table>";
   return html;
 }
 
