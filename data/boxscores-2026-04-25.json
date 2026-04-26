@@ -47,6 +47,7 @@
     },
     "awayBatters": [
       {
+        "id": 678882,
         "name": "Ceddanne Rafaela",
         "pos": "CF",
         "ab": 5,
@@ -58,6 +59,7 @@
         "avg": ""
       },
       {
+        "id": 575929,
         "name": "Willson Contreras",
         "pos": "1B",
         "ab": 4,
@@ -69,6 +71,7 @@
         "avg": ""
       },
       {
+        "id": 677800,
         "name": "Wilyer Abreu",
         "pos": "RF",
         "ab": 6,
@@ -80,6 +83,7 @@
         "avg": ""
       },
       {
+        "id": 596115,
         "name": "Trevor Story",
         "pos": "SS",
         "ab": 6,
@@ -91,6 +95,7 @@
         "avg": ""
       },
       {
+        "id": 691785,
         "name": "Marcelo Mayer",
         "pos": "2B",
         "ab": 0,
@@ -102,6 +107,7 @@
         "avg": ""
       },
       {
+        "id": 655316,
         "name": "Andruw Monasterio",
         "pos": "DH",
         "ab": 6,
@@ -113,6 +119,7 @@
         "avg": ""
       },
       {
+        "id": 680776,
         "name": "Jarren Duran",
         "pos": "LF",
         "ab": 5,
@@ -124,6 +131,7 @@
         "avg": ""
       },
       {
+        "id": 702332,
         "name": "Caleb Durbin",
         "pos": "3B",
         "ab": 4,
@@ -135,6 +143,7 @@
         "avg": ""
       },
       {
+        "id": 657136,
         "name": "Connor Wong",
         "pos": "C",
         "ab": 3,
@@ -146,6 +155,7 @@
         "avg": ""
       },
       {
+        "id": 643396,
         "name": "Isiah Kiner-Falefa",
         "pos": "SS",
         "ab": 5,
@@ -157,6 +167,7 @@
         "avg": ""
       },
       {
+        "id": 676979,
         "name": "Garrett Crochet",
         "pos": "P",
         "ab": 0,
@@ -168,6 +179,7 @@
         "avg": ""
       },
       {
+        "id": 669711,
         "name": "Greg Weissert",
         "pos": "P",
         "ab": 0,
@@ -179,6 +191,7 @@
         "avg": ""
       },
       {
+        "id": 543056,
         "name": "Danny Coulombe",
         "pos": "P",
         "ab": 0,
@@ -190,6 +203,7 @@
         "avg": ""
       },
       {
+        "id": 701719,
         "name": "Tyler Samaniego",
         "pos": "P",
         "ab": 0,
@@ -201,6 +215,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 44,
@@ -215,6 +230,7 @@
     ],
     "homeBatters": [
       {
+        "id": 621493,
         "name": "Taylor Ward",
         "pos": "DH",
         "ab": 3,
@@ -226,6 +242,7 @@
         "avg": ""
       },
       {
+        "id": 683002,
         "name": "Gunnar Henderson",
         "pos": "SS",
         "ab": 4,
@@ -237,6 +254,7 @@
         "avg": ""
       },
       {
+        "id": 668939,
         "name": "Adley Rutschman",
         "pos": "C",
         "ab": 4,
@@ -248,6 +266,7 @@
         "avg": ""
       },
       {
+        "id": 624413,
         "name": "Pete Alonso",
         "pos": "1B",
         "ab": 4,
@@ -259,6 +278,7 @@
         "avg": ""
       },
       {
+        "id": 641933,
         "name": "Tyler O'Neill",
         "pos": "RF",
         "ab": 4,
@@ -270,6 +290,7 @@
         "avg": ""
       },
       {
+        "id": 669236,
         "name": "Jeremiah Jackson",
         "pos": "2B",
         "ab": 4,
@@ -281,6 +302,7 @@
         "avg": ""
       },
       {
+        "id": 665750,
         "name": "Leody Taveras",
         "pos": "CF",
         "ab": 3,
@@ -292,6 +314,7 @@
         "avg": ""
       },
       {
+        "id": 691723,
         "name": "Coby Mayo",
         "pos": "3B",
         "ab": 3,
@@ -303,6 +326,7 @@
         "avg": ""
       },
       {
+        "id": 677942,
         "name": "Blaze Alexander",
         "pos": "LF",
         "ab": 2,
@@ -314,6 +338,7 @@
         "avg": ""
       },
       {
+        "id": 681297,
         "name": "Colton Cowser",
         "pos": "LF",
         "ab": 1,
@@ -325,6 +350,7 @@
         "avg": ""
       },
       {
+        "id": 669432,
         "name": "Trevor Rogers",
         "pos": "P",
         "ab": 0,
@@ -336,6 +362,7 @@
         "avg": ""
       },
       {
+        "id": 669330,
         "name": "Tyler Wells",
         "pos": "P",
         "ab": 0,
@@ -347,6 +374,7 @@
         "avg": ""
       },
       {
+        "id": 544150,
         "name": "Albert Suárez",
         "pos": "P",
         "ab": 0,
@@ -358,6 +386,7 @@
         "avg": ""
       },
       {
+        "id": 669211,
         "name": "Keegan Akin",
         "pos": "P",
         "ab": 0,
@@ -369,6 +398,7 @@
         "avg": ""
       },
       {
+        "id": 642215,
         "name": "Weston Wilson",
         "pos": "P",
         "ab": 0,
@@ -380,6 +410,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 32,
@@ -394,6 +425,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 676979,
         "name": "Garrett Crochet",
         "note": "W",
         "ip": "6.0",
@@ -405,6 +437,7 @@
         "era": ""
       },
       {
+        "id": 669711,
         "name": "Greg Weissert",
         "note": "",
         "ip": "1.0",
@@ -416,6 +449,7 @@
         "era": ""
       },
       {
+        "id": 543056,
         "name": "Danny Coulombe",
         "note": "",
         "ip": "1.0",
@@ -427,6 +461,7 @@
         "era": ""
       },
       {
+        "id": 701719,
         "name": "Tyler Samaniego",
         "note": "",
         "ip": "1.0",
@@ -440,6 +475,7 @@
     ],
     "homePitchers": [
       {
+        "id": 669432,
         "name": "Trevor Rogers",
         "note": "L",
         "ip": "1.2",
@@ -451,6 +487,7 @@
         "era": ""
       },
       {
+        "id": 669330,
         "name": "Tyler Wells",
         "note": "",
         "ip": "1.1",
@@ -462,6 +499,7 @@
         "era": ""
       },
       {
+        "id": 544150,
         "name": "Albert Suárez",
         "note": "",
         "ip": "4.0",
@@ -473,6 +511,7 @@
         "era": ""
       },
       {
+        "id": 669211,
         "name": "Keegan Akin",
         "note": "",
         "ip": "1.0",
@@ -484,6 +523,7 @@
         "era": ""
       },
       {
+        "id": 642215,
         "name": "Weston Wilson",
         "note": "",
         "ip": "1.0",
@@ -712,6 +752,7 @@
     },
     "awayBatters": [
       {
+        "id": 608701,
         "name": "Rob Refsnyder",
         "pos": "RF",
         "ab": 3,
@@ -723,6 +764,7 @@
         "avg": ""
       },
       {
+        "id": 670042,
         "name": "Luke Raley",
         "pos": "RF",
         "ab": 1,
@@ -734,6 +776,7 @@
         "avg": ""
       },
       {
+        "id": 656582,
         "name": "Connor Joe",
         "pos": "RF",
         "ab": 2,
@@ -745,6 +788,7 @@
         "avg": ""
       },
       {
+        "id": 663728,
         "name": "Cal Raleigh",
         "pos": "DH",
         "ab": 5,
@@ -756,6 +800,7 @@
         "avg": ""
       },
       {
+        "id": 677594,
         "name": "Julio Rodríguez",
         "pos": "CF",
         "ab": 6,
@@ -767,6 +812,7 @@
         "avg": ""
       },
       {
+        "id": 647304,
         "name": "Josh Naylor",
         "pos": "1B",
         "ab": 5,
@@ -778,6 +824,7 @@
         "avg": ""
       },
       {
+        "id": 668227,
         "name": "Randy Arozarena",
         "pos": "LF",
         "ab": 4,
@@ -789,6 +836,7 @@
         "avg": ""
       },
       {
+        "id": 641487,
         "name": "J.P. Crawford",
         "pos": "SS",
         "ab": 4,
@@ -800,6 +848,7 @@
         "avg": ""
       },
       {
+        "id": 641598,
         "name": "Mitch Garver",
         "pos": "C",
         "ab": 4,
@@ -811,6 +860,7 @@
         "avg": ""
       },
       {
+        "id": 702284,
         "name": "Cole Young",
         "pos": "2B",
         "ab": 4,
@@ -822,6 +872,7 @@
         "avg": ""
       },
       {
+        "id": 669717,
         "name": "Will Wilson",
         "pos": "3B",
         "ab": 2,
@@ -833,6 +884,7 @@
         "avg": ""
       },
       {
+        "id": 686527,
         "name": "Dominic Canzone",
         "pos": "PH",
         "ab": 1,
@@ -844,6 +896,7 @@
         "avg": ""
       },
       {
+        "id": 660844,
         "name": "Leo Rivas",
         "pos": "3B",
         "ab": 1,
@@ -855,6 +908,7 @@
         "avg": ""
       },
       {
+        "id": 693433,
         "name": "Bryan Woo",
         "pos": "P",
         "ab": 0,
@@ -866,6 +920,7 @@
         "avg": ""
       },
       {
+        "id": 678606,
         "name": "Jose A. Ferrer",
         "pos": "P",
         "ab": 0,
@@ -877,6 +932,7 @@
         "avg": ""
       },
       {
+        "id": 681867,
         "name": "Cooper Criswell",
         "pos": "P",
         "ab": 0,
@@ -888,6 +944,7 @@
         "avg": ""
       },
       {
+        "id": 666374,
         "name": "Matt Brash",
         "pos": "P",
         "ab": 0,
@@ -899,6 +956,7 @@
         "avg": ""
       },
       {
+        "id": 662253,
         "name": "Andrés Muñoz",
         "pos": "P",
         "ab": 0,
@@ -910,6 +968,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 42,
@@ -924,6 +983,7 @@
     ],
     "homeBatters": [
       {
+        "id": 802139,
         "name": "JJ Wetherholt",
         "pos": "2B",
         "ab": 5,
@@ -935,6 +995,7 @@
         "avg": ""
       },
       {
+        "id": 671056,
         "name": "Iván Herrera",
         "pos": "DH",
         "ab": 3,
@@ -946,6 +1007,7 @@
         "avg": ""
       },
       {
+        "id": 676475,
         "name": "Alec Burleson",
         "pos": "1B",
         "ab": 5,
@@ -957,6 +1019,7 @@
         "avg": ""
       },
       {
+        "id": 691023,
         "name": "Jordan Walker",
         "pos": "RF",
         "ab": 4,
@@ -968,6 +1031,7 @@
         "avg": ""
       },
       {
+        "id": 669357,
         "name": "Nolan Gorman",
         "pos": "3B",
         "ab": 4,
@@ -979,6 +1043,7 @@
         "avg": ""
       },
       {
+        "id": 691026,
         "name": "Masyn Winn",
         "pos": "SS",
         "ab": 5,
@@ -990,6 +1055,7 @@
         "avg": ""
       },
       {
+        "id": 701675,
         "name": "Nathan Church",
         "pos": "LF",
         "ab": 4,
@@ -1001,6 +1067,7 @@
         "avg": ""
       },
       {
+        "id": 686780,
         "name": "Pedro Pagés",
         "pos": "C",
         "ab": 3,
@@ -1012,6 +1079,7 @@
         "avg": ""
       },
       {
+        "id": 695336,
         "name": "Thomas Saggese",
         "pos": "PR",
         "ab": 0,
@@ -1023,6 +1091,7 @@
         "avg": ""
       },
       {
+        "id": 650968,
         "name": "Yohel Pozo",
         "pos": "C",
         "ab": 0,
@@ -1034,6 +1103,7 @@
         "avg": ""
       },
       {
+        "id": 687363,
         "name": "Victor Scott II",
         "pos": "CF",
         "ab": 4,
@@ -1045,6 +1115,7 @@
         "avg": ""
       },
       {
+        "id": 669461,
         "name": "Matthew Liberatore",
         "pos": "P",
         "ab": 0,
@@ -1056,6 +1127,7 @@
         "avg": ""
       },
       {
+        "id": 700669,
         "name": "Gordon Graceffo",
         "pos": "P",
         "ab": 0,
@@ -1067,6 +1139,7 @@
         "avg": ""
       },
       {
+        "id": 677865,
         "name": "Justin Bruihl",
         "pos": "P",
         "ab": 0,
@@ -1078,6 +1151,7 @@
         "avg": ""
       },
       {
+        "id": 666277,
         "name": "George Soriano",
         "pos": "P",
         "ab": 0,
@@ -1089,6 +1163,7 @@
         "avg": ""
       },
       {
+        "id": 592773,
         "name": "Ryne Stanek",
         "pos": "P",
         "ab": 0,
@@ -1100,6 +1175,7 @@
         "avg": ""
       },
       {
+        "id": 668941,
         "name": "JoJo Romero",
         "pos": "P",
         "ab": 0,
@@ -1111,6 +1187,7 @@
         "avg": ""
       },
       {
+        "id": 676617,
         "name": "Riley O'Brien",
         "pos": "P",
         "ab": 0,
@@ -1122,6 +1199,7 @@
         "avg": ""
       },
       {
+        "id": 694335,
         "name": "Matt Svanson",
         "pos": "P",
         "ab": 0,
@@ -1133,6 +1211,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 37,
@@ -1147,6 +1226,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 693433,
         "name": "Bryan Woo",
         "note": "",
         "ip": "3.0",
@@ -1158,6 +1238,7 @@
         "era": ""
       },
       {
+        "id": 678606,
         "name": "Jose A. Ferrer",
         "note": "",
         "ip": "2.0",
@@ -1169,6 +1250,7 @@
         "era": ""
       },
       {
+        "id": 681867,
         "name": "Cooper Criswell",
         "note": "",
         "ip": "2.0",
@@ -1180,6 +1262,7 @@
         "era": ""
       },
       {
+        "id": 666374,
         "name": "Matt Brash",
         "note": "W",
         "ip": "1.0",
@@ -1191,6 +1274,7 @@
         "era": ""
       },
       {
+        "id": 662253,
         "name": "Andrés Muñoz",
         "note": "S",
         "ip": "1.0",
@@ -1204,6 +1288,7 @@
     ],
     "homePitchers": [
       {
+        "id": 669461,
         "name": "Matthew Liberatore",
         "note": "",
         "ip": "3.1",
@@ -1215,6 +1300,7 @@
         "era": ""
       },
       {
+        "id": 700669,
         "name": "Gordon Graceffo",
         "note": "",
         "ip": "0.2",
@@ -1226,6 +1312,7 @@
         "era": ""
       },
       {
+        "id": 677865,
         "name": "Justin Bruihl",
         "note": "H",
         "ip": "1.0",
@@ -1237,6 +1324,7 @@
         "era": ""
       },
       {
+        "id": 666277,
         "name": "George Soriano",
         "note": "BS",
         "ip": "1.0",
@@ -1248,6 +1336,7 @@
         "era": ""
       },
       {
+        "id": 592773,
         "name": "Ryne Stanek",
         "note": "",
         "ip": "0.2",
@@ -1259,6 +1348,7 @@
         "era": ""
       },
       {
+        "id": 668941,
         "name": "JoJo Romero",
         "note": "",
         "ip": "0.2",
@@ -1270,6 +1360,7 @@
         "era": ""
       },
       {
+        "id": 676617,
         "name": "Riley O'Brien",
         "note": "L",
         "ip": "1.0",
@@ -1281,6 +1372,7 @@
         "era": ""
       },
       {
+        "id": 694335,
         "name": "Matt Svanson",
         "note": "",
         "ip": "0.2",
@@ -1530,6 +1622,7 @@
     },
     "awayBatters": [
       {
+        "id": 682657,
         "name": "Angel Martínez",
         "pos": "CF",
         "ab": 4,
@@ -1541,6 +1634,7 @@
         "avg": ""
       },
       {
+        "id": 800050,
         "name": "Chase DeLauter",
         "pos": "DH",
         "ab": 4,
@@ -1552,6 +1646,7 @@
         "avg": ""
       },
       {
+        "id": 608070,
         "name": "José Ramírez",
         "pos": "3B",
         "ab": 4,
@@ -1563,6 +1658,7 @@
         "avg": ""
       },
       {
+        "id": 656555,
         "name": "Rhys Hoskins",
         "pos": "1B",
         "ab": 4,
@@ -1574,6 +1670,7 @@
         "avg": ""
       },
       {
+        "id": 671655,
         "name": "George Valera",
         "pos": "LF",
         "ab": 4,
@@ -1585,6 +1682,7 @@
         "avg": ""
       },
       {
+        "id": 681807,
         "name": "David Fry",
         "pos": "RF",
         "ab": 3,
@@ -1596,6 +1694,7 @@
         "avg": ""
       },
       {
+        "id": 700932,
         "name": "Kyle Manzardo",
         "pos": "PH",
         "ab": 1,
@@ -1607,6 +1706,7 @@
         "avg": ""
       },
       {
+        "id": 682177,
         "name": "Daniel Schneemann",
         "pos": "PR",
         "ab": 0,
@@ -1618,6 +1718,7 @@
         "avg": ""
       },
       {
+        "id": 682877,
         "name": "Juan Brito",
         "pos": "2B",
         "ab": 3,
@@ -1629,6 +1730,7 @@
         "avg": ""
       },
       {
+        "id": 666310,
         "name": "Bo Naylor",
         "pos": "C",
         "ab": 4,
@@ -1640,6 +1742,7 @@
         "avg": ""
       },
       {
+        "id": 677587,
         "name": "Brayan Rocchio",
         "pos": "SS",
         "ab": 4,
@@ -1651,6 +1754,7 @@
         "avg": ""
       },
       {
+        "id": 676282,
         "name": "Joey Cantillo",
         "pos": "P",
         "ab": 0,
@@ -1662,6 +1766,7 @@
         "avg": ""
       },
       {
+        "id": 670036,
         "name": "Matt Festa",
         "pos": "P",
         "ab": 0,
@@ -1673,6 +1778,7 @@
         "avg": ""
       },
       {
+        "id": 688883,
         "name": "Peyton Pallette",
         "pos": "P",
         "ab": 0,
@@ -1684,6 +1790,7 @@
         "avg": ""
       },
       {
+        "id": 641401,
         "name": "Connor Brogdon",
         "pos": "P",
         "ab": 0,
@@ -1695,6 +1802,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 35,
@@ -1709,6 +1817,7 @@
     ],
     "homeBatters": [
       {
+        "id": 664702,
         "name": "Myles Straw",
         "pos": "RF",
         "ab": 5,
@@ -1720,6 +1829,7 @@
         "avg": ""
       },
       {
+        "id": 676391,
         "name": "Ernie Clement",
         "pos": "2B",
         "ab": 4,
@@ -1731,6 +1841,7 @@
         "avg": ""
       },
       {
+        "id": 665489,
         "name": "Vladimir Guerrero Jr.",
         "pos": "1B",
         "ab": 3,
@@ -1742,6 +1853,7 @@
         "avg": ""
       },
       {
+        "id": 672960,
         "name": "Kazuma Okamoto",
         "pos": "3B",
         "ab": 3,
@@ -1753,6 +1865,7 @@
         "avg": ""
       },
       {
+        "id": 650391,
         "name": "Eloy Jiménez",
         "pos": "DH",
         "ab": 2,
@@ -1764,6 +1877,7 @@
         "avg": ""
       },
       {
+        "id": 660821,
         "name": "Jesús Sánchez",
         "pos": "DH",
         "ab": 2,
@@ -1775,6 +1889,7 @@
         "avg": ""
       },
       {
+        "id": 662139,
         "name": "Daulton Varsho",
         "pos": "CF",
         "ab": 4,
@@ -1786,6 +1901,7 @@
         "avg": ""
       },
       {
+        "id": 676914,
         "name": "Davis Schneider",
         "pos": "LF",
         "ab": 3,
@@ -1797,6 +1913,7 @@
         "avg": ""
       },
       {
+        "id": 665926,
         "name": "Andrés Giménez",
         "pos": "SS",
         "ab": 4,
@@ -1808,6 +1925,7 @@
         "avg": ""
       },
       {
+        "id": 623168,
         "name": "Tyler Heineman",
         "pos": "C",
         "ab": 4,
@@ -1819,6 +1937,7 @@
         "avg": ""
       },
       {
+        "id": 592332,
         "name": "Kevin Gausman",
         "pos": "P",
         "ab": 0,
@@ -1830,6 +1949,7 @@
         "avg": ""
       },
       {
+        "id": 689254,
         "name": "Mason Fluharty",
         "pos": "P",
         "ab": 0,
@@ -1841,6 +1961,7 @@
         "avg": ""
       },
       {
+        "id": 643511,
         "name": "Tyler Rogers",
         "pos": "P",
         "ab": 0,
@@ -1852,6 +1973,7 @@
         "avg": ""
       },
       {
+        "id": 686973,
         "name": "Louis Varland",
         "pos": "P",
         "ab": 0,
@@ -1863,6 +1985,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 34,
@@ -1877,6 +2000,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 676282,
         "name": "Joey Cantillo",
         "note": "L",
         "ip": "5.0",
@@ -1888,6 +2012,7 @@
         "era": ""
       },
       {
+        "id": 670036,
         "name": "Matt Festa",
         "note": "",
         "ip": "1.0",
@@ -1899,6 +2024,7 @@
         "era": ""
       },
       {
+        "id": 688883,
         "name": "Peyton Pallette",
         "note": "",
         "ip": "1.0",
@@ -1910,6 +2036,7 @@
         "era": ""
       },
       {
+        "id": 641401,
         "name": "Connor Brogdon",
         "note": "",
         "ip": "1.0",
@@ -1923,6 +2050,7 @@
     ],
     "homePitchers": [
       {
+        "id": 592332,
         "name": "Kevin Gausman",
         "note": "W",
         "ip": "6.2",
@@ -1934,6 +2062,7 @@
         "era": ""
       },
       {
+        "id": 689254,
         "name": "Mason Fluharty",
         "note": "H",
         "ip": "0.1",
@@ -1945,6 +2074,7 @@
         "era": ""
       },
       {
+        "id": 643511,
         "name": "Tyler Rogers",
         "note": "H",
         "ip": "1.0",
@@ -1956,6 +2086,7 @@
         "era": ""
       },
       {
+        "id": 686973,
         "name": "Louis Varland",
         "note": "S",
         "ip": "1.0",
@@ -2181,6 +2312,7 @@
     },
     "awayBatters": [
       {
+        "id": 682663,
         "name": "Agustín Ramírez",
         "pos": "C",
         "ab": 5,
@@ -2192,6 +2324,7 @@
         "avg": ""
       },
       {
+        "id": 672640,
         "name": "Otto Lopez",
         "pos": "SS",
         "ab": 4,
@@ -2203,6 +2336,7 @@
         "avg": ""
       },
       {
+        "id": 669065,
         "name": "Kyle Stowers",
         "pos": "LF",
         "ab": 3,
@@ -2214,6 +2348,7 @@
         "avg": ""
       },
       {
+        "id": 681393,
         "name": "Connor Norby",
         "pos": "1B",
         "ab": 2,
@@ -2225,6 +2360,7 @@
         "avg": ""
       },
       {
+        "id": 669364,
         "name": "Xavier Edwards",
         "pos": "2B",
         "ab": 4,
@@ -2236,6 +2372,7 @@
         "avg": ""
       },
       {
+        "id": 681715,
         "name": "Heriberto Hernández",
         "pos": "RF",
         "ab": 4,
@@ -2247,6 +2384,7 @@
         "avg": ""
       },
       {
+        "id": 677870,
         "name": "Leo Jiménez",
         "pos": "DH",
         "ab": 2,
@@ -2258,6 +2396,7 @@
         "avg": ""
       },
       {
+        "id": 683357,
         "name": "Owen Caissie",
         "pos": "PH",
         "ab": 1,
@@ -2269,6 +2408,7 @@
         "avg": ""
       },
       {
+        "id": 691594,
         "name": "Javier Sanoja",
         "pos": "3B",
         "ab": 2,
@@ -2280,6 +2420,7 @@
         "avg": ""
       },
       {
+        "id": 689414,
         "name": "Liam Hicks",
         "pos": "PH",
         "ab": 1,
@@ -2291,6 +2432,7 @@
         "avg": ""
       },
       {
+        "id": 665923,
         "name": "Esteury Ruiz",
         "pos": "CF",
         "ab": 2,
@@ -2302,6 +2444,7 @@
         "avg": ""
       },
       {
+        "id": 805300,
         "name": "Jakob Marsee",
         "pos": "CF",
         "ab": 2,
@@ -2313,6 +2456,7 @@
         "avg": ""
       },
       {
+        "id": 691587,
         "name": "Eury Pérez",
         "pos": "P",
         "ab": 0,
@@ -2324,6 +2468,7 @@
         "avg": ""
       },
       {
+        "id": 669622,
         "name": "Anthony Bender",
         "pos": "P",
         "ab": 0,
@@ -2335,6 +2480,7 @@
         "avg": ""
       },
       {
+        "id": 663969,
         "name": "Tyler Phillips",
         "pos": "P",
         "ab": 0,
@@ -2346,6 +2492,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 32,
@@ -2360,6 +2507,7 @@
     ],
     "homeBatters": [
       {
+        "id": 642715,
         "name": "Willy Adames",
         "pos": "SS",
         "ab": 5,
@@ -2371,6 +2519,7 @@
         "avg": ""
       },
       {
+        "id": 650333,
         "name": "Luis Arraez",
         "pos": "2B",
         "ab": 5,
@@ -2382,6 +2531,7 @@
         "avg": ""
       },
       {
+        "id": 656305,
         "name": "Matt Chapman",
         "pos": "DH",
         "ab": 3,
@@ -2393,6 +2543,7 @@
         "avg": ""
       },
       {
+        "id": 646240,
         "name": "Rafael Devers",
         "pos": "1B",
         "ab": 4,
@@ -2404,6 +2555,7 @@
         "avg": ""
       },
       {
+        "id": 669477,
         "name": "Casey Schmitt",
         "pos": "3B",
         "ab": 3,
@@ -2415,6 +2567,7 @@
         "avg": ""
       },
       {
+        "id": 808982,
         "name": "Jung Hoo Lee",
         "pos": "RF",
         "ab": 3,
@@ -2426,6 +2579,7 @@
         "avg": ""
       },
       {
+        "id": 671218,
         "name": "Heliot Ramos",
         "pos": "LF",
         "ab": 4,
@@ -2437,6 +2591,7 @@
         "avg": ""
       },
       {
+        "id": 687551,
         "name": "Drew Gilbert",
         "pos": "CF",
         "ab": 4,
@@ -2448,6 +2603,7 @@
         "avg": ""
       },
       {
+        "id": 672275,
         "name": "Patrick Bailey",
         "pos": "C",
         "ab": 3,
@@ -2459,6 +2615,7 @@
         "avg": ""
       },
       {
+        "id": 592662,
         "name": "Robbie Ray",
         "pos": "P",
         "ab": 0,
@@ -2470,6 +2627,7 @@
         "avg": ""
       },
       {
+        "id": 657424,
         "name": "Matt Gage",
         "pos": "P",
         "ab": 0,
@@ -2481,6 +2639,7 @@
         "avg": ""
       },
       {
+        "id": 676775,
         "name": "Keaton Winn",
         "pos": "P",
         "ab": 0,
@@ -2492,6 +2651,7 @@
         "avg": ""
       },
       {
+        "id": 669062,
         "name": "Erik Miller",
         "pos": "P",
         "ab": 0,
@@ -2503,6 +2663,7 @@
         "avg": ""
       },
       {
+        "id": 676254,
         "name": "Ryan Walker",
         "pos": "P",
         "ab": 0,
@@ -2514,6 +2675,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 34,
@@ -2528,6 +2690,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 691587,
         "name": "Eury Pérez",
         "note": "L",
         "ip": "5.1",
@@ -2539,6 +2702,7 @@
         "era": ""
       },
       {
+        "id": 669622,
         "name": "Anthony Bender",
         "note": "",
         "ip": "0.2",
@@ -2550,6 +2714,7 @@
         "era": ""
       },
       {
+        "id": 663969,
         "name": "Tyler Phillips",
         "note": "",
         "ip": "2.0",
@@ -2563,6 +2728,7 @@
     ],
     "homePitchers": [
       {
+        "id": 592662,
         "name": "Robbie Ray",
         "note": "",
         "ip": "5.0",
@@ -2574,6 +2740,7 @@
         "era": ""
       },
       {
+        "id": 657424,
         "name": "Matt Gage",
         "note": "W",
         "ip": "1.0",
@@ -2585,6 +2752,7 @@
         "era": ""
       },
       {
+        "id": 676775,
         "name": "Keaton Winn",
         "note": "H",
         "ip": "1.0",
@@ -2596,6 +2764,7 @@
         "era": ""
       },
       {
+        "id": 669062,
         "name": "Erik Miller",
         "note": "H",
         "ip": "1.0",
@@ -2607,6 +2776,7 @@
         "era": ""
       },
       {
+        "id": 676254,
         "name": "Ryan Walker",
         "note": "",
         "ip": "1.0",
@@ -2823,6 +2993,7 @@
     },
     "awayBatters": [
       {
+        "id": 621439,
         "name": "Byron Buxton",
         "pos": "CF",
         "ab": 4,
@@ -2834,6 +3005,7 @@
         "avg": ""
       },
       {
+        "id": 668885,
         "name": "Austin Martin",
         "pos": "LF",
         "ab": 3,
@@ -2845,6 +3017,7 @@
         "avg": ""
       },
       {
+        "id": 605137,
         "name": "Josh Bell",
         "pos": "DH",
         "ab": 3,
@@ -2856,6 +3029,7 @@
         "avg": ""
       },
       {
+        "id": 680777,
         "name": "Ryan Jeffers",
         "pos": "C",
         "ab": 4,
@@ -2867,6 +3041,7 @@
         "avg": ""
       },
       {
+        "id": 605170,
         "name": "Victor Caratini",
         "pos": "1B",
         "ab": 4,
@@ -2878,6 +3053,7 @@
         "avg": ""
       },
       {
+        "id": 807712,
         "name": "Luke Keaschall",
         "pos": "2B",
         "ab": 3,
@@ -2889,6 +3065,7 @@
         "avg": ""
       },
       {
+        "id": 670242,
         "name": "Matt Wallner",
         "pos": "RF",
         "ab": 4,
@@ -2900,6 +3077,7 @@
         "avg": ""
       },
       {
+        "id": 668904,
         "name": "Royce Lewis",
         "pos": "3B",
         "ab": 4,
@@ -2911,6 +3089,7 @@
         "avg": ""
       },
       {
+        "id": 686797,
         "name": "Brooks Lee",
         "pos": "SS",
         "ab": 4,
@@ -2922,6 +3101,7 @@
         "avg": ""
       },
       {
+        "id": 641927,
         "name": "Bailey Ober",
         "pos": "P",
         "ab": 0,
@@ -2933,6 +3113,7 @@
         "avg": ""
       },
       {
+        "id": 573124,
         "name": "Taylor Rogers",
         "pos": "P",
         "ab": 0,
@@ -2944,6 +3125,7 @@
         "avg": ""
       },
       {
+        "id": 679358,
         "name": "Eric Orze",
         "pos": "P",
         "ab": 0,
@@ -2955,6 +3137,7 @@
         "avg": ""
       },
       {
+        "id": 670183,
         "name": "Garrett Acton",
         "pos": "P",
         "ab": 0,
@@ -2966,6 +3149,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 33,
@@ -2980,6 +3164,7 @@
     ],
     "homeBatters": [
       {
+        "id": 802415,
         "name": "Chandler Simpson",
         "pos": "LF",
         "ab": 3,
@@ -2991,6 +3176,7 @@
         "avg": ""
       },
       {
+        "id": 691406,
         "name": "Junior Caminero",
         "pos": "3B",
         "ab": 4,
@@ -3002,6 +3188,7 @@
         "avg": ""
       },
       {
+        "id": 666018,
         "name": "Jonathan Aranda",
         "pos": "1B",
         "ab": 4,
@@ -3013,6 +3200,7 @@
         "avg": ""
       },
       {
+        "id": 650490,
         "name": "Yandy Díaz",
         "pos": "DH",
         "ab": 3,
@@ -3024,6 +3212,7 @@
         "avg": ""
       },
       {
+        "id": 641584,
         "name": "Jake Fraley",
         "pos": "RF",
         "ab": 2,
@@ -3035,6 +3224,7 @@
         "avg": ""
       },
       {
+        "id": 676356,
         "name": "Jonny DeLuca",
         "pos": "RF",
         "ab": 2,
@@ -3046,6 +3236,7 @@
         "avg": ""
       },
       {
+        "id": 810938,
         "name": "Ben Williamson",
         "pos": "SS",
         "ab": 4,
@@ -3057,6 +3248,7 @@
         "avg": ""
       },
       {
+        "id": 656775,
         "name": "Cedric Mullins",
         "pos": "CF",
         "ab": 3,
@@ -3068,6 +3260,7 @@
         "avg": ""
       },
       {
+        "id": 663743,
         "name": "Nick Fortes",
         "pos": "C",
         "ab": 3,
@@ -3079,6 +3272,7 @@
         "avg": ""
       },
       {
+        "id": 680700,
         "name": "Richie Palacios",
         "pos": "2B",
         "ab": 1,
@@ -3090,6 +3284,7 @@
         "avg": ""
       },
       {
+        "id": 663556,
         "name": "Shane McClanahan",
         "pos": "P",
         "ab": 0,
@@ -3101,6 +3296,7 @@
         "avg": ""
       },
       {
+        "id": 687330,
         "name": "Kevin Kelly",
         "pos": "P",
         "ab": 0,
@@ -3112,6 +3308,7 @@
         "avg": ""
       },
       {
+        "id": 685801,
         "name": "Hunter Bigge",
         "pos": "P",
         "ab": 0,
@@ -3123,6 +3320,7 @@
         "avg": ""
       },
       {
+        "id": 694680,
         "name": "Trevor Martin",
         "pos": "P",
         "ab": 0,
@@ -3134,6 +3332,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 29,
@@ -3148,6 +3347,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 641927,
         "name": "Bailey Ober",
         "note": "L",
         "ip": "6.0",
@@ -3159,6 +3359,7 @@
         "era": ""
       },
       {
+        "id": 573124,
         "name": "Taylor Rogers",
         "note": "",
         "ip": "0.0",
@@ -3170,6 +3371,7 @@
         "era": ""
       },
       {
+        "id": 679358,
         "name": "Eric Orze",
         "note": "",
         "ip": "1.0",
@@ -3181,6 +3383,7 @@
         "era": ""
       },
       {
+        "id": 670183,
         "name": "Garrett Acton",
         "note": "",
         "ip": "1.0",
@@ -3194,6 +3397,7 @@
     ],
     "homePitchers": [
       {
+        "id": 663556,
         "name": "Shane McClanahan",
         "note": "W",
         "ip": "5.0",
@@ -3205,6 +3409,7 @@
         "era": ""
       },
       {
+        "id": 687330,
         "name": "Kevin Kelly",
         "note": "H",
         "ip": "2.0",
@@ -3216,6 +3421,7 @@
         "era": ""
       },
       {
+        "id": 685801,
         "name": "Hunter Bigge",
         "note": "",
         "ip": "1.0",
@@ -3227,6 +3433,7 @@
         "era": ""
       },
       {
+        "id": 694680,
         "name": "Trevor Martin",
         "note": "",
         "ip": "1.0",
@@ -3474,6 +3681,7 @@
     },
     "awayBatters": [
       {
+        "id": 695578,
         "name": "James Wood",
         "pos": "RF",
         "ab": 4,
@@ -3485,6 +3693,7 @@
         "avg": ""
       },
       {
+        "id": 678554,
         "name": "Curtis Mead",
         "pos": "2B",
         "ab": 3,
@@ -3496,6 +3705,7 @@
         "avg": ""
       },
       {
+        "id": 665953,
         "name": "Andrés Chaparro",
         "pos": "1B",
         "ab": 3,
@@ -3507,6 +3717,7 @@
         "avg": ""
       },
       {
+        "id": 671277,
         "name": "Luis García Jr.",
         "pos": "1B",
         "ab": 2,
@@ -3518,6 +3729,7 @@
         "avg": ""
       },
       {
+        "id": 691781,
         "name": "Brady House",
         "pos": "3B",
         "ab": 3,
@@ -3529,6 +3741,7 @@
         "avg": ""
       },
       {
+        "id": 695734,
         "name": "Daylen Lile",
         "pos": "LF",
         "ab": 3,
@@ -3540,6 +3753,7 @@
         "avg": ""
       },
       {
+        "id": 696285,
         "name": "Jacob Young",
         "pos": "CF",
         "ab": 3,
@@ -3551,6 +3765,7 @@
         "avg": ""
       },
       {
+        "id": 678391,
         "name": "Jorbit Vivas",
         "pos": "PH",
         "ab": 1,
@@ -3562,6 +3777,7 @@
         "avg": ""
       },
       {
+        "id": 695418,
         "name": "Brad Lord",
         "pos": "P",
         "ab": 0,
@@ -3573,6 +3789,7 @@
         "avg": ""
       },
       {
+        "id": 686894,
         "name": "Joey Wiemer",
         "pos": "CF",
         "ab": 4,
@@ -3584,6 +3801,7 @@
         "avg": ""
       },
       {
+        "id": 683083,
         "name": "Nasim Nuñez",
         "pos": "SS",
         "ab": 4,
@@ -3595,6 +3813,7 @@
         "avg": ""
       },
       {
+        "id": 660688,
         "name": "Keibert Ruiz",
         "pos": "C",
         "ab": 3,
@@ -3606,6 +3825,7 @@
         "avg": ""
       },
       {
+        "id": 682928,
         "name": "CJ Abrams",
         "pos": "PH",
         "ab": 1,
@@ -3617,6 +3837,7 @@
         "avg": ""
       },
       {
+        "id": 686452,
         "name": "Drew Millas",
         "pos": "C",
         "ab": 1,
@@ -3628,6 +3849,7 @@
         "avg": ""
       },
       {
+        "id": 663623,
         "name": "Jake Irvin",
         "pos": "P",
         "ab": 0,
@@ -3639,6 +3861,7 @@
         "avg": ""
       },
       {
+        "id": 680730,
         "name": "Mitchell Parker",
         "pos": "P",
         "ab": 0,
@@ -3650,6 +3873,7 @@
         "avg": ""
       },
       {
+        "id": 681402,
         "name": "Gus Varland",
         "pos": "P",
         "ab": 0,
@@ -3661,6 +3885,7 @@
         "avg": ""
       },
       {
+        "id": 672335,
         "name": "Cionel Pérez",
         "pos": "P",
         "ab": 0,
@@ -3672,6 +3897,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 35,
@@ -3686,6 +3912,7 @@
     ],
     "homeBatters": [
       {
+        "id": 643217,
         "name": "Andrew Benintendi",
         "pos": "DH",
         "ab": 5,
@@ -3697,6 +3924,7 @@
         "avg": ""
       },
       {
+        "id": 808959,
         "name": "Munetaka Murakami",
         "pos": "1B",
         "ab": 5,
@@ -3708,6 +3936,7 @@
         "avg": ""
       },
       {
+        "id": 678246,
         "name": "Miguel Vargas",
         "pos": "3B",
         "ab": 3,
@@ -3719,6 +3948,7 @@
         "avg": ""
       },
       {
+        "id": 695657,
         "name": "Colson Montgomery",
         "pos": "SS",
         "ab": 3,
@@ -3730,6 +3960,7 @@
         "avg": ""
       },
       {
+        "id": 677592,
         "name": "Everson Pereira",
         "pos": "RF",
         "ab": 5,
@@ -3741,6 +3972,7 @@
         "avg": ""
       },
       {
+        "id": 803011,
         "name": "Sam Antonacci",
         "pos": "LF",
         "ab": 2,
@@ -3752,6 +3984,7 @@
         "avg": ""
       },
       {
+        "id": 695020,
         "name": "Tanner Murray",
         "pos": "LF",
         "ab": 1,
@@ -3763,6 +3996,7 @@
         "avg": ""
       },
       {
+        "id": 805367,
         "name": "Chase Meidroth",
         "pos": "2B",
         "ab": 3,
@@ -3774,6 +4008,7 @@
         "avg": ""
       },
       {
+        "id": 671976,
         "name": "Tristan Peters",
         "pos": "CF",
         "ab": 2,
@@ -3785,6 +4020,7 @@
         "avg": ""
       },
       {
+        "id": 656537,
         "name": "Derek Hill",
         "pos": "CF",
         "ab": 3,
@@ -3796,6 +4032,7 @@
         "avg": ""
       },
       {
+        "id": 700337,
         "name": "Edgar Quero",
         "pos": "C",
         "ab": 3,
@@ -3807,6 +4044,7 @@
         "avg": ""
       },
       {
+        "id": 682668,
         "name": "Luisangel Acuña",
         "pos": "PR",
         "ab": 0,
@@ -3818,6 +4056,7 @@
         "avg": ""
       },
       {
+        "id": 691011,
         "name": "Drew Romo",
         "pos": "C",
         "ab": 0,
@@ -3829,6 +4068,7 @@
         "avg": ""
       },
       {
+        "id": 702273,
         "name": "Noah Schultz",
         "pos": "P",
         "ab": 0,
@@ -3840,6 +4080,7 @@
         "avg": ""
       },
       {
+        "id": 663855,
         "name": "Jordan Hicks",
         "pos": "P",
         "ab": 0,
@@ -3851,6 +4092,7 @@
         "avg": ""
       },
       {
+        "id": 699823,
         "name": "Tyler Davis",
         "pos": "P",
         "ab": 0,
@@ -3862,6 +4104,7 @@
         "avg": ""
       },
       {
+        "id": 691799,
         "name": "Grant Taylor",
         "pos": "P",
         "ab": 0,
@@ -3873,6 +4116,7 @@
         "avg": ""
       },
       {
+        "id": 673929,
         "name": "Jordan Leasure",
         "pos": "P",
         "ab": 0,
@@ -3884,6 +4128,7 @@
         "avg": ""
       },
       {
+        "id": 674370,
         "name": "Osvaldo Bido",
         "pos": "P",
         "ab": 0,
@@ -3895,6 +4140,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 35,
@@ -3909,6 +4155,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 663623,
         "name": "Jake Irvin",
         "note": "",
         "ip": "5.2",
@@ -3920,6 +4167,7 @@
         "era": ""
       },
       {
+        "id": 680730,
         "name": "Mitchell Parker",
         "note": "H",
         "ip": "1.1",
@@ -3931,6 +4179,7 @@
         "era": ""
       },
       {
+        "id": 681402,
         "name": "Gus Varland",
         "note": "BS",
         "ip": "1.0",
@@ -3942,6 +4191,7 @@
         "era": ""
       },
       {
+        "id": 672335,
         "name": "Cionel Pérez",
         "note": "W",
         "ip": "1.0",
@@ -3953,6 +4203,7 @@
         "era": ""
       },
       {
+        "id": 695418,
         "name": "Brad Lord",
         "note": "",
         "ip": "1.0",
@@ -3966,6 +4217,7 @@
     ],
     "homePitchers": [
       {
+        "id": 702273,
         "name": "Noah Schultz",
         "note": "",
         "ip": "6.0",
@@ -3977,6 +4229,7 @@
         "era": ""
       },
       {
+        "id": 663855,
         "name": "Jordan Hicks",
         "note": "",
         "ip": "1.0",
@@ -3988,6 +4241,7 @@
         "era": ""
       },
       {
+        "id": 699823,
         "name": "Tyler Davis",
         "note": "",
         "ip": "1.0",
@@ -3999,6 +4253,7 @@
         "era": ""
       },
       {
+        "id": 691799,
         "name": "Grant Taylor",
         "note": "",
         "ip": "1.0",
@@ -4010,6 +4265,7 @@
         "era": ""
       },
       {
+        "id": 673929,
         "name": "Jordan Leasure",
         "note": "L",
         "ip": "0.2",
@@ -4021,6 +4277,7 @@
         "era": ""
       },
       {
+        "id": 674370,
         "name": "Osvaldo Bido",
         "note": "",
         "ip": "0.1",
@@ -4253,6 +4510,7 @@
     },
     "awayBatters": [
       {
+        "id": 657656,
         "name": "Ramón Laureano",
         "pos": "LF",
         "ab": 3,
@@ -4264,6 +4522,7 @@
         "avg": ""
       },
       {
+        "id": 665487,
         "name": "Fernando Tatis Jr.",
         "pos": "RF",
         "ab": 4,
@@ -4275,6 +4534,7 @@
         "avg": ""
       },
       {
+        "id": 701538,
         "name": "Jackson Merrill",
         "pos": "CF",
         "ab": 3,
@@ -4286,6 +4546,7 @@
         "avg": ""
       },
       {
+        "id": 592518,
         "name": "Manny Machado",
         "pos": "3B",
         "ab": 4,
@@ -4297,6 +4558,7 @@
         "avg": ""
       },
       {
+        "id": 593428,
         "name": "Xander Bogaerts",
         "pos": "SS",
         "ab": 3,
@@ -4308,6 +4570,7 @@
         "avg": ""
       },
       {
+        "id": 657757,
         "name": "Gavin Sheets",
         "pos": "DH",
         "ab": 4,
@@ -4319,6 +4582,7 @@
         "avg": ""
       },
       {
+        "id": 664034,
         "name": "Ty France",
         "pos": "1B",
         "ab": 4,
@@ -4330,6 +4594,7 @@
         "avg": ""
       },
       {
+        "id": 666023,
         "name": "Freddy Fermin",
         "pos": "C",
         "ab": 3,
@@ -4341,6 +4606,7 @@
         "avg": ""
       },
       {
+        "id": 630105,
         "name": "Jake Cronenworth",
         "pos": "2B",
         "ab": 2,
@@ -4352,6 +4618,7 @@
         "avg": ""
       },
       {
+        "id": 608566,
         "name": "Germán Márquez",
         "pos": "P",
         "ab": 0,
@@ -4363,6 +4630,7 @@
         "avg": ""
       },
       {
+        "id": 670970,
         "name": "Adrian Morejon",
         "pos": "P",
         "ab": 0,
@@ -4374,6 +4642,7 @@
         "avg": ""
       },
       {
+        "id": 592094,
         "name": "Jason Adam",
         "pos": "P",
         "ab": 0,
@@ -4385,6 +4654,7 @@
         "avg": ""
       },
       {
+        "id": 695243,
         "name": "Mason Miller",
         "pos": "P",
         "ab": 0,
@@ -4396,6 +4666,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 30,
@@ -4410,6 +4681,7 @@
     ],
     "homeBatters": [
       {
+        "id": 672695,
         "name": "Geraldo Perdomo",
         "pos": "SS",
         "ab": 3,
@@ -4421,6 +4693,7 @@
         "avg": ""
       },
       {
+        "id": 694374,
         "name": "Tim Tawa",
         "pos": "1B",
         "ab": 1,
@@ -4432,6 +4705,7 @@
         "avg": ""
       },
       {
+        "id": 678489,
         "name": "Jorge Barrosa",
         "pos": "PH",
         "ab": 1,
@@ -4443,6 +4717,7 @@
         "avg": ""
       },
       {
+        "id": 606466,
         "name": "Ketel Marte",
         "pos": "2B",
         "ab": 4,
@@ -4454,6 +4729,7 @@
         "avg": ""
       },
       {
+        "id": 682998,
         "name": "Corbin Carroll",
         "pos": "RF",
         "ab": 2,
@@ -4465,6 +4741,7 @@
         "avg": ""
       },
       {
+        "id": 680728,
         "name": "Adrian Del Castillo",
         "pos": "C",
         "ab": 4,
@@ -4476,6 +4753,7 @@
         "avg": ""
       },
       {
+        "id": 666971,
         "name": "Lourdes Gurriel Jr.",
         "pos": "LF",
         "ab": 4,
@@ -4487,6 +4765,7 @@
         "avg": ""
       },
       {
+        "id": 545121,
         "name": "Ildemaro Vargas",
         "pos": "SS",
         "ab": 4,
@@ -4498,6 +4777,7 @@
         "avg": ""
       },
       {
+        "id": 571448,
         "name": "Nolan Arenado",
         "pos": "3B",
         "ab": 4,
@@ -4509,6 +4789,7 @@
         "avg": ""
       },
       {
+        "id": 699912,
         "name": "Jose Fernandez",
         "pos": "DH",
         "ab": 4,
@@ -4520,6 +4801,7 @@
         "avg": ""
       },
       {
+        "id": 677950,
         "name": "Alek Thomas",
         "pos": "CF",
         "ab": 4,
@@ -4531,6 +4813,7 @@
         "avg": ""
       },
       {
+        "id": 668678,
         "name": "Zac Gallen",
         "pos": "P",
         "ab": 0,
@@ -4542,6 +4825,7 @@
         "avg": ""
       },
       {
+        "id": 694297,
         "name": "Brandon Pfaadt",
         "pos": "P",
         "ab": 0,
@@ -4553,6 +4837,7 @@
         "avg": ""
       },
       {
+        "id": 664199,
         "name": "Taylor Clarke",
         "pos": "P",
         "ab": 0,
@@ -4564,6 +4849,7 @@
         "avg": ""
       },
       {
+        "id": 642528,
         "name": "Jonathan Loáisiga",
         "pos": "P",
         "ab": 0,
@@ -4575,6 +4861,7 @@
         "avg": ""
       },
       {
+        "id": 694851,
         "name": "Andrew Hoffmann",
         "pos": "P",
         "ab": 0,
@@ -4586,6 +4873,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 35,
@@ -4600,6 +4888,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 608566,
         "name": "Germán Márquez",
         "note": "W",
         "ip": "6.0",
@@ -4611,6 +4900,7 @@
         "era": ""
       },
       {
+        "id": 670970,
         "name": "Adrian Morejon",
         "note": "H",
         "ip": "1.0",
@@ -4622,6 +4912,7 @@
         "era": ""
       },
       {
+        "id": 592094,
         "name": "Jason Adam",
         "note": "H",
         "ip": "1.0",
@@ -4633,6 +4924,7 @@
         "era": ""
       },
       {
+        "id": 695243,
         "name": "Mason Miller",
         "note": "S",
         "ip": "1.0",
@@ -4646,6 +4938,7 @@
     ],
     "homePitchers": [
       {
+        "id": 668678,
         "name": "Zac Gallen",
         "note": "",
         "ip": "3.0",
@@ -4657,6 +4950,7 @@
         "era": ""
       },
       {
+        "id": 694297,
         "name": "Brandon Pfaadt",
         "note": "",
         "ip": "3.0",
@@ -4668,6 +4962,7 @@
         "era": ""
       },
       {
+        "id": 664199,
         "name": "Taylor Clarke",
         "note": "L",
         "ip": "1.0",
@@ -4679,6 +4974,7 @@
         "era": ""
       },
       {
+        "id": 642528,
         "name": "Jonathan Loáisiga",
         "note": "",
         "ip": "1.0",
@@ -4690,6 +4986,7 @@
         "era": ""
       },
       {
+        "id": 694851,
         "name": "Andrew Hoffmann",
         "note": "",
         "ip": "1.0",
@@ -4934,6 +5231,7 @@
     },
     "awayBatters": [
       {
+        "id": 669127,
         "name": "Shea Langeliers",
         "pos": "DH",
         "ab": 5,
@@ -4945,6 +5243,7 @@
         "avg": ""
       },
       {
+        "id": 701762,
         "name": "Nick Kurtz",
         "pos": "1B",
         "ab": 4,
@@ -4956,6 +5255,7 @@
         "avg": ""
       },
       {
+        "id": 687515,
         "name": "Colby Thomas",
         "pos": "CF",
         "ab": 4,
@@ -4967,6 +5267,7 @@
         "avg": ""
       },
       {
+        "id": 691016,
         "name": "Tyler Soderstrom",
         "pos": "LF",
         "ab": 4,
@@ -4978,6 +5279,7 @@
         "avg": ""
       },
       {
+        "id": 805779,
         "name": "Jacob Wilson",
         "pos": "SS",
         "ab": 3,
@@ -4989,6 +5291,7 @@
         "avg": ""
       },
       {
+        "id": 691777,
         "name": "Max Muncy",
         "pos": "3B",
         "ab": 2,
@@ -5000,6 +5303,7 @@
         "avg": ""
       },
       {
+        "id": 666126,
         "name": "Carlos Cortes",
         "pos": "RF",
         "ab": 1,
@@ -5011,6 +5315,7 @@
         "avg": ""
       },
       {
+        "id": 687231,
         "name": "Darell Hernaiz",
         "pos": "2B",
         "ab": 2,
@@ -5022,6 +5327,7 @@
         "avg": ""
       },
       {
+        "id": 643446,
         "name": "Jeff McNeil",
         "pos": "3B",
         "ab": 1,
@@ -5033,6 +5339,7 @@
         "avg": ""
       },
       {
+        "id": 642851,
         "name": "Austin Wynns",
         "pos": "C",
         "ab": 4,
@@ -5044,6 +5351,7 @@
         "avg": ""
       },
       {
+        "id": 680869,
         "name": "Zack Gelof",
         "pos": "2B",
         "ab": 4,
@@ -5055,6 +5363,7 @@
         "avg": ""
       },
       {
+        "id": 605488,
         "name": "Jeffrey Springs",
         "pos": "P",
         "ab": 0,
@@ -5066,6 +5375,7 @@
         "avg": ""
       },
       {
+        "id": 605130,
         "name": "Scott Barlow",
         "pos": "P",
         "ab": 0,
@@ -5077,6 +5387,7 @@
         "avg": ""
       },
       {
+        "id": 643410,
         "name": "Mark Leiter Jr.",
         "pos": "P",
         "ab": 0,
@@ -5088,6 +5399,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 34,
@@ -5102,6 +5414,7 @@
     ],
     "homeBatters": [
       {
+        "id": 607043,
         "name": "Brandon Nimmo",
         "pos": "RF",
         "ab": 3,
@@ -5113,6 +5426,7 @@
         "avg": ""
       },
       {
+        "id": 457705,
         "name": "Andrew McCutchen",
         "pos": "DH",
         "ab": 3,
@@ -5124,6 +5438,7 @@
         "avg": ""
       },
       {
+        "id": 592626,
         "name": "Joc Pederson",
         "pos": "DH",
         "ab": 1,
@@ -5135,6 +5450,7 @@
         "avg": ""
       },
       {
+        "id": 608369,
         "name": "Corey Seager",
         "pos": "SS",
         "ab": 4,
@@ -5146,6 +5462,7 @@
         "avg": ""
       },
       {
+        "id": 669394,
         "name": "Jake Burger",
         "pos": "1B",
         "ab": 4,
@@ -5157,6 +5474,7 @@
         "avg": ""
       },
       {
+        "id": 673962,
         "name": "Josh Jung",
         "pos": "3B",
         "ab": 4,
@@ -5168,6 +5486,7 @@
         "avg": ""
       },
       {
+        "id": 677649,
         "name": "Ezequiel Duran",
         "pos": "2B",
         "ab": 3,
@@ -5179,6 +5498,7 @@
         "avg": ""
       },
       {
+        "id": 643376,
         "name": "Danny Jansen",
         "pos": "C",
         "ab": 1,
@@ -5190,6 +5510,7 @@
         "avg": ""
       },
       {
+        "id": 694497,
         "name": "Evan Carter",
         "pos": "CF",
         "ab": 2,
@@ -5201,6 +5522,7 @@
         "avg": ""
       },
       {
+        "id": 664059,
         "name": "Sam Haggerty",
         "pos": "LF",
         "ab": 3,
@@ -5212,6 +5534,7 @@
         "avg": ""
       },
       {
+        "id": 669022,
         "name": "MacKenzie Gore",
         "pos": "P",
         "ab": 0,
@@ -5223,6 +5546,7 @@
         "avg": ""
       },
       {
+        "id": 668390,
         "name": "Cole Winn",
         "pos": "P",
         "ab": 0,
@@ -5234,6 +5558,7 @@
         "avg": ""
       },
       {
+        "id": 656222,
         "name": "Jalen Beeks",
         "pos": "P",
         "ab": 0,
@@ -5245,6 +5570,7 @@
         "avg": ""
       },
       {
+        "id": 596001,
         "name": "Jakob Junis",
         "pos": "P",
         "ab": 0,
@@ -5256,6 +5582,7 @@
         "avg": ""
       },
       {
+        "id": 656641,
         "name": "Jacob Latz",
         "pos": "P",
         "ab": 0,
@@ -5267,6 +5594,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 28,
@@ -5281,6 +5609,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 605488,
         "name": "Jeffrey Springs",
         "note": "L",
         "ip": "6.0",
@@ -5292,6 +5621,7 @@
         "era": ""
       },
       {
+        "id": 605130,
         "name": "Scott Barlow",
         "note": "",
         "ip": "1.0",
@@ -5303,6 +5633,7 @@
         "era": ""
       },
       {
+        "id": 643410,
         "name": "Mark Leiter Jr.",
         "note": "",
         "ip": "1.0",
@@ -5316,6 +5647,7 @@
     ],
     "homePitchers": [
       {
+        "id": 669022,
         "name": "MacKenzie Gore",
         "note": "",
         "ip": "5.0",
@@ -5327,6 +5659,7 @@
         "era": ""
       },
       {
+        "id": 668390,
         "name": "Cole Winn",
         "note": "W",
         "ip": "1.0",
@@ -5338,6 +5671,7 @@
         "era": ""
       },
       {
+        "id": 656222,
         "name": "Jalen Beeks",
         "note": "H",
         "ip": "1.0",
@@ -5349,6 +5683,7 @@
         "era": ""
       },
       {
+        "id": 596001,
         "name": "Jakob Junis",
         "note": "H",
         "ip": "1.0",
@@ -5360,6 +5695,7 @@
         "era": ""
       },
       {
+        "id": 656641,
         "name": "Jacob Latz",
         "note": "S",
         "ip": "1.0",
@@ -5558,6 +5894,7 @@
     },
     "awayBatters": [
       {
+        "id": 687263,
         "name": "Zach Neto",
         "pos": "SS",
         "ab": 4,
@@ -5569,6 +5906,7 @@
         "avg": ""
       },
       {
+        "id": 545361,
         "name": "Mike Trout",
         "pos": "CF",
         "ab": 4,
@@ -5580,6 +5918,7 @@
         "avg": ""
       },
       {
+        "id": 666176,
         "name": "Jo Adell",
         "pos": "RF",
         "ab": 4,
@@ -5591,6 +5930,7 @@
         "avg": ""
       },
       {
+        "id": 624585,
         "name": "Jorge Soler",
         "pos": "DH",
         "ab": 3,
@@ -5602,6 +5942,7 @@
         "avg": ""
       },
       {
+        "id": 660162,
         "name": "Yoán Moncada",
         "pos": "3B",
         "ab": 1,
@@ -5613,6 +5954,7 @@
         "avg": ""
       },
       {
+        "id": 672724,
         "name": "Oswald Peraza",
         "pos": "2B",
         "ab": 4,
@@ -5624,6 +5966,7 @@
         "avg": ""
       },
       {
+        "id": 687093,
         "name": "Vaughn Grissom",
         "pos": "1B",
         "ab": 4,
@@ -5635,6 +5978,7 @@
         "avg": ""
       },
       {
+        "id": 694384,
         "name": "Nolan Schanuel",
         "pos": "1B",
         "ab": 3,
@@ -5646,6 +5990,7 @@
         "avg": ""
       },
       {
+        "id": 624428,
         "name": "Adam Frazier",
         "pos": "P",
         "ab": 1,
@@ -5657,6 +6002,7 @@
         "avg": ""
       },
       {
+        "id": 681351,
         "name": "Logan O'Hoppe",
         "pos": "C",
         "ab": 3,
@@ -5668,6 +6014,7 @@
         "avg": ""
       },
       {
+        "id": 518595,
         "name": "Travis d'Arnaud",
         "pos": "C",
         "ab": 1,
@@ -5679,6 +6026,7 @@
         "avg": ""
       },
       {
+        "id": 669326,
         "name": "Bryce Teodosio",
         "pos": "LF",
         "ab": 2,
@@ -5690,6 +6038,7 @@
         "avg": ""
       },
       {
+        "id": 666139,
         "name": "Josh Lowe",
         "pos": "LF",
         "ab": 1,
@@ -5701,6 +6050,7 @@
         "avg": ""
       },
       {
+        "id": 700712,
         "name": "Walbert Urena",
         "pos": "P",
         "ab": 0,
@@ -5712,6 +6062,7 @@
         "avg": ""
       },
       {
+        "id": 680704,
         "name": "Nick Sandlin",
         "pos": "P",
         "ab": 0,
@@ -5723,6 +6074,7 @@
         "avg": ""
       },
       {
+        "id": 681217,
         "name": "Chase Silseth",
         "pos": "P",
         "ab": 0,
@@ -5734,6 +6086,7 @@
         "avg": ""
       },
       {
+        "id": 641312,
         "name": "Shaun Anderson",
         "pos": "P",
         "ab": 0,
@@ -5745,6 +6098,7 @@
         "avg": ""
       },
       {
+        "id": 605447,
         "name": "Jordan Romano",
         "pos": "P",
         "ab": 0,
@@ -5756,6 +6110,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 35,
@@ -5770,6 +6125,7 @@
     ],
     "homeBatters": [
       {
+        "id": 695600,
         "name": "Carter Jensen",
         "pos": "C",
         "ab": 5,
@@ -5781,6 +6137,7 @@
         "avg": ""
       },
       {
+        "id": 677951,
         "name": "Bobby Witt Jr.",
         "pos": "SS",
         "ab": 5,
@@ -5792,6 +6149,7 @@
         "avg": ""
       },
       {
+        "id": 686469,
         "name": "Vinnie Pasquantino",
         "pos": "1B",
         "ab": 3,
@@ -5803,6 +6161,7 @@
         "avg": ""
       },
       {
+        "id": 521692,
         "name": "Salvador Perez",
         "pos": "DH",
         "ab": 5,
@@ -5814,6 +6173,7 @@
         "avg": ""
       },
       {
+        "id": 695506,
         "name": "Jac Caglianone",
         "pos": "RF",
         "ab": 3,
@@ -5825,6 +6185,7 @@
         "avg": ""
       },
       {
+        "id": 686555,
         "name": "Isaac Collins",
         "pos": "LF",
         "ab": 2,
@@ -5836,6 +6197,7 @@
         "avg": ""
       },
       {
+        "id": 686681,
         "name": "Michael Massey",
         "pos": "2B",
         "ab": 5,
@@ -5847,6 +6209,7 @@
         "avg": ""
       },
       {
+        "id": 679845,
         "name": "Nick Loftin",
         "pos": "3B",
         "ab": 4,
@@ -5858,6 +6221,7 @@
         "avg": ""
       },
       {
+        "id": 664728,
         "name": "Kyle Isbel",
         "pos": "CF",
         "ab": 4,
@@ -5869,6 +6233,7 @@
         "avg": ""
       },
       {
+        "id": 666142,
         "name": "Cole Ragans",
         "pos": "P",
         "ab": 0,
@@ -5880,6 +6245,7 @@
         "avg": ""
       },
       {
+        "id": 663738,
         "name": "Daniel Lynch IV",
         "pos": "P",
         "ab": 0,
@@ -5891,6 +6257,7 @@
         "avg": ""
       },
       {
+        "id": 670167,
         "name": "John Schreiber",
         "pos": "P",
         "ab": 0,
@@ -5902,6 +6269,7 @@
         "avg": ""
       },
       {
+        "id": 696131,
         "name": "Mason Black",
         "pos": "P",
         "ab": 0,
@@ -5913,6 +6281,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 36,
@@ -5927,6 +6296,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 700712,
         "name": "Walbert Urena",
         "note": "L",
         "ip": "3.2",
@@ -5938,6 +6308,7 @@
         "era": ""
       },
       {
+        "id": 680704,
         "name": "Nick Sandlin",
         "note": "",
         "ip": "1.1",
@@ -5949,6 +6320,7 @@
         "era": ""
       },
       {
+        "id": 681217,
         "name": "Chase Silseth",
         "note": "",
         "ip": "1.0",
@@ -5960,6 +6332,7 @@
         "era": ""
       },
       {
+        "id": 641312,
         "name": "Shaun Anderson",
         "note": "",
         "ip": "1.0",
@@ -5971,6 +6344,7 @@
         "era": ""
       },
       {
+        "id": 605447,
         "name": "Jordan Romano",
         "note": "",
         "ip": "0.2",
@@ -5982,6 +6356,7 @@
         "era": ""
       },
       {
+        "id": 624428,
         "name": "Adam Frazier",
         "note": "",
         "ip": "0.1",
@@ -5995,6 +6370,7 @@
     ],
     "homePitchers": [
       {
+        "id": 666142,
         "name": "Cole Ragans",
         "note": "W",
         "ip": "6.0",
@@ -6006,6 +6382,7 @@
         "era": ""
       },
       {
+        "id": 663738,
         "name": "Daniel Lynch IV",
         "note": "",
         "ip": "1.0",
@@ -6017,6 +6394,7 @@
         "era": ""
       },
       {
+        "id": 670167,
         "name": "John Schreiber",
         "note": "",
         "ip": "1.0",
@@ -6028,6 +6406,7 @@
         "era": ""
       },
       {
+        "id": 696131,
         "name": "Mason Black",
         "note": "",
         "ip": "1.0",
@@ -6269,6 +6648,7 @@
     },
     "awayBatters": [
       {
+        "id": 663757,
         "name": "Trent Grisham",
         "pos": "CF",
         "ab": 3,
@@ -6280,6 +6660,7 @@
         "avg": ""
       },
       {
+        "id": 700250,
         "name": "Ben Rice",
         "pos": "1B",
         "ab": 4,
@@ -6291,6 +6672,7 @@
         "avg": ""
       },
       {
+        "id": 592450,
         "name": "Aaron Judge",
         "pos": "RF",
         "ab": 3,
@@ -6302,6 +6684,7 @@
         "avg": ""
       },
       {
+        "id": 641355,
         "name": "Cody Bellinger",
         "pos": "LF",
         "ab": 2,
@@ -6313,6 +6696,7 @@
         "avg": ""
       },
       {
+        "id": 665862,
         "name": "Jazz Chisholm Jr.",
         "pos": "2B",
         "ab": 4,
@@ -6324,6 +6708,7 @@
         "avg": ""
       },
       {
+        "id": 642708,
         "name": "Amed Rosario",
         "pos": "DH",
         "ab": 5,
@@ -6335,6 +6720,7 @@
         "avg": ""
       },
       {
+        "id": 669224,
         "name": "Austin Wells",
         "pos": "C",
         "ab": 3,
@@ -6346,6 +6732,7 @@
         "avg": ""
       },
       {
+        "id": 641857,
         "name": "Ryan McMahon",
         "pos": "3B",
         "ab": 5,
@@ -6357,6 +6744,7 @@
         "avg": ""
       },
       {
+        "id": 676609,
         "name": "José Caballero",
         "pos": "SS",
         "ab": 5,
@@ -6368,6 +6756,7 @@
         "avg": ""
       },
       {
+        "id": 677960,
         "name": "Ryan Weathers",
         "pos": "P",
         "ab": 0,
@@ -6379,6 +6768,7 @@
         "avg": ""
       },
       {
+        "id": 518585,
         "name": "Fernando Cruz",
         "pos": "P",
         "ab": 0,
@@ -6390,6 +6780,7 @@
         "avg": ""
       },
       {
+        "id": 656234,
         "name": "Jake Bird",
         "pos": "P",
         "ab": 0,
@@ -6401,6 +6792,7 @@
         "avg": ""
       },
       {
+        "id": 666808,
         "name": "Camilo Doval",
         "pos": "P",
         "ab": 0,
@@ -6412,6 +6804,7 @@
         "avg": ""
       },
       {
+        "id": 657612,
         "name": "Tim Hill",
         "pos": "P",
         "ab": 0,
@@ -6423,6 +6816,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 34,
@@ -6437,6 +6831,7 @@
     ],
     "homeBatters": [
       {
+        "id": 621043,
         "name": "Carlos Correa",
         "pos": "SS",
         "ab": 3,
@@ -6448,6 +6843,7 @@
         "avg": ""
       },
       {
+        "id": 670541,
         "name": "Yordan Alvarez",
         "pos": "LF",
         "ab": 4,
@@ -6459,6 +6855,7 @@
         "avg": ""
       },
       {
+        "id": 670623,
         "name": "Isaac Paredes",
         "pos": "3B",
         "ab": 4,
@@ -6470,6 +6867,7 @@
         "avg": ""
       },
       {
+        "id": 514888,
         "name": "Jose Altuve",
         "pos": "2B",
         "ab": 3,
@@ -6481,6 +6879,7 @@
         "avg": ""
       },
       {
+        "id": 572233,
         "name": "Christian Walker",
         "pos": "1B",
         "ab": 4,
@@ -6492,6 +6891,7 @@
         "avg": ""
       },
       {
+        "id": 673237,
         "name": "Yainer Diaz",
         "pos": "DH",
         "ab": 4,
@@ -6503,6 +6903,7 @@
         "avg": ""
       },
       {
+        "id": 701358,
         "name": "Cam Smith",
         "pos": "RF",
         "ab": 4,
@@ -6514,6 +6915,7 @@
         "avg": ""
       },
       {
+        "id": 543877,
         "name": "Christian Vázquez",
         "pos": "C",
         "ab": 4,
@@ -6525,6 +6927,7 @@
         "avg": ""
       },
       {
+        "id": 694728,
         "name": "Brice Matthews",
         "pos": "CF",
         "ab": 3,
@@ -6536,6 +6939,7 @@
         "avg": ""
       },
       {
+        "id": 681347,
         "name": "Mike Burrows",
         "pos": "P",
         "ab": 0,
@@ -6547,6 +6951,7 @@
         "avg": ""
       },
       {
+        "id": 595345,
         "name": "Steven Okert",
         "pos": "P",
         "ab": 0,
@@ -6558,6 +6963,7 @@
         "avg": ""
       },
       {
+        "id": 678906,
         "name": "Kai-Wei Teng",
         "pos": "P",
         "ab": 0,
@@ -6569,6 +6975,7 @@
         "avg": ""
       },
       {
+        "id": 656986,
         "name": "Bennett Sousa",
         "pos": "P",
         "ab": 0,
@@ -6580,6 +6987,7 @@
         "avg": ""
       },
       {
+        "id": 805123,
         "name": "AJ Blubaugh",
         "pos": "P",
         "ab": 0,
@@ -6591,6 +6999,7 @@
         "avg": ""
       },
       {
+        "id": 681151,
         "name": "Jayden Murray",
         "pos": "P",
         "ab": 0,
@@ -6602,6 +7011,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 33,
@@ -6616,6 +7026,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 677960,
         "name": "Ryan Weathers",
         "note": "",
         "ip": "5.1",
@@ -6627,6 +7038,7 @@
         "era": ""
       },
       {
+        "id": 518585,
         "name": "Fernando Cruz",
         "note": "W",
         "ip": "0.2",
@@ -6638,6 +7050,7 @@
         "era": ""
       },
       {
+        "id": 656234,
         "name": "Jake Bird",
         "note": "H",
         "ip": "1.0",
@@ -6649,6 +7062,7 @@
         "era": ""
       },
       {
+        "id": 666808,
         "name": "Camilo Doval",
         "note": "",
         "ip": "1.0",
@@ -6660,6 +7074,7 @@
         "era": ""
       },
       {
+        "id": 657612,
         "name": "Tim Hill",
         "note": "",
         "ip": "1.0",
@@ -6673,6 +7088,7 @@
     ],
     "homePitchers": [
       {
+        "id": 681347,
         "name": "Mike Burrows",
         "note": "",
         "ip": "5.0",
@@ -6684,6 +7100,7 @@
         "era": ""
       },
       {
+        "id": 595345,
         "name": "Steven Okert",
         "note": "",
         "ip": "1.0",
@@ -6695,6 +7112,7 @@
         "era": ""
       },
       {
+        "id": 678906,
         "name": "Kai-Wei Teng",
         "note": "L",
         "ip": "0.1",
@@ -6706,6 +7124,7 @@
         "era": ""
       },
       {
+        "id": 656986,
         "name": "Bennett Sousa",
         "note": "",
         "ip": "0.1",
@@ -6717,6 +7136,7 @@
         "era": ""
       },
       {
+        "id": 805123,
         "name": "AJ Blubaugh",
         "note": "",
         "ip": "1.1",
@@ -6728,6 +7148,7 @@
         "era": ""
       },
       {
+        "id": 681151,
         "name": "Jayden Murray",
         "note": "",
         "ip": "1.0",
@@ -6967,6 +7388,7 @@
     },
     "awayBatters": [
       {
+        "id": 665833,
         "name": "Oneil Cruz",
         "pos": "CF",
         "ab": 5,
@@ -6978,6 +7400,7 @@
         "avg": ""
       },
       {
+        "id": 664040,
         "name": "Brandon Lowe",
         "pos": "2B",
         "ab": 4,
@@ -6989,6 +7412,7 @@
         "avg": ""
       },
       {
+        "id": 542303,
         "name": "Marcell Ozuna",
         "pos": "PH",
         "ab": 0,
@@ -7000,6 +7424,7 @@
         "avg": ""
       },
       {
+        "id": 694377,
         "name": "Nick Yorke",
         "pos": "3B",
         "ab": 0,
@@ -7011,6 +7436,7 @@
         "avg": ""
       },
       {
+        "id": 668804,
         "name": "Bryan Reynolds",
         "pos": "RF",
         "ab": 3,
@@ -7022,6 +7448,7 @@
         "avg": ""
       },
       {
+        "id": 656811,
         "name": "Ryan O'Hearn",
         "pos": "DH",
         "ab": 4,
@@ -7033,6 +7460,7 @@
         "avg": ""
       },
       {
+        "id": 693304,
         "name": "Nick Gonzales",
         "pos": "2B",
         "ab": 5,
@@ -7044,6 +7472,7 @@
         "avg": ""
       },
       {
+        "id": 687462,
         "name": "Spencer Horwitz",
         "pos": "1B",
         "ab": 4,
@@ -7055,6 +7484,7 @@
         "avg": ""
       },
       {
+        "id": 663968,
         "name": "Jake Mangum",
         "pos": "LF",
         "ab": 4,
@@ -7066,6 +7496,7 @@
         "avg": ""
       },
       {
+        "id": 804606,
         "name": "Konnor Griffin",
         "pos": "SS",
         "ab": 4,
@@ -7077,6 +7508,7 @@
         "avg": ""
       },
       {
+        "id": 680779,
         "name": "Henry Davis",
         "pos": "C",
         "ab": 4,
@@ -7088,6 +7520,7 @@
         "avg": ""
       },
       {
+        "id": 656605,
         "name": "Mitch Keller",
         "pos": "P",
         "ab": 0,
@@ -7099,6 +7532,7 @@
         "avg": ""
       },
       {
+        "id": 676755,
         "name": "Isaac Mattson",
         "pos": "P",
         "ab": 0,
@@ -7110,6 +7544,7 @@
         "avg": ""
       },
       {
+        "id": 682254,
         "name": "Mason Montgomery",
         "pos": "P",
         "ab": 0,
@@ -7121,6 +7556,7 @@
         "avg": ""
       },
       {
+        "id": 642701,
         "name": "Dennis Santana",
         "pos": "P",
         "ab": 0,
@@ -7132,6 +7568,7 @@
         "avg": ""
       },
       {
+        "id": 642397,
         "name": "Gregory Soto",
         "pos": "P",
         "ab": 0,
@@ -7143,6 +7580,7 @@
         "avg": ""
       },
       {
+        "id": 670990,
         "name": "Yohan Ramírez",
         "pos": "P",
         "ab": 0,
@@ -7154,6 +7592,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 37,
@@ -7168,6 +7607,7 @@
     ],
     "homeBatters": [
       {
+        "id": 668930,
         "name": "Brice Turang",
         "pos": "2B",
         "ab": 4,
@@ -7179,6 +7619,7 @@
         "avg": ""
       },
       {
+        "id": 661388,
         "name": "William Contreras",
         "pos": "C",
         "ab": 5,
@@ -7190,6 +7631,7 @@
         "avg": ""
       },
       {
+        "id": 641343,
         "name": "Jake Bauers",
         "pos": "1B",
         "ab": 5,
@@ -7201,6 +7643,7 @@
         "avg": ""
       },
       {
+        "id": 672012,
         "name": "Tyler Black",
         "pos": "DH",
         "ab": 5,
@@ -7212,6 +7655,7 @@
         "avg": ""
       },
       {
+        "id": 669003,
         "name": "Garrett Mitchell",
         "pos": "CF",
         "ab": 4,
@@ -7223,6 +7667,7 @@
         "avg": ""
       },
       {
+        "id": 686217,
         "name": "Sal Frelick",
         "pos": "RF",
         "ab": 0,
@@ -7234,6 +7679,7 @@
         "avg": ""
       },
       {
+        "id": 675659,
         "name": "Greg Jones",
         "pos": "LF",
         "ab": 4,
@@ -7245,6 +7691,7 @@
         "avg": ""
       },
       {
+        "id": 666152,
         "name": "David Hamilton",
         "pos": "3B",
         "ab": 2,
@@ -7256,6 +7703,7 @@
         "avg": ""
       },
       {
+        "id": 650859,
         "name": "Luis Rengifo",
         "pos": "3B",
         "ab": 2,
@@ -7267,6 +7715,7 @@
         "avg": ""
       },
       {
+        "id": 687401,
         "name": "Joey Ortiz",
         "pos": "SS",
         "ab": 3,
@@ -7278,6 +7727,7 @@
         "avg": ""
       },
       {
+        "id": 694819,
         "name": "Jacob Misiorowski",
         "pos": "P",
         "ab": 0,
@@ -7289,6 +7739,7 @@
         "avg": ""
       },
       {
+        "id": 676879,
         "name": "Aaron Ashby",
         "pos": "P",
         "ab": 0,
@@ -7300,6 +7751,7 @@
         "avg": ""
       },
       {
+        "id": 682842,
         "name": "Abner Uribe",
         "pos": "P",
         "ab": 0,
@@ -7311,6 +7763,7 @@
         "avg": ""
       },
       {
+        "id": 672582,
         "name": "Angel Zerpa",
         "pos": "P",
         "ab": 0,
@@ -7322,6 +7775,7 @@
         "avg": ""
       },
       {
+        "id": 681982,
         "name": "Grant Anderson",
         "pos": "P",
         "ab": 0,
@@ -7333,6 +7787,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 34,
@@ -7347,6 +7802,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 656605,
         "name": "Mitch Keller",
         "note": "",
         "ip": "5.0",
@@ -7358,6 +7814,7 @@
         "era": ""
       },
       {
+        "id": 676755,
         "name": "Isaac Mattson",
         "note": "BS",
         "ip": "1.0",
@@ -7369,6 +7826,7 @@
         "era": ""
       },
       {
+        "id": 682254,
         "name": "Mason Montgomery",
         "note": "",
         "ip": "1.0",
@@ -7380,6 +7838,7 @@
         "era": ""
       },
       {
+        "id": 642701,
         "name": "Dennis Santana",
         "note": "",
         "ip": "1.0",
@@ -7391,6 +7850,7 @@
         "era": ""
       },
       {
+        "id": 642397,
         "name": "Gregory Soto",
         "note": "W",
         "ip": "1.0",
@@ -7402,6 +7862,7 @@
         "era": ""
       },
       {
+        "id": 670990,
         "name": "Yohan Ramírez",
         "note": "S",
         "ip": "1.0",
@@ -7415,6 +7876,7 @@
     ],
     "homePitchers": [
       {
+        "id": 694819,
         "name": "Jacob Misiorowski",
         "note": "",
         "ip": "6.0",
@@ -7426,6 +7888,7 @@
         "era": ""
       },
       {
+        "id": 676879,
         "name": "Aaron Ashby",
         "note": "",
         "ip": "2.0",
@@ -7437,6 +7900,7 @@
         "era": ""
       },
       {
+        "id": 682842,
         "name": "Abner Uribe",
         "note": "",
         "ip": "1.0",
@@ -7448,6 +7912,7 @@
         "era": ""
       },
       {
+        "id": 672582,
         "name": "Angel Zerpa",
         "note": "L",
         "ip": "0.2",
@@ -7459,6 +7924,7 @@
         "era": ""
       },
       {
+        "id": 681982,
         "name": "Grant Anderson",
         "note": "",
         "ip": "0.1",
@@ -7687,6 +8153,7 @@
     },
     "awayBatters": [
       {
+        "id": 805808,
         "name": "Kevin McGonigle",
         "pos": "SS",
         "ab": 5,
@@ -7698,6 +8165,7 @@
         "avg": ""
       },
       {
+        "id": 663837,
         "name": "Matt Vierling",
         "pos": "CF",
         "ab": 3,
@@ -7709,6 +8177,7 @@
         "avg": ""
       },
       {
+        "id": 690993,
         "name": "Colt Keith",
         "pos": "3B",
         "ab": 4,
@@ -7720,6 +8189,7 @@
         "avg": ""
       },
       {
+        "id": 682985,
         "name": "Riley Greene",
         "pos": "LF",
         "ab": 3,
@@ -7731,6 +8201,7 @@
         "avg": ""
       },
       {
+        "id": 693307,
         "name": "Dillon Dingler",
         "pos": "C",
         "ab": 4,
@@ -7742,6 +8213,7 @@
         "avg": ""
       },
       {
+        "id": 681481,
         "name": "Kerry Carpenter",
         "pos": "DH",
         "ab": 3,
@@ -7753,6 +8225,7 @@
         "avg": ""
       },
       {
+        "id": 663330,
         "name": "Jahmai Jones",
         "pos": "DH",
         "ab": 1,
@@ -7764,6 +8237,7 @@
         "avg": ""
       },
       {
+        "id": 679529,
         "name": "Spencer Torkelson",
         "pos": "1B",
         "ab": 4,
@@ -7775,6 +8249,7 @@
         "avg": ""
       },
       {
+        "id": 672761,
         "name": "Wenceel Pérez",
         "pos": "RF",
         "ab": 4,
@@ -7786,6 +8261,7 @@
         "avg": ""
       },
       {
+        "id": 595879,
         "name": "Javier Báez",
         "pos": "2B",
         "ab": 3,
@@ -7797,6 +8273,7 @@
         "avg": ""
       },
       {
+        "id": 701678,
         "name": "Hao-Yu  Lee",
         "pos": "PH",
         "ab": 1,
@@ -7808,6 +8285,7 @@
         "avg": ""
       },
       {
+        "id": 656427,
         "name": "Jack Flaherty",
         "pos": "P",
         "ab": 0,
@@ -7819,6 +8297,7 @@
         "avg": ""
       },
       {
+        "id": 572143,
         "name": "Burch Smith",
         "pos": "P",
         "ab": 0,
@@ -7830,6 +8309,7 @@
         "avg": ""
       },
       {
+        "id": 663947,
         "name": "Tyler Holton",
         "pos": "P",
         "ab": 0,
@@ -7841,6 +8321,7 @@
         "avg": ""
       },
       {
+        "id": 657756,
         "name": "Connor Seabold",
         "pos": "P",
         "ab": 0,
@@ -7852,6 +8333,7 @@
         "avg": ""
       },
       {
+        "id": 623454,
         "name": "Drew Anderson",
         "pos": "P",
         "ab": 0,
@@ -7863,6 +8345,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 35,
@@ -7877,6 +8360,7 @@
     ],
     "homeBatters": [
       {
+        "id": 670770,
         "name": "TJ Friedl",
         "pos": "LF",
         "ab": 4,
@@ -7888,6 +8372,7 @@
         "avg": ""
       },
       {
+        "id": 680574,
         "name": "Matt McLain",
         "pos": "2B",
         "ab": 4,
@@ -7899,6 +8384,7 @@
         "avg": ""
       },
       {
+        "id": 682829,
         "name": "Elly De La Cruz",
         "pos": "SS",
         "ab": 3,
@@ -7910,6 +8396,7 @@
         "avg": ""
       },
       {
+        "id": 701398,
         "name": "Sal Stewart",
         "pos": "1B",
         "ab": 4,
@@ -7921,6 +8408,7 @@
         "avg": ""
       },
       {
+        "id": 663993,
         "name": "Nathaniel Lowe",
         "pos": "DH",
         "ab": 4,
@@ -7932,6 +8420,7 @@
         "avg": ""
       },
       {
+        "id": 668715,
         "name": "Spencer Steer",
         "pos": "RF",
         "ab": 2,
@@ -7943,6 +8432,7 @@
         "avg": ""
       },
       {
+        "id": 663886,
         "name": "Tyler Stephenson",
         "pos": "C",
         "ab": 3,
@@ -7954,6 +8444,7 @@
         "avg": ""
       },
       {
+        "id": 666181,
         "name": "Will Benson",
         "pos": "RF",
         "ab": 2,
@@ -7965,6 +8456,7 @@
         "avg": ""
       },
       {
+        "id": 667472,
         "name": "Dane Myers",
         "pos": "CF",
         "ab": 2,
@@ -7976,6 +8468,7 @@
         "avg": ""
       },
       {
+        "id": 663647,
         "name": "Ke'Bryan Hayes",
         "pos": "3B",
         "ab": 4,
@@ -7987,6 +8480,7 @@
         "avg": ""
       },
       {
+        "id": 663903,
         "name": "Brady Singer",
         "pos": "P",
         "ab": 0,
@@ -7998,6 +8492,7 @@
         "avg": ""
       },
       {
+        "id": 683175,
         "name": "Connor Phillips",
         "pos": "P",
         "ab": 0,
@@ -8009,6 +8504,7 @@
         "avg": ""
       },
       {
+        "id": 668933,
         "name": "Graham Ashcraft",
         "pos": "P",
         "ab": 0,
@@ -8020,6 +8516,7 @@
         "avg": ""
       },
       {
+        "id": 594580,
         "name": "Sam Moll",
         "pos": "P",
         "ab": 0,
@@ -8031,6 +8528,7 @@
         "avg": ""
       },
       {
+        "id": 641941,
         "name": "Emilio Pagán",
         "pos": "P",
         "ab": 0,
@@ -8042,6 +8540,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 32,
@@ -8056,6 +8555,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 656427,
         "name": "Jack Flaherty",
         "note": "L",
         "ip": "2.0",
@@ -8067,6 +8567,7 @@
         "era": ""
       },
       {
+        "id": 572143,
         "name": "Burch Smith",
         "note": "",
         "ip": "2.0",
@@ -8078,6 +8579,7 @@
         "era": ""
       },
       {
+        "id": 663947,
         "name": "Tyler Holton",
         "note": "",
         "ip": "1.0",
@@ -8089,6 +8591,7 @@
         "era": ""
       },
       {
+        "id": 657756,
         "name": "Connor Seabold",
         "note": "",
         "ip": "0.1",
@@ -8100,6 +8603,7 @@
         "era": ""
       },
       {
+        "id": 623454,
         "name": "Drew Anderson",
         "note": "",
         "ip": "2.2",
@@ -8113,6 +8617,7 @@
     ],
     "homePitchers": [
       {
+        "id": 663903,
         "name": "Brady Singer",
         "note": "W",
         "ip": "5.1",
@@ -8124,6 +8629,7 @@
         "era": ""
       },
       {
+        "id": 683175,
         "name": "Connor Phillips",
         "note": "",
         "ip": "0.2",
@@ -8135,6 +8641,7 @@
         "era": ""
       },
       {
+        "id": 668933,
         "name": "Graham Ashcraft",
         "note": "",
         "ip": "1.0",
@@ -8146,6 +8653,7 @@
         "era": ""
       },
       {
+        "id": 594580,
         "name": "Sam Moll",
         "note": "",
         "ip": "1.0",
@@ -8157,6 +8665,7 @@
         "era": ""
       },
       {
+        "id": 641941,
         "name": "Emilio Pagán",
         "note": "",
         "ip": "1.0",
@@ -8380,6 +8889,7 @@
     },
     "awayBatters": [
       {
+        "id": 663538,
         "name": "Nico Hoerner",
         "pos": "2B",
         "ab": 3,
@@ -8391,6 +8901,7 @@
         "avg": ""
       },
       {
+        "id": 670032,
         "name": "Nicky Lopez",
         "pos": "3B",
         "ab": 2,
@@ -8402,6 +8913,7 @@
         "avg": ""
       },
       {
+        "id": 683737,
         "name": "Michael Busch",
         "pos": "1B",
         "ab": 5,
@@ -8413,6 +8925,7 @@
         "avg": ""
       },
       {
+        "id": 608324,
         "name": "Alex Bregman",
         "pos": "3B",
         "ab": 3,
@@ -8424,6 +8937,7 @@
         "avg": ""
       },
       {
+        "id": 624424,
         "name": "Michael Conforto",
         "pos": "LF",
         "ab": 1,
@@ -8435,6 +8949,7 @@
         "avg": ""
       },
       {
+        "id": 664023,
         "name": "Ian Happ",
         "pos": "LF",
         "ab": 2,
@@ -8446,6 +8961,7 @@
         "avg": ""
       },
       {
+        "id": 807713,
         "name": "Matt Shaw",
         "pos": "2B",
         "ab": 1,
@@ -8457,6 +8973,7 @@
         "avg": ""
       },
       {
+        "id": 673548,
         "name": "Seiya Suzuki",
         "pos": "RF",
         "ab": 4,
@@ -8468,6 +8985,7 @@
         "avg": ""
       },
       {
+        "id": 694208,
         "name": "Moisés Ballesteros",
         "pos": "DH",
         "ab": 3,
@@ -8479,6 +8997,7 @@
         "avg": ""
       },
       {
+        "id": 621020,
         "name": "Dansby Swanson",
         "pos": "SS",
         "ab": 4,
@@ -8490,6 +9009,7 @@
         "avg": ""
       },
       {
+        "id": 691718,
         "name": "Pete Crow-Armstrong",
         "pos": "CF",
         "ab": 4,
@@ -8501,6 +9021,7 @@
         "avg": ""
       },
       {
+        "id": 665804,
         "name": "Miguel Amaya",
         "pos": "C",
         "ab": 3,
@@ -8512,6 +9033,7 @@
         "avg": ""
       },
       {
+        "id": 607067,
         "name": "Colin Rea",
         "pos": "P",
         "ab": 0,
@@ -8523,6 +9045,7 @@
         "avg": ""
       },
       {
+        "id": 665871,
         "name": "Javier Assad",
         "pos": "P",
         "ab": 0,
@@ -8534,6 +9057,7 @@
         "avg": ""
       },
       {
+        "id": 592826,
         "name": "Vince Velasquez",
         "pos": "P",
         "ab": 0,
@@ -8545,6 +9069,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 35,
@@ -8559,6 +9084,7 @@
     ],
     "homeBatters": [
       {
+        "id": 660271,
         "name": "Shohei Ohtani",
         "pos": "DH",
         "ab": 3,
@@ -8570,6 +9096,7 @@
         "avg": ""
       },
       {
+        "id": 518692,
         "name": "Freddie Freeman",
         "pos": "1B",
         "ab": 5,
@@ -8581,6 +9108,7 @@
         "avg": ""
       },
       {
+        "id": 571970,
         "name": "Max Muncy",
         "pos": "3B",
         "ab": 1,
@@ -8592,6 +9120,7 @@
         "avg": ""
       },
       {
+        "id": 669289,
         "name": "Santiago Espinal",
         "pos": "3B",
         "ab": 2,
@@ -8603,6 +9132,7 @@
         "avg": ""
       },
       {
+        "id": 663656,
         "name": "Kyle Tucker",
         "pos": "RF",
         "ab": 5,
@@ -8614,6 +9144,7 @@
         "avg": ""
       },
       {
+        "id": 606192,
         "name": "Teoscar Hernández",
         "pos": "LF",
         "ab": 3,
@@ -8625,6 +9156,7 @@
         "avg": ""
       },
       {
+        "id": 669743,
         "name": "Alex Call",
         "pos": "LF",
         "ab": 1,
@@ -8636,6 +9168,7 @@
         "avg": ""
       },
       {
+        "id": 687221,
         "name": "Dalton Rushing",
         "pos": "C",
         "ab": 4,
@@ -8647,6 +9180,7 @@
         "avg": ""
       },
       {
+        "id": 681624,
         "name": "Andy Pages",
         "pos": "CF",
         "ab": 5,
@@ -8658,6 +9192,7 @@
         "avg": ""
       },
       {
+        "id": 808975,
         "name": "Hyeseong Kim",
         "pos": "SS",
         "ab": 5,
@@ -8669,6 +9204,7 @@
         "avg": ""
       },
       {
+        "id": 690976,
         "name": "Alex Freeland",
         "pos": "2B",
         "ab": 4,
@@ -8680,6 +9216,7 @@
         "avg": ""
       },
       {
+        "id": 808963,
         "name": "Roki Sasaki",
         "pos": "P",
         "ab": 0,
@@ -8691,6 +9228,7 @@
         "avg": ""
       },
       {
+        "id": 676263,
         "name": "Jack Dreyer",
         "pos": "P",
         "ab": 0,
@@ -8702,6 +9240,7 @@
         "avg": ""
       },
       {
+        "id": 694361,
         "name": "Will Klein",
         "pos": "P",
         "ab": 0,
@@ -8713,6 +9252,7 @@
         "avg": ""
       },
       {
+        "id": 669165,
         "name": "Kyle Hurt",
         "pos": "P",
         "ab": 0,
@@ -8724,6 +9264,7 @@
         "avg": ""
       },
       {
+        "id": 671109,
         "name": "Jake Eder",
         "pos": "P",
         "ab": 0,
@@ -8735,6 +9276,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 38,
@@ -8749,6 +9291,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 607067,
         "name": "Colin Rea",
         "note": "L",
         "ip": "3.1",
@@ -8760,6 +9303,7 @@
         "era": ""
       },
       {
+        "id": 665871,
         "name": "Javier Assad",
         "note": "",
         "ip": "2.1",
@@ -8771,6 +9315,7 @@
         "era": ""
       },
       {
+        "id": 592826,
         "name": "Vince Velasquez",
         "note": "",
         "ip": "2.1",
@@ -8784,6 +9329,7 @@
     ],
     "homePitchers": [
       {
+        "id": 808963,
         "name": "Roki Sasaki",
         "note": "W",
         "ip": "5.0",
@@ -8795,6 +9341,7 @@
         "era": ""
       },
       {
+        "id": 676263,
         "name": "Jack Dreyer",
         "note": "H",
         "ip": "0.2",
@@ -8806,6 +9353,7 @@
         "era": ""
       },
       {
+        "id": 694361,
         "name": "Will Klein",
         "note": "H",
         "ip": "1.1",
@@ -8817,6 +9365,7 @@
         "era": ""
       },
       {
+        "id": 669165,
         "name": "Kyle Hurt",
         "note": "",
         "ip": "1.0",
@@ -8828,6 +9377,7 @@
         "era": ""
       },
       {
+        "id": 671109,
         "name": "Jake Eder",
         "note": "",
         "ip": "1.0",
@@ -9049,6 +9599,7 @@
     },
     "awayBatters": [
       {
+        "id": 607208,
         "name": "Trea Turner",
         "pos": "SS",
         "ab": 4,
@@ -9060,6 +9611,7 @@
         "avg": ""
       },
       {
+        "id": 656941,
         "name": "Kyle Schwarber",
         "pos": "DH",
         "ab": 4,
@@ -9071,6 +9623,7 @@
         "avg": ""
       },
       {
+        "id": 664238,
         "name": "Dylan Moore",
         "pos": "DH",
         "ab": 0,
@@ -9082,6 +9635,7 @@
         "avg": ""
       },
       {
+        "id": 547180,
         "name": "Bryce Harper",
         "pos": "1B",
         "ab": 3,
@@ -9093,6 +9647,7 @@
         "avg": ""
       },
       {
+        "id": 666969,
         "name": "Adolis García",
         "pos": "RF",
         "ab": 5,
@@ -9104,6 +9659,7 @@
         "avg": ""
       },
       {
+        "id": 669016,
         "name": "Brandon Marsh",
         "pos": "LF",
         "ab": 5,
@@ -9115,6 +9671,7 @@
         "avg": ""
       },
       {
+        "id": 681082,
         "name": "Bryson Stott",
         "pos": "2B",
         "ab": 5,
@@ -9126,6 +9683,7 @@
         "avg": ""
       },
       {
+        "id": 664761,
         "name": "Alec Bohm",
         "pos": "3B",
         "ab": 5,
@@ -9137,6 +9695,7 @@
         "avg": ""
       },
       {
+        "id": 702222,
         "name": "Justin Crawford",
         "pos": "CF",
         "ab": 5,
@@ -9148,6 +9707,7 @@
         "avg": ""
       },
       {
+        "id": 665561,
         "name": "Rafael Marchán",
         "pos": "C",
         "ab": 4,
@@ -9159,6 +9719,7 @@
         "avg": ""
       },
       {
+        "id": 596117,
         "name": "Garrett Stubbs",
         "pos": "C",
         "ab": 0,
@@ -9170,6 +9731,7 @@
         "avg": ""
       },
       {
+        "id": 554430,
         "name": "Zack Wheeler",
         "pos": "P",
         "ab": 0,
@@ -9181,6 +9743,7 @@
         "avg": ""
       },
       {
+        "id": 621383,
         "name": "Tanner Banks",
         "pos": "P",
         "ab": 0,
@@ -9192,6 +9755,7 @@
         "avg": ""
       },
       {
+        "id": 689147,
         "name": "Orion Kerkering",
         "pos": "P",
         "ab": 0,
@@ -9203,6 +9767,7 @@
         "avg": ""
       },
       {
+        "id": 621237,
         "name": "José Alvarado",
         "pos": "P",
         "ab": 0,
@@ -9214,6 +9779,7 @@
         "avg": ""
       },
       {
+        "id": 641745,
         "name": "Brad Keller",
         "pos": "P",
         "ab": 0,
@@ -9225,6 +9791,7 @@
         "avg": ""
       },
       {
+        "id": 679775,
         "name": "Kyle Backhus",
         "pos": "P",
         "ab": 0,
@@ -9236,6 +9803,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 40,
@@ -9250,6 +9818,7 @@
     ],
     "homeBatters": [
       {
+        "id": 660670,
         "name": "Ronald Acuña Jr.",
         "pos": "RF",
         "ab": 4,
@@ -9261,6 +9830,7 @@
         "avg": ""
       },
       {
+        "id": 686948,
         "name": "Drake Baldwin",
         "pos": "C",
         "ab": 4,
@@ -9272,6 +9842,7 @@
         "avg": ""
       },
       {
+        "id": 621566,
         "name": "Matt Olson",
         "pos": "1B",
         "ab": 3,
@@ -9283,6 +9854,7 @@
         "avg": ""
       },
       {
+        "id": 645277,
         "name": "Ozzie Albies",
         "pos": "2B",
         "ab": 5,
@@ -9294,6 +9866,7 @@
         "avg": ""
       },
       {
+        "id": 671739,
         "name": "Michael Harris II",
         "pos": "DH",
         "ab": 4,
@@ -9305,6 +9878,7 @@
         "avg": ""
       },
       {
+        "id": 663586,
         "name": "Austin Riley",
         "pos": "3B",
         "ab": 4,
@@ -9316,6 +9890,7 @@
         "avg": ""
       },
       {
+        "id": 643289,
         "name": "Mauricio Dubón",
         "pos": "SS",
         "ab": 3,
@@ -9327,6 +9902,7 @@
         "avg": ""
       },
       {
+        "id": 642086,
         "name": "Dominic Smith",
         "pos": "PH",
         "ab": 1,
@@ -9338,6 +9914,7 @@
         "avg": ""
       },
       {
+        "id": 622761,
         "name": "Jorge Mateo",
         "pos": "SS",
         "ab": 0,
@@ -9349,6 +9926,7 @@
         "avg": ""
       },
       {
+        "id": 573262,
         "name": "Mike Yastrzemski",
         "pos": "LF",
         "ab": 4,
@@ -9360,6 +9938,7 @@
         "avg": ""
       },
       {
+        "id": 642201,
         "name": "Eli White",
         "pos": "CF",
         "ab": 4,
@@ -9371,6 +9950,7 @@
         "avg": ""
       },
       {
+        "id": 693821,
         "name": "Bryce Elder",
         "pos": "P",
         "ab": 0,
@@ -9382,6 +9962,7 @@
         "avg": ""
       },
       {
+        "id": 669276,
         "name": "Dylan Lee",
         "pos": "P",
         "ab": 0,
@@ -9393,6 +9974,7 @@
         "avg": ""
       },
       {
+        "id": 641755,
         "name": "Tyler Kinley",
         "pos": "P",
         "ab": 0,
@@ -9404,6 +9986,7 @@
         "avg": ""
       },
       {
+        "id": 660761,
         "name": "José Suarez",
         "pos": "P",
         "ab": 0,
@@ -9415,6 +9998,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 36,
@@ -9429,6 +10013,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 554430,
         "name": "Zack Wheeler",
         "note": "",
         "ip": "5.0",
@@ -9440,6 +10025,7 @@
         "era": ""
       },
       {
+        "id": 621383,
         "name": "Tanner Banks",
         "note": "BS",
         "ip": "0.0",
@@ -9451,6 +10037,7 @@
         "era": ""
       },
       {
+        "id": 689147,
         "name": "Orion Kerkering",
         "note": "",
         "ip": "1.1",
@@ -9462,6 +10049,7 @@
         "era": ""
       },
       {
+        "id": 621237,
         "name": "José Alvarado",
         "note": "",
         "ip": "1.1",
@@ -9473,6 +10061,7 @@
         "era": ""
       },
       {
+        "id": 641745,
         "name": "Brad Keller",
         "note": "W",
         "ip": "1.1",
@@ -9484,6 +10073,7 @@
         "era": ""
       },
       {
+        "id": 679775,
         "name": "Kyle Backhus",
         "note": "",
         "ip": "1.0",
@@ -9497,6 +10087,7 @@
     ],
     "homePitchers": [
       {
+        "id": 693821,
         "name": "Bryce Elder",
         "note": "",
         "ip": "7.0",
@@ -9508,6 +10099,7 @@
         "era": ""
       },
       {
+        "id": 669276,
         "name": "Dylan Lee",
         "note": "BS",
         "ip": "1.0",
@@ -9519,6 +10111,7 @@
         "era": ""
       },
       {
+        "id": 641755,
         "name": "Tyler Kinley",
         "note": "L",
         "ip": "1.0",
@@ -9530,6 +10123,7 @@
         "era": ""
       },
       {
+        "id": 660761,
         "name": "José Suarez",
         "note": "",
         "ip": "1.0",
@@ -9720,7 +10314,7 @@
     "home": "New York Mets",
     "awayId": 115,
     "homeId": 121,
-    "awayScore": 1,
+    "awayScore": 3,
     "homeScore": 0,
     "state": "Final",
     "linescoreData": {
@@ -9730,10 +10324,10 @@
         "innings": [
           0,
           1,
-          "-"
+          2
         ],
-        "r": 1,
-        "h": 1,
+        "r": 3,
+        "h": 3,
         "e": 0
       },
       "home": {
@@ -9750,42 +10344,46 @@
     },
     "awayBatters": [
       {
+        "id": 666397,
         "name": "Edouard Julien",
         "pos": "2B",
-        "ab": 1,
-        "r": 0,
-        "h": 0,
+        "ab": 2,
+        "r": 1,
+        "h": 1,
         "rbi": 0,
         "bb": 0,
         "so": 0,
         "avg": ""
       },
       {
+        "id": 696100,
         "name": "Hunter Goodman",
         "pos": "C",
-        "ab": 1,
-        "r": 0,
-        "h": 0,
-        "rbi": 0,
+        "ab": 2,
+        "r": 1,
+        "h": 1,
+        "rbi": 2,
         "bb": 0,
         "so": 1,
         "avg": ""
       },
       {
+        "id": 666160,
         "name": "Mickey Moniak",
         "pos": "LF",
         "ab": 1,
         "r": 0,
         "h": 0,
         "rbi": 0,
-        "bb": 0,
+        "bb": 1,
         "so": 0,
         "avg": ""
       },
       {
+        "id": 671289,
         "name": "Tyler Freeman",
         "pos": "RF",
-        "ab": 0,
+        "ab": 1,
         "r": 1,
         "h": 0,
         "rbi": 0,
@@ -9794,6 +10392,7 @@
         "avg": ""
       },
       {
+        "id": 681198,
         "name": "TJ Rumfield",
         "pos": "1B",
         "ab": 0,
@@ -9805,6 +10404,7 @@
         "avg": ""
       },
       {
+        "id": 691720,
         "name": "Kyle Karros",
         "pos": "3B",
         "ab": 1,
@@ -9816,6 +10416,7 @@
         "avg": ""
       },
       {
+        "id": 687859,
         "name": "Troy Johnston",
         "pos": "DH",
         "ab": 1,
@@ -9827,6 +10428,7 @@
         "avg": ""
       },
       {
+        "id": 678662,
         "name": "Ezequiel Tovar",
         "pos": "SS",
         "ab": 1,
@@ -9838,6 +10440,7 @@
         "avg": ""
       },
       {
+        "id": 686668,
         "name": "Brenton Doyle",
         "pos": "CF",
         "ab": 1,
@@ -9849,6 +10452,7 @@
         "avg": ""
       },
       {
+        "id": 801403,
         "name": "Chase Dollander",
         "pos": "P",
         "ab": 0,
@@ -9860,13 +10464,14 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
-        "ab": 7,
-        "r": 1,
-        "h": 1,
-        "rbi": 1,
-        "bb": 1,
+        "ab": 10,
+        "r": 3,
+        "h": 3,
+        "rbi": 3,
+        "bb": 2,
         "so": 1,
         "avg": "",
         "isTotal": true
@@ -9874,6 +10479,7 @@
     ],
     "homeBatters": [
       {
+        "id": 666182,
         "name": "Bo Bichette",
         "pos": "3B",
         "ab": 1,
@@ -9885,6 +10491,7 @@
         "avg": ""
       },
       {
+        "id": 665742,
         "name": "Juan Soto",
         "pos": "DH",
         "ab": 1,
@@ -9896,6 +10503,7 @@
         "avg": ""
       },
       {
+        "id": 682626,
         "name": "Francisco Alvarez",
         "pos": "C",
         "ab": 1,
@@ -9907,6 +10515,7 @@
         "avg": ""
       },
       {
+        "id": 683146,
         "name": "Brett Baty",
         "pos": "1B",
         "ab": 0,
@@ -9918,6 +10527,7 @@
         "avg": ""
       },
       {
+        "id": 669004,
         "name": "MJ Melendez",
         "pos": "LF",
         "ab": 1,
@@ -9929,6 +10539,7 @@
         "avg": ""
       },
       {
+        "id": 543760,
         "name": "Marcus Semien",
         "pos": "2B",
         "ab": 1,
@@ -9940,6 +10551,7 @@
         "avg": ""
       },
       {
+        "id": 701807,
         "name": "Carson Benge",
         "pos": "RF",
         "ab": 1,
@@ -9951,6 +10563,7 @@
         "avg": ""
       },
       {
+        "id": 677595,
         "name": "Ronny Mauricio",
         "pos": "SS",
         "ab": 1,
@@ -9962,6 +10575,7 @@
         "avg": ""
       },
       {
+        "id": 621438,
         "name": "Tyrone Taylor",
         "pos": "CF",
         "ab": 0,
@@ -9973,6 +10587,7 @@
         "avg": ""
       },
       {
+        "id": 673540,
         "name": "Kodai Senga",
         "pos": "P",
         "ab": 0,
@@ -9984,6 +10599,7 @@
         "avg": ""
       },
       {
+        "id": null,
         "name": "TOTALS",
         "pos": "",
         "ab": 7,
@@ -9998,6 +10614,7 @@
     ],
     "awayPitchers": [
       {
+        "id": 801403,
         "name": "Chase Dollander",
         "note": "",
         "ip": "2.0",
@@ -10011,13 +10628,14 @@
     ],
     "homePitchers": [
       {
+        "id": 673540,
         "name": "Kodai Senga",
         "note": "",
-        "ip": "2.0",
-        "h": 1,
-        "r": 1,
-        "er": 1,
-        "bb": 1,
+        "ip": "2.1",
+        "h": 3,
+        "r": 3,
+        "er": 3,
+        "bb": 2,
         "so": 1,
         "era": ""
       }
@@ -10027,12 +10645,16 @@
         "title": "Colorado Rockies BATTING",
         "fields": [
           {
+            "label": "HR",
+            "value": "Goodman (7, 3rd inning off Senga, 1 on, 0 out)."
+          },
+          {
             "label": "TB",
-            "value": "Johnston, T."
+            "value": "Goodman 4; Johnston, T; Julien."
           },
           {
             "label": "RBI",
-            "value": "Johnston, T (16)."
+            "value": "Goodman 2 (11); Johnston, T (16)."
           },
           {
             "label": "Runners left in scoring position, 2 out",
@@ -10096,7 +10718,7 @@
           },
           {
             "label": "Pitches-strikes",
-            "value": "Dollander 35-18; Senga 34-23."
+            "value": "Dollander 35-18; Senga 44-28."
           },
           {
             "label": "Groundouts-flyouts",
@@ -10104,7 +10726,7 @@
           },
           {
             "label": "Batters faced",
-            "value": "Dollander 8; Senga 9."
+            "value": "Dollander 8; Senga 13."
           },
           {
             "label": "Umpires",
