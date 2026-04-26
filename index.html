@@ -74,7 +74,7 @@
 // FORMAT DATE
 // -------------------------
 function pretty(dateStr) {
-  const d = new Date(dateStr + "T00:00:00");
+  var d = new Date(dateStr + "T00:00:00");
   return d.toLocaleDateString(undefined, {
     weekday: "short",
     month: "short",
@@ -86,32 +86,32 @@ function pretty(dateStr) {
 // LOAD GAMES
 // -------------------------
 async function loadGames() {
-  const gamesDiv = document.getElementById("games");
+  var gamesDiv = document.getElementById("games");
 
-  let dates;
+  var dates;
   try {
-    const res = await fetch("/mlb-boxscores/data/index.json");
-    if (!res.ok) throw new Error(`index.json fetch failed: ${res.status} ${res.statusText}`);
+    var res = await fetch("/mlb-boxscores/data/index.json");
+    if (!res.ok) throw new Error("index.json fetch failed: " + res.status + " " + res.statusText);
     dates = await res.json();
     if (!dates.length) {
       gamesDiv.innerHTML = "index.json is empty.";
       return;
     }
   } catch (e) {
-    gamesDiv.innerHTML = `Error loading index.json: ${e.message}`;
+    gamesDiv.innerHTML = "Error loading index.json: " + e.message;
     return;
   }
 
-  const date = dates.sort().reverse()[0];
-  document.getElementById("dateLabel").textContent = `(${pretty(date)})`;
+  var date = dates.slice().sort().reverse()[0];
+  document.getElementById("dateLabel").textContent = "(" + pretty(date) + ")";
 
-  let games;
+  var games;
   try {
-    const res = await fetch(`/mlb-boxscores/data/boxscores-${date}.json`);
-    if (!res.ok) throw new Error(`boxscores fetch failed: ${res.status} ${res.statusText}`);
-    games = await res.json();
+    var res2 = await fetch("/mlb-boxscores/data/boxscores-" + date + ".json");
+    if (!res2.ok) throw new Error("boxscores fetch failed: " + res2.status + " " + res2.statusText);
+    games = await res2.json();
   } catch (e) {
-    gamesDiv.innerHTML = `Error loading boxscores: ${e.message}`;
+    gamesDiv.innerHTML = "Error loading boxscores: " + e.message;
     return;
   }
 
@@ -120,17 +120,16 @@ async function loadGames() {
     return;
   }
 
-  let html = "";
-  games.forEach(g => {
-    html += `
-      <div>
-        <a href="/mlb-boxscores/game.html?gamePk=${g.gamePk}">
-          ${g.away} ${g.awayScore}, ${g.home} ${g.homeScore}
-        </a>
-        <span class="state">— Final</span>
-      </div>
-    `;
-  });
+  var html = "";
+  for (var i = 0; i < games.length; i++) {
+    var g = games[i];
+    html += "<div>" +
+      '<a href="/mlb-boxscores/game.html?gamePk=' + g.gamePk + '">' +
+      g.away + " " + g.awayScore + ", " + g.home + " " + g.homeScore +
+      "</a>" +
+      '<span class="state"> — Final</span>' +
+      "</div>";
+  }
 
   gamesDiv.innerHTML = html;
 }
@@ -212,9 +211,13 @@ async function loadStandings() {
     container.innerHTML = "Error loading standings: " + e.message;
   }
 }
+
+// -------------------------
+// INIT
 // -------------------------
 loadGames();
 loadStandings();
 </script>
 </body>
 </html>
+
