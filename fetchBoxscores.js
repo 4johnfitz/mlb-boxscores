@@ -125,11 +125,11 @@ function extractPitchers(teamBoxscore) {
     var name = player.person ? player.person.fullName : "Unknown";
     var s = player.stats && player.stats.pitching ? player.stats.pitching : {};
     var note = "";
-    if (player.gameStatus) {
-      if (player.gameStatus.isWinner) note = "W";
-      else if (player.gameStatus.isLoser) note = "L";
-      else if (player.gameStatus.isSave) note = "S";
-    }
+    if (s.wins > 0) note = "W";
+    else if (s.losses > 0) note = "L";
+    else if (s.saves > 0) note = "S";
+    else if (s.holds > 0) note = "H";
+    else if (s.blownSaves > 0) note = "BS";
     rows.push({
       name: name,
       note: note,
@@ -146,35 +146,49 @@ function extractPitchers(teamBoxscore) {
 }
 
 function extractNotes(boxscore, awayName, homeName) {
-  var notes = [];
+  var sections = [];
 
-  function processInfoArray(infoArr, label) {
-    if (!infoArr) return;
+  // Team-level notes (BATTING, BASERUNNING, FIELDING per team)
+  // Structure: teams.away.info = [{title: "BATTING", fieldList: [{label, value}, ...]}, ...]
+  function processTeamInfo(infoArr, teamLabel) {
+    if (!infoArr || !infoArr.length) return;
     for (var i = 0; i < infoArr.length; i++) {
-      var item = infoArr[i];
-      if (item.label && item.value) {
-        notes.push({ label: item.label, value: item.value });
+      var section = infoArr[i];
+      if (!section.title || !section.fieldList) continue;
+      var fields = [];
+      for (var j = 0; j < section.fieldList.length; j++) {
+        var f = section.fieldList[j];
+        if (f.label && f.value) {
+          fields.push({ label: f.label, value: f.value });
+        }
+      }
+      if (fields.length) {
+        sections.push({ title: teamLabel + " " + section.title, fields: fields });
       }
     }
   }
 
   if (boxscore.teams) {
-    if (boxscore.teams.away && boxscore.teams.away.info) {
-      notes.push({ label: "-- " + awayName + " --", value: "", isHeader: true });
-      processInfoArray(boxscore.teams.away.info);
+    if (boxscore.teams.away) processTeamInfo(boxscore.teams.away.info, awayName);
+    if (boxscore.teams.home) processTeamInfo(boxscore.teams.home.info, homeName);
+  }
+
+  // Game-level notes (HBP, weather, umpires, attendance etc.)
+  // Structure: info = [{label, value}, ...]
+  if (boxscore.info && boxscore.info.length) {
+    var gameFields = [];
+    for (var i = 0; i < boxscore.info.length; i++) {
+      var item = boxscore.info[i];
+      if (item.label && item.value) {
+        gameFields.push({ label: item.label, value: item.value });
+      }
     }
-    if (boxscore.teams.home && boxscore.teams.home.info) {
-      notes.push({ label: "-- " + homeName + " --", value: "", isHeader: true });
-      processInfoArray(boxscore.teams.home.info);
+    if (gameFields.length) {
+      sections.push({ title: "GAME INFO", fields: gameFields });
     }
   }
 
-  if (boxscore.info) {
-    notes.push({ label: "-- Game Notes --", value: "", isHeader: true });
-    processInfoArray(boxscore.info);
-  }
-
-  return notes;
+  return sections;
 }
 
 async function run() {
