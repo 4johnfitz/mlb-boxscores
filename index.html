@@ -361,34 +361,24 @@ async function loadGames() {
   if (!games.length) { container.innerHTML = "No games found."; return; }
 
   var html = "<table class=\"games-table\"><thead><tr>";
-  html += "<th>Away</th><th class=\"num\">R</th><th class=\"num\">H</th><th class=\"num\">E</th>";
-  html += "<th>Home</th><th class=\"num\">R</th><th class=\"num\">H</th><th class=\"num\">E</th>";
-  html += "<th>Status</th>";
+  html += "<th>Away</th><th class=\"num\">Score</th><th>Home</th><th class=\"num\">Score</th><th>Status</th>";
   html += "</tr></thead><tbody>";
 
   for (var i = 0; i < games.length; i++) {
     var g = games[i];
     var awayWon = g.awayScore > g.homeScore;
     var homeWon = g.homeScore > g.awayScore;
-    var ld = g.linescoreData;
-    var awayH = ld && ld.away ? ld.away.h : "-";
-    var awayE = ld && ld.away ? ld.away.e : "-";
-    var homeH = ld && ld.home ? ld.home.h : "-";
-    var homeE = ld && ld.home ? ld.home.e : "-";
+    var link = "/mlb-boxscores/game.html?gamePk=" + g.gamePk;
 
     html += "<tr>";
     html += "<td>";
     if (g.awayId) html += "<img class=\"team-logo-sm\" src=\"https://www.mlbstatic.com/team-logos/" + g.awayId + ".svg\" onerror=\"this.style.display='none'\">";
-    html += "<a href=\"/mlb-boxscores/game.html?gamePk=" + g.gamePk + "\" class=\"" + (awayWon ? "winner" : "") + "\">" + g.away + "</a></td>";
-    html += "<td class=\"num " + (awayWon ? "winner" : "") + "\">" + g.awayScore + "</td>";
-    html += "<td class=\"num\">" + awayH + "</td>";
-    html += "<td class=\"num\">" + awayE + "</td>";
+    html += "<a href=\"" + link + "\"" + (awayWon ? " class=\"winner\"" : "") + ">" + g.away + "</a></td>";
+    html += "<td class=\"num" + (awayWon ? " winner" : "") + "\">" + g.awayScore + "</td>";
     html += "<td>";
     if (g.homeId) html += "<img class=\"team-logo-sm\" src=\"https://www.mlbstatic.com/team-logos/" + g.homeId + ".svg\" onerror=\"this.style.display='none'\">";
-    html += "<a href=\"/mlb-boxscores/game.html?gamePk=" + g.gamePk + "\" class=\"" + (homeWon ? "winner" : "") + "\">" + g.home + "</a></td>";
-    html += "<td class=\"num " + (homeWon ? "winner" : "") + "\">" + g.homeScore + "</td>";
-    html += "<td class=\"num\">" + homeH + "</td>";
-    html += "<td class=\"num\">" + homeE + "</td>";
+    html += "<a href=\"" + link + "\"" + (homeWon ? " class=\"winner\"" : "") + ">" + g.home + "</a></td>";
+    html += "<td class=\"num" + (homeWon ? " winner" : "") + "\">" + g.homeScore + "</td>";
     html += "<td class=\"final-badge\">" + (g.state || "Final") + "</td>";
     html += "</tr>";
   }
