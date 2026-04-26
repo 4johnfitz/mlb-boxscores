@@ -19,11 +19,16 @@
     .games .state { color: #888; font-size: 0.85em; margin-left: 8px; }
 
     /* Standings */
+    .standings-wrapper { margin-top: 12px; }
+    .standings-league { margin-bottom: 24px; }
+    .standings-league-title { font-size: 1em; font-weight: bold; color: #003087; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
     .standings-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      margin-top: 12px;
+    }
+    @media (max-width: 700px) {
+      .standings-grid { grid-template-columns: 1fr; }
     }
     .division-block {
       background: white;
@@ -63,16 +68,13 @@
   <a href="/mlb-boxscores/leaders.html">Leaders</a>
 </nav>
 
-<h1>Latest Games <span id="dateLabel" class="date"></span></h1>
+<h1>Yesterday's Games <span id="dateLabel" class="date"></span></h1>
 <div class="games" id="games">Loading...</div>
 
 <h2 style="margin-top: 32px;">Standings</h2>
 <div id="standings-container">Loading standings...</div>
 
 <script>
-// -------------------------
-// FORMAT DATE
-// -------------------------
 function pretty(dateStr) {
   var d = new Date(dateStr + "T00:00:00");
   return d.toLocaleDateString(undefined, {
@@ -82,16 +84,13 @@ function pretty(dateStr) {
   });
 }
 
-// -------------------------
-// LOAD GAMES
-// -------------------------
 async function loadGames() {
   var gamesDiv = document.getElementById("games");
 
   var dates;
   try {
     var res = await fetch("/mlb-boxscores/data/index.json");
-    if (!res.ok) throw new Error("index.json fetch failed: " + res.status + " " + res.statusText);
+    if (!res.ok) throw new Error("index.json fetch failed: " + res.status);
     dates = await res.json();
     if (!dates.length) {
       gamesDiv.innerHTML = "index.json is empty.";
@@ -108,7 +107,7 @@ async function loadGames() {
   var games;
   try {
     var res2 = await fetch("/mlb-boxscores/data/boxscores-" + date + ".json");
-    if (!res2.ok) throw new Error("boxscores fetch failed: " + res2.status + " " + res2.statusText);
+    if (!res2.ok) throw new Error("boxscores fetch failed: " + res2.status);
     games = await res2.json();
   } catch (e) {
     gamesDiv.innerHTML = "Error loading boxscores: " + e.message;
@@ -123,9 +122,19 @@ async function loadGames() {
   var html = "";
   for (var i = 0; i < games.length; i++) {
     var g = games[i];
+    var awayWon = g.awayScore > g.homeScore;
+    var homeWon = g.homeScore > g.awayScore;
+
+    var awayStr = awayWon
+      ? "<strong>" + g.away + " " + g.awayScore + "</strong>"
+      : g.away + " " + g.awayScore;
+    var homeStr = homeWon
+      ? "<strong>" + g.home + " " + g.homeScore + "</strong>"
+      : g.home + " " + g.homeScore;
+
     html += "<div>" +
       '<a href="/mlb-boxscores/game.html?gamePk=' + g.gamePk + '">' +
-      g.away + " " + g.awayScore + ", " + g.home + " " + g.homeScore +
+      awayStr + ", " + homeStr +
       "</a>" +
       '<span class="state"> — Final</span>' +
       "</div>";
@@ -134,76 +143,105 @@ async function loadGames() {
   gamesDiv.innerHTML = html;
 }
 
-// -------------------------
-// LOAD STANDINGS
-// -------------------------
 async function loadStandings() {
   var container = document.getElementById("standings-container");
 
   var divisionNames = {
-    200: "American League West",
-    201: "American League East",
-    202: "American League Central",
-    203: "National League West",
-    204: "National League East",
-    205: "National League Central"
+    200: "AL West",
+    201: "AL East",
+    202: "AL Central",
+    203: "NL West",
+    204: "NL East",
+    205: "NL Central"
   };
 
-  var divisionOrder = [201, 202, 200, 204, 205, 203];
+  var alOrder = [201, 202, 200];
+  var nlOrder = [204, 205, 203];
 
   try {
     var res = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason");
     if (!res.ok) throw new Error("Standings fetch failed: " + res.status);
     var data = await res.json();
 
-    var sorted = data.records.slice().sort(function(a, b) {
-      var ai = divisionOrder.indexOf(a.division.id);
-      var bi = divisionOrder.indexOf(b.division.id);
-      return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
-    });
-
-    var html = '<div class="standings-grid">';
-
-    for (var i = 0; i < sorted.length; i++) {
-      var rec = sorted[i];
-      var divName = divisionNames[rec.division.id] || ("Division " + rec.division.id);
-
-      var teams = rec.teamRecords.slice().sort(function(a, b) {
-        return parseFloat(b.winningPercentage) - parseFloat(a.winningPercentage);
-      });
-
-      html += '<div class="division-block">';
-      html += "<h3>" + divName + "</h3>";
-      html += '<table class="standings-table">';
-      html += "<thead><tr>";
-      html += "<th>Team</th>";
-      html += '<th class="num">W</th>';
-      html += '<th class="num">L</th>';
-      html += '<th class="num">GB</th>';
-      html += '<th class="num">Strk</th>';
-      html += "</tr></thead><tbody>";
-
-      for (var j = 0; j < teams.length; j++) {
-        var t = teams[j];
-        var gb = t.gamesBack === "-" ? "&mdash;" : t.gamesBack;
-        var streak = t.streak && t.streak.streakCode ? t.streak.streakCode : "&mdash;";
-        var logoUrl = "https://www.mlbstatic.com/team-logos/" + t.team.id + ".svg";
-        var w = t.leagueRecord ? t.leagueRecord.wins : t.wins;
-        var l = t.leagueRecord ? t.leagueRecord.losses : t.losses;
-        html += "<tr><td>";
-        html += '<img class="team-logo" src="' + logoUrl + '" alt="" onerror="this.style.display=\'none\'">';
-        html += t.team.name;
-        html += "</td>";
-        html += '<td class="num">' + w + "</td>";
-        html += '<td class="num">' + l + "</td>";
-        html += '<td class="num">' + gb + "</td>";
-        html += '<td class="num">' + streak + "</td>";
-        html += "</tr>";
-      }
-
-      html += "</tbody></table></div>";
+    var recMap = {};
+    for (var i = 0; i < data.records.length; i++) {
+      recMap[data.records[i].division.id] = data.records[i];
     }
 
+    function getRecord(splitRecords, type) {
+      if (!splitRecords) return "0-0";
+      for (var i = 0; i < splitRecords.length; i++) {
+        if (splitRecords[i].type === type) {
+          return splitRecords[i].wins + "-" + splitRecords[i].losses;
+        }
+      }
+      return "0-0";
+    }
+
+    function buildLeague(divOrder, leagueLabel) {
+      var html = '<div class="standings-league">';
+      html += '<div class="standings-league-title">' + leagueLabel + "</div>";
+      html += '<div class="standings-grid">';
+
+      for (var i = 0; i < divOrder.length; i++) {
+        var rec = recMap[divOrder[i]];
+        if (!rec) continue;
+        var divName = divisionNames[divOrder[i]] || ("Division " + divOrder[i]);
+
+        var teams = rec.teamRecords.slice().sort(function(a, b) {
+          return parseFloat(b.winningPercentage) - parseFloat(a.winningPercentage);
+        });
+
+        html += '<div class="division-block">';
+        html += "<h3>" + divName + "</h3>";
+        html += '<table class="standings-table">';
+        html += "<thead><tr>";
+        html += "<th>Team</th>";
+        html += '<th class="num">W</th>';
+        html += '<th class="num">L</th>';
+        html += '<th class="num">PCT</th>';
+        html += '<th class="num">GB</th>';
+        html += '<th class="num">Home</th>';
+        html += '<th class="num">Away</th>';
+        html += '<th class="num">Strk</th>';
+        html += "</tr></thead><tbody>";
+
+        for (var j = 0; j < teams.length; j++) {
+          var t = teams[j];
+          var gb = t.gamesBack === "-" ? "&mdash;" : t.gamesBack;
+          var streak = t.streak && t.streak.streakCode ? t.streak.streakCode : "&mdash;";
+          var logoUrl = "https://www.mlbstatic.com/team-logos/" + t.team.id + ".svg";
+          var w = t.leagueRecord ? t.leagueRecord.wins : t.wins;
+          var l = t.leagueRecord ? t.leagueRecord.losses : t.losses;
+          var pct = t.winningPercentage ? t.winningPercentage : ".000";
+          var splits = t.records ? t.records.splitRecords : null;
+          var homeRec = getRecord(splits, "home");
+          var awayRec = getRecord(splits, "away");
+
+          html += "<tr><td>";
+          html += '<img class="team-logo" src="' + logoUrl + '" alt="" onerror="this.style.display=\'none\'">';
+          html += t.team.name;
+          html += "</td>";
+          html += '<td class="num">' + w + "</td>";
+          html += '<td class="num">' + l + "</td>";
+          html += '<td class="num">' + pct + "</td>";
+          html += '<td class="num">' + gb + "</td>";
+          html += '<td class="num">' + homeRec + "</td>";
+          html += '<td class="num">' + awayRec + "</td>";
+          html += '<td class="num">' + streak + "</td>";
+          html += "</tr>";
+        }
+
+        html += "</tbody></table></div>";
+      }
+
+      html += "</div></div>";
+      return html;
+    }
+
+    var html = '<div class="standings-wrapper">';
+    html += buildLeague(alOrder, "American League");
+    html += buildLeague(nlOrder, "National League");
     html += "</div>";
     container.innerHTML = html;
 
@@ -212,12 +250,8 @@ async function loadStandings() {
   }
 }
 
-// -------------------------
-// INIT
-// -------------------------
 loadGames();
 loadStandings();
 </script>
 </body>
 </html>
-
