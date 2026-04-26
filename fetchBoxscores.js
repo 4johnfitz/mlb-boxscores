@@ -75,63 +75,48 @@ function formatLineScore(linescore, awayName, homeName) {
   return header + "\n" + teamLine("away", awayName) + "\n" + teamLine("home", homeName);
 }
 
-function formatBatters(teamBoxscore, label) {
-  if (!teamBoxscore || !teamBoxscore.batters || !teamBoxscore.players) return "";
-
-  var lines = [];
-  lines.push(label + " BATTING");
-  lines.push("Player                AB   R   H  RBI  BB  SO");
-  lines.push("----------------------------------------------");
-
+function extractBatters(teamBoxscore) {
+  var rows = [];
+  if (!teamBoxscore || !teamBoxscore.batters || !teamBoxscore.players) return rows;
   var batters = teamBoxscore.batters;
   for (var i = 0; i < batters.length; i++) {
     var id = "ID" + batters[i];
     var player = teamBoxscore.players[id];
     if (!player) continue;
     var name = player.person ? player.person.fullName : "Unknown";
-    var pos = player.position ? player.position.abbreviation : "  ";
+    var pos = player.position ? player.position.abbreviation : "";
     var s = player.stats && player.stats.batting ? player.stats.batting : {};
-    var ab  = s.atBats !== undefined ? s.atBats : 0;
-    var r   = s.runs !== undefined ? s.runs : 0;
-    var h   = s.hits !== undefined ? s.hits : 0;
-    var rbi = s.rbi !== undefined ? s.rbi : 0;
-    var bb  = s.baseOnBalls !== undefined ? s.baseOnBalls : 0;
-    var so  = s.strikeOuts !== undefined ? s.strikeOuts : 0;
-    var namePosStr = (name + " " + pos).substring(0, 22).padEnd(22);
-    lines.push(
-      namePosStr +
-      String(ab).padStart(2) + "  " +
-      String(r).padStart(2) + "  " +
-      String(h).padStart(2) + "  " +
-      String(rbi).padStart(3) + "  " +
-      String(bb).padStart(2) + "  " +
-      String(so).padStart(2)
-    );
+    rows.push({
+      name: name,
+      pos: pos,
+      ab: s.atBats !== undefined ? s.atBats : 0,
+      r: s.runs !== undefined ? s.runs : 0,
+      h: s.hits !== undefined ? s.hits : 0,
+      rbi: s.rbi !== undefined ? s.rbi : 0,
+      bb: s.baseOnBalls !== undefined ? s.baseOnBalls : 0,
+      so: s.strikeOuts !== undefined ? s.strikeOuts : 0,
+      avg: s.avg !== undefined ? s.avg : ""
+    });
   }
-
-  var team = teamBoxscore.teamStats && teamBoxscore.teamStats.batting ? teamBoxscore.teamStats.batting : {};
-  lines.push("----------------------------------------------");
-  lines.push(
-    "TOTALS                " +
-    String(team.atBats !== undefined ? team.atBats : 0).padStart(2) + "  " +
-    String(team.runs !== undefined ? team.runs : 0).padStart(2) + "  " +
-    String(team.hits !== undefined ? team.hits : 0).padStart(2) + "  " +
-    String(team.rbi !== undefined ? team.rbi : 0).padStart(3) + "  " +
-    String(team.baseOnBalls !== undefined ? team.baseOnBalls : 0).padStart(2) + "  " +
-    String(team.strikeOuts !== undefined ? team.strikeOuts : 0).padStart(2)
-  );
-
-  return lines.join("\n");
+  var ts = teamBoxscore.teamStats && teamBoxscore.teamStats.batting ? teamBoxscore.teamStats.batting : {};
+  rows.push({
+    name: "TOTALS",
+    pos: "",
+    ab: ts.atBats !== undefined ? ts.atBats : 0,
+    r: ts.runs !== undefined ? ts.runs : 0,
+    h: ts.hits !== undefined ? ts.hits : 0,
+    rbi: ts.rbi !== undefined ? ts.rbi : 0,
+    bb: ts.baseOnBalls !== undefined ? ts.baseOnBalls : 0,
+    so: ts.strikeOuts !== undefined ? ts.strikeOuts : 0,
+    avg: "",
+    isTotal: true
+  });
+  return rows;
 }
 
-function formatPitchers(teamBoxscore, label) {
-  if (!teamBoxscore || !teamBoxscore.pitchers || !teamBoxscore.players) return "";
-
-  var lines = [];
-  lines.push(label + " PITCHING");
-  lines.push("Player                IP   H   R  ER  BB  SO");
-  lines.push("----------------------------------------------");
-
+function extractPitchers(teamBoxscore) {
+  var rows = [];
+  if (!teamBoxscore || !teamBoxscore.pitchers || !teamBoxscore.players) return rows;
   var pitchers = teamBoxscore.pitchers;
   for (var i = 0; i < pitchers.length; i++) {
     var id = "ID" + pitchers[i];
@@ -139,25 +124,57 @@ function formatPitchers(teamBoxscore, label) {
     if (!player) continue;
     var name = player.person ? player.person.fullName : "Unknown";
     var s = player.stats && player.stats.pitching ? player.stats.pitching : {};
-    var ip = s.inningsPitched !== undefined ? s.inningsPitched : "0.0";
-    var h  = s.hits !== undefined ? s.hits : 0;
-    var r  = s.runs !== undefined ? s.runs : 0;
-    var er = s.earnedRuns !== undefined ? s.earnedRuns : 0;
-    var bb = s.baseOnBalls !== undefined ? s.baseOnBalls : 0;
-    var so = s.strikeOuts !== undefined ? s.strikeOuts : 0;
-    var nameStr = name.substring(0, 22).padEnd(22);
-    lines.push(
-      nameStr +
-      String(ip).padStart(4) + "  " +
-      String(h).padStart(2) + "  " +
-      String(r).padStart(2) + "  " +
-      String(er).padStart(2) + "  " +
-      String(bb).padStart(2) + "  " +
-      String(so).padStart(2)
-    );
+    var note = "";
+    if (player.gameStatus) {
+      if (player.gameStatus.isWinner) note = "W";
+      else if (player.gameStatus.isLoser) note = "L";
+      else if (player.gameStatus.isSave) note = "S";
+    }
+    rows.push({
+      name: name,
+      note: note,
+      ip: s.inningsPitched !== undefined ? s.inningsPitched : "0.0",
+      h: s.hits !== undefined ? s.hits : 0,
+      r: s.runs !== undefined ? s.runs : 0,
+      er: s.earnedRuns !== undefined ? s.earnedRuns : 0,
+      bb: s.baseOnBalls !== undefined ? s.baseOnBalls : 0,
+      so: s.strikeOuts !== undefined ? s.strikeOuts : 0,
+      era: s.era !== undefined ? s.era : ""
+    });
+  }
+  return rows;
+}
+
+function extractNotes(boxscore, awayName, homeName) {
+  var notes = [];
+
+  function processInfoArray(infoArr, label) {
+    if (!infoArr) return;
+    for (var i = 0; i < infoArr.length; i++) {
+      var item = infoArr[i];
+      if (item.label && item.value) {
+        notes.push({ label: item.label, value: item.value });
+      }
+    }
   }
 
-  return lines.join("\n");
+  if (boxscore.teams) {
+    if (boxscore.teams.away && boxscore.teams.away.info) {
+      notes.push({ label: "-- " + awayName + " --", value: "", isHeader: true });
+      processInfoArray(boxscore.teams.away.info);
+    }
+    if (boxscore.teams.home && boxscore.teams.home.info) {
+      notes.push({ label: "-- " + homeName + " --", value: "", isHeader: true });
+      processInfoArray(boxscore.teams.home.info);
+    }
+  }
+
+  if (boxscore.info) {
+    notes.push({ label: "-- Game Notes --", value: "", isHeader: true });
+    processInfoArray(boxscore.info);
+  }
+
+  return notes;
 }
 
 async function run() {
@@ -212,20 +229,22 @@ async function run() {
       try {
         lineText = formatLineScore(linescore, awayName, homeName);
       } catch (err) {
-        console.log("Error formatting linescore for gamePk: " + gamePk);
+        console.log("Error formatting linescore: " + gamePk);
       }
     }
 
-    var awayBatting = "";
-    var homeBatting = "";
-    var awayPitching = "";
-    var homePitching = "";
+    var awayBatters = [];
+    var homeBatters = [];
+    var awayPitchers = [];
+    var homePitchers = [];
+    var notes = [];
 
     if (boxscore && boxscore.teams) {
-      try { awayBatting = formatBatters(boxscore.teams.away, awayName); } catch(err) {}
-      try { homeBatting = formatBatters(boxscore.teams.home, homeName); } catch(err) {}
-      try { awayPitching = formatPitchers(boxscore.teams.away, awayName); } catch(err) {}
-      try { homePitching = formatPitchers(boxscore.teams.home, homeName); } catch(err) {}
+      try { awayBatters = extractBatters(boxscore.teams.away); } catch(err) {}
+      try { homeBatters = extractBatters(boxscore.teams.home); } catch(err) {}
+      try { awayPitchers = extractPitchers(boxscore.teams.away); } catch(err) {}
+      try { homePitchers = extractPitchers(boxscore.teams.home); } catch(err) {}
+      try { notes = extractNotes(boxscore, awayName, homeName); } catch(err) {}
     }
 
     results.push({
@@ -238,10 +257,11 @@ async function run() {
       homeScore: homeScore,
       state: state,
       lineText: lineText,
-      awayBatting: awayBatting,
-      homeBatting: homeBatting,
-      awayPitching: awayPitching,
-      homePitching: homePitching
+      awayBatters: awayBatters,
+      homeBatters: homeBatters,
+      awayPitchers: awayPitchers,
+      homePitchers: homePitchers,
+      notes: notes
     });
   }
 
