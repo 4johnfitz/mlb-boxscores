@@ -359,7 +359,7 @@
     "awayPitchers": [
       {
         "name": "Garrett Crochet",
-        "note": "",
+        "note": "W",
         "ip": "6.0",
         "h": 3,
         "r": 0,
@@ -405,7 +405,7 @@
     "homePitchers": [
       {
         "name": "Trevor Rogers",
-        "note": "",
+        "note": "L",
         "ip": "1.2",
         "h": 4,
         "r": 3,
@@ -461,67 +461,170 @@
     ],
     "notes": [
       {
-        "label": "-- Boston Red Sox --",
-        "value": "",
-        "isHeader": true
+        "title": "Boston Red Sox BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Monasterio 2 (4, Rogers, Tr, Wells, T); Durbin (6, Rogers, Tr); Wong (5, Suárez, A)."
+          },
+          {
+            "label": "3B",
+            "value": "Rafaela (1, Akin)."
+          },
+          {
+            "label": "HR",
+            "value": "Monasterio (1, 9th inning off Akin, 3 on, 0 out); Durbin (1, 9th inning off Wilson, W, 1 on, 0 out); Contreras, Wn (5, 9th inning off Wilson, W, 2 on, 1 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Abreu, W 2; Contreras, Wn 5; Duran, Ja; Durbin 6; Kiner-Falefa 2; Monasterio 8; Rafaela 5; Story; Wong 2."
+          },
+          {
+            "label": "RBI",
+            "value": "Contreras, Wn 5 (17); Durbin 3 (10); Kiner-Falefa (3); Monasterio 4 (7); Rafaela (9); Wong 3 (5)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Durbin; Rafaela; Wong 3; Kiner-Falefa."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Abreu, W 2; Durbin; Kiner-Falefa."
+          },
+          {
+            "label": "SF",
+            "value": "Contreras, Wn."
+          },
+          {
+            "label": "Team RISP",
+            "value": "8-for-15."
+          },
+          {
+            "label": "Team LOB",
+            "value": "6."
+          }
+        ]
       },
       {
-        "label": "-- Baltimore Orioles --",
-        "value": "",
-        "isHeader": true
+        "title": "Boston Red Sox BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Durbin (1, 3rd base off Rogers, Tr/Rutschman); Kiner-Falefa (2, 2nd base off Suárez, A/Rutschman)."
+          },
+          {
+            "label": "CS",
+            "value": "Rafaela (3, 2nd base by Suárez, A/Rutschman)."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "Boston Red Sox FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Durbin (3, throw)."
+          },
+          {
+            "label": "DP",
+            "value": "(Durbin-Kiner-Falefa-Contreras, Wn)."
+          }
+        ]
       },
       {
-        "label": "ABS Challenge",
-        "value": "Rutschman (Ball-Overturned to Strike); Rafaela (Strike-Overturned to Ball); Wong (Ball-Overturned to Strike)."
+        "title": "Baltimore Orioles BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Mayo (3, Crochet)."
+          },
+          {
+            "label": "TB",
+            "value": "Jackson, J; Mayo 2; O'Neill; Rutschman; Ward 2."
+          },
+          {
+            "label": "RBI",
+            "value": "Taveras, L (15)."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Henderson; Alonso; Cowser."
+          },
+          {
+            "label": "GIDP",
+            "value": "Alonso."
+          },
+          {
+            "label": "Team RISP",
+            "value": "0-for-8."
+          },
+          {
+            "label": "Team LOB",
+            "value": "6."
+          }
+        ]
       },
       {
-        "label": "Pitches-strikes",
-        "value": "Crochet 90-57; Weissert 21-14; Coulombe 15-11; Samaniego, T 12-8; Rogers, Tr 62-38; Wells, T 23-15; Suárez, A 59-34; Akin 32-23; Wilson, W 25-16."
+        "title": "Baltimore Orioles FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Rutschman (3, throw); Jackson, J (2, fielding); Mayo (2, throw)."
+          }
+        ]
       },
       {
-        "label": "Groundouts-flyouts",
-        "value": "Crochet 1-6; Weissert 1-0; Coulombe 1-0; Samaniego, T 1-2; Rogers, Tr 3-0; Wells, T 1-0; Suárez, A 5-3; Akin 1-0; Wilson, W 1-3."
-      },
-      {
-        "label": "Batters faced",
-        "value": "Crochet 22; Weissert 5; Coulombe 4; Samaniego, T 3; Rogers, Tr 11; Wells, T 5; Suárez, A 17; Akin 9; Wilson, W 8."
-      },
-      {
-        "label": "Inherited runners-scored",
-        "value": "Wells, T 3-0; Wilson, W 1-1."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Andy Fletcher. 1B: Alex Tosi. 2B: Cory Blaser. 3B: Jansen Visconti. "
-      },
-      {
-        "label": "Weather",
-        "value": "57 degrees, Partly Cloudy."
-      },
-      {
-        "label": "Wind",
-        "value": "13 mph, In From RF."
-      },
-      {
-        "label": "First pitch",
-        "value": "12:05 PM."
-      },
-      {
-        "label": "T",
-        "value": "2:50."
-      },
-      {
-        "label": "Att",
-        "value": "33,582."
-      },
-      {
-        "label": "Venue",
-        "value": "Oriole Park at Camden Yards."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "ABS Challenge",
+            "value": "Rutschman (Ball-Overturned to Strike); Rafaela (Strike-Overturned to Ball); Wong (Ball-Overturned to Strike)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Crochet 90-57; Weissert 21-14; Coulombe 15-11; Samaniego, T 12-8; Rogers, Tr 62-38; Wells, T 23-15; Suárez, A 59-34; Akin 32-23; Wilson, W 25-16."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Crochet 1-6; Weissert 1-0; Coulombe 1-0; Samaniego, T 1-2; Rogers, Tr 3-0; Wells, T 1-0; Suárez, A 5-3; Akin 1-0; Wilson, W 1-3."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Crochet 22; Weissert 5; Coulombe 4; Samaniego, T 3; Rogers, Tr 11; Wells, T 5; Suárez, A 17; Akin 9; Wilson, W 8."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Wells, T 3-0; Wilson, W 1-1."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Andy Fletcher. 1B: Alex Tosi. 2B: Cory Blaser. 3B: Jansen Visconti. "
+          },
+          {
+            "label": "Weather",
+            "value": "57 degrees, Partly Cloudy."
+          },
+          {
+            "label": "Wind",
+            "value": "13 mph, In From RF."
+          },
+          {
+            "label": "First pitch",
+            "value": "12:05 PM."
+          },
+          {
+            "label": "T",
+            "value": "2:50."
+          },
+          {
+            "label": "Att",
+            "value": "33,582."
+          },
+          {
+            "label": "Venue",
+            "value": "Oriole Park at Camden Yards."
+          }
+        ]
       }
     ]
   },
@@ -1006,7 +1109,7 @@
       },
       {
         "name": "Matt Brash",
-        "note": "",
+        "note": "W",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -1017,7 +1120,7 @@
       },
       {
         "name": "Andrés Muñoz",
-        "note": "",
+        "note": "S",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -1052,7 +1155,7 @@
       },
       {
         "name": "Justin Bruihl",
-        "note": "",
+        "note": "H",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -1063,7 +1166,7 @@
       },
       {
         "name": "George Soriano",
-        "note": "",
+        "note": "BS",
         "ip": "1.0",
         "h": 2,
         "r": 1,
@@ -1096,7 +1199,7 @@
       },
       {
         "name": "Riley O'Brien",
-        "note": "",
+        "note": "L",
         "ip": "1.0",
         "h": 4,
         "r": 2,
@@ -1119,71 +1222,191 @@
     ],
     "notes": [
       {
-        "label": "-- Seattle Mariners --",
-        "value": "",
-        "isHeader": true
+        "title": "Seattle Mariners BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Arozarena (8, Liberatore); Young (3, Soriano, G)."
+          },
+          {
+            "label": "HR",
+            "value": "Rodríguez, J (2, 1st inning off Liberatore, 1 on, 1 out); Wilson, W (1, 2nd inning off Liberatore, 1 on, 1 out); Young (3, 4th inning off Liberatore, 0 on, 0 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Arozarena 2; Canzone; Crawford, J; Garver 2; Joe; Naylor, J 2; Raleigh 2; Refsnyder; Rivas; Rodríguez, J 6; Wilson, W 4; Young 7."
+          },
+          {
+            "label": "RBI",
+            "value": "Arozarena (11); Canzone (12); Joe 2 (2); Rivas 2 (7); Rodríguez, J 2 (10); Wilson, W 2 (2); Young (13)."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Rodríguez, J 2; Naylor, J; Crawford, J 2; Garver."
+          },
+          {
+            "label": "SAC",
+            "value": "Rivas."
+          },
+          {
+            "label": "SF",
+            "value": "Arozarena."
+          },
+          {
+            "label": "GIDP",
+            "value": "Raleigh."
+          },
+          {
+            "label": "Team RISP",
+            "value": "3-for-11."
+          },
+          {
+            "label": "Team LOB",
+            "value": "10."
+          }
+        ]
       },
       {
-        "label": "-- St. Louis Cardinals --",
-        "value": "",
-        "isHeader": true
+        "title": "Seattle Mariners BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Arozarena (7, 3rd base off Liberatore/Pagés, P); Naylor, J 2 (4, 2nd base off Liberatore/Pagés, P, 2nd base off Stanek/Pagés, P); Rodríguez, J (3, 2nd base off Bruihl/Pagés, P)."
+          },
+          {
+            "label": "CS",
+            "value": "Raleigh (1, 2nd base by Liberatore/Pagés, P)."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "Seattle Mariners FIELDING",
+        "fields": [
+          {
+            "label": "DP",
+            "value": "2 (Crawford, J-Young-Naylor, J; Naylor, J-Crawford, J)."
+          }
+        ]
       },
       {
-        "label": "HBP",
-        "value": "Young (by O'Brien); Herrera 2 (by Ferrer, by Criswell, C); Walker, J (by Brash)."
+        "title": "St. Louis Cardinals BATTING",
+        "fields": [
+          {
+            "label": "HR",
+            "value": "Wetherholt (4, 1st inning off Woo, 0 on, 0 out); Herrera (4, 1st inning off Woo, 0 on, 0 out); Church 2 (4, 2nd inning off Woo, 0 on, 1 out, 7th inning off Criswell, C, 1 on, 1 out); Pagés, P (2, 3rd inning off Woo, 1 on, 2 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Church 8; Gorman; Herrera 4; Pagés, P 6; Scott II; Walker, J; Wetherholt 6; Winn 2."
+          },
+          {
+            "label": "RBI",
+            "value": "Church 4 (12); Herrera (13); Pagés, P 2 (7); Wetherholt (12); Winn (12)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Pagés, P 2."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Gorman; Wetherholt; Herrera."
+          },
+          {
+            "label": "SF",
+            "value": "Church."
+          },
+          {
+            "label": "GIDP",
+            "value": "Church; Walker, J."
+          },
+          {
+            "label": "Team RISP",
+            "value": "3-for-9."
+          },
+          {
+            "label": "Team LOB",
+            "value": "7."
+          }
+        ]
       },
       {
-        "label": "ABS Challenge",
-        "value": "Arozarena (Strike-Overturned to Ball); Pozo (Ball-Confirmed)."
+        "title": "St. Louis Cardinals BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Pagés, P (2, 2nd base off Woo/Garver)."
+          },
+          {
+            "label": "CS",
+            "value": "Walker, J (1, 2nd base by Brash/Garver)."
+          }
+        ]
       },
       {
-        "label": "Pitches-strikes",
-        "value": "Woo 53-39; Ferrer 29-18; Criswell, C 36-22; Brash 13-7; Muñoz, A 14-7; Liberatore 64-47; Graceffo 6-4; Bruihl 13-9; Soriano, G 15-12; Stanek 10-7; Romero, J 12-7; O'Brien 39-27; Svanson 18-9."
+        "title": "St. Louis Cardinals FIELDING",
+        "fields": [
+          {
+            "label": "DP",
+            "value": "(Burleson-Winn-Graceffo)."
+          }
+        ]
       },
       {
-        "label": "Groundouts-flyouts",
-        "value": "Woo 1-4; Ferrer 3-2; Criswell, C 1-1; Brash 1-0; Muñoz, A 1-0; Liberatore 3-2; Graceffo 1-0; Bruihl 2-0; Soriano, G 1-1; Stanek 0-1; Romero, J 1-0; O'Brien 1-1; Svanson 0-0."
-      },
-      {
-        "label": "Batters faced",
-        "value": "Woo 18; Ferrer 10; Criswell, C 9; Brash 3; Muñoz, A 3; Liberatore 18; Graceffo 3; Bruihl 3; Soriano, G 5; Stanek 3; Romero, J 4; O'Brien 9; Svanson 3."
-      },
-      {
-        "label": "Inherited runners-scored",
-        "value": "Bruihl 1-1; Romero, J 1-0; O'Brien 2-2; Svanson 2-0."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Vic Carapazza. 1B: John Bacon. 2B: Hunter Wendelstedt. 3B: Edwin Moscoso. "
-      },
-      {
-        "label": "Weather",
-        "value": "73 degrees, Sunny."
-      },
-      {
-        "label": "Wind",
-        "value": "6 mph, In From LF."
-      },
-      {
-        "label": "First pitch",
-        "value": "1:15 PM."
-      },
-      {
-        "label": "T",
-        "value": "3:16."
-      },
-      {
-        "label": "Att",
-        "value": "27,236."
-      },
-      {
-        "label": "Venue",
-        "value": "Busch Stadium."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "HBP",
+            "value": "Young (by O'Brien); Herrera 2 (by Ferrer, by Criswell, C); Walker, J (by Brash)."
+          },
+          {
+            "label": "ABS Challenge",
+            "value": "Arozarena (Strike-Overturned to Ball); Pozo (Ball-Confirmed)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Woo 53-39; Ferrer 29-18; Criswell, C 36-22; Brash 13-7; Muñoz, A 14-7; Liberatore 64-47; Graceffo 6-4; Bruihl 13-9; Soriano, G 15-12; Stanek 10-7; Romero, J 12-7; O'Brien 39-27; Svanson 18-9."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Woo 1-4; Ferrer 3-2; Criswell, C 1-1; Brash 1-0; Muñoz, A 1-0; Liberatore 3-2; Graceffo 1-0; Bruihl 2-0; Soriano, G 1-1; Stanek 0-1; Romero, J 1-0; O'Brien 1-1; Svanson 0-0."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Woo 18; Ferrer 10; Criswell, C 9; Brash 3; Muñoz, A 3; Liberatore 18; Graceffo 3; Bruihl 3; Soriano, G 5; Stanek 3; Romero, J 4; O'Brien 9; Svanson 3."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Bruihl 1-1; Romero, J 1-0; O'Brien 2-2; Svanson 2-0."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Vic Carapazza. 1B: John Bacon. 2B: Hunter Wendelstedt. 3B: Edwin Moscoso. "
+          },
+          {
+            "label": "Weather",
+            "value": "73 degrees, Sunny."
+          },
+          {
+            "label": "Wind",
+            "value": "6 mph, In From LF."
+          },
+          {
+            "label": "First pitch",
+            "value": "1:15 PM."
+          },
+          {
+            "label": "T",
+            "value": "3:16."
+          },
+          {
+            "label": "Att",
+            "value": "27,236."
+          },
+          {
+            "label": "Venue",
+            "value": "Busch Stadium."
+          }
+        ]
       }
     ]
   },
@@ -1547,7 +1770,7 @@
     "awayPitchers": [
       {
         "name": "Joey Cantillo",
-        "note": "",
+        "note": "L",
         "ip": "5.0",
         "h": 6,
         "r": 3,
@@ -1593,7 +1816,7 @@
     "homePitchers": [
       {
         "name": "Kevin Gausman",
-        "note": "",
+        "note": "W",
         "ip": "6.2",
         "h": 6,
         "r": 2,
@@ -1604,7 +1827,7 @@
       },
       {
         "name": "Mason Fluharty",
-        "note": "",
+        "note": "H",
         "ip": "0.1",
         "h": 0,
         "r": 0,
@@ -1615,7 +1838,7 @@
       },
       {
         "name": "Tyler Rogers",
-        "note": "",
+        "note": "H",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -1626,7 +1849,7 @@
       },
       {
         "name": "Louis Varland",
-        "note": "",
+        "note": "S",
         "ip": "1.0",
         "h": 3,
         "r": 1,
@@ -1638,67 +1861,167 @@
     ],
     "notes": [
       {
-        "label": "-- Cleveland Guardians --",
-        "value": "",
-        "isHeader": true
+        "title": "Cleveland Guardians BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Brito (4, Gausman); Ramírez, Jo (6, Gausman); Manzardo (2, Varland)."
+          },
+          {
+            "label": "HR",
+            "value": "Fry (1, 7th inning off Gausman, 0 on, 1 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Brito 2; DeLauter; Fry 4; Hoskins; Manzardo 2; Martínez, A; Ramírez, Jo 2; Rocchio; Valera."
+          },
+          {
+            "label": "RBI",
+            "value": "Fry (1); Manzardo (6); Rocchio (16)."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Fry; Rocchio 2; DeLauter."
+          },
+          {
+            "label": "Team RISP",
+            "value": "1-for-9."
+          },
+          {
+            "label": "Team LOB",
+            "value": "6."
+          }
+        ]
       },
       {
-        "label": "-- Toronto Blue Jays --",
-        "value": "",
-        "isHeader": true
+        "title": "Cleveland Guardians BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Martínez, A (5, 2nd base off Gausman/Heineman)."
+          },
+          {
+            "label": "PO",
+            "value": "Rocchio (1st base by Gausman)."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "Cleveland Guardians FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Brito (4, fielding)."
+          }
+        ]
       },
       {
-        "label": "ABS Challenge",
-        "value": "Valera (Strike-Confirmed); DeLauter (Strike-Overturned to Ball); Cantillo (Ball-Overturned to Strike); Sánchez, J (Strike-Confirmed); Heineman 2 (Ball-Overturned to Strike, Ball-Confirmed)."
+        "title": "Toronto Blue Jays BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Clement (12, Cantillo); Straw (2, Cantillo); Giménez (6, Festa, M)."
+          },
+          {
+            "label": "HR",
+            "value": "Okamoto (5, 4th inning off Cantillo, 0 on, 0 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Clement 3; Giménez 2; Guerrero Jr.; Heineman; Okamoto 5; Straw 3."
+          },
+          {
+            "label": "RBI",
+            "value": "Giménez 2 (16); Okamoto 2 (11); Varsho (8)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Giménez 2."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Schneider 2; Heineman; Okamoto; Guerrero Jr.; Clement."
+          },
+          {
+            "label": "Team RISP",
+            "value": "2-for-14."
+          },
+          {
+            "label": "Team LOB",
+            "value": "8."
+          }
+        ]
       },
       {
-        "label": "Pitches-strikes",
-        "value": "Cantillo 89-60; Festa, M 17-13; Pallette 35-21; Brogdon 12-8; Gausman 91-63; Fluharty 8-7; Rogers, Ty 14-10; Varland 30-19."
+        "title": "Toronto Blue Jays BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Straw (1, 2nd base off Cantillo/Naylor, B); Guerrero Jr. (2, 2nd base off Cantillo/Naylor, B); Varsho (2, 2nd base off Festa, M/Naylor, B)."
+          }
+        ]
       },
       {
-        "label": "Groundouts-flyouts",
-        "value": "Cantillo 8-2; Festa, M 1-0; Pallette 1-1; Brogdon 1-0; Gausman 9-3; Fluharty 0-0; Rogers, Ty 2-0; Varland 0-1."
+        "title": "Toronto Blue Jays FIELDING",
+        "fields": [
+          {
+            "label": "Pickoffs",
+            "value": "Gausman (Rocchio at 1st base)."
+          }
+        ]
       },
       {
-        "label": "Batters faced",
-        "value": "Cantillo 22; Festa, M 5; Pallette 7; Brogdon 3; Gausman 25; Fluharty 1; Rogers, Ty 3; Varland 7."
-      },
-      {
-        "label": "Inherited runners-scored",
-        "value": "Festa, M 2-2."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Quinn Wolcott. 1B: Ramon De Jesus. 2B: Adrian Johnson. 3B: Paul Clemons. "
-      },
-      {
-        "label": "Weather",
-        "value": "68 degrees, Roof Closed."
-      },
-      {
-        "label": "Wind",
-        "value": "0 mph, None."
-      },
-      {
-        "label": "First pitch",
-        "value": "3:08 PM."
-      },
-      {
-        "label": "T",
-        "value": "2:35."
-      },
-      {
-        "label": "Att",
-        "value": "41,543."
-      },
-      {
-        "label": "Venue",
-        "value": "Rogers Centre."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "ABS Challenge",
+            "value": "Valera (Strike-Confirmed); DeLauter (Strike-Overturned to Ball); Cantillo (Ball-Overturned to Strike); Sánchez, J (Strike-Confirmed); Heineman 2 (Ball-Overturned to Strike, Ball-Confirmed)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Cantillo 89-60; Festa, M 17-13; Pallette 35-21; Brogdon 12-8; Gausman 91-63; Fluharty 8-7; Rogers, Ty 14-10; Varland 30-19."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Cantillo 8-2; Festa, M 1-0; Pallette 1-1; Brogdon 1-0; Gausman 9-3; Fluharty 0-0; Rogers, Ty 2-0; Varland 0-1."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Cantillo 22; Festa, M 5; Pallette 7; Brogdon 3; Gausman 25; Fluharty 1; Rogers, Ty 3; Varland 7."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Festa, M 2-2."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Quinn Wolcott. 1B: Ramon De Jesus. 2B: Adrian Johnson. 3B: Paul Clemons. "
+          },
+          {
+            "label": "Weather",
+            "value": "68 degrees, Roof Closed."
+          },
+          {
+            "label": "Wind",
+            "value": "0 mph, None."
+          },
+          {
+            "label": "First pitch",
+            "value": "3:08 PM."
+          },
+          {
+            "label": "T",
+            "value": "2:35."
+          },
+          {
+            "label": "Att",
+            "value": "41,543."
+          },
+          {
+            "label": "Venue",
+            "value": "Rogers Centre."
+          }
+        ]
       }
     ]
   },
@@ -2062,7 +2385,7 @@
     "awayPitchers": [
       {
         "name": "Eury Pérez",
-        "note": "",
+        "note": "L",
         "ip": "5.1",
         "h": 7,
         "r": 4,
@@ -2108,7 +2431,7 @@
       },
       {
         "name": "Matt Gage",
-        "note": "",
+        "note": "W",
         "ip": "1.0",
         "h": 1,
         "r": 0,
@@ -2119,7 +2442,7 @@
       },
       {
         "name": "Keaton Winn",
-        "note": "",
+        "note": "H",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -2130,7 +2453,7 @@
       },
       {
         "name": "Erik Miller",
-        "note": "",
+        "note": "H",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -2153,67 +2476,158 @@
     ],
     "notes": [
       {
-        "label": "-- Miami Marlins --",
-        "value": "",
-        "isHeader": true
+        "title": "Miami Marlins BATTING",
+        "fields": [
+          {
+            "label": "TB",
+            "value": "Edwards, X 2; Lopez, O; Marsee; Ramírez 2."
+          },
+          {
+            "label": "RBI",
+            "value": "Edwards, X (9); Marsee (8)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Edwards, X."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Sanoja; Hernández, H 2; Edwards, X."
+          },
+          {
+            "label": "GIDP",
+            "value": "Ramírez; Stowers."
+          },
+          {
+            "label": "Team RISP",
+            "value": "2-for-6."
+          },
+          {
+            "label": "Team LOB",
+            "value": "8."
+          }
+        ]
       },
       {
-        "label": "-- San Francisco Giants --",
-        "value": "",
-        "isHeader": true
+        "title": "Miami Marlins BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Ramírez (2, 2nd base off Ray/Bailey); Edwards, X (4, 2nd base off Ray/Bailey)."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "San Francisco Giants BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Schmitt (8, Pérez, Eu); Lee, J 2 (8, Pérez, Eu, Pérez, Eu); Chapman, M (5, Pérez, Eu); Arraez (2, Phillips)."
+          },
+          {
+            "label": "HR",
+            "value": "Gilbert (2, 5th inning off Pérez, Eu, 0 on, 0 out); Schmitt (3, 6th inning off Pérez, Eu, 1 on, 1 out); Ramos, H (3, 8th inning off Phillips, 0 on, 0 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Arraez 3; Bailey; Chapman, M 2; Gilbert 4; Lee, J 4; Ramos, H 5; Schmitt 6."
+          },
+          {
+            "label": "RBI",
+            "value": "Arraez (8); Bailey (5); Gilbert (4); Ramos, H (14); Schmitt 2 (10)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Arraez; Bailey."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Adames 2; Gilbert; Ramos, H 2; Lee, J; Chapman, M."
+          },
+          {
+            "label": "Team RISP",
+            "value": "3-for-11."
+          },
+          {
+            "label": "Team LOB",
+            "value": "9."
+          }
+        ]
       },
       {
-        "label": "ABS Challenge",
-        "value": "Ramírez 2 (Ball-Overturned to Strike, Ball-Confirmed); Gilbert (Strike-Overturned to Ball); Bailey 2 (Strike-Confirmed, Ball-Confirmed)."
+        "title": "San Francisco Giants BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Bailey (2, 2nd base off Phillips/Ramírez)."
+          }
+        ]
       },
       {
-        "label": "Pitches-strikes",
-        "value": "Pérez, Eu 94-60; Bender 7-6; Phillips 46-26; Ray 97-55; Gage 23-13; Winn, K 11-8; Miller, E 21-9; Walker, R 12-8."
+        "title": "San Francisco Giants FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Bailey (2, throw)."
+          },
+          {
+            "label": "DP",
+            "value": "2 (Adames-Devers; Walker, R-Arraez-Devers)."
+          }
+        ]
       },
       {
-        "label": "Groundouts-flyouts",
-        "value": "Pérez, Eu 5-2; Bender 0-0; Phillips 4-1; Ray 4-5; Gage 2-1; Winn, K 1-2; Miller, E 1-0; Walker, R 3-0."
-      },
-      {
-        "label": "Batters faced",
-        "value": "Pérez, Eu 24; Bender 4; Phillips 11; Ray 21; Gage 5; Winn, K 3; Miller, E 4; Walker, R 4."
-      },
-      {
-        "label": "Inherited runners-scored",
-        "value": "Bender 1-1."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Mark Ripperger. 1B: Shane Livensparger. 2B: Dan Merzel. 3B: Dan Bellino. "
-      },
-      {
-        "label": "Weather",
-        "value": "56 degrees, Overcast."
-      },
-      {
-        "label": "Wind",
-        "value": "10 mph, Out To CF."
-      },
-      {
-        "label": "First pitch",
-        "value": "1:07 PM."
-      },
-      {
-        "label": "T",
-        "value": "2:49."
-      },
-      {
-        "label": "Att",
-        "value": "38,589."
-      },
-      {
-        "label": "Venue",
-        "value": "Oracle Park."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "ABS Challenge",
+            "value": "Ramírez 2 (Ball-Overturned to Strike, Ball-Confirmed); Gilbert (Strike-Overturned to Ball); Bailey 2 (Strike-Confirmed, Ball-Confirmed)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Pérez, Eu 94-60; Bender 7-6; Phillips 46-26; Ray 97-55; Gage 23-13; Winn, K 11-8; Miller, E 21-9; Walker, R 12-8."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Pérez, Eu 5-2; Bender 0-0; Phillips 4-1; Ray 4-5; Gage 2-1; Winn, K 1-2; Miller, E 1-0; Walker, R 3-0."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Pérez, Eu 24; Bender 4; Phillips 11; Ray 21; Gage 5; Winn, K 3; Miller, E 4; Walker, R 4."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Bender 1-1."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Mark Ripperger. 1B: Shane Livensparger. 2B: Dan Merzel. 3B: Dan Bellino. "
+          },
+          {
+            "label": "Weather",
+            "value": "56 degrees, Overcast."
+          },
+          {
+            "label": "Wind",
+            "value": "10 mph, Out To CF."
+          },
+          {
+            "label": "First pitch",
+            "value": "1:07 PM."
+          },
+          {
+            "label": "T",
+            "value": "2:49."
+          },
+          {
+            "label": "Att",
+            "value": "38,589."
+          },
+          {
+            "label": "Venue",
+            "value": "Oracle Park."
+          }
+        ]
       }
     ]
   },
@@ -2555,7 +2969,7 @@
     "awayPitchers": [
       {
         "name": "Bailey Ober",
-        "note": "",
+        "note": "L",
         "ip": "6.0",
         "h": 3,
         "r": 2,
@@ -2601,7 +3015,7 @@
     "homePitchers": [
       {
         "name": "Shane McClanahan",
-        "note": "",
+        "note": "W",
         "ip": "5.0",
         "h": 3,
         "r": 0,
@@ -2612,7 +3026,7 @@
       },
       {
         "name": "Kevin Kelly",
-        "note": "",
+        "note": "H",
         "ip": "2.0",
         "h": 1,
         "r": 0,
@@ -2646,71 +3060,187 @@
     ],
     "notes": [
       {
-        "label": "-- Minnesota Twins --",
-        "value": "",
-        "isHeader": true
+        "title": "Minnesota Twins BATTING",
+        "fields": [
+          {
+            "label": "TB",
+            "value": "Buxton 2; Jeffers; Keaschall; Lewis, R."
+          },
+          {
+            "label": "RBI",
+            "value": "Lewis, R (10)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Lewis, R."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Lewis, R; Jeffers 2; Buxton; Bell."
+          },
+          {
+            "label": "GIDP",
+            "value": "Caratini."
+          },
+          {
+            "label": "Team RISP",
+            "value": "1-for-9."
+          },
+          {
+            "label": "Team LOB",
+            "value": "8."
+          }
+        ]
       },
       {
-        "label": "-- Tampa Bay Rays --",
-        "value": "",
-        "isHeader": true
+        "title": "Minnesota Twins BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Keaschall (6, 2nd base off McClanahan/Fortes); Lee, B (1, 2nd base off Kelly/Fortes)."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "Minnesota Twins FIELDING",
+        "fields": [
+          {
+            "label": "Outfield assists",
+            "value": "Martin (Simpson at home)."
+          },
+          {
+            "label": "DP",
+            "value": "(Martin-Jeffers)."
+          }
+        ]
       },
       {
-        "label": "HBP",
-        "value": "Keaschall (by Martin); Díaz, Y (by Ober)."
+        "title": "Tampa Bay Rays BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "DeLuca (5, Rogers, Ta); Williamson (5, Acton)."
+          },
+          {
+            "label": "3B",
+            "value": "Williamson (1, Rogers, Ta)."
+          },
+          {
+            "label": "HR",
+            "value": "Fraley (2, 4th inning off Ober, 1 on, 2 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Caminero; DeLuca 2; Díaz, Y; Fortes; Fraley 4; Williamson 6."
+          },
+          {
+            "label": "RBI",
+            "value": "Fortes (8); Fraley 2 (4); Palacios, R (5); Williamson 2 (10)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Williamson; Fraley 2."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Mullins."
+          },
+          {
+            "label": "SF",
+            "value": "Palacios, R."
+          },
+          {
+            "label": "Team RISP",
+            "value": "2-for-5."
+          },
+          {
+            "label": "Team LOB",
+            "value": "4."
+          }
+        ]
       },
       {
-        "label": "ABS Challenge",
-        "value": "Martin (Strike-Confirmed); Fortes 2 (Ball-Overturned to Strike, Ball-Overturned to Strike); Jeffers 2 (Ball-Overturned to Strike, Ball-Overturned to Strike); Buxton (Strike-Overturned to Ball)."
+        "title": "Tampa Bay Rays BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Simpson (8, 2nd base off Ober/Jeffers); Mullins (6, 2nd base off Orze/Jeffers)."
+          },
+          {
+            "label": "CS",
+            "value": "Palacios, R (2, 2nd base by Ober/Jeffers)."
+          }
+        ]
       },
       {
-        "label": "Pitches-strikes",
-        "value": "Ober 83-50; Rogers, Ta 15-10; Orze 9-8; Acton 18-13; McClanahan 86-60; Kelly 32-23; Bigge 11-8; Martin 17-13."
+        "title": "Tampa Bay Rays FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Palacios, R (2, throw); Williamson (2, throw); Aranda (3, fielding)."
+          },
+          {
+            "label": "DP",
+            "value": "(Kelly-Williamson-Aranda)."
+          }
+        ]
       },
       {
-        "label": "Groundouts-flyouts",
-        "value": "Ober 8-2; Rogers, Ta 0-0; Orze 1-0; Acton 1-0; McClanahan 3-4; Kelly 4-1; Bigge 0-1; Martin 1-1."
-      },
-      {
-        "label": "Batters faced",
-        "value": "Ober 22; Rogers, Ta 3; Orze 4; Acton 5; McClanahan 21; Kelly 7; Bigge 3; Martin 5."
-      },
-      {
-        "label": "Inherited runners-scored",
-        "value": "Orze 2-2."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Brian Walsh. 1B: Chad Fairchild. 2B: Chad Whitson. 3B: Bill Miller. "
-      },
-      {
-        "label": "Weather",
-        "value": "72 degrees, Dome."
-      },
-      {
-        "label": "Wind",
-        "value": "0 mph, None."
-      },
-      {
-        "label": "First pitch",
-        "value": "4:10 PM."
-      },
-      {
-        "label": "T",
-        "value": "2:21."
-      },
-      {
-        "label": "Att",
-        "value": "17,014."
-      },
-      {
-        "label": "Venue",
-        "value": "Tropicana Field."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "HBP",
+            "value": "Keaschall (by Martin); Díaz, Y (by Ober)."
+          },
+          {
+            "label": "ABS Challenge",
+            "value": "Martin (Strike-Confirmed); Fortes 2 (Ball-Overturned to Strike, Ball-Overturned to Strike); Jeffers 2 (Ball-Overturned to Strike, Ball-Overturned to Strike); Buxton (Strike-Overturned to Ball)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Ober 83-50; Rogers, Ta 15-10; Orze 9-8; Acton 18-13; McClanahan 86-60; Kelly 32-23; Bigge 11-8; Martin 17-13."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Ober 8-2; Rogers, Ta 0-0; Orze 1-0; Acton 1-0; McClanahan 3-4; Kelly 4-1; Bigge 0-1; Martin 1-1."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Ober 22; Rogers, Ta 3; Orze 4; Acton 5; McClanahan 21; Kelly 7; Bigge 3; Martin 5."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Orze 2-2."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Brian Walsh. 1B: Chad Fairchild. 2B: Chad Whitson. 3B: Bill Miller. "
+          },
+          {
+            "label": "Weather",
+            "value": "72 degrees, Dome."
+          },
+          {
+            "label": "Wind",
+            "value": "0 mph, None."
+          },
+          {
+            "label": "First pitch",
+            "value": "4:10 PM."
+          },
+          {
+            "label": "T",
+            "value": "2:21."
+          },
+          {
+            "label": "Att",
+            "value": "17,014."
+          },
+          {
+            "label": "Venue",
+            "value": "Tropicana Field."
+          }
+        ]
       }
     ]
   },
@@ -3173,7 +3703,7 @@
       },
       {
         "name": "Mitchell Parker",
-        "note": "",
+        "note": "H",
         "ip": "1.1",
         "h": 1,
         "r": 2,
@@ -3184,7 +3714,7 @@
       },
       {
         "name": "Gus Varland",
-        "note": "",
+        "note": "BS",
         "ip": "1.0",
         "h": 1,
         "r": 0,
@@ -3195,7 +3725,7 @@
       },
       {
         "name": "Cionel Pérez",
-        "note": "",
+        "note": "W",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -3263,7 +3793,7 @@
       },
       {
         "name": "Jordan Leasure",
-        "note": "",
+        "note": "L",
         "ip": "0.2",
         "h": 2,
         "r": 4,
@@ -3286,79 +3816,174 @@
     ],
     "notes": [
       {
-        "label": "-- Washington Nationals --",
-        "value": "",
-        "isHeader": true
+        "title": "Washington Nationals BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Ruiz, K (4, Schultz)."
+          },
+          {
+            "label": "TB",
+            "value": "García Jr., L; House; Nuñez, N 2; Ruiz, K 2; Young."
+          },
+          {
+            "label": "RBI",
+            "value": "Nuñez, N 4 (10); Wiemer (7)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Nuñez, N 4; Wiemer."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "García Jr., L; Chaparro 2; Millas 2."
+          },
+          {
+            "label": "Team RISP",
+            "value": "3-for-12."
+          },
+          {
+            "label": "Team LOB",
+            "value": "10."
+          }
+        ]
       },
       {
-        "label": "-- Chicago White Sox --",
-        "value": "",
-        "isHeader": true
+        "title": "Washington Nationals BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Nuñez, N (12, 2nd base off Bido/Romo)."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "Washington Nationals FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Ruiz, K (3, throw)."
+          },
+          {
+            "label": "PB",
+            "value": "Ruiz, K (1)."
+          }
+        ]
       },
       {
-        "label": "WP",
-        "value": "Irvin, J; Schultz; Hicks, J."
+        "title": "Chicago White Sox BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Vargas, M (4, Irvin, J)."
+          },
+          {
+            "label": "TB",
+            "value": "Antonacci; Hill, D; Meidroth 2; Pereira; Quero; Vargas, M 2."
+          },
+          {
+            "label": "RBI",
+            "value": "Meidroth (3); Murray, T (3); Pereira (7)."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Pereira; Murakami 2; Hill, D; Montgomery, C; Murray, T."
+          },
+          {
+            "label": "SAC",
+            "value": "Murray, T."
+          },
+          {
+            "label": "SF",
+            "value": "Meidroth; Murray, T."
+          },
+          {
+            "label": "Team RISP",
+            "value": "1-for-12."
+          },
+          {
+            "label": "Team LOB",
+            "value": "12."
+          }
+        ]
       },
       {
-        "label": "IBB",
-        "value": "Lile (by Leasure)."
+        "title": "Chicago White Sox FIELDING",
+        "fields": [
+          {
+            "label": "PB",
+            "value": "Romo (1)."
+          },
+          {
+            "label": "DP",
+            "value": "(Murakami)."
+          }
+        ]
       },
       {
-        "label": "HBP",
-        "value": "Montgomery, C 2 (by Irvin, J, by Parker)."
-      },
-      {
-        "label": "ABS Challenge",
-        "value": "Meidroth (Strike-Confirmed); Wood (Strike-Confirmed); Ruiz, K 3 (Ball-Overturned to Strike, Ball-Overturned to Strike, Ball-Overturned to Strike); Quero (Ball-Confirmed); Nuñez, N (Strike-Confirmed); Mead (Strike-Overturned to Ball); Wiemer (Strike-Confirmed)."
-      },
-      {
-        "label": "Pitches-strikes",
-        "value": "Irvin, J 88-62; Parker 23-12; Varland, G 8-8; Pérez, C 22-11; Lord 18-13; Schultz 85-49; Hicks, J 19-8; Davis 14-8; Taylor, G 9-8; Leasure 30-17; Bido 8-5."
-      },
-      {
-        "label": "Groundouts-flyouts",
-        "value": "Irvin, J 3-5; Parker 1-0; Varland, G 1-1; Pérez, C 1-1; Lord 2-1; Schultz 4-4; Hicks, J 2-0; Davis 0-0; Taylor, G 0-0; Leasure 0-0; Bido 1-0."
-      },
-      {
-        "label": "Batters faced",
-        "value": "Irvin, J 23; Parker 8; Varland, G 4; Pérez, C 5; Lord 4; Schultz 25; Hicks, J 5; Davis 4; Taylor, G 3; Leasure 7; Bido 1."
-      },
-      {
-        "label": "Inherited runners-scored",
-        "value": "Parker 1-0; Varland, G 2-2; Bido 2-0."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Ryan Additon. 1B: Ryan Wills. 2B: Lance Barksdale. 3B: Will Little. "
-      },
-      {
-        "label": "Weather",
-        "value": "49 degrees, Sunny."
-      },
-      {
-        "label": "Wind",
-        "value": "13 mph, Out To RF."
-      },
-      {
-        "label": "First pitch",
-        "value": "3:10 PM."
-      },
-      {
-        "label": "T",
-        "value": "3:04."
-      },
-      {
-        "label": "Att",
-        "value": "35,174."
-      },
-      {
-        "label": "Venue",
-        "value": "Rate Field."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "WP",
+            "value": "Irvin, J; Schultz; Hicks, J."
+          },
+          {
+            "label": "IBB",
+            "value": "Lile (by Leasure)."
+          },
+          {
+            "label": "HBP",
+            "value": "Montgomery, C 2 (by Irvin, J, by Parker)."
+          },
+          {
+            "label": "ABS Challenge",
+            "value": "Meidroth (Strike-Confirmed); Wood (Strike-Confirmed); Ruiz, K 3 (Ball-Overturned to Strike, Ball-Overturned to Strike, Ball-Overturned to Strike); Quero (Ball-Confirmed); Nuñez, N (Strike-Confirmed); Mead (Strike-Overturned to Ball); Wiemer (Strike-Confirmed)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Irvin, J 88-62; Parker 23-12; Varland, G 8-8; Pérez, C 22-11; Lord 18-13; Schultz 85-49; Hicks, J 19-8; Davis 14-8; Taylor, G 9-8; Leasure 30-17; Bido 8-5."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Irvin, J 3-5; Parker 1-0; Varland, G 1-1; Pérez, C 1-1; Lord 2-1; Schultz 4-4; Hicks, J 2-0; Davis 0-0; Taylor, G 0-0; Leasure 0-0; Bido 1-0."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Irvin, J 23; Parker 8; Varland, G 4; Pérez, C 5; Lord 4; Schultz 25; Hicks, J 5; Davis 4; Taylor, G 3; Leasure 7; Bido 1."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Parker 1-0; Varland, G 2-2; Bido 2-0."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Ryan Additon. 1B: Ryan Wills. 2B: Lance Barksdale. 3B: Will Little. "
+          },
+          {
+            "label": "Weather",
+            "value": "49 degrees, Sunny."
+          },
+          {
+            "label": "Wind",
+            "value": "13 mph, Out To RF."
+          },
+          {
+            "label": "First pitch",
+            "value": "3:10 PM."
+          },
+          {
+            "label": "T",
+            "value": "3:04."
+          },
+          {
+            "label": "Att",
+            "value": "35,174."
+          },
+          {
+            "label": "Venue",
+            "value": "Rate Field."
+          }
+        ]
       }
     ]
   },
@@ -3722,7 +4347,7 @@
     "awayPitchers": [
       {
         "name": "Germán Márquez",
-        "note": "",
+        "note": "W",
         "ip": "6.0",
         "h": 6,
         "r": 4,
@@ -3733,7 +4358,7 @@
       },
       {
         "name": "Adrian Morejon",
-        "note": "",
+        "note": "H",
         "ip": "1.0",
         "h": 1,
         "r": 0,
@@ -3744,7 +4369,7 @@
       },
       {
         "name": "Jason Adam",
-        "note": "",
+        "note": "H",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -3755,7 +4380,7 @@
       },
       {
         "name": "Mason Miller",
-        "note": "",
+        "note": "S",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -3790,7 +4415,7 @@
       },
       {
         "name": "Taylor Clarke",
-        "note": "",
+        "note": "L",
         "ip": "1.0",
         "h": 1,
         "r": 1,
@@ -3824,83 +4449,186 @@
     ],
     "notes": [
       {
-        "label": "-- San Diego Padres --",
-        "value": "",
-        "isHeader": true
+        "title": "San Diego Padres BATTING",
+        "fields": [
+          {
+            "label": "HR",
+            "value": "France, T 2 (3, 5th inning off Pfaadt, 0 on, 2 out, 9th inning off Hoffmann, A, 0 on, 0 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Fermin; France, T 8; Machado, M; Sheets; Tatis Jr."
+          },
+          {
+            "label": "RBI",
+            "value": "Fermin (3); France, T 2 (3); Laureano (18); Sheets 2 (11)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "France, T."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Laureano; Merrill 2."
+          },
+          {
+            "label": "SF",
+            "value": "Fermin; Laureano."
+          },
+          {
+            "label": "GIDP",
+            "value": "Tatis Jr."
+          },
+          {
+            "label": "Team RISP",
+            "value": "1-for-4."
+          },
+          {
+            "label": "Team LOB",
+            "value": "5."
+          }
+        ]
       },
       {
-        "label": "-- Arizona Diamondbacks --",
-        "value": "",
-        "isHeader": true
+        "title": "San Diego Padres BASERUNNING",
+        "fields": [
+          {
+            "label": "CS",
+            "value": "Fermin (1, 2nd base by Hoffmann, A/Del Castillo)."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "San Diego Padres FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Machado, M (2, throw)."
+          }
+        ]
       },
       {
-        "label": "WP",
-        "value": "Márquez."
+        "title": "Arizona Diamondbacks BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Fernandez, Jo (3, Márquez)."
+          },
+          {
+            "label": "HR",
+            "value": "Thomas, A (2, 2nd inning off Márquez, 1 on, 2 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Arenado 2; Fernandez, Jo 3; Marte, K; Thomas, A 4; Vargas, I."
+          },
+          {
+            "label": "RBI",
+            "value": "Fernandez, Jo 2 (11); Thomas, A 2 (10)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Fernandez, Jo 2; Thomas, A 2."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Del Castillo; Perdomo."
+          },
+          {
+            "label": "Team RISP",
+            "value": "2-for-5."
+          },
+          {
+            "label": "Team LOB",
+            "value": "7."
+          }
+        ]
       },
       {
-        "label": "Balk",
-        "value": "Pfaadt."
+        "title": "Arizona Diamondbacks FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Perdomo (2, fielding); Carroll (2, throw); Vargas, I (2, fielding)."
+          },
+          {
+            "label": "Outfield assists",
+            "value": "Carroll (Laureano at 3rd base)."
+          },
+          {
+            "label": "DP",
+            "value": "(Perdomo-Marte, K-Vargas, I)."
+          }
+        ]
       },
       {
-        "label": "Disengagement violations",
-        "value": "Pfaadt."
-      },
-      {
-        "label": "IBB",
-        "value": "Tatis Jr. (by Clarke, T)."
-      },
-      {
-        "label": "HBP",
-        "value": "Cronenworth (by Clarke, T); Carroll (by Márquez)."
-      },
-      {
-        "label": "Pitches-strikes",
-        "value": "Márquez 75-52; Morejon 29-20; Adam 15-11; Miller, M 13-9; Gallen 49-27; Pfaadt 56-36; Clarke, T 14-8; Loáisiga 18-12; Hoffmann, A 24-13."
-      },
-      {
-        "label": "Groundouts-flyouts",
-        "value": "Márquez 7-4; Morejon 1-0; Adam 4-0; Miller, M 2-1; Gallen 4-1; Pfaadt 2-0; Clarke, T 2-1; Loáisiga 1-1; Hoffmann, A 1-0."
-      },
-      {
-        "label": "Batters faced",
-        "value": "Márquez 26; Morejon 5; Adam 4; Miller, M 3; Gallen 10; Pfaadt 13; Clarke, T 7; Loáisiga 3; Hoffmann, A 5."
-      },
-      {
-        "label": "Inherited runners-scored",
-        "value": "Clarke, T 3-3."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Stu Scheurwater. 1B: Roberto Ortiz. 2B: Jordan Baker. 3B: Rob Drake. "
-      },
-      {
-        "label": "Weather",
-        "value": "84 degrees, Partly Cloudy."
-      },
-      {
-        "label": "Wind",
-        "value": "11 mph, L To R."
-      },
-      {
-        "label": "First pitch",
-        "value": "4:08 PM."
-      },
-      {
-        "label": "T",
-        "value": "2:52."
-      },
-      {
-        "label": "Att",
-        "value": "19,630."
-      },
-      {
-        "label": "Venue",
-        "value": "Estadio Alfredo Harp Helu."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "WP",
+            "value": "Márquez."
+          },
+          {
+            "label": "Balk",
+            "value": "Pfaadt."
+          },
+          {
+            "label": "Disengagement violations",
+            "value": "Pfaadt."
+          },
+          {
+            "label": "IBB",
+            "value": "Tatis Jr. (by Clarke, T)."
+          },
+          {
+            "label": "HBP",
+            "value": "Cronenworth (by Clarke, T); Carroll (by Márquez)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Márquez 75-52; Morejon 29-20; Adam 15-11; Miller, M 13-9; Gallen 49-27; Pfaadt 56-36; Clarke, T 14-8; Loáisiga 18-12; Hoffmann, A 24-13."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Márquez 7-4; Morejon 1-0; Adam 4-0; Miller, M 2-1; Gallen 4-1; Pfaadt 2-0; Clarke, T 2-1; Loáisiga 1-1; Hoffmann, A 1-0."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Márquez 26; Morejon 5; Adam 4; Miller, M 3; Gallen 10; Pfaadt 13; Clarke, T 7; Loáisiga 3; Hoffmann, A 5."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Clarke, T 3-3."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Stu Scheurwater. 1B: Roberto Ortiz. 2B: Jordan Baker. 3B: Rob Drake. "
+          },
+          {
+            "label": "Weather",
+            "value": "84 degrees, Partly Cloudy."
+          },
+          {
+            "label": "Wind",
+            "value": "11 mph, L To R."
+          },
+          {
+            "label": "First pitch",
+            "value": "4:08 PM."
+          },
+          {
+            "label": "T",
+            "value": "2:52."
+          },
+          {
+            "label": "Att",
+            "value": "19,630."
+          },
+          {
+            "label": "Venue",
+            "value": "Estadio Alfredo Harp Helu."
+          }
+        ]
       }
     ]
   },
@@ -4264,7 +4992,7 @@
     "awayPitchers": [
       {
         "name": "Jeffrey Springs",
-        "note": "",
+        "note": "L",
         "ip": "6.0",
         "h": 5,
         "r": 4,
@@ -4310,7 +5038,7 @@
       },
       {
         "name": "Cole Winn",
-        "note": "",
+        "note": "W",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -4321,7 +5049,7 @@
       },
       {
         "name": "Jalen Beeks",
-        "note": "",
+        "note": "H",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -4332,7 +5060,7 @@
       },
       {
         "name": "Jakob Junis",
-        "note": "",
+        "note": "H",
         "ip": "1.0",
         "h": 1,
         "r": 0,
@@ -4343,7 +5071,7 @@
       },
       {
         "name": "Jacob Latz",
-        "note": "",
+        "note": "S",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -4355,67 +5083,140 @@
     ],
     "notes": [
       {
-        "label": "-- Athletics --",
-        "value": "",
-        "isHeader": true
+        "title": "Athletics BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Wilson, J (6, Gore); Cortes (5, Junis)."
+          },
+          {
+            "label": "TB",
+            "value": "Cortes 2; Hernaiz; Langeliers 2; Thomas, C; Wilson, J 3."
+          },
+          {
+            "label": "RBI",
+            "value": "Hernaiz (2); Thomas, C (1); Wilson, J (14)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Hernaiz."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Wynns, A 3; Gelof."
+          },
+          {
+            "label": "SF",
+            "value": "Wilson, J."
+          },
+          {
+            "label": "Team RISP",
+            "value": "2-for-8."
+          },
+          {
+            "label": "Team LOB",
+            "value": "8."
+          }
+        ]
       },
       {
-        "label": "-- Texas Rangers --",
-        "value": "",
-        "isHeader": true
+        "title": "Texas Rangers BATTING",
+        "fields": [
+          {
+            "label": "HR",
+            "value": "Jung, Jo (4, 6th inning off Springs, 1 on, 1 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Haggerty; Jansen, D; Jung, Jo 4; Seager 2."
+          },
+          {
+            "label": "RBI",
+            "value": "Jung, Jo 2 (14); Nimmo (12); Seager (17)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Seager."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Burger."
+          },
+          {
+            "label": "SF",
+            "value": "Nimmo."
+          },
+          {
+            "label": "Team RISP",
+            "value": "3-for-5."
+          },
+          {
+            "label": "Team LOB",
+            "value": "4."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "Texas Rangers FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Seager (2, fielding)."
+          }
+        ]
       },
       {
-        "label": "HBP",
-        "value": "Jansen, D (by Springs)."
-      },
-      {
-        "label": "ABS Challenge",
-        "value": "Jansen, D (Ball-Confirmed); Hernaiz (Strike-Overturned to Ball)."
-      },
-      {
-        "label": "Pitches-strikes",
-        "value": "Springs 91-58; Barlow, S 11-7; Leiter Jr. 13-10; Gore 106-72; Winn, C 10-8; Beeks 10-7; Junis 12-10; Latz 14-10."
-      },
-      {
-        "label": "Groundouts-flyouts",
-        "value": "Springs 4-7; Barlow, S 2-1; Leiter Jr. 0-1; Gore 2-3; Winn, C 1-1; Beeks 1-1; Junis 1-2; Latz 2-0."
-      },
-      {
-        "label": "Batters faced",
-        "value": "Springs 26; Barlow, S 3; Leiter Jr. 3; Gore 25; Winn, C 3; Beeks 3; Junis 4; Latz 3."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Austin Jones. 1B: Todd Tichenor. 2B: Tripp Gibson. 3B: Clint Vondrak. "
-      },
-      {
-        "label": "Weather",
-        "value": "74 degrees, Roof Closed."
-      },
-      {
-        "label": "Wind",
-        "value": "0 mph, None."
-      },
-      {
-        "label": "First pitch",
-        "value": "6:08 PM."
-      },
-      {
-        "label": "T",
-        "value": "2:32."
-      },
-      {
-        "label": "Att",
-        "value": "35,810."
-      },
-      {
-        "label": "Venue",
-        "value": "Globe Life Field."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "HBP",
+            "value": "Jansen, D (by Springs)."
+          },
+          {
+            "label": "ABS Challenge",
+            "value": "Jansen, D (Ball-Confirmed); Hernaiz (Strike-Overturned to Ball)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Springs 91-58; Barlow, S 11-7; Leiter Jr. 13-10; Gore 106-72; Winn, C 10-8; Beeks 10-7; Junis 12-10; Latz 14-10."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Springs 4-7; Barlow, S 2-1; Leiter Jr. 0-1; Gore 2-3; Winn, C 1-1; Beeks 1-1; Junis 1-2; Latz 2-0."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Springs 26; Barlow, S 3; Leiter Jr. 3; Gore 25; Winn, C 3; Beeks 3; Junis 4; Latz 3."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Austin Jones. 1B: Todd Tichenor. 2B: Tripp Gibson. 3B: Clint Vondrak. "
+          },
+          {
+            "label": "Weather",
+            "value": "74 degrees, Roof Closed."
+          },
+          {
+            "label": "Wind",
+            "value": "0 mph, None."
+          },
+          {
+            "label": "First pitch",
+            "value": "6:08 PM."
+          },
+          {
+            "label": "T",
+            "value": "2:32."
+          },
+          {
+            "label": "Att",
+            "value": "35,810."
+          },
+          {
+            "label": "Venue",
+            "value": "Globe Life Field."
+          }
+        ]
       }
     ]
   },
@@ -4801,7 +5602,7 @@
     "awayPitchers": [
       {
         "name": "Walbert Urena",
-        "note": "",
+        "note": "L",
         "ip": "3.2",
         "h": 6,
         "r": 4,
@@ -4869,7 +5670,7 @@
     "homePitchers": [
       {
         "name": "Cole Ragans",
-        "note": "",
+        "note": "W",
         "ip": "6.0",
         "h": 5,
         "r": 1,
@@ -4914,75 +5715,183 @@
     ],
     "notes": [
       {
-        "label": "-- Los Angeles Angels --",
-        "value": "",
-        "isHeader": true
+        "title": "Los Angeles Angels BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Grissom (3, Ragans); Soler (4, Ragans)."
+          },
+          {
+            "label": "HR",
+            "value": "Adell (4, 4th inning off Ragans, 0 on, 0 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Adell 4; Grissom 4; Moncada; Peraza, O; Soler 2; Trout."
+          },
+          {
+            "label": "RBI",
+            "value": "Adell (17)."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "d'Arnaud; Schanuel; O'Hoppe 2; Peraza, O."
+          },
+          {
+            "label": "Team RISP",
+            "value": "0-for-6."
+          },
+          {
+            "label": "Team LOB",
+            "value": "7."
+          }
+        ]
       },
       {
-        "label": "-- Kansas City Royals --",
-        "value": "",
-        "isHeader": true
+        "title": "Los Angeles Angels BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Peraza, O (4, 3rd base off Ragans/Jensen)."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "Los Angeles Angels FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Peraza, O (2, fielding); Neto 2 (5, fielding, throw)."
+          },
+          {
+            "label": "Outfield assists",
+            "value": "Adell (Isbel at 2nd base)."
+          },
+          {
+            "label": "DP",
+            "value": "(Grissom-Neto-Schanuel)."
+          }
+        ]
       },
       {
-        "label": "HBP",
-        "value": "Collins (by Sandlin); Isbel (by Romano)."
+        "title": "Kansas City Royals BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Witt Jr. (9, Urena); Caglianone (5, Romano)."
+          },
+          {
+            "label": "HR",
+            "value": "Perez, S (4, 2nd inning off Urena, 0 on, 0 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Caglianone 2; Collins; Isbel 2; Jensen; Loftin 2; Massey 2; Perez, S 6; Witt Jr. 3."
+          },
+          {
+            "label": "RBI",
+            "value": "Jensen 2 (16); Loftin 4 (7); Massey (6); Pasquantino (13); Perez, S 2 (8)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Jensen 2; Loftin 3."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Isbel 2; Witt Jr.; Jensen; Pasquantino 2."
+          },
+          {
+            "label": "GIDP",
+            "value": "Perez, S."
+          },
+          {
+            "label": "Team RISP",
+            "value": "6-for-18."
+          },
+          {
+            "label": "Team LOB",
+            "value": "12."
+          }
+        ]
       },
       {
-        "label": "Pitch timer violations",
-        "value": "Urena (pitcher)."
+        "title": "Kansas City Royals BASERUNNING",
+        "fields": [
+          {
+            "label": "CS",
+            "value": "Witt Jr. (2, 2nd base by Urena/O'Hoppe); Collins (2, 2nd base by Sandlin/O'Hoppe)."
+          }
+        ]
       },
       {
-        "label": "ABS Challenge",
-        "value": "Collins (Strike-Overturned to Ball); O'Hoppe (Ball-Confirmed); Loftin (Strike-Confirmed); Jensen (Ball-Confirmed); Romano (Ball-Confirmed)."
+        "title": "Kansas City Royals FIELDING",
+        "fields": [
+          {
+            "label": "PB",
+            "value": "Jensen (1)."
+          }
+        ]
       },
       {
-        "label": "Pitches-strikes",
-        "value": "Urena 81-44; Sandlin 19-10; Silseth 23-13; Anderson, S 28-16; Romano 36-22; Frazier 11-6; Ragans 99-70; Lynch IV 9-5; Schreiber 18-11; Black 18-14."
-      },
-      {
-        "label": "Groundouts-flyouts",
-        "value": "Urena 2-4; Sandlin 0-1; Silseth 2-0; Anderson, S 1-1; Romano 1-0; Frazier 1-0; Ragans 2-4; Lynch IV 1-2; Schreiber 2-0; Black 0-0."
-      },
-      {
-        "label": "Batters faced",
-        "value": "Urena 21; Sandlin 4; Silseth 6; Anderson, S 7; Romano 7; Frazier 3; Ragans 23; Lynch IV 3; Schreiber 4; Black 5."
-      },
-      {
-        "label": "Inherited runners-scored",
-        "value": "Sandlin 1-0; Frazier 3-2."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Derek Thomas. 1B: Alex MacKay. 2B: Alan Porter. 3B: Jim Wolf. "
-      },
-      {
-        "label": "Weather",
-        "value": "74 degrees, Cloudy."
-      },
-      {
-        "label": "Wind",
-        "value": "7 mph, In From RF."
-      },
-      {
-        "label": "First pitch",
-        "value": "6:10 PM."
-      },
-      {
-        "label": "T",
-        "value": "2:55."
-      },
-      {
-        "label": "Att",
-        "value": "22,152."
-      },
-      {
-        "label": "Venue",
-        "value": "Kauffman Stadium."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "HBP",
+            "value": "Collins (by Sandlin); Isbel (by Romano)."
+          },
+          {
+            "label": "Pitch timer violations",
+            "value": "Urena (pitcher)."
+          },
+          {
+            "label": "ABS Challenge",
+            "value": "Collins (Strike-Overturned to Ball); O'Hoppe (Ball-Confirmed); Loftin (Strike-Confirmed); Jensen (Ball-Confirmed); Romano (Ball-Confirmed)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Urena 81-44; Sandlin 19-10; Silseth 23-13; Anderson, S 28-16; Romano 36-22; Frazier 11-6; Ragans 99-70; Lynch IV 9-5; Schreiber 18-11; Black 18-14."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Urena 2-4; Sandlin 0-1; Silseth 2-0; Anderson, S 1-1; Romano 1-0; Frazier 1-0; Ragans 2-4; Lynch IV 1-2; Schreiber 2-0; Black 0-0."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Urena 21; Sandlin 4; Silseth 6; Anderson, S 7; Romano 7; Frazier 3; Ragans 23; Lynch IV 3; Schreiber 4; Black 5."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Sandlin 1-0; Frazier 3-2."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Derek Thomas. 1B: Alex MacKay. 2B: Alan Porter. 3B: Jim Wolf. "
+          },
+          {
+            "label": "Weather",
+            "value": "74 degrees, Cloudy."
+          },
+          {
+            "label": "Wind",
+            "value": "7 mph, In From RF."
+          },
+          {
+            "label": "First pitch",
+            "value": "6:10 PM."
+          },
+          {
+            "label": "T",
+            "value": "2:55."
+          },
+          {
+            "label": "Att",
+            "value": "22,152."
+          },
+          {
+            "label": "Venue",
+            "value": "Kauffman Stadium."
+          }
+        ]
       }
     ]
   },
@@ -5357,7 +6266,7 @@
       },
       {
         "name": "Fernando Cruz",
-        "note": "",
+        "note": "W",
         "ip": "0.2",
         "h": 0,
         "r": 0,
@@ -5368,7 +6277,7 @@
       },
       {
         "name": "Jake Bird",
-        "note": "",
+        "note": "H",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -5425,7 +6334,7 @@
       },
       {
         "name": "Kai-Wei Teng",
-        "note": "",
+        "note": "L",
         "ip": "0.1",
         "h": 2,
         "r": 1,
@@ -5470,67 +6379,179 @@
     ],
     "notes": [
       {
-        "label": "-- New York Yankees --",
-        "value": "",
-        "isHeader": true
+        "title": "New York Yankees BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Rice (8, Burrows)."
+          },
+          {
+            "label": "HR",
+            "value": "Grisham (4, 3rd inning off Burrows, 0 on, 1 out); Caballero (3, 5th inning off Burrows, 0 on, 1 out); Wells, A (2, 7th inning off Teng, 0 on, 0 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Caballero 6; Grisham 4; McMahon 2; Rice 4; Rosario, A; Wells, A 5."
+          },
+          {
+            "label": "RBI",
+            "value": "Bellinger (14); Caballero (11); Chisholm Jr. (9); Grisham (16); McMahon (6); Rice (21); Wells, A 2 (4)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Bellinger; Chisholm Jr."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Judge 2; Chisholm Jr.; Rosario, A 2."
+          },
+          {
+            "label": "SF",
+            "value": "Rice."
+          },
+          {
+            "label": "GIDP",
+            "value": "Caballero; McMahon."
+          },
+          {
+            "label": "Team RISP",
+            "value": "2-for-8."
+          },
+          {
+            "label": "Team LOB",
+            "value": "10."
+          }
+        ]
       },
       {
-        "label": "-- Houston Astros --",
-        "value": "",
-        "isHeader": true
+        "title": "New York Yankees BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Caballero (10, 2nd base off Burrows/Vázquez, C)."
+          },
+          {
+            "label": "CS",
+            "value": "Caballero 2 (2, 3rd base by Burrows/Vázquez, C, 3rd base by Sousa/Vázquez, C)."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "New York Yankees FIELDING",
+        "fields": [
+          {
+            "label": "Pickoffs",
+            "value": "Weathers (Diaz, Y at 1st base)."
+          }
+        ]
       },
       {
-        "label": "ABS Challenge",
-        "value": "Vázquez, C (Ball-Overturned to Strike); Wells, A 2 (Ball-Overturned to Strike, Ball-Confirmed); Altuve (Strike-Confirmed); Smith (Strike-Overturned to Ball); Correa (Strike-Confirmed); Cruz, F (Ball-Confirmed)."
+        "title": "Houston Astros BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Correa (7, Weathers)."
+          },
+          {
+            "label": "HR",
+            "value": "Correa (2, 6th inning off Weathers, 0 on, 0 out); Walker, C (6, 9th inning off Hill, T, 0 on, 0 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Alvarez, Y; Correa 6; Diaz, Y; Paredes; Vázquez, C; Walker, C 4."
+          },
+          {
+            "label": "RBI",
+            "value": "Correa (14); Paredes (11); Walker, C (19)."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Diaz, Y; Altuve."
+          },
+          {
+            "label": "Team RISP",
+            "value": "1-for-6."
+          },
+          {
+            "label": "Team LOB",
+            "value": "5."
+          }
+        ]
       },
       {
-        "label": "Pitches-strikes",
-        "value": "Weathers 86-56; Cruz, F 12-6; Bird 9-7; Doval 13-7; Hill, T 11-9; Burrows 92-55; Okert 13-8; Teng 9-5; Sousa 27-10; Blubaugh 29-15; Murray 19-11."
+        "title": "Houston Astros BASERUNNING",
+        "fields": [
+          {
+            "label": "CS",
+            "value": "Diaz, Y (1, 2nd base by Weathers/Wells, A)."
+          },
+          {
+            "label": "PO",
+            "value": "Diaz, Y (1st base by Weathers)."
+          }
+        ]
       },
       {
-        "label": "Groundouts-flyouts",
-        "value": "Weathers 6-4; Cruz, F 0-0; Bird 2-0; Doval 2-0; Hill, T 2-0; Burrows 3-1; Okert 0-2; Teng 0-1; Sousa 0-0; Blubaugh 3-1; Murray 1-1."
+        "title": "Houston Astros FIELDING",
+        "fields": [
+          {
+            "label": "DP",
+            "value": "2 (Altuve-Correa-Walker, C; Paredes-Walker, C)."
+          }
+        ]
       },
       {
-        "label": "Batters faced",
-        "value": "Weathers 21; Cruz, F 3; Bird 3; Doval 4; Hill, T 4; Burrows 21; Okert 3; Teng 3; Sousa 5; Blubaugh 7; Murray 6."
-      },
-      {
-        "label": "Inherited runners-scored",
-        "value": "Cruz, F 1-0; Sousa 1-0; Blubaugh 3-0."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Dan Iassogna. 1B: Jeremie Rehak. 2B: James Jean. 3B: Adam Beck. "
-      },
-      {
-        "label": "Weather",
-        "value": "73 degrees, Roof Closed."
-      },
-      {
-        "label": "Wind",
-        "value": "0 mph, None."
-      },
-      {
-        "label": "First pitch",
-        "value": "6:10 PM."
-      },
-      {
-        "label": "T",
-        "value": "3:02."
-      },
-      {
-        "label": "Att",
-        "value": "38,399."
-      },
-      {
-        "label": "Venue",
-        "value": "Daikin Park."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "ABS Challenge",
+            "value": "Vázquez, C (Ball-Overturned to Strike); Wells, A 2 (Ball-Overturned to Strike, Ball-Confirmed); Altuve (Strike-Confirmed); Smith (Strike-Overturned to Ball); Correa (Strike-Confirmed); Cruz, F (Ball-Confirmed)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Weathers 86-56; Cruz, F 12-6; Bird 9-7; Doval 13-7; Hill, T 11-9; Burrows 92-55; Okert 13-8; Teng 9-5; Sousa 27-10; Blubaugh 29-15; Murray 19-11."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Weathers 6-4; Cruz, F 0-0; Bird 2-0; Doval 2-0; Hill, T 2-0; Burrows 3-1; Okert 0-2; Teng 0-1; Sousa 0-0; Blubaugh 3-1; Murray 1-1."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Weathers 21; Cruz, F 3; Bird 3; Doval 4; Hill, T 4; Burrows 21; Okert 3; Teng 3; Sousa 5; Blubaugh 7; Murray 6."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Cruz, F 1-0; Sousa 1-0; Blubaugh 3-0."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Dan Iassogna. 1B: Jeremie Rehak. 2B: James Jean. 3B: Adam Beck. "
+          },
+          {
+            "label": "Weather",
+            "value": "73 degrees, Roof Closed."
+          },
+          {
+            "label": "Wind",
+            "value": "0 mph, None."
+          },
+          {
+            "label": "First pitch",
+            "value": "6:10 PM."
+          },
+          {
+            "label": "T",
+            "value": "3:02."
+          },
+          {
+            "label": "Att",
+            "value": "38,399."
+          },
+          {
+            "label": "Venue",
+            "value": "Daikin Park."
+          }
+        ]
       }
     ]
   },
@@ -5938,7 +6959,7 @@
       },
       {
         "name": "Isaac Mattson",
-        "note": "",
+        "note": "BS",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -5971,7 +6992,7 @@
       },
       {
         "name": "Gregory Soto",
-        "note": "",
+        "note": "W",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -5982,7 +7003,7 @@
       },
       {
         "name": "Yohan Ramírez",
-        "note": "",
+        "note": "S",
         "ip": "1.0",
         "h": 0,
         "r": 0,
@@ -6028,7 +7049,7 @@
       },
       {
         "name": "Angel Zerpa",
-        "note": "",
+        "note": "L",
         "ip": "0.2",
         "h": 1,
         "r": 3,
@@ -6051,79 +7072,170 @@
     ],
     "notes": [
       {
-        "label": "-- Pittsburgh Pirates --",
-        "value": "",
-        "isHeader": true
+        "title": "Pittsburgh Pirates BATTING",
+        "fields": [
+          {
+            "label": "TB",
+            "value": "Gonzales, N 3; Griffin 2; Horwitz; Lowe, B; O'Hearn; Reynolds, B."
+          },
+          {
+            "label": "RBI",
+            "value": "Gonzales, N (13); Griffin (12); Horwitz 2 (8); Reynolds, B (17)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Griffin; Gonzales, N."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Davis, H 2; Griffin."
+          },
+          {
+            "label": "SF",
+            "value": "Horwitz."
+          },
+          {
+            "label": "GIDP",
+            "value": "Horwitz."
+          },
+          {
+            "label": "Team RISP",
+            "value": "4-for-11."
+          },
+          {
+            "label": "Team LOB",
+            "value": "7."
+          }
+        ]
       },
       {
-        "label": "-- Milwaukee Brewers --",
-        "value": "",
-        "isHeader": true
+        "title": "Pittsburgh Pirates BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Griffin (6, 2nd base off Misiorowski/Contreras, Wm)."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "Pittsburgh Pirates FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Mangum (1, fielding)."
+          }
+        ]
       },
       {
-        "label": "WP",
-        "value": "Misiorowski."
+        "title": "Milwaukee Brewers BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Black (1, Keller, M); Mitchell (5, Santana, D)."
+          },
+          {
+            "label": "TB",
+            "value": "Bauers 2; Black 3; Mitchell 2; Turang."
+          },
+          {
+            "label": "RBI",
+            "value": "Frelick 2 (7); Mitchell (19)."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Jones, G; Black."
+          },
+          {
+            "label": "SF",
+            "value": "Frelick 2."
+          },
+          {
+            "label": "Team RISP",
+            "value": "1-for-7."
+          },
+          {
+            "label": "Team LOB",
+            "value": "8."
+          }
+        ]
       },
       {
-        "label": "IBB",
-        "value": "Frelick (by Santana, D)."
+        "title": "Milwaukee Brewers FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Jones, G (1, fielding)."
+          },
+          {
+            "label": "DP",
+            "value": "(Hamilton, D-Ortiz, J-Bauers)."
+          }
+        ]
       },
       {
-        "label": "HBP",
-        "value": "Reynolds, B (by Misiorowski); O'Hearn (by Misiorowski)."
-      },
-      {
-        "label": "ABS Challenge",
-        "value": "Contreras, Wm 2 (Ball-Overturned to Strike, Ball-Overturned to Strike); Davis, H 3 (Ball-Overturned to Strike, Ball-Confirmed, Ball-Overturned to Strike); Griffin (Strike-Confirmed)."
-      },
-      {
-        "label": "Pitches-strikes",
-        "value": "Keller, M 93-60; Mattson 4-3; Montgomery, M 20-10; Santana, D 17-10; Soto, G 14-9; Ramírez 15-10; Misiorowski 91-63; Ashby 21-18; Uribe 8-7; Zerpa 16-10; Anderson, G 4-3."
-      },
-      {
-        "label": "Groundouts-flyouts",
-        "value": "Keller, M 4-2; Mattson 1-1; Montgomery, M 1-1; Santana, D 0-1; Soto, G 0-0; Ramírez 1-0; Misiorowski 5-3; Ashby 1-1; Uribe 1-1; Zerpa 1-0; Anderson, G 0-1."
-      },
-      {
-        "label": "Batters faced",
-        "value": "Keller, M 22; Mattson 3; Montgomery, M 4; Santana, D 5; Soto, G 3; Ramírez 3; Misiorowski 26; Ashby 7; Uribe 3; Zerpa 4; Anderson, G 2."
-      },
-      {
-        "label": "Inherited runners-scored",
-        "value": "Mattson 2-1; Anderson, G 2-2."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Scott Barry. 1B: Manny Gonzalez. 2B: Jacob Metz. 3B: Tom Hanahan. "
-      },
-      {
-        "label": "Weather",
-        "value": "62 degrees, Roof Closed."
-      },
-      {
-        "label": "Wind",
-        "value": "0 mph, None."
-      },
-      {
-        "label": "First pitch",
-        "value": "6:10 PM."
-      },
-      {
-        "label": "T",
-        "value": "2:51."
-      },
-      {
-        "label": "Att",
-        "value": "40,408."
-      },
-      {
-        "label": "Venue",
-        "value": "American Family Field."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "WP",
+            "value": "Misiorowski."
+          },
+          {
+            "label": "IBB",
+            "value": "Frelick (by Santana, D)."
+          },
+          {
+            "label": "HBP",
+            "value": "Reynolds, B (by Misiorowski); O'Hearn (by Misiorowski)."
+          },
+          {
+            "label": "ABS Challenge",
+            "value": "Contreras, Wm 2 (Ball-Overturned to Strike, Ball-Overturned to Strike); Davis, H 3 (Ball-Overturned to Strike, Ball-Confirmed, Ball-Overturned to Strike); Griffin (Strike-Confirmed)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Keller, M 93-60; Mattson 4-3; Montgomery, M 20-10; Santana, D 17-10; Soto, G 14-9; Ramírez 15-10; Misiorowski 91-63; Ashby 21-18; Uribe 8-7; Zerpa 16-10; Anderson, G 4-3."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Keller, M 4-2; Mattson 1-1; Montgomery, M 1-1; Santana, D 0-1; Soto, G 0-0; Ramírez 1-0; Misiorowski 5-3; Ashby 1-1; Uribe 1-1; Zerpa 1-0; Anderson, G 0-1."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Keller, M 22; Mattson 3; Montgomery, M 4; Santana, D 5; Soto, G 3; Ramírez 3; Misiorowski 26; Ashby 7; Uribe 3; Zerpa 4; Anderson, G 2."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Mattson 2-1; Anderson, G 2-2."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Scott Barry. 1B: Manny Gonzalez. 2B: Jacob Metz. 3B: Tom Hanahan. "
+          },
+          {
+            "label": "Weather",
+            "value": "62 degrees, Roof Closed."
+          },
+          {
+            "label": "Wind",
+            "value": "0 mph, None."
+          },
+          {
+            "label": "First pitch",
+            "value": "6:10 PM."
+          },
+          {
+            "label": "T",
+            "value": "2:51."
+          },
+          {
+            "label": "Att",
+            "value": "40,408."
+          },
+          {
+            "label": "Venue",
+            "value": "American Family Field."
+          }
+        ]
       }
     ]
   },
@@ -6509,7 +7621,7 @@
     "awayPitchers": [
       {
         "name": "Jack Flaherty",
-        "note": "",
+        "note": "L",
         "ip": "2.0",
         "h": 5,
         "r": 6,
@@ -6566,7 +7678,7 @@
     "homePitchers": [
       {
         "name": "Brady Singer",
-        "note": "",
+        "note": "W",
         "ip": "5.1",
         "h": 8,
         "r": 2,
@@ -6622,75 +7734,165 @@
     ],
     "notes": [
       {
-        "label": "-- Detroit Tigers --",
-        "value": "",
-        "isHeader": true
+        "title": "Detroit Tigers BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "McGonigle (11, Ashcraft, G)."
+          },
+          {
+            "label": "HR",
+            "value": "McGonigle (2, 1st inning off Singer, 0 on, 0 out); Torkelson (4, 4th inning off Singer, 0 on, 1 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Carpenter; Greene, R 2; Keith; McGonigle 7; Pérez, W 2; Torkelson 4."
+          },
+          {
+            "label": "RBI",
+            "value": "McGonigle (12); Torkelson (11)."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Dingler; Carpenter; McGonigle."
+          },
+          {
+            "label": "GIDP",
+            "value": "Dingler; Keith."
+          },
+          {
+            "label": "Team RISP",
+            "value": "0-for-5."
+          },
+          {
+            "label": "Team LOB",
+            "value": "8."
+          }
+        ]
       },
       {
-        "label": "-- Cincinnati Reds --",
-        "value": "",
-        "isHeader": true
+        "title": "Detroit Tigers FIELDING",
+        "fields": [
+          {
+            "label": "DP",
+            "value": "(McGonigle-Báez, J-Torkelson)."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "Cincinnati Reds BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Hayes (1, Flaherty); Friedl (3, Smith, B)."
+          },
+          {
+            "label": "HR",
+            "value": "Stewart, S (9, 1st inning off Flaherty, 2 on, 1 out); Lowe, N (3, 1st inning off Flaherty, 0 on, 1 out); De La Cruz, E (9, 2nd inning off Flaherty, 1 on, 2 out); Friedl (1, 8th inning off Anderson, D, 0 on, 0 out)."
+          },
+          {
+            "label": "TB",
+            "value": "De La Cruz, E 4; Friedl 7; Hayes 3; Lowe, N 4; Stewart, S 6."
+          },
+          {
+            "label": "RBI",
+            "value": "De La Cruz, E 2 (20); Friedl (5); Lowe, N (9); Stewart, S 5 (29)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "De La Cruz, E 2."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Stewart, S."
+          },
+          {
+            "label": "SAC",
+            "value": "Friedl."
+          },
+          {
+            "label": "GIDP",
+            "value": "Steer."
+          },
+          {
+            "label": "Team RISP",
+            "value": "3-for-9."
+          },
+          {
+            "label": "Team LOB",
+            "value": "8."
+          }
+        ]
       },
       {
-        "label": "WP",
-        "value": "Pagán."
+        "title": "Cincinnati Reds FIELDING",
+        "fields": [
+          {
+            "label": "DP",
+            "value": "2 (Ashcraft, G-De La Cruz, E-Stewart, S; Hayes-McLain, M-Stewart, S)."
+          }
+        ]
       },
       {
-        "label": "HBP",
-        "value": "Steer (by Flaherty)."
-      },
-      {
-        "label": "ABS Challenge",
-        "value": "Stewart, S (Strike-Overturned to Ball); Vierling (Strike-Confirmed); Dingler (Ball-Overturned to Strike); Stephenson, T (Strike-Overturned to Ball); De La Cruz, E (Strike-Confirmed); Myers (Strike-Confirmed)."
-      },
-      {
-        "label": "Pitches-strikes",
-        "value": "Flaherty 68-41; Smith, B 26-17; Holton 28-18; Seabold 17-7; Anderson, D 42-27; Singer 94-61; Phillips 7-6; Ashcraft, G 13-8; Moll 12-6; Pagán 11-6."
-      },
-      {
-        "label": "Groundouts-flyouts",
-        "value": "Flaherty 2-0; Smith, B 1-2; Holton 2-0; Seabold 0-1; Anderson, D 1-0; Singer 4-6; Phillips 0-1; Ashcraft, G 1-0; Moll 1-0; Pagán 1-1."
-      },
-      {
-        "label": "Batters faced",
-        "value": "Flaherty 14; Smith, B 8; Holton 6; Seabold 4; Anderson, D 9; Singer 24; Phillips 2; Ashcraft, G 4; Moll 3; Pagán 4."
-      },
-      {
-        "label": "Inherited runners-scored",
-        "value": "Seabold 2-2; Anderson, D 3-0; Phillips 1-0."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Laz Diaz. 1B: Brian O'Nora. 2B: Chris Segal. 3B: Erich Bacchus. "
-      },
-      {
-        "label": "Weather",
-        "value": "72 degrees, Partly Cloudy."
-      },
-      {
-        "label": "Wind",
-        "value": "7 mph, Out To RF."
-      },
-      {
-        "label": "First pitch",
-        "value": "7:18 PM."
-      },
-      {
-        "label": "T",
-        "value": "2:57."
-      },
-      {
-        "label": "Att",
-        "value": "35,315."
-      },
-      {
-        "label": "Venue",
-        "value": "Great American Ball Park."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "WP",
+            "value": "Pagán."
+          },
+          {
+            "label": "HBP",
+            "value": "Steer (by Flaherty)."
+          },
+          {
+            "label": "ABS Challenge",
+            "value": "Stewart, S (Strike-Overturned to Ball); Vierling (Strike-Confirmed); Dingler (Ball-Overturned to Strike); Stephenson, T (Strike-Overturned to Ball); De La Cruz, E (Strike-Confirmed); Myers (Strike-Confirmed)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Flaherty 68-41; Smith, B 26-17; Holton 28-18; Seabold 17-7; Anderson, D 42-27; Singer 94-61; Phillips 7-6; Ashcraft, G 13-8; Moll 12-6; Pagán 11-6."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Flaherty 2-0; Smith, B 1-2; Holton 2-0; Seabold 0-1; Anderson, D 1-0; Singer 4-6; Phillips 0-1; Ashcraft, G 1-0; Moll 1-0; Pagán 1-1."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Flaherty 14; Smith, B 8; Holton 6; Seabold 4; Anderson, D 9; Singer 24; Phillips 2; Ashcraft, G 4; Moll 3; Pagán 4."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Seabold 2-2; Anderson, D 3-0; Phillips 1-0."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Laz Diaz. 1B: Brian O'Nora. 2B: Chris Segal. 3B: Erich Bacchus. "
+          },
+          {
+            "label": "Weather",
+            "value": "72 degrees, Partly Cloudy."
+          },
+          {
+            "label": "Wind",
+            "value": "7 mph, Out To RF."
+          },
+          {
+            "label": "First pitch",
+            "value": "7:18 PM."
+          },
+          {
+            "label": "T",
+            "value": "2:57."
+          },
+          {
+            "label": "Att",
+            "value": "35,315."
+          },
+          {
+            "label": "Venue",
+            "value": "Great American Ball Park."
+          }
+        ]
       }
     ]
   },
@@ -7076,7 +8278,7 @@
     "awayPitchers": [
       {
         "name": "Colin Rea",
-        "note": "",
+        "note": "L",
         "ip": "3.1",
         "h": 6,
         "r": 6,
@@ -7111,7 +8313,7 @@
     "homePitchers": [
       {
         "name": "Roki Sasaki",
-        "note": "",
+        "note": "W",
         "ip": "5.0",
         "h": 7,
         "r": 4,
@@ -7122,7 +8324,7 @@
       },
       {
         "name": "Jack Dreyer",
-        "note": "",
+        "note": "H",
         "ip": "0.2",
         "h": 0,
         "r": 0,
@@ -7133,7 +8335,7 @@
       },
       {
         "name": "Will Klein",
-        "note": "",
+        "note": "H",
         "ip": "1.1",
         "h": 1,
         "r": 0,
@@ -7167,75 +8369,161 @@
     ],
     "notes": [
       {
-        "label": "-- Chicago Cubs --",
-        "value": "",
-        "isHeader": true
+        "title": "Chicago Cubs BATTING",
+        "fields": [
+          {
+            "label": "HR",
+            "value": "Suzuki (4, 2nd inning off Sasaki, 0 on, 1 out); Ballesteros (4, 4th inning off Sasaki, 0 on, 2 out); Amaya (2, 5th inning off Sasaki, 0 on, 1 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Amaya 4; Ballesteros 4; Busch; Conforto; Hoerner 2; Suzuki 6."
+          },
+          {
+            "label": "RBI",
+            "value": "Amaya (5); Ballesteros (12); Busch (11); Suzuki (8)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Busch; Ballesteros."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Amaya 2; Crow-Armstrong; Bregman."
+          },
+          {
+            "label": "GIDP",
+            "value": "Bregman; Swanson."
+          },
+          {
+            "label": "Team RISP",
+            "value": "1-for-8."
+          },
+          {
+            "label": "Team LOB",
+            "value": "7."
+          }
+        ]
       },
       {
-        "label": "-- Los Angeles Dodgers --",
-        "value": "",
-        "isHeader": true
+        "title": "Los Angeles Dodgers BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Freeland, A 2 (4, Rea, Assad); Tucker (4, Assad); Pages, A (6, Assad); Espinal (2, Velasquez)."
+          },
+          {
+            "label": "HR",
+            "value": "Muncy (9, 3rd inning off Rea, 1 on, 1 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Espinal 2; Freeland, A 4; Freeman, F; Hernández, T 2; Kim, Hy 2; Muncy 4; Ohtani; Pages, A 3; Rushing; Tucker 2."
+          },
+          {
+            "label": "RBI",
+            "value": "Freeland, A (6); Freeman, F (15); Hernández, T 2 (15); Kim, Hy (7); Muncy 2 (11); Pages, A 3 (24); Rushing (15)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Pages, A; Hernández, T 2; Rushing."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Kim, Hy; Espinal; Call; Hernández, T."
+          },
+          {
+            "label": "Team RISP",
+            "value": "7-for-18."
+          },
+          {
+            "label": "Team LOB",
+            "value": "8."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "Los Angeles Dodgers BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Ohtani (2, 2nd base off Rea/Amaya)."
+          }
+        ]
       },
       {
-        "label": "WP",
-        "value": "Rea; Velasquez; Sasaki."
+        "title": "Los Angeles Dodgers FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Freeland, A (2, missed catch)."
+          },
+          {
+            "label": "DP",
+            "value": "2 (Muncy-Freeland, A-Freeman, F; Espinal-Freeland, A-Freeman, F)."
+          }
+        ]
       },
       {
-        "label": "HBP",
-        "value": "Amaya (by Sasaki)."
-      },
-      {
-        "label": "ABS Challenge",
-        "value": "Rushing (Ball-Confirmed); Tucker (Strike-Confirmed); Amaya 3 (Ball-Overturned to Strike, Ball-Confirmed, Ball-Overturned to Strike)."
-      },
-      {
-        "label": "Pitches-strikes",
-        "value": "Rea 92-55; Assad 70-39; Velasquez 31-22; Sasaki 99-66; Dreyer 19-11; Klein 21-15; Hurt 10-8; Eder 13-8."
-      },
-      {
-        "label": "Groundouts-flyouts",
-        "value": "Rea 3-2; Assad 3-0; Velasquez 1-4; Sasaki 4-3; Dreyer 0-0; Klein 1-0; Hurt 2-0; Eder 0-2."
-      },
-      {
-        "label": "Batters faced",
-        "value": "Rea 20; Assad 16; Velasquez 8; Sasaki 23; Dreyer 3; Klein 5; Hurt 4; Eder 3."
-      },
-      {
-        "label": "Inherited runners-scored",
-        "value": "Assad 2-2; Velasquez 1-1; Dreyer 2-0; Klein 3-0."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Mike Estabrook. 1B: Malachi Moore. 2B: Alfonso Márquez. 3B: Willie Traynor. "
-      },
-      {
-        "label": "Weather",
-        "value": "63 degrees, Cloudy."
-      },
-      {
-        "label": "Wind",
-        "value": "11 mph, Out To CF."
-      },
-      {
-        "label": "First pitch",
-        "value": "4:15 PM."
-      },
-      {
-        "label": "T",
-        "value": "3:23."
-      },
-      {
-        "label": "Att",
-        "value": "53,397."
-      },
-      {
-        "label": "Venue",
-        "value": "UNIQLO Field at Dodger Stadium."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "WP",
+            "value": "Rea; Velasquez; Sasaki."
+          },
+          {
+            "label": "HBP",
+            "value": "Amaya (by Sasaki)."
+          },
+          {
+            "label": "ABS Challenge",
+            "value": "Rushing (Ball-Confirmed); Tucker (Strike-Confirmed); Amaya 3 (Ball-Overturned to Strike, Ball-Confirmed, Ball-Overturned to Strike)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Rea 92-55; Assad 70-39; Velasquez 31-22; Sasaki 99-66; Dreyer 19-11; Klein 21-15; Hurt 10-8; Eder 13-8."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Rea 3-2; Assad 3-0; Velasquez 1-4; Sasaki 4-3; Dreyer 0-0; Klein 1-0; Hurt 2-0; Eder 0-2."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Rea 20; Assad 16; Velasquez 8; Sasaki 23; Dreyer 3; Klein 5; Hurt 4; Eder 3."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Assad 2-2; Velasquez 1-1; Dreyer 2-0; Klein 3-0."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Mike Estabrook. 1B: Malachi Moore. 2B: Alfonso Márquez. 3B: Willie Traynor. "
+          },
+          {
+            "label": "Weather",
+            "value": "63 degrees, Cloudy."
+          },
+          {
+            "label": "Wind",
+            "value": "11 mph, Out To CF."
+          },
+          {
+            "label": "First pitch",
+            "value": "4:15 PM."
+          },
+          {
+            "label": "T",
+            "value": "3:23."
+          },
+          {
+            "label": "Att",
+            "value": "53,397."
+          },
+          {
+            "label": "Venue",
+            "value": "UNIQLO Field at Dodger Stadium."
+          }
+        ]
       }
     ]
   },
@@ -7643,7 +8931,7 @@
       },
       {
         "name": "Tanner Banks",
-        "note": "",
+        "note": "BS",
         "ip": "0.0",
         "h": 3,
         "r": 2,
@@ -7676,7 +8964,7 @@
       },
       {
         "name": "Brad Keller",
-        "note": "",
+        "note": "W",
         "ip": "1.1",
         "h": 0,
         "r": 0,
@@ -7711,7 +8999,7 @@
       },
       {
         "name": "Dylan Lee",
-        "note": "",
+        "note": "BS",
         "ip": "1.0",
         "h": 1,
         "r": 1,
@@ -7722,7 +9010,7 @@
       },
       {
         "name": "Tyler Kinley",
-        "note": "",
+        "note": "L",
         "ip": "1.0",
         "h": 1,
         "r": 2,
@@ -7745,71 +9033,174 @@
     ],
     "notes": [
       {
-        "label": "-- Philadelphia Phillies --",
-        "value": "",
-        "isHeader": true
+        "title": "Philadelphia Phillies BATTING",
+        "fields": [
+          {
+            "label": "3B",
+            "value": "García, Ad (1, Elder); Stott (1, Elder); Schwarber (1, Lee, D)."
+          },
+          {
+            "label": "TB",
+            "value": "Crawford; García, Ad 3; Harper, B 2; Marchán; Marsh 2; Schwarber 3; Stott 4; Turner."
+          },
+          {
+            "label": "RBI",
+            "value": "García, Ad (7); Harper, B 4 (18); Marsh 2 (16); Stott (4)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Stott; García, Ad; Harper, B."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Marsh; Bohm; García, Ad; Marchán; Crawford."
+          },
+          {
+            "label": "SF",
+            "value": "Harper, B."
+          },
+          {
+            "label": "Team RISP",
+            "value": "3-for-11."
+          },
+          {
+            "label": "Team LOB",
+            "value": "7."
+          }
+        ]
       },
       {
-        "label": "-- Atlanta Braves --",
-        "value": "",
-        "isHeader": true
+        "title": "Philadelphia Phillies BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Crawford (2, 2nd base off Kinley/Baldwin, D)."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "Philadelphia Phillies FIELDING",
+        "fields": [
+          {
+            "label": "Pickoffs",
+            "value": "Alvarado (Acuña Jr. at 2nd base)."
+          },
+          {
+            "label": "DP",
+            "value": "(Bohm-Stott-Harper, B)."
+          }
+        ]
       },
       {
-        "label": "WP",
-        "value": "Suarez, J."
+        "title": "Atlanta Braves BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Riley, A (6, Wheeler); Olson (12, Banks); Albies 2 (5, Banks, Alvarado)."
+          },
+          {
+            "label": "TB",
+            "value": "Albies 5; Baldwin, D; Harris II 2; Olson 3; Riley, A 2."
+          },
+          {
+            "label": "RBI",
+            "value": "Albies (16); Baldwin, D (24); Harris II 2 (20); Riley, A (17)."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Harris II; Yastrzemski 2; Riley, A."
+          },
+          {
+            "label": "SF",
+            "value": "Harris II."
+          },
+          {
+            "label": "GIDP",
+            "value": "Riley, A."
+          },
+          {
+            "label": "Team RISP",
+            "value": "5-for-12."
+          },
+          {
+            "label": "Team LOB",
+            "value": "7."
+          }
+        ]
       },
       {
-        "label": "ABS Challenge",
-        "value": "Marchán (Ball-Confirmed); Dubón (Strike-Confirmed); Baldwin, D (Ball-Confirmed)."
+        "title": "Atlanta Braves BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Acuña Jr. (5, 2nd base off Alvarado/Marchán)."
+          },
+          {
+            "label": "CS",
+            "value": "Acuña Jr. (4, 3rd base by Alvarado/Marchán)."
+          },
+          {
+            "label": "PO",
+            "value": "Acuña Jr. (2nd base by Alvarado)."
+          }
+        ]
       },
       {
-        "label": "Pitches-strikes",
-        "value": "Wheeler 84-56; Banks 11-9; Kerkering 18-11; Alvarado 17-9; Keller, B 16-11; Backhus 17-12; Elder 92-57; Lee, D 16-11; Kinley 24-15; Suarez, J 31-18."
-      },
-      {
-        "label": "Groundouts-flyouts",
-        "value": "Wheeler 4-2; Banks 0-0; Kerkering 1-2; Alvarado 1-1; Keller, B 1-1; Backhus 2-1; Elder 10-5; Lee, D 0-1; Kinley 0-2; Suarez, J 0-0."
-      },
-      {
-        "label": "Batters faced",
-        "value": "Wheeler 20; Banks 3; Kerkering 5; Alvarado 4; Keller, B 4; Backhus 5; Elder 28; Lee, D 4; Kinley 5; Suarez, J 7."
-      },
-      {
-        "label": "Inherited runners-scored",
-        "value": "Kerkering 1-0; Alvarado 1-0; Keller, B 1-0; Suarez, J 2-2."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Emil Jimenez. 1B: Mike Muchlinski. 2B: Gabe Morales. 3B: Dexter Kelley. "
-      },
-      {
-        "label": "Weather",
-        "value": "68 degrees, Cloudy."
-      },
-      {
-        "label": "Wind",
-        "value": "3 mph, Calm."
-      },
-      {
-        "label": "First pitch",
-        "value": "8:11 PM."
-      },
-      {
-        "label": "T",
-        "value": "2:59 (:56 delay)."
-      },
-      {
-        "label": "Att",
-        "value": "39,324."
-      },
-      {
-        "label": "Venue",
-        "value": "Truist Park."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "WP",
+            "value": "Suarez, J."
+          },
+          {
+            "label": "ABS Challenge",
+            "value": "Marchán (Ball-Confirmed); Dubón (Strike-Confirmed); Baldwin, D (Ball-Confirmed)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Wheeler 84-56; Banks 11-9; Kerkering 18-11; Alvarado 17-9; Keller, B 16-11; Backhus 17-12; Elder 92-57; Lee, D 16-11; Kinley 24-15; Suarez, J 31-18."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Wheeler 4-2; Banks 0-0; Kerkering 1-2; Alvarado 1-1; Keller, B 1-1; Backhus 2-1; Elder 10-5; Lee, D 0-1; Kinley 0-2; Suarez, J 0-0."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Wheeler 20; Banks 3; Kerkering 5; Alvarado 4; Keller, B 4; Backhus 5; Elder 28; Lee, D 4; Kinley 5; Suarez, J 7."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Kerkering 1-0; Alvarado 1-0; Keller, B 1-0; Suarez, J 2-2."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Emil Jimenez. 1B: Mike Muchlinski. 2B: Gabe Morales. 3B: Dexter Kelley. "
+          },
+          {
+            "label": "Weather",
+            "value": "68 degrees, Cloudy."
+          },
+          {
+            "label": "Wind",
+            "value": "3 mph, Calm."
+          },
+          {
+            "label": "First pitch",
+            "value": "8:11 PM."
+          },
+          {
+            "label": "T",
+            "value": "2:59 (:56 delay)."
+          },
+          {
+            "label": "Att",
+            "value": "39,324."
+          },
+          {
+            "label": "Venue",
+            "value": "Truist Park."
+          }
+        ]
       }
     ]
   },
@@ -7819,10 +9210,10 @@
     "home": "New York Mets",
     "awayId": 115,
     "homeId": 121,
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 0,
     "state": "Final",
-    "lineText": "Team       1 2  R  H  E\nColorado   0 -  0  0  0\nNew York   0 -  0  1  0",
+    "lineText": "Team       1 2  R  H  E\nColorado   0 1  1  1  0\nNew York   0 -  0  1  0",
     "awayBatters": [
       {
         "name": "Edouard Julien",
@@ -7861,7 +9252,7 @@
         "name": "Tyler Freeman",
         "pos": "RF",
         "ab": 0,
-        "r": 0,
+        "r": 1,
         "h": 0,
         "rbi": 0,
         "bb": 0,
@@ -7875,14 +9266,14 @@
         "r": 0,
         "h": 0,
         "rbi": 0,
-        "bb": 0,
+        "bb": 1,
         "so": 0,
         "avg": ""
       },
       {
         "name": "Kyle Karros",
         "pos": "3B",
-        "ab": 0,
+        "ab": 1,
         "r": 0,
         "h": 0,
         "rbi": 0,
@@ -7893,10 +9284,10 @@
       {
         "name": "Troy Johnston",
         "pos": "DH",
-        "ab": 0,
+        "ab": 1,
         "r": 0,
-        "h": 0,
-        "rbi": 0,
+        "h": 1,
+        "rbi": 1,
         "bb": 0,
         "so": 0,
         "avg": ""
@@ -7937,11 +9328,11 @@
       {
         "name": "TOTALS",
         "pos": "",
-        "ab": 3,
-        "r": 0,
-        "h": 0,
-        "rbi": 0,
-        "bb": 0,
+        "ab": 5,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 1,
         "so": 1,
         "avg": "",
         "isTotal": true
@@ -8088,66 +9479,103 @@
       {
         "name": "Kodai Senga",
         "note": "",
-        "ip": "1.0",
-        "h": 0,
-        "r": 0,
-        "er": 0,
-        "bb": 0,
+        "ip": "1.1",
+        "h": 1,
+        "r": 1,
+        "er": 1,
+        "bb": 1,
         "so": 1,
         "era": ""
       }
     ],
     "notes": [
       {
-        "label": "-- Colorado Rockies --",
-        "value": "",
-        "isHeader": true
+        "title": "Colorado Rockies BATTING",
+        "fields": [
+          {
+            "label": "TB",
+            "value": "Johnston, T."
+          },
+          {
+            "label": "RBI",
+            "value": "Johnston, T (16)."
+          },
+          {
+            "label": "Team RISP",
+            "value": "1-for-2."
+          }
+        ]
       },
       {
-        "label": "-- New York Mets --",
-        "value": "",
-        "isHeader": true
+        "title": "Colorado Rockies FIELDING",
+        "fields": [
+          {
+            "label": "PB",
+            "value": "Goodman (2)."
+          }
+        ]
       },
       {
-        "label": "-- Game Notes --",
-        "value": "",
-        "isHeader": true
+        "title": "New York Mets BATTING",
+        "fields": [
+          {
+            "label": "TB",
+            "value": "Soto, J."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Melendez, M."
+          },
+          {
+            "label": "Team RISP",
+            "value": "0-for-2."
+          },
+          {
+            "label": "Team LOB",
+            "value": "2."
+          }
+        ]
       },
       {
-        "label": "HBP",
-        "value": "Freeman, T (by Senga)."
-      },
-      {
-        "label": "Pitches-strikes",
-        "value": "Dollander 23-10; Senga 11-8."
-      },
-      {
-        "label": "Groundouts-flyouts",
-        "value": "Dollander 1-1; Senga 1-1."
-      },
-      {
-        "label": "Batters faced",
-        "value": "Dollander 5; Senga 4."
-      },
-      {
-        "label": "Umpires",
-        "value": "HP: Louie Krupa. 1B: Marvin Hudson. 2B: Tyler Jones. 3B: Ryan Blakney. "
-      },
-      {
-        "label": "Weather",
-        "value": "57 degrees, Clear."
-      },
-      {
-        "label": "Wind",
-        "value": "8 mph, In From RF."
-      },
-      {
-        "label": "First pitch",
-        "value": "4:59 PM."
-      },
-      {
-        "label": "Venue",
-        "value": "Citi Field."
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "HBP",
+            "value": "Freeman, T (by Senga)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Dollander 23-10; Senga 25-16."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Dollander 1-1; Senga 2-1."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Dollander 5; Senga 7."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Louie Krupa. 1B: Marvin Hudson. 2B: Tyler Jones. 3B: Ryan Blakney. "
+          },
+          {
+            "label": "Weather",
+            "value": "57 degrees, Clear."
+          },
+          {
+            "label": "Wind",
+            "value": "8 mph, In From RF."
+          },
+          {
+            "label": "First pitch",
+            "value": "4:59 PM."
+          },
+          {
+            "label": "Venue",
+            "value": "Citi Field."
+          }
+        ]
       }
     ]
   }
