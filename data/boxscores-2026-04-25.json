@@ -9724,12 +9724,13 @@
     "homeScore": 0,
     "state": "Final",
     "linescoreData": {
-      "innings": 2,
+      "innings": 3,
       "away": {
         "name": "Colorado Rockies",
         "innings": [
           0,
-          1
+          1,
+          "-"
         ],
         "r": 1,
         "h": 1,
@@ -9739,7 +9740,8 @@
         "name": "New York Mets",
         "innings": [
           0,
-          0
+          0,
+          "-"
         ],
         "r": 0,
         "h": 2,
