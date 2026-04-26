@@ -349,25 +349,20 @@ async function loadGames() {
 
   if (!games.length) { container.innerHTML = "No games found."; return; }
 
-  var html = "<table class=\"games-table\"><tbody>";
+  var html = "<table style='border-collapse:collapse;width:100%;background:white;border:1px solid #ddd;border-radius:8px;overflow:hidden;font-size:0.9em;'><tbody>";
 
   for (var i = 0; i < games.length; i++) {
     var g = games[i];
     var awayWon = g.awayScore > g.homeScore;
     var homeWon = g.homeScore > g.awayScore;
     var link = "/mlb-boxscores/game.html?gamePk=" + g.gamePk;
+    var awayStr = awayWon ? "<strong>" + g.away + " " + g.awayScore + "</strong>" : g.away + " " + g.awayScore;
+    var homeStr = homeWon ? "<strong>" + g.home + " " + g.homeScore + "</strong>" : g.home + " " + g.homeScore;
+    var bg = i % 2 === 0 ? "" : " style='background:#f9f9f9;'";
 
-    html += "<tr>";
-    html += "<td>";
-    if (g.awayId) html += "<img class=\"team-logo-sm\" src=\"https://www.mlbstatic.com/team-logos/" + g.awayId + ".svg\" onerror=\"this.style.display='none'\">";
-    html += "<a href=\"" + link + "\"" + (awayWon ? " class=\"winner\"" : "") + ">" + g.away + "</a></td>";
-    html += "<td class=\"num" + (awayWon ? " winner" : "") + "\">" + g.awayScore + "</td>";
-    html += "<td>";
-    if (g.homeId) html += "<img class=\"team-logo-sm\" src=\"https://www.mlbstatic.com/team-logos/" + g.homeId + ".svg\" onerror=\"this.style.display='none'\">";
-    html += "<a href=\"" + link + "\"" + (homeWon ? " class=\"winner\"" : "") + ">" + g.home + "</a></td>";
-    html += "<td class=\"num" + (homeWon ? " winner" : "") + "\">" + g.homeScore + "</td>";
-    html += "<td class=\"final-badge\">" + (g.state || "Final") + "</td>";
-    html += "</tr>";
+    html += "<tr" + bg + "><td style='padding:8px 14px;border-bottom:1px solid #f0f0f0;'>";
+    html += "<a href='" + link + "' style='text-decoration:none;color:#003087;'>" + awayStr + " &nbsp;—&nbsp; " + homeStr + "</a>";
+    html += "</td></tr>";
   }
 
   html += "</tbody></table>";
