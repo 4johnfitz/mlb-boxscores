@@ -554,11 +554,17 @@ var pitchingStats = [
 ];
 
 async function fetchLeaders(stat, leagueId) {
-  var res = await fetch("https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=" + stat + "&leagueId=" + leagueId + "&limit=10");
+  var statGroup = (stat === "wins" || stat === "strikeOuts" || stat === "era") ? "pitching" : "hitting";
+  var res = await fetch(
+    "https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=" + stat +
+    "&leagueId=" + leagueId +
+    "&limit=10" +
+    "&statGroup=" + statGroup +
+    "&playerPool=qualified"
+  );
   var data = await res.json();
   var leaders = (data.leagueLeaders && data.leagueLeaders[0] && data.leagueLeaders[0].leaders) ? data.leagueLeaders[0].leaders : [];
 
-  // For ERA, sort ascending (lower is better); for everything else, descending
   var ascStats = ["era"];
   if (ascStats.indexOf(stat) !== -1) {
     leaders.sort(function(a, b) { return parseFloat(a.value) - parseFloat(b.value); });
