@@ -380,57 +380,53 @@ function closeTeamModal() {
   document.getElementById("teamModal").classList.remove("open");
 }
 
-async function showTeam(teamId, teamName, wins, losses, pct) {
+async function showTeam(teamId, teamName, wins, losses, pct, lastTen) {
   document.getElementById("modalTeamLogo").src = "https://www.mlbstatic.com/team-logos/" + teamId + ".svg";
   document.getElementById("modalTeamName").textContent = teamName;
-  document.getElementById("modalTeamRecord").textContent = wins + "-" + losses + " (" + pct + ")";
+  document.getElementById("modalTeamRecord").textContent = wins + "-" + losses;
   document.getElementById("modalTeamBody").innerHTML = "<div class=\"modal-loading\">Loading...</div>";
   document.getElementById("teamModal").classList.add("open");
 
+  var html = "";
+  html += makeStatRow("Record", wins + "-" + losses);
+  html += makeStatRow("PCT", pct);
+  html += makeStatRow("Last 10", lastTen);
+
+  // Find latest game for this team
   try {
-    var season = new Date().getFullYear();
-    var res = await fetch("https://statsapi.mlb.com/api/v1/teams/" + teamId + "/stats?stats=season&season=" + season + "&group=hitting,pitching&sportId=1");
-    var data = await res.json();
-    var html = "";
-
-    if (!data.stats || !data.stats.length) {
-      html = "No stats available.";
-    } else {
-      for (var i = 0; i < data.stats.length; i++) {
-        var group = data.stats[i];
-        var groupName = group.group && group.group.displayName ? group.group.displayName : "";
-        var splits = group.splits;
-        if (!splits || !splits.length) continue;
-        var s = splits[0].stat;
-
-        if (groupName === "hitting") {
-          html += "<div class=\"modal-section-title\">Team Batting</div>";
-          html += makeStatRow("AVG", s.avg || ".000");
-          html += makeStatRow("OBP", s.obp || ".000");
-          html += makeStatRow("SLG", s.slg || ".000");
-          html += makeStatRow("OPS", s.ops || ".000");
-          html += makeStatRow("HR", s.homeRuns || 0);
-          html += makeStatRow("RBI", s.rbi || 0);
-          html += makeStatRow("R", s.runs || 0);
-          html += makeStatRow("SB", s.stolenBases || 0);
-          html += makeStatRow("SO", s.strikeOuts || 0);
-        }
-        if (groupName === "pitching") {
-          html += "<div class=\"modal-section-title\">Team Pitching</div>";
-          html += makeStatRow("ERA", s.era || "-.--");
-          html += makeStatRow("WHIP", s.whip || "-.--");
-          html += makeStatRow("SO", s.strikeOuts || 0);
-          html += makeStatRow("BB", s.baseOnBalls || 0);
-          html += makeStatRow("HR Allowed", s.homeRuns || 0);
-          html += makeStatRow("Saves", s.saves || 0);
+    var indexRes = await fetch("/mlb-boxscores/data/index.json");
+    var dates = await indexRes.json();
+    dates = dates.slice().sort().reverse();
+    var foundGame = null;
+    for (var i = 0; i < dates.length; i++) {
+      var res = await fetch("/mlb-boxscores/data/boxscores-" + dates[i] + ".json");
+      var games = await res.json();
+      for (var j = 0; j < games.length; j++) {
+        var g = games[j];
+        if (g.awayId === teamId || g.homeId === teamId) {
+          foundGame = g;
+          break;
         }
       }
+      if (foundGame) break;
     }
 
-    document.getElementById("modalTeamBody").innerHTML = html;
-  } catch (e) {
-    document.getElementById("modalTeamBody").innerHTML = "Error: " + e.message;
-  }
+    if (foundGame) {
+      var awayWon = foundGame.awayScore > foundGame.homeScore;
+      var homeWon = foundGame.homeScore > foundGame.awayScore;
+      var isAway = foundGame.awayId === teamId;
+      var awayStr = awayWon ? "<strong>" + foundGame.away + " " + foundGame.awayScore + "</strong>" : foundGame.away + " " + foundGame.awayScore;
+      var homeStr = homeWon ? "<strong>" + foundGame.home + " " + foundGame.homeScore + "</strong>" : foundGame.home + " " + foundGame.homeScore;
+      html += "<div class=\"modal-section-title\">Latest Game</div>";
+      html += "<div style='padding:6px 0;'><a href='/mlb-boxscores/game.html?gamePk=" + foundGame.gamePk + "' style='color:#003087;text-decoration:none;'>" + awayStr + " &nbsp;—&nbsp; " + homeStr + "</a></div>";
+    }
+  } catch(e) {}
+
+  document.getElementById("modalTeamBody").innerHTML = html;
+}
+
+function makeStatRow(label, value) {
+  return "<div class=\"modal-stat-row\"><span class=\"modal-stat-label\">" + label + "</span><span class=\"modal-stat-value\">" + value + "</span></div>";
 }
 
 function makeStatRow(label, value) {
