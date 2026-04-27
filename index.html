@@ -194,9 +194,16 @@
       padding: 18px 20px 14px;
       border-bottom: 1px solid #eee;
       position: relative;
+      background: #f5f8ff;
+      border-radius: 10px 10px 0 0;
     }
-    .modal-header img.team-logo-lg { width: 52px; height: 52px; }
-    .modal-header .modal-team-name { font-size: 1.1em; font-weight: bold; color: #003087; }
+    .modal-header img.team-logo-lg {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      display: block;
+    }
+    .modal-header .modal-team-name { font-size: 1.2em; font-weight: bold; color: #003087; }
     .modal-header .modal-team-record { font-size: 0.85em; color: #888; margin-top: 2px; }
     .modal-close {
       position: absolute; top: 12px; right: 14px;
@@ -272,8 +279,8 @@
 <!-- Team Modal -->
 <div class="modal-overlay" id="teamModal">
   <div class="modal">
-    <div class="modal-header">
-      <img class="team-logo-lg" id="modalTeamLogo" src="" alt="" onerror="this.style.display='none'">
+    <div class="modal-header" id="modalHeader">
+      <img class="team-logo-lg" id="modalTeamLogo" src="" alt="">
       <div>
         <div class="modal-team-name" id="modalTeamName"></div>
         <div class="modal-team-record" id="modalTeamRecord"></div>
@@ -379,7 +386,9 @@ function makeStatRow(label, value) {
 }
 
 async function showTeam(teamId, teamName, wins, losses, pct, lastTen) {
-  document.getElementById("modalTeamLogo").src = "https://www.mlbstatic.com/team-logos/" + teamId + ".svg";
+  var logoEl = document.getElementById("modalTeamLogo");
+  logoEl.src = "https://www.mlbstatic.com/team-logos/" + teamId + ".svg";
+  logoEl.style.display = "block";
   document.getElementById("modalTeamName").textContent = teamName;
   document.getElementById("modalTeamRecord").textContent = wins + "-" + losses;
   document.getElementById("modalTeamBody").innerHTML = "<div class=\"modal-loading\">Loading...</div>";
