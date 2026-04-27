@@ -554,9 +554,19 @@ var pitchingStats = [
 ];
 
 async function fetchLeaders(stat, leagueId) {
-  var res = await fetch("https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=" + stat + "&leagueId=" + leagueId + "&limit=5");
+  var res = await fetch("https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=" + stat + "&leagueId=" + leagueId + "&limit=10");
   var data = await res.json();
-  return (data.leagueLeaders && data.leagueLeaders[0] && data.leagueLeaders[0].leaders) ? data.leagueLeaders[0].leaders : [];
+  var leaders = (data.leagueLeaders && data.leagueLeaders[0] && data.leagueLeaders[0].leaders) ? data.leagueLeaders[0].leaders : [];
+
+  // For ERA, sort ascending (lower is better); for everything else, descending
+  var ascStats = ["era"];
+  if (ascStats.indexOf(stat) !== -1) {
+    leaders.sort(function(a, b) { return parseFloat(a.value) - parseFloat(b.value); });
+  } else {
+    leaders.sort(function(a, b) { return parseFloat(b.value) - parseFloat(a.value); });
+  }
+
+  return leaders.slice(0, 5);
 }
 
 function buildLeaderCard(label, leaders) {
