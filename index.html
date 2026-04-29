@@ -326,7 +326,7 @@ async function loadGames() {
   var container = document.getElementById("games-container");
   var dates;
   try {
-    var res = await fetch("/mlb-boxscores/data/index.json");
+    var res = await fetch("/mlb-boxscores/data/index.json?t=" + Date.now());
     if (!res.ok) throw new Error("index.json fetch failed: " + res.status);
     dates = await res.json();
     if (!dates.length) { container.innerHTML = "No data."; return; }
