@@ -2,7 +2,7 @@ name: Generate MLB Boxscores
 
 on:
   schedule:
-    - cron: "0 10 * * *"   # 6am ET (EDT = UTC-4)
+    - cron: "0 10 * * *"
   workflow_dispatch:
 
 permissions:
