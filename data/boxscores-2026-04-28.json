@@ -7071,7 +7071,7 @@
         "ip": "0.1",
         "h": 8,
         "r": 8,
-        "er": 8,
+        "er": 7,
         "bb": 1,
         "so": 0,
         "era": ""
@@ -10156,7 +10156,7 @@
           },
           {
             "label": "Umpires",
-            "value": "HP: Clint Vondrak. 1B: Austin Jones. 2B: Tom Hanahan. 3B: Tripp Gibson. "
+            "value": "HP: Clint Vondrak. 1B: Austin Jones. 2B: Adam Hamari. 3B: Tripp Gibson. "
           },
           {
             "label": "Weather",
