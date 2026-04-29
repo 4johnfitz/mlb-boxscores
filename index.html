@@ -6,7 +6,7 @@
   <style>
     body { font-family: Arial; margin: 0; padding: 20px; background: #f9f9f9; color: #111; }
     h1, h2 { margin-bottom: 10px; }
- 
+
     .jump-nav {
       display: flex;
       gap: 10px;
@@ -25,10 +25,9 @@
       border: 1px solid #ddd;
     }
     .jump-nav a:hover { background: #003087; color: white; }
- 
+
     .date { color: #666; margin-left: 10px; font-size: 0.85em; font-weight: normal; }
- 
-    /* Two column games layout */
+
     .games-columns {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -36,10 +35,10 @@
       margin-bottom: 28px;
     }
     @media (max-width: 700px) { .games-columns { grid-template-columns: 1fr; } }
- 
+
     .games-col h2 { font-size: 1em; color: #003087; margin-bottom: 8px; }
     .games-col .col-date { font-size: 0.8em; color: #888; margin-left: 6px; font-weight: normal; }
- 
+
     .games-list { background: white; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; font-size: 0.9em; }
     .games-list-item { padding: 8px 14px; border-bottom: 1px solid #f0f0f0; }
     .games-list-item:last-child { border-bottom: none; }
@@ -47,11 +46,11 @@
     .games-list-item a { text-decoration: none; color: #003087; }
     .games-list-item a:hover { text-decoration: underline; }
     .winner { font-weight: bold; }
- 
+
     .game-time { font-size: 0.78em; color: #888; margin-left: 6px; }
     .game-live { font-size: 0.75em; color: #c41e1e; font-weight: bold; margin-left: 6px; }
     .game-final { font-size: 0.75em; color: #888; margin-left: 6px; }
- 
+
     .collapsible-section { margin-bottom: 20px; }
     .collapsible-header {
       display: flex;
@@ -70,7 +69,7 @@
     .collapsible-arrow.open { transform: rotate(180deg); }
     .collapsible-body { display: none; padding-top: 14px; }
     .collapsible-body.open { display: block; }
- 
+
     .sub-collapsible { margin-bottom: 12px; }
     .sub-collapsible-header {
       display: flex;
@@ -90,7 +89,7 @@
     .sub-collapsible-arrow.open { transform: rotate(180deg); }
     .sub-collapsible-body { display: none; padding-top: 10px; }
     .sub-collapsible-body.open { display: block; }
- 
+
     .standings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     @media (max-width: 700px) { .standings-grid { grid-template-columns: 1fr; } }
     .division-block { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 12px; }
@@ -103,7 +102,7 @@
     .team-logo { width: 18px; height: 18px; vertical-align: middle; margin-right: 5px; }
     .team-link { color: #003087; text-decoration: none; border-bottom: 1px dotted #003087; cursor: pointer; font-size: 0.85em; }
     .team-link:hover { color: #0055aa; }
- 
+
     .leaders-group-title { font-size: 0.8em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em; color: #555; margin: 14px 0 6px; }
     .leaders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     @media (max-width: 700px) { .leaders-grid { grid-template-columns: 1fr; } }
@@ -115,7 +114,7 @@
     .leader-name { flex: 1; color: #111; }
     .leader-value { font-weight: bold; color: #003087; min-width: 36px; text-align: right; }
     .leader-rank { color: #aaa; font-size: 0.85em; min-width: 16px; }
- 
+
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.45); z-index: 100; align-items: center; justify-content: center; }
     .modal-overlay.open { display: flex; }
     .modal { background: white; border-radius: 10px; width: 420px; max-width: 95vw; max-height: 88vh; overflow-y: auto; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
@@ -132,36 +131,31 @@
     .modal-stat-value { font-weight: bold; color: #003087; }
     .modal-section-title { font-size: 0.75em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.07em; color: #003087; margin: 14px 0 6px; padding-bottom: 4px; border-bottom: 1px solid #eee; }
     .modal-loading { color: #aaa; text-align: center; padding: 20px 0; }
- 
+
     section { margin-bottom: 28px; }
   </style>
 </head>
 <body>
- 
+
 <div class="jump-nav">
   <a href="#games">Games</a>
   <a href="#standings">Standings</a>
   <a href="#leaders">Leaders</a>
 </div>
- 
+
 <section id="games">
   <div class="games-columns">
- 
-    <!-- YESTERDAY -->
     <div class="games-col">
       <h2>Yesterday's Games <span class="col-date" id="yesterdayLabel"></span></h2>
       <div class="games-list" id="yesterday-container">Loading...</div>
     </div>
- 
-    <!-- TODAY -->
     <div class="games-col">
       <h2>Today's Games <span class="col-date" id="todayLabel"></span></h2>
       <div class="games-list" id="today-container">Loading...</div>
     </div>
- 
   </div>
 </section>
- 
+
 <section id="standings">
   <div class="collapsible-section">
     <div class="collapsible-header" onclick="toggleSection('standings-body', 'standings-arrow')">
@@ -173,7 +167,7 @@
     </div>
   </div>
 </section>
- 
+
 <section id="leaders">
   <div class="collapsible-section">
     <div class="collapsible-header" onclick="toggleSection('leaders-body', 'leaders-arrow')">
@@ -185,7 +179,7 @@
     </div>
   </div>
 </section>
- 
+
 <div class="modal-overlay" id="teamModal">
   <div class="modal">
     <div class="modal-header" id="modalHeader">
@@ -201,7 +195,7 @@
     </div>
   </div>
 </div>
- 
+
 <script>
 function toggleSection(bodyId, arrowId) {
   var body = document.getElementById(bodyId);
@@ -209,19 +203,19 @@ function toggleSection(bodyId, arrowId) {
   body.classList.toggle("open");
   arrow.classList.toggle("open");
 }
- 
+
 function toggleSub(bodyId, arrowId) {
   var body = document.getElementById(bodyId);
   var arrow = document.getElementById(arrowId);
   body.classList.toggle("open");
   arrow.classList.toggle("open");
 }
- 
+
 function pretty(dateStr) {
   var d = new Date(dateStr + "T00:00:00");
   return d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
 }
- 
+
 function getLocalDateStr() {
   var now = new Date();
   return [
@@ -230,8 +224,11 @@ function getLocalDateStr() {
     String(now.getDate()).padStart(2, "0")
   ].join("-");
 }
- 
-// ---- YESTERDAY'S GAMES (from stored JSON) ----
+
+function logoImg(teamId) {
+  return "<img src='https://www.mlbstatic.com/team-logos/" + teamId + ".svg' style='width:18px;height:18px;vertical-align:middle;margin-right:4px;' onerror='this.style.display=\"none\"'>";
+}
+
 async function loadYesterdayGames() {
   var container = document.getElementById("yesterday-container");
   var dates;
@@ -244,10 +241,10 @@ async function loadYesterdayGames() {
     container.innerHTML = "<div style='padding:12px;color:#c00;font-size:0.85em;'>Error: " + e.message + "</div>";
     return;
   }
- 
+
   var date = dates.slice().sort().reverse()[0];
   document.getElementById("yesterdayLabel").textContent = pretty(date);
- 
+
   var games;
   try {
     var res2 = await fetch("/mlb-boxscores/data/boxscores-" + date + ".json?t=" + Date.now());
@@ -257,80 +254,80 @@ async function loadYesterdayGames() {
     container.innerHTML = "<div style='padding:12px;color:#c00;font-size:0.85em;'>Error: " + e.message + "</div>";
     return;
   }
- 
+
   if (!games.length) { container.innerHTML = "<div style='padding:12px;color:#aaa;font-size:0.85em;'>No games found.</div>"; return; }
- 
+
   var html = "";
   for (var i = 0; i < games.length; i++) {
     var g = games[i];
     var awayWon = g.awayScore > g.homeScore;
     var homeWon = g.homeScore > g.awayScore;
     var link = "/mlb-boxscores/game.html?gamePk=" + g.gamePk;
-    var awayStr = awayWon ? "<strong>" + g.away + " " + g.awayScore + "</strong>" : g.away + " " + g.awayScore;
-    var homeStr = homeWon ? "<strong>" + g.home + " " + g.homeScore + "</strong>" : g.home + " " + g.homeScore;
+    var awayLogo = g.awayId ? logoImg(g.awayId) : "";
+    var homeLogo = g.homeId ? logoImg(g.homeId) : "";
+    var awayStr = awayWon ? "<strong>" + awayLogo + g.away + " " + g.awayScore + "</strong>" : awayLogo + g.away + " " + g.awayScore;
+    var homeStr = homeWon ? "<strong>" + homeLogo + g.home + " " + g.homeScore + "</strong>" : homeLogo + g.home + " " + g.homeScore;
     html += "<div class=\"games-list-item\">";
     html += "<a href='" + link + "'>" + awayStr + " &nbsp;—&nbsp; " + homeStr + "</a>";
     html += "</div>";
   }
   container.innerHTML = html;
 }
- 
-// ---- TODAY'S GAMES (from MLB Stats API) ----
+
 async function loadTodayGames() {
   var container = document.getElementById("today-container");
   var today = getLocalDateStr();
   document.getElementById("todayLabel").textContent = pretty(today);
- 
+
   try {
     var res = await fetch("https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=" + today + "&hydrate=linescore");
     var data = await res.json();
     var games = data.dates && data.dates[0] ? data.dates[0].games : [];
- 
+
     if (!games.length) {
       container.innerHTML = "<div style='padding:12px;color:#aaa;font-size:0.85em;'>No games scheduled today.</div>";
       return;
     }
- 
+
     var html = "";
     for (var i = 0; i < games.length; i++) {
       var g = games[i];
       var gamePk = g.gamePk;
       var away = g.teams.away.team.name;
       var home = g.teams.home.team.name;
+      var awayId = g.teams.away.team.id;
+      var homeId = g.teams.home.team.id;
       var status = g.status.abstractGameState;
-      var detailedState = g.status.detailedState;
       var gameLink = "https://www.mlb.com/gameday/" + gamePk;
- 
       var awayScore = g.teams.away.score !== undefined ? g.teams.away.score : null;
       var homeScore = g.teams.home.score !== undefined ? g.teams.home.score : null;
- 
+      var awayLogo = logoImg(awayId);
+      var homeLogo = logoImg(homeId);
+
       var label = "";
       var badge = "";
- 
+
       if (status === "Final") {
         var awayWon = awayScore > homeScore;
         var homeWon = homeScore > awayScore;
-        var awayStr = awayWon ? "<strong>" + away + " " + awayScore + "</strong>" : away + " " + awayScore;
-        var homeStr = homeWon ? "<strong>" + home + " " + homeScore + "</strong>" : home + " " + homeScore;
+        var awayStr = awayWon ? "<strong>" + awayLogo + away + " " + awayScore + "</strong>" : awayLogo + away + " " + awayScore;
+        var homeStr = homeWon ? "<strong>" + homeLogo + home + " " + homeScore + "</strong>" : homeLogo + home + " " + homeScore;
         label = awayStr + " &nbsp;—&nbsp; " + homeStr;
         badge = "<span class=\"game-final\">Final</span>";
       } else if (status === "Live") {
-        var awayStr2 = away + " " + (awayScore !== null ? awayScore : "0");
-        var homeStr2 = home + " " + (homeScore !== null ? homeScore : "0");
         var inning = g.linescore ? (g.linescore.isTopInning ? "Top " : "Bot ") + g.linescore.currentInning : "";
-        label = awayStr2 + " &nbsp;—&nbsp; " + homeStr2;
+        label = awayLogo + away + " " + (awayScore !== null ? awayScore : "0") + " &nbsp;—&nbsp; " + homeLogo + home + " " + (homeScore !== null ? homeScore : "0");
         badge = "<span class=\"game-live\">LIVE " + inning + "</span>";
       } else {
-        label = away + " vs. " + home;
-        // Format game time to local
         var gameTime = "";
         if (g.gameDate) {
           var d = new Date(g.gameDate);
           gameTime = d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
         }
+        label = awayLogo + away + " vs. " + homeLogo + home;
         badge = "<span class=\"game-time\">" + gameTime + "</span>";
       }
- 
+
       html += "<div class=\"games-list-item\">";
       html += "<a href='" + gameLink + "' target='_blank'>" + label + "</a>" + badge;
       html += "</div>";
@@ -340,20 +337,19 @@ async function loadTodayGames() {
     container.innerHTML = "<div style='padding:12px;color:#c00;font-size:0.85em;'>Could not load today's games.</div>";
   }
 }
- 
-// ---- TEAM MODAL ----
+
 document.getElementById("teamModal").addEventListener("click", function(e) {
   if (e.target === this) closeTeamModal();
 });
- 
+
 function closeTeamModal() {
   document.getElementById("teamModal").classList.remove("open");
 }
- 
+
 function makeStatRow(label, value) {
   return "<div class=\"modal-stat-row\"><span class=\"modal-stat-label\">" + label + "</span><span class=\"modal-stat-value\">" + value + "</span></div>";
 }
- 
+
 async function showTeam(teamId, teamName, wins, losses, pct, lastTen) {
   var logoEl = document.getElementById("modalTeamLogo");
   logoEl.src = "https://www.mlbstatic.com/team-logos/" + teamId + ".svg";
@@ -362,12 +358,12 @@ async function showTeam(teamId, teamName, wins, losses, pct, lastTen) {
   document.getElementById("modalTeamRecord").textContent = wins + "-" + losses;
   document.getElementById("modalTeamBody").innerHTML = "<div class=\"modal-loading\">Loading...</div>";
   document.getElementById("teamModal").classList.add("open");
- 
+
   var html = "";
   html += makeStatRow("Record", wins + "-" + losses);
   html += makeStatRow("PCT", pct);
   html += makeStatRow("Last 10", lastTen);
- 
+
   try {
     var indexRes = await fetch("/mlb-boxscores/data/index.json?t=" + Date.now());
     var dates = await indexRes.json();
@@ -385,7 +381,7 @@ async function showTeam(teamId, teamName, wins, losses, pct, lastTen) {
       }
       if (foundGame) break;
     }
- 
+
     if (foundGame) {
       var awayWon = foundGame.awayScore > foundGame.homeScore;
       var homeWon = foundGame.homeScore > foundGame.awayScore;
@@ -395,11 +391,10 @@ async function showTeam(teamId, teamName, wins, losses, pct, lastTen) {
       html += "<div style='padding:6px 0;'><a href='/mlb-boxscores/game.html?gamePk=" + foundGame.gamePk + "' style='color:#003087;text-decoration:none;'>" + awayStr + " &nbsp;—&nbsp; " + homeStr + "</a></div>";
     }
   } catch(e) {}
- 
+
   document.getElementById("modalTeamBody").innerHTML = html;
 }
- 
-// ---- STANDINGS ----
+
 async function loadStandings() {
   var container = document.getElementById("standings-container");
   var divisionNames = {
@@ -408,17 +403,17 @@ async function loadStandings() {
   };
   var alOrder = [201, 202, 200];
   var nlOrder = [204, 205, 203];
- 
+
   try {
     var res = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason");
     if (!res.ok) throw new Error("Standings fetch failed: " + res.status);
     var data = await res.json();
- 
+
     var recMap = {};
     for (var i = 0; i < data.records.length; i++) {
       recMap[data.records[i].division.id] = data.records[i];
     }
- 
+
     function getRecord(splitRecords, type) {
       if (!splitRecords) return "0-0";
       for (var i = 0; i < splitRecords.length; i++) {
@@ -426,7 +421,7 @@ async function loadStandings() {
       }
       return "0-0";
     }
- 
+
     function buildDivisions(divOrder) {
       var html = "<div class=\"standings-grid\">";
       for (var i = 0; i < divOrder.length; i++) {
@@ -436,13 +431,13 @@ async function loadStandings() {
         var teams = rec.teamRecords.slice().sort(function(a, b) {
           return parseFloat(b.winningPercentage) - parseFloat(a.winningPercentage);
         });
- 
+
         html += "<div class=\"division-block\">";
         html += "<h3>" + divName + "</h3>";
         html += "<table class=\"standings-table\"><thead><tr>";
         html += "<th>Team</th><th class=\"num\">W</th><th class=\"num\">L</th><th class=\"num\">PCT</th><th class=\"num\">GB</th><th class=\"num\">Home</th><th class=\"num\">Away</th><th class=\"num\">Strk</th>";
         html += "</tr></thead><tbody>";
- 
+
         for (var j = 0; j < teams.length; j++) {
           var t = teams[j];
           var gb = t.gamesBack === "-" ? "&mdash;" : t.gamesBack;
@@ -455,7 +450,7 @@ async function loadStandings() {
           var homeRec = getRecord(splits, "home");
           var awayRec = getRecord(splits, "away");
           var lastTen = getRecord(splits, "lastTen");
- 
+
           html += "<tr><td>";
           html += "<img class=\"team-logo\" src=\"" + logoUrl + "\" alt=\"\" onerror=\"this.style.display='none'\">";
           html += "<a class=\"team-link\" onclick=\"showTeam(" + t.team.id + ", '" + t.team.name.replace(/'/g, "\\'") + "', " + w + ", " + l + ", '" + pct + "', '" + lastTen + "')\">" + t.team.name + "</a>";
@@ -474,7 +469,7 @@ async function loadStandings() {
       html += "</div>";
       return html;
     }
- 
+
     var html = "";
     html += "<div class=\"sub-collapsible\">";
     html += "<div class=\"sub-collapsible-header\" onclick=\"toggleSub('al-body', 'al-arrow')\">";
@@ -482,22 +477,21 @@ async function loadStandings() {
     html += "</div>";
     html += "<div class=\"sub-collapsible-body open\" id=\"al-body\">" + buildDivisions(alOrder) + "</div>";
     html += "</div>";
- 
+
     html += "<div class=\"sub-collapsible\">";
     html += "<div class=\"sub-collapsible-header\" onclick=\"toggleSub('nl-body', 'nl-arrow')\">";
     html += "<span>National League</span><span class=\"sub-collapsible-arrow open\" id=\"nl-arrow\">&#9660;</span>";
     html += "</div>";
     html += "<div class=\"sub-collapsible-body open\" id=\"nl-body\">" + buildDivisions(nlOrder) + "</div>";
     html += "</div>";
- 
+
     container.innerHTML = html;
- 
+
   } catch (e) {
     container.innerHTML = "Error loading standings: " + e.message;
   }
 }
- 
-// ---- LEADERS ----
+
 var hittingStats = [
   { label: "Batting Avg", stat: "avg" },
   { label: "Home Runs", stat: "homeRuns" },
@@ -508,7 +502,7 @@ var pitchingStats = [
   { label: "Strikeouts", stat: "strikeOuts" },
   { label: "ERA", stat: "era" }
 ];
- 
+
 async function fetchLeaders(stat, leagueId) {
   var statGroup = (stat === "wins" || stat === "strikeOuts" || stat === "era") ? "pitching" : "hitting";
   var res = await fetch(
@@ -527,7 +521,7 @@ async function fetchLeaders(stat, leagueId) {
   }
   return leaders.slice(0, 5);
 }
- 
+
 function buildLeaderCard(label, leaders) {
   var html = "<div class=\"leader-card\">";
   html += "<div class=\"leader-card-title\">" + label + "</div>";
@@ -546,7 +540,7 @@ function buildLeaderCard(label, leaders) {
   html += "</div>";
   return html;
 }
- 
+
 async function buildLeagueLeaders(leagueId, bodyId) {
   var html = "";
   html += "<div class=\"leaders-group-title\">Hitting</div><div class=\"leaders-grid\">";
@@ -563,27 +557,27 @@ async function buildLeagueLeaders(leagueId, bodyId) {
   html += "</div>";
   document.getElementById(bodyId).innerHTML = html;
 }
- 
+
 async function loadLeaders() {
   var container = document.getElementById("leaders-container");
   var html = "";
- 
+
   html += "<div class=\"sub-collapsible\">";
   html += "<div class=\"sub-collapsible-header\" onclick=\"toggleSub('al-leaders-body', 'al-leaders-arrow')\">";
   html += "<span>American League</span><span class=\"sub-collapsible-arrow open\" id=\"al-leaders-arrow\">&#9660;</span>";
   html += "</div>";
   html += "<div class=\"sub-collapsible-body open\" id=\"al-leaders-body\"><div class=\"modal-loading\">Loading...</div></div>";
   html += "</div>";
- 
+
   html += "<div class=\"sub-collapsible\">";
   html += "<div class=\"sub-collapsible-header\" onclick=\"toggleSub('nl-leaders-body', 'nl-leaders-arrow')\">";
   html += "<span>National League</span><span class=\"sub-collapsible-arrow open\" id=\"nl-leaders-arrow\">&#9660;</span>";
   html += "</div>";
   html += "<div class=\"sub-collapsible-body open\" id=\"nl-leaders-body\"><div class=\"modal-loading\">Loading...</div></div>";
   html += "</div>";
- 
+
   container.innerHTML = html;
- 
+
   try {
     await buildLeagueLeaders(103, "al-leaders-body");
     await buildLeagueLeaders(104, "nl-leaders-body");
@@ -591,14 +585,12 @@ async function loadLeaders() {
     container.innerHTML = "Error loading leaders: " + e.message;
   }
 }
- 
-// ---- INIT ----
+
 loadYesterdayGames();
 loadTodayGames();
 loadStandings();
 loadLeaders();
- 
-// Refresh today's games every 5 minutes
+
 setInterval(loadTodayGames, 300000);
 </script>
 </body>
