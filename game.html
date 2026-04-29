@@ -6,10 +6,27 @@
   <style>
     * { box-sizing: border-box; }
     body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f4f4f4; color: #111; }
-    .top-nav { margin-bottom: 20px; }
-    .top-nav a { margin-right: 15px; text-decoration: none; color: #0055aa; font-weight: bold; font-size: 0.9em; }
-    .top-nav a:hover { text-decoration: underline; }
-
+ 
+    /* Jump nav - matches index page style */
+    .jump-nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
+    .jump-nav a {
+      text-decoration: none;
+      color: #003087;
+      font-weight: bold;
+      font-size: 0.9em;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: white;
+      border: 1px solid #ddd;
+    }
+    .jump-nav a:hover { background: #003087; color: white; }
+ 
     .game-header {
       background: white;
       border: 1px solid #ddd;
@@ -28,7 +45,7 @@
     .game-header .score { font-size: 2em; font-weight: bold; color: #003087; }
     .game-header .score .sep { color: #aaa; margin: 0 8px; font-weight: normal; }
     .game-header .state { font-size: 0.85em; color: #888; margin-top: 4px; }
-
+ 
     .section {
       background: white;
       border: 1px solid #ddd;
@@ -47,7 +64,7 @@
       padding-bottom: 6px;
       margin-bottom: 12px;
     }
-
+ 
     table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
     thead th {
       text-align: right;
@@ -68,16 +85,16 @@
     tbody tr.total-row td { font-weight: bold; border-top: 1px solid #ddd; background: #fafafa; }
     tbody tr:hover td { background: #f9f9f9; }
     tbody tr.total-row:hover td { background: #fafafa; }
-
+ 
     .linescore-table thead th { text-align: center; }
     .linescore-table tbody td { text-align: center; }
     .linescore-table tbody td.left { text-align: left; font-weight: bold; min-width: 140px; }
     .linescore-table tbody td.rhe { font-weight: bold; border-left: 1px solid #eee; }
     .linescore-table thead th.rhe { border-left: 1px solid #eee; }
-
+ 
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
-
+ 
     .team-label {
       font-size: 0.8em;
       font-weight: bold;
@@ -86,7 +103,7 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-
+ 
     .notes-section { margin-bottom: 16px; }
     .notes-section-title {
       font-size: 0.8em;
@@ -102,8 +119,7 @@
     .note-label { font-weight: bold; }
     .pitcher-note { color: #003087; font-weight: bold; font-size: 0.85em; margin-left: 4px; }
     .winner { font-weight: bold; }
-
-    /* Player link */
+ 
     .player-link {
       color: #003087;
       text-decoration: none;
@@ -111,8 +127,7 @@
       border-bottom: 1px dotted #003087;
     }
     .player-link:hover { color: #0055aa; }
-
-    /* Modal */
+ 
     .modal-overlay {
       display: none;
       position: fixed;
@@ -198,18 +213,17 @@
   </style>
 </head>
 <body>
-
-<nav class="top-nav">
+ 
+<nav class="jump-nav">
   <a href="/mlb-boxscores/">Home</a>
   <a href="#linescore-section">Line Score</a>
   <a href="#batting-section">Batting</a>
   <a href="#pitching-section">Pitching</a>
   <a href="#notes-section">Game Notes</a>
 </nav>
-
+ 
 <div id="content">Loading...</div>
-
-<!-- Player Modal -->
+ 
 <div class="modal-overlay" id="playerModal">
   <div class="modal">
     <div class="modal-header" id="modalHeader">
@@ -225,38 +239,36 @@
     </div>
   </div>
 </div>
-
+ 
 <script>
 var gamePk = new URLSearchParams(window.location.search).get("gamePk");
-
-// Close modal on overlay click
+ 
 document.getElementById("playerModal").addEventListener("click", function(e) {
   if (e.target === this) closeModal();
 });
-
+ 
 function openModal() {
   document.getElementById("playerModal").classList.add("open");
 }
-
+ 
 function closeModal() {
   document.getElementById("playerModal").classList.remove("open");
 }
-
+ 
 async function showPlayer(playerId, playerName, playerPos, playerType) {
   document.getElementById("modalName").textContent = playerName;
   document.getElementById("modalMeta").textContent = playerPos;
   document.getElementById("modalPhoto").src = "https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_120,q_auto:best/v1/people/" + playerId + "/headshot/67/current";
   document.getElementById("modalBody").innerHTML = '<div class="modal-loading">Loading stats...</div>';
   openModal();
-
+ 
   try {
     var season = new Date().getFullYear();
     var url = "https://statsapi.mlb.com/api/v1/people/" + playerId + "/stats?stats=season&season=" + season + "&group=hitting,pitching&sportId=1";
     var res = await fetch(url);
     var data = await res.json();
-
     var html = "";
-
+ 
     if (!data.stats || !data.stats.length) {
       html = '<div class="modal-error">No season stats available.</div>';
     } else {
@@ -266,7 +278,7 @@ async function showPlayer(playerId, playerName, playerPos, playerType) {
         var splits = statGroup.splits;
         if (!splits || !splits.length) continue;
         var s = splits[0].stat;
-
+ 
         if (groupType === "hitting") {
           html += '<div class="modal-stat-title">2026 Batting</div>';
           html += '<table class="modal-stats-table"><thead><tr>';
@@ -287,7 +299,7 @@ async function showPlayer(playerId, playerName, playerPos, playerType) {
           html += "<td>" + (s.slg || ".000") + "</td>";
           html += "</tr></tbody></table>";
         }
-
+ 
         if (groupType === "pitching") {
           html += '<div class="modal-stat-title" style="margin-top:14px;">2026 Pitching</div>';
           html += '<table class="modal-stats-table"><thead><tr>';
@@ -309,18 +321,18 @@ async function showPlayer(playerId, playerName, playerPos, playerType) {
         }
       }
     }
-
+ 
     if (!html) html = '<div class="modal-error">No stats found.</div>';
     document.getElementById("modalBody").innerHTML = html;
-
+ 
   } catch (err) {
     document.getElementById("modalBody").innerHTML = '<div class="modal-error">Error loading stats: ' + err.message + "</div>";
   }
 }
-
+ 
 async function loadGame() {
   var content = document.getElementById("content");
-
+ 
   var indexRes;
   try {
     indexRes = await fetch("/mlb-boxscores/data/index.json");
@@ -329,10 +341,10 @@ async function loadGame() {
     content.innerHTML = "Error loading index: " + err.message;
     return;
   }
-
+ 
   var dates = await indexRes.json();
   dates = dates.slice().reverse();
-
+ 
   var game = null;
   for (var i = 0; i < dates.length; i++) {
     try {
@@ -348,19 +360,19 @@ async function loadGame() {
       if (game) break;
     } catch (err) { continue; }
   }
-
+ 
   if (!game) {
     content.innerHTML = "<h2>Game not found.</h2>";
     return;
   }
-
+ 
   renderGame(game);
 }
-
+ 
 function playerLink(playerId, playerName, playerPos, playerType) {
   return '<a class="player-link" onclick="showPlayer(' + playerId + ', \'' + playerName.replace(/'/g, "\\'") + '\', \'' + playerPos + '\', \'' + playerType + '\')">' + playerName + "</a>";
 }
-
+ 
 function renderGame(g) {
   var awayScore = g.awayScore !== undefined ? g.awayScore : "?";
   var homeScore = g.homeScore !== undefined ? g.homeScore : "?";
@@ -368,9 +380,9 @@ function renderGame(g) {
   var homeWon = homeScore > awayScore;
   var awayId = g.awayId || "";
   var homeId = g.homeId || "";
-
+ 
   var html = "";
-
+ 
   // Header
   html += '<div class="game-header">';
   html += '<div class="matchup">';
@@ -386,37 +398,37 @@ function renderGame(g) {
   html += "</div>";
   html += '<div class="state">' + (g.state || "Final") + "</div>";
   html += "</div>";
-  
-// Story link
-html += '<div style="margin-bottom:14px;">';
-html += '<a href="https://www.mlb.com/en/stories/game/' + g.gamePk + '?storylocal=web-scores-game-embed" target="_blank" style="text-decoration:none;color:#003087;font-weight:bold;font-size:0.9em;">&#9654; Watch Highlights on MLB.com</a>';
-html += '</div>';
-  
+ 
+  // Story link
+  html += '<div style="margin-bottom:14px;">';
+  html += '<a href="https://www.mlb.com/en/stories/game/' + g.gamePk + '?storylocal=web-scores-game-embed" target="_blank" style="text-decoration:none;color:#003087;font-weight:bold;font-size:0.9em;">&#9654; Watch Highlights on MLB.com</a>';
+  html += '</div>';
+ 
   // Linescore
-  html += '<div class="section">';
+  html += '<div class="section" id="linescore-section">';
   html += '<div class="section-title">Line Score</div>';
   html += buildLinescoreTable(g.linescoreData);
   html += "</div>";
-
+ 
   // Batting
-  html += '<div class="section">';
+  html += '<div class="section" id="batting-section">';
   html += '<div class="section-title">Batting</div>';
   html += '<div class="two-col">';
   html += '<div><div class="team-label">' + g.away + "</div>" + buildBattingTable(g.awayBatters) + "</div>";
   html += '<div><div class="team-label">' + g.home + "</div>" + buildBattingTable(g.homeBatters) + "</div>";
   html += "</div></div>";
-
+ 
   // Pitching
-  html += '<div class="section">';
+  html += '<div class="section" id="pitching-section">';
   html += '<div class="section-title">Pitching</div>';
   html += '<div class="two-col">';
   html += '<div><div class="team-label">' + g.away + "</div>" + buildPitchingTable(g.awayPitchers) + "</div>";
   html += '<div><div class="team-label">' + g.home + "</div>" + buildPitchingTable(g.homePitchers) + "</div>";
   html += "</div></div>";
-
+ 
   // Notes
   if (g.notes && g.notes.length) {
-    html += '<div class="section">';
+    html += '<div class="section" id="notes-section">';
     html += '<div class="section-title">Game Notes</div>';
     for (var i = 0; i < g.notes.length; i++) {
       var section = g.notes[i];
@@ -430,10 +442,10 @@ html += '</div>';
     }
     html += "</div>";
   }
-
+ 
   document.getElementById("content").innerHTML = html;
 }
-
+ 
 function buildLinescoreTable(ld) {
   if (!ld) return "<p>No line score available.</p>";
   var numInnings = ld.innings || 9;
@@ -444,7 +456,7 @@ function buildLinescoreTable(ld) {
   }
   html += '<th class="rhe">R</th><th class="rhe">H</th><th class="rhe">E</th>';
   html += "</tr></thead><tbody>";
-
+ 
   function buildRow(team) {
     var row = '<tr><td class="left">' + team.name + "</td>";
     for (var i = 0; i < numInnings; i++) {
@@ -457,13 +469,13 @@ function buildLinescoreTable(ld) {
     row += "</tr>";
     return row;
   }
-
+ 
   html += buildRow(ld.away);
   html += buildRow(ld.home);
   html += "</tbody></table>";
   return html;
 }
-
+ 
 function buildBattingTable(batters) {
   if (!batters || !batters.length) return '<p style="color:#aaa;font-size:0.85em;">No data.</p>';
   var html = "<table><thead><tr>";
@@ -494,7 +506,7 @@ function buildBattingTable(batters) {
   html += "</tbody></table>";
   return html;
 }
-
+ 
 function buildPitchingTable(pitchers) {
   if (!pitchers || !pitchers.length) return '<p style="color:#aaa;font-size:0.85em;">No data.</p>';
   var html = "<table><thead><tr>";
@@ -519,7 +531,7 @@ function buildPitchingTable(pitchers) {
   html += "</tbody></table>";
   return html;
 }
-
+ 
 loadGame();
 </script>
 </body>
