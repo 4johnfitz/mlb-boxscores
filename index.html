@@ -2,137 +2,161 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>MLB Boxscores</title>
   <style>
-    body { font-family: Arial; margin: 0; padding: 20px; background: #f9f9f9; color: #111; }
+    * { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 12px; background: #f9f9f9; color: #111; font-size: 15px; }
     h1, h2 { margin-bottom: 10px; }
 
+    /* JUMP NAV */
     .jump-nav {
       display: flex;
-      gap: 10px;
-      margin-bottom: 24px;
+      gap: 8px;
+      margin-bottom: 16px;
       border-bottom: 2px solid #e0e0e0;
       padding-bottom: 10px;
+      flex-wrap: wrap;
     }
     .jump-nav a {
       text-decoration: none;
       color: #003087;
       font-weight: bold;
-      font-size: 0.9em;
+      font-size: 0.85em;
       padding: 6px 14px;
       border-radius: 20px;
       background: white;
       border: 1px solid #ddd;
+      white-space: nowrap;
     }
     .jump-nav a:hover { background: #003087; color: white; }
 
-    .date { color: #666; margin-left: 10px; font-size: 0.85em; font-weight: normal; }
-
-    .games-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 16px;
-    }
-    @media (max-width: 700px) { .games-columns { grid-template-columns: 1fr; } }
-
-    .games-col h2 { font-size: 1em; color: #003087; margin-bottom: 8px; }
-    .games-col .col-date { font-size: 0.8em; color: #888; margin-left: 6px; font-weight: normal; }
-
-    .games-list { background: white; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; font-size: 0.9em; }
-    .games-list-item { padding: 8px 14px; border-bottom: 1px solid #f0f0f0; }
-    .games-list-item:last-child { border-bottom: none; }
-    .games-list-item:nth-child(even) { background: #f9f9f9; }
-    .games-list-item a { text-decoration: none; color: #003087; }
-    .games-list-item a:hover { text-decoration: underline; }
-    .winner { font-weight: bold; }
-
-    .game-time { font-size: 0.78em; color: #888; margin-left: 6px; }
-    .game-live { font-size: 0.75em; color: #c41e1e; font-weight: bold; margin-left: 6px; }
-    .game-final { font-size: 0.75em; color: #888; margin-left: 6px; }
-
-    .collapsible-section { margin-bottom: 20px; }
+    /* COLLAPSIBLE */
+    .collapsible-section { margin-bottom: 16px; }
     .collapsible-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
-      padding: 10px 14px;
+      padding: 12px 14px;
       background: white;
       border: 1px solid #ddd;
       border-radius: 8px;
       user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
     .collapsible-header:hover { background: #f5f8ff; }
     .collapsible-header h2 { margin: 0; font-size: 1em; color: #003087; }
-    .collapsible-arrow { color: #003087; font-size: 1em; transition: transform 0.2s; }
+    .collapsible-arrow { color: #003087; font-size: 1em; transition: transform 0.2s; flex-shrink: 0; }
     .collapsible-arrow.open { transform: rotate(180deg); }
-    .collapsible-body { display: none; padding-top: 14px; }
+    .collapsible-body { display: none; padding-top: 12px; }
     .collapsible-body.open { display: block; }
 
+    /* SUB-COLLAPSIBLE */
     .sub-collapsible { margin-bottom: 12px; }
     .sub-collapsible-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
-      padding: 7px 12px;
+      padding: 8px 12px;
       background: #f0f4ff;
       border: 1px solid #ccd6f0;
       border-radius: 6px;
       user-select: none;
-      margin-bottom: 0;
+      -webkit-tap-highlight-color: transparent;
     }
     .sub-collapsible-header:hover { background: #e0e8ff; }
     .sub-collapsible-header span { font-weight: bold; font-size: 0.9em; color: #003087; text-transform: uppercase; letter-spacing: 0.05em; }
-    .sub-collapsible-arrow { color: #003087; font-size: 0.85em; transition: transform 0.2s; }
+    .sub-collapsible-arrow { color: #003087; font-size: 0.85em; transition: transform 0.2s; flex-shrink: 0; }
     .sub-collapsible-arrow.open { transform: rotate(180deg); }
     .sub-collapsible-body { display: none; padding-top: 10px; }
     .sub-collapsible-body.open { display: block; }
 
-    .standings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    @media (max-width: 700px) { .standings-grid { grid-template-columns: 1fr; } }
-    .division-block { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 12px; }
-    .division-block h3 { margin: 0 0 8px 0; font-size: 0.95em; color: #003087; border-bottom: 1px solid #eee; padding-bottom: 6px; }
-    .standings-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
-    .standings-table th { text-align: left; color: #888; font-weight: normal; padding: 2px 4px; }
+    /* STANDINGS */
+    .standings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 800px) { .standings-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .standings-grid { grid-template-columns: 1fr; } }
+
+    .division-block { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px; overflow-x: auto; }
+    .division-block h3 { margin: 0 0 8px 0; font-size: 0.9em; color: #003087; border-bottom: 1px solid #eee; padding-bottom: 6px; white-space: nowrap; }
+    .standings-table { width: 100%; border-collapse: collapse; font-size: 0.8em; min-width: 280px; }
+    .standings-table th { text-align: left; color: #888; font-weight: normal; padding: 3px 4px; white-space: nowrap; }
     .standings-table th.num, .standings-table td.num { text-align: right; }
-    .standings-table td { padding: 3px 4px; }
+    .standings-table td { padding: 4px 4px; white-space: nowrap; }
     .standings-table tr:nth-child(even) td { background: #f5f5f5; }
-    .team-logo { width: 18px; height: 18px; vertical-align: middle; margin-right: 5px; }
+    .team-logo { width: 16px; height: 16px; vertical-align: middle; margin-right: 4px; }
     .team-link { color: #003087; text-decoration: none; border-bottom: 1px dotted #003087; cursor: pointer; font-size: 0.85em; }
     .team-link:hover { color: #0055aa; }
 
-    .leaders-group-title { font-size: 0.8em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em; color: #555; margin: 14px 0 6px; }
-    .leaders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    @media (max-width: 700px) { .leaders-grid { grid-template-columns: 1fr; } }
-    .leader-card { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 12px; }
-    .leader-card-title { font-size: 0.75em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.07em; color: #003087; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 8px; }
-    .leader-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 0.83em; }
-    .leader-row img.headshot { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 1px solid #eee; flex-shrink: 0; }
-    .leader-row img.tlogo { width: 16px; height: 16px; vertical-align: middle; flex-shrink: 0; }
-    .leader-name { flex: 1; color: #111; }
-    .leader-value { font-weight: bold; color: #003087; min-width: 36px; text-align: right; }
-    .leader-rank { color: #aaa; font-size: 0.85em; min-width: 16px; }
+    /* GAMES */
+    .games-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    @media (max-width: 600px) { .games-columns { grid-template-columns: 1fr; } }
 
-    .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.45); z-index: 100; align-items: center; justify-content: center; }
+    .games-col h2 { font-size: 0.95em; color: #003087; margin-bottom: 8px; }
+    .games-col .col-date { font-size: 0.78em; color: #888; margin-left: 6px; font-weight: normal; }
+
+    .games-list { background: white; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; font-size: 0.88em; }
+    .games-list-item { padding: 9px 12px; border-bottom: 1px solid #f0f0f0; line-height: 1.4; }
+    .games-list-item:last-child { border-bottom: none; }
+    .games-list-item:nth-child(even) { background: #f9f9f9; }
+    .games-list-item a { text-decoration: none; color: #003087; display: block; }
+    .games-list-item a:hover { text-decoration: underline; }
+
+    .game-time { font-size: 0.75em; color: #888; }
+    .game-live { font-size: 0.72em; color: #c41e1e; font-weight: bold; }
+    .game-final { font-size: 0.72em; color: #888; }
+
+    /* LEADERS */
+    .leaders-group-title { font-size: 0.78em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em; color: #555; margin: 14px 0 6px; }
+    .leaders-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 700px) { .leaders-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 400px) { .leaders-grid { grid-template-columns: 1fr; } }
+
+    .leader-card { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px; }
+    .leader-card-title { font-size: 0.72em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.07em; color: #003087; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 8px; }
+    .leader-row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font-size: 0.82em; }
+    .leader-row img.headshot { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; border: 1px solid #eee; flex-shrink: 0; }
+    .leader-row img.tlogo { width: 14px; height: 14px; vertical-align: middle; flex-shrink: 0; }
+    .leader-name { flex: 1; color: #111; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .leader-value { font-weight: bold; color: #003087; min-width: 32px; text-align: right; flex-shrink: 0; }
+    .leader-rank { color: #aaa; font-size: 0.85em; min-width: 14px; flex-shrink: 0; }
+
+    /* MODAL */
+    .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.45); z-index: 100; align-items: center; justify-content: center; padding: 16px; }
     .modal-overlay.open { display: flex; }
-    .modal { background: white; border-radius: 10px; width: 420px; max-width: 95vw; max-height: 88vh; overflow-y: auto; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
-    .modal-header { display: flex; align-items: center; gap: 14px; padding: 18px 20px 14px; border-bottom: 1px solid #eee; position: relative; background: #f5f8ff; border-radius: 10px 10px 0 0; }
-    .modal-header img.team-logo-lg { width: 64px; height: 64px; flex-shrink: 0; display: block; }
-    .modal-header .modal-team-name { font-size: 1.2em; font-weight: bold; color: #003087; }
-    .modal-header .modal-team-record { font-size: 0.85em; color: #888; margin-top: 2px; }
-    .modal-close { position: absolute; top: 12px; right: 14px; font-size: 1.4em; color: #aaa; cursor: pointer; background: none; border: none; padding: 0; }
+    .modal { background: white; border-radius: 10px; width: 100%; max-width: 420px; max-height: 90vh; overflow-y: auto; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+    .modal-header { display: flex; align-items: center; gap: 14px; padding: 16px 16px 12px; border-bottom: 1px solid #eee; position: relative; background: #f5f8ff; border-radius: 10px 10px 0 0; }
+    .modal-header img.team-logo-lg { width: 56px; height: 56px; flex-shrink: 0; display: block; }
+    .modal-header .modal-team-name { font-size: 1.1em; font-weight: bold; color: #003087; }
+    .modal-header .modal-team-record { font-size: 0.82em; color: #888; margin-top: 2px; }
+    .modal-close { position: absolute; top: 10px; right: 12px; font-size: 1.6em; color: #aaa; cursor: pointer; background: none; border: none; padding: 4px 8px; line-height: 1; }
     .modal-close:hover { color: #333; }
-    .modal-body { padding: 14px 20px 20px; font-size: 0.85em; }
-    .modal-stat-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #f5f5f5; }
+    .modal-body { padding: 12px 16px 20px; font-size: 0.85em; }
+    .modal-stat-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f5f5f5; }
     .modal-stat-row:last-child { border-bottom: none; }
     .modal-stat-label { color: #555; }
     .modal-stat-value { font-weight: bold; color: #003087; }
-    .modal-section-title { font-size: 0.75em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.07em; color: #003087; margin: 14px 0 6px; padding-bottom: 4px; border-bottom: 1px solid #eee; }
+    .modal-section-title { font-size: 0.72em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.07em; color: #003087; margin: 14px 0 6px; padding-bottom: 4px; border-bottom: 1px solid #eee; }
     .modal-loading { color: #aaa; text-align: center; padding: 20px 0; }
 
-    section { margin-bottom: 28px; }
+    section { margin-bottom: 20px; }
+
+    /* UTILITY */
+    .scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
@@ -143,7 +167,7 @@
   <a href="#leaders">Leaders</a>
 </div>
 
-<!-- STANDINGS (on top, open by default) -->
+<!-- STANDINGS -->
 <section id="standings">
   <div class="collapsible-section">
     <div class="collapsible-header" onclick="toggleSection('standings-body', 'standings-arrow')">
@@ -156,7 +180,7 @@
   </div>
 </section>
 
-<!-- SCORES (collapsed by default) -->
+<!-- SCORES -->
 <section id="games">
   <div class="collapsible-section">
     <div class="collapsible-header" onclick="toggleSection('games-body', 'games-arrow')">
@@ -178,7 +202,7 @@
   </div>
 </section>
 
-<!-- LEADERS (collapsed by default) -->
+<!-- LEADERS -->
 <section id="leaders">
   <div class="collapsible-section">
     <div class="collapsible-header" onclick="toggleSection('leaders-body', 'leaders-arrow')">
@@ -191,9 +215,10 @@
   </div>
 </section>
 
+<!-- TEAM MODAL -->
 <div class="modal-overlay" id="teamModal">
   <div class="modal">
-    <div class="modal-header" id="modalHeader">
+    <div class="modal-header">
       <img class="team-logo-lg" id="modalTeamLogo" src="" alt="">
       <div>
         <div class="modal-team-name" id="modalTeamName"></div>
@@ -237,19 +262,20 @@ function getLocalDateStr() {
 }
 
 function logoImg(teamId) {
-  return "<img src='https://www.mlbstatic.com/team-logos/" + teamId + ".svg' style='width:18px;height:18px;vertical-align:middle;margin-right:4px;' onerror='this.style.display=\"none\"'>";
+  return "<img src='https://www.mlbstatic.com/team-logos/" + teamId + ".svg' style='width:16px;height:16px;vertical-align:middle;margin-right:3px;' onerror='this.style.display=\"none\"'>";
 }
 
+// ---- YESTERDAY ----
 async function loadYesterdayGames() {
   var container = document.getElementById("yesterday-container");
   var dates;
   try {
     var res = await fetch("/mlb-boxscores/data/index.json?t=" + Date.now());
-    if (!res.ok) throw new Error("index.json failed: " + res.status);
+    if (!res.ok) throw new Error("Failed: " + res.status);
     dates = await res.json();
     if (!dates.length) { container.innerHTML = "<div style='padding:12px;color:#aaa;font-size:0.85em;'>No data.</div>"; return; }
   } catch (e) {
-    container.innerHTML = "<div style='padding:12px;color:#c00;font-size:0.85em;'>Error: " + e.message + "</div>";
+    container.innerHTML = "<div style='padding:12px;color:#c00;font-size:0.85em;'>Error loading.</div>";
     return;
   }
 
@@ -259,14 +285,14 @@ async function loadYesterdayGames() {
   var games;
   try {
     var res2 = await fetch("/mlb-boxscores/data/boxscores-" + date + ".json?t=" + Date.now());
-    if (!res2.ok) throw new Error("boxscores failed: " + res2.status);
+    if (!res2.ok) throw new Error("Failed: " + res2.status);
     games = await res2.json();
   } catch (e) {
-    container.innerHTML = "<div style='padding:12px;color:#c00;font-size:0.85em;'>Error: " + e.message + "</div>";
+    container.innerHTML = "<div style='padding:12px;color:#c00;font-size:0.85em;'>Error loading.</div>";
     return;
   }
 
-  if (!games.length) { container.innerHTML = "<div style='padding:12px;color:#aaa;font-size:0.85em;'>No games found.</div>"; return; }
+  if (!games.length) { container.innerHTML = "<div style='padding:12px;color:#aaa;font-size:0.85em;'>No games.</div>"; return; }
 
   var html = "";
   for (var i = 0; i < games.length; i++) {
@@ -279,12 +305,13 @@ async function loadYesterdayGames() {
     var awayStr = awayWon ? "<strong>" + awayLogo + g.away + " " + g.awayScore + "</strong>" : awayLogo + g.away + " " + g.awayScore;
     var homeStr = homeWon ? "<strong>" + homeLogo + g.home + " " + g.homeScore + "</strong>" : homeLogo + g.home + " " + g.homeScore;
     html += "<div class=\"games-list-item\">";
-    html += "<a href='" + link + "'>" + awayStr + " &nbsp;—&nbsp; " + homeStr + "</a>";
+    html += "<a href='" + link + "'>" + awayStr + "<br>" + homeStr + "</a>";
     html += "</div>";
   }
   container.innerHTML = html;
 }
 
+// ---- TODAY ----
 async function loadTodayGames() {
   var container = document.getElementById("today-container");
   var today = getLocalDateStr();
@@ -296,7 +323,7 @@ async function loadTodayGames() {
     var games = data.dates && data.dates[0] ? data.dates[0].games : [];
 
     if (!games.length) {
-      container.innerHTML = "<div style='padding:12px;color:#aaa;font-size:0.85em;'>No games scheduled today.</div>";
+      container.innerHTML = "<div style='padding:12px;color:#aaa;font-size:0.85em;'>No games today.</div>";
       return;
     }
 
@@ -314,20 +341,21 @@ async function loadTodayGames() {
       var homeScore = g.teams.home.score !== undefined ? g.teams.home.score : null;
       var awayLogo = logoImg(awayId);
       var homeLogo = logoImg(homeId);
-
-      var label = "";
       var badge = "";
+
+      var awayLine = "";
+      var homeLine = "";
 
       if (status === "Final") {
         var awayWon = awayScore > homeScore;
         var homeWon = homeScore > awayScore;
-        var awayStr = awayWon ? "<strong>" + awayLogo + away + " " + awayScore + "</strong>" : awayLogo + away + " " + awayScore;
-        var homeStr = homeWon ? "<strong>" + homeLogo + home + " " + homeScore + "</strong>" : homeLogo + home + " " + homeScore;
-        label = awayStr + " &nbsp;—&nbsp; " + homeStr;
+        awayLine = awayWon ? "<strong>" + awayLogo + away + " " + awayScore + "</strong>" : awayLogo + away + " " + awayScore;
+        homeLine = homeWon ? "<strong>" + homeLogo + home + " " + homeScore + "</strong>" : homeLogo + home + " " + homeScore;
         badge = "<span class=\"game-final\">Final</span>";
       } else if (status === "Live") {
         var inning = g.linescore ? (g.linescore.isTopInning ? "Top " : "Bot ") + g.linescore.currentInning : "";
-        label = awayLogo + away + " " + (awayScore !== null ? awayScore : "0") + " &nbsp;—&nbsp; " + homeLogo + home + " " + (homeScore !== null ? homeScore : "0");
+        awayLine = awayLogo + away + " " + (awayScore !== null ? awayScore : "0");
+        homeLine = homeLogo + home + " " + (homeScore !== null ? homeScore : "0");
         badge = "<span class=\"game-live\">LIVE " + inning + "</span>";
       } else {
         var gameTime = "";
@@ -335,20 +363,22 @@ async function loadTodayGames() {
           var d = new Date(g.gameDate);
           gameTime = d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
         }
-        label = awayLogo + away + " vs. " + homeLogo + home;
+        awayLine = awayLogo + away;
+        homeLine = homeLogo + home;
         badge = "<span class=\"game-time\">" + gameTime + "</span>";
       }
 
       html += "<div class=\"games-list-item\">";
-      html += "<a href='" + gameLink + "' target='_blank'>" + label + "</a>" + badge;
+      html += "<a href='" + gameLink + "' target='_blank'>" + awayLine + "<br>" + homeLine + "</a> " + badge;
       html += "</div>";
     }
     container.innerHTML = html;
   } catch(e) {
-    container.innerHTML = "<div style='padding:12px;color:#c00;font-size:0.85em;'>Could not load today's games.</div>";
+    container.innerHTML = "<div style='padding:12px;color:#c00;font-size:0.85em;'>Could not load.</div>";
   }
 }
 
+// ---- TEAM MODAL ----
 document.getElementById("teamModal").addEventListener("click", function(e) {
   if (e.target === this) closeTeamModal();
 });
@@ -385,10 +415,7 @@ async function showTeam(teamId, teamName, wins, losses, pct, lastTen) {
       var games = await res.json();
       for (var j = 0; j < games.length; j++) {
         var g = games[j];
-        if (g.awayId === teamId || g.homeId === teamId) {
-          foundGame = g;
-          break;
-        }
+        if (g.awayId === teamId || g.homeId === teamId) { foundGame = g; break; }
       }
       if (foundGame) break;
     }
@@ -399,25 +426,23 @@ async function showTeam(teamId, teamName, wins, losses, pct, lastTen) {
       var awayStr = awayWon ? "<strong>" + foundGame.away + " " + foundGame.awayScore + "</strong>" : foundGame.away + " " + foundGame.awayScore;
       var homeStr = homeWon ? "<strong>" + foundGame.home + " " + foundGame.homeScore + "</strong>" : foundGame.home + " " + foundGame.homeScore;
       html += "<div class=\"modal-section-title\">Latest Game</div>";
-      html += "<div style='padding:6px 0;'><a href='/mlb-boxscores/game.html?gamePk=" + foundGame.gamePk + "' style='color:#003087;text-decoration:none;'>" + awayStr + " &nbsp;—&nbsp; " + homeStr + "</a></div>";
+      html += "<div style='padding:6px 0;'><a href='/mlb-boxscores/game.html?gamePk=" + foundGame.gamePk + "' style='color:#003087;text-decoration:none;'>" + awayStr + " — " + homeStr + "</a></div>";
     }
   } catch(e) {}
 
   document.getElementById("modalTeamBody").innerHTML = html;
 }
 
+// ---- STANDINGS ----
 async function loadStandings() {
   var container = document.getElementById("standings-container");
-  var divisionNames = {
-    200: "AL West", 201: "AL East", 202: "AL Central",
-    203: "NL West", 204: "NL East", 205: "NL Central"
-  };
+  var divisionNames = { 200: "AL West", 201: "AL East", 202: "AL Central", 203: "NL West", 204: "NL East", 205: "NL Central" };
   var alOrder = [201, 202, 200];
   var nlOrder = [204, 205, 203];
 
   try {
     var res = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason");
-    if (!res.ok) throw new Error("Standings fetch failed: " + res.status);
+    if (!res.ok) throw new Error("Failed: " + res.status);
     var data = await res.json();
 
     var recMap = {};
@@ -425,10 +450,10 @@ async function loadStandings() {
       recMap[data.records[i].division.id] = data.records[i];
     }
 
-    function getRecord(splitRecords, type) {
-      if (!splitRecords) return "0-0";
-      for (var i = 0; i < splitRecords.length; i++) {
-        if (splitRecords[i].type === type) return splitRecords[i].wins + "-" + splitRecords[i].losses;
+    function getRecord(splits, type) {
+      if (!splits) return "0-0";
+      for (var i = 0; i < splits.length; i++) {
+        if (splits[i].type === type) return splits[i].wins + "-" + splits[i].losses;
       }
       return "0-0";
     }
@@ -442,24 +467,21 @@ async function loadStandings() {
         var teams = rec.teamRecords.slice().sort(function(a, b) {
           return parseFloat(b.winningPercentage) - parseFloat(a.winningPercentage);
         });
-
         html += "<div class=\"division-block\">";
         html += "<h3>" + divName + "</h3>";
-        html += "<table class=\"standings-table\"><thead><tr>";
-        html += "<th>Team</th><th class=\"num\">W</th><th class=\"num\">L</th><th class=\"num\">PCT</th><th class=\"num\">GB</th><th class=\"num\">Home</th><th class=\"num\">Away</th><th class=\"num\">Strk</th>";
+        html += "<div class=\"scroll-x\"><table class=\"standings-table\"><thead><tr>";
+        html += "<th>Team</th><th class=\"num\">W</th><th class=\"num\">L</th><th class=\"num\">PCT</th><th class=\"num\">GB</th><th class=\"num\">L10</th><th class=\"num\">Strk</th>";
         html += "</tr></thead><tbody>";
 
         for (var j = 0; j < teams.length; j++) {
           var t = teams[j];
-          var gb = t.gamesBack === "-" ? "&mdash;" : t.gamesBack;
-          var streak = t.streak && t.streak.streakCode ? t.streak.streakCode : "&mdash;";
+          var gb = t.gamesBack === "-" ? "-" : t.gamesBack;
+          var streak = t.streak && t.streak.streakCode ? t.streak.streakCode : "-";
           var logoUrl = "https://www.mlbstatic.com/team-logos/" + t.team.id + ".svg";
           var w = t.leagueRecord ? t.leagueRecord.wins : t.wins;
           var l = t.leagueRecord ? t.leagueRecord.losses : t.losses;
           var pct = t.winningPercentage || ".000";
           var splits = t.records ? t.records.splitRecords : null;
-          var homeRec = getRecord(splits, "home");
-          var awayRec = getRecord(splits, "away");
           var lastTen = getRecord(splits, "lastTen");
 
           html += "<tr><td>";
@@ -470,32 +492,19 @@ async function loadStandings() {
           html += "<td class=\"num\">" + l + "</td>";
           html += "<td class=\"num\">" + pct + "</td>";
           html += "<td class=\"num\">" + gb + "</td>";
-          html += "<td class=\"num\">" + homeRec + "</td>";
-          html += "<td class=\"num\">" + awayRec + "</td>";
+          html += "<td class=\"num\">" + lastTen + "</td>";
           html += "<td class=\"num\">" + streak + "</td>";
           html += "</tr>";
         }
-        html += "</tbody></table></div>";
+        html += "</tbody></table></div></div>";
       }
       html += "</div>";
       return html;
     }
 
     var html = "";
-    html += "<div class=\"sub-collapsible\">";
-    html += "<div class=\"sub-collapsible-header\" onclick=\"toggleSub('al-body', 'al-arrow')\">";
-    html += "<span>American League</span><span class=\"sub-collapsible-arrow open\" id=\"al-arrow\">&#9660;</span>";
-    html += "</div>";
-    html += "<div class=\"sub-collapsible-body open\" id=\"al-body\">" + buildDivisions(alOrder) + "</div>";
-    html += "</div>";
-
-    html += "<div class=\"sub-collapsible\">";
-    html += "<div class=\"sub-collapsible-header\" onclick=\"toggleSub('nl-body', 'nl-arrow')\">";
-    html += "<span>National League</span><span class=\"sub-collapsible-arrow open\" id=\"nl-arrow\">&#9660;</span>";
-    html += "</div>";
-    html += "<div class=\"sub-collapsible-body open\" id=\"nl-body\">" + buildDivisions(nlOrder) + "</div>";
-    html += "</div>";
-
+    html += "<div class=\"sub-collapsible\"><div class=\"sub-collapsible-header\" onclick=\"toggleSub('al-body','al-arrow')\"><span>American League</span><span class=\"sub-collapsible-arrow open\" id=\"al-arrow\">&#9660;</span></div><div class=\"sub-collapsible-body open\" id=\"al-body\">" + buildDivisions(alOrder) + "</div></div>";
+    html += "<div class=\"sub-collapsible\"><div class=\"sub-collapsible-header\" onclick=\"toggleSub('nl-body','nl-arrow')\"><span>National League</span><span class=\"sub-collapsible-arrow open\" id=\"nl-arrow\">&#9660;</span></div><div class=\"sub-collapsible-body open\" id=\"nl-body\">" + buildDivisions(nlOrder) + "</div></div>";
     container.innerHTML = html;
 
   } catch (e) {
@@ -503,6 +512,7 @@ async function loadStandings() {
   }
 }
 
+// ---- LEADERS ----
 var hittingStats = [
   { label: "Batting Avg", stat: "avg" },
   { label: "Home Runs", stat: "homeRuns" },
@@ -516,16 +526,10 @@ var pitchingStats = [
 
 async function fetchLeaders(stat, leagueId) {
   var statGroup = (stat === "wins" || stat === "strikeOuts" || stat === "era") ? "pitching" : "hitting";
-  var res = await fetch(
-    "https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=" + stat +
-    "&leagueId=" + leagueId +
-    "&limit=10&statGroup=" + statGroup +
-    "&playerPool=qualified"
-  );
+  var res = await fetch("https://statsapi.mlb.com/api/v1/stats/leaders?leaderCategories=" + stat + "&leagueId=" + leagueId + "&limit=10&statGroup=" + statGroup + "&playerPool=qualified");
   var data = await res.json();
   var leaders = (data.leagueLeaders && data.leagueLeaders[0] && data.leagueLeaders[0].leaders) ? data.leagueLeaders[0].leaders : [];
-  var ascStats = ["era"];
-  if (ascStats.indexOf(stat) !== -1) {
+  if (stat === "era") {
     leaders.sort(function(a, b) { return parseFloat(a.value) - parseFloat(b.value); });
   } else {
     leaders.sort(function(a, b) { return parseFloat(b.value) - parseFloat(a.value); });
@@ -534,8 +538,7 @@ async function fetchLeaders(stat, leagueId) {
 }
 
 function buildLeaderCard(label, leaders) {
-  var html = "<div class=\"leader-card\">";
-  html += "<div class=\"leader-card-title\">" + label + "</div>";
+  var html = "<div class=\"leader-card\"><div class=\"leader-card-title\">" + label + "</div>";
   for (var i = 0; i < leaders.length; i++) {
     var p = leaders[i];
     var personId = p.person && p.person.id ? p.person.id : "";
@@ -553,17 +556,13 @@ function buildLeaderCard(label, leaders) {
 }
 
 async function buildLeagueLeaders(leagueId, bodyId) {
-  var html = "";
-  html += "<div class=\"leaders-group-title\">Hitting</div><div class=\"leaders-grid\">";
+  var html = "<div class=\"leaders-group-title\">Hitting</div><div class=\"leaders-grid\">";
   for (var hi = 0; hi < hittingStats.length; hi++) {
-    var leaders = await fetchLeaders(hittingStats[hi].stat, leagueId);
-    html += buildLeaderCard(hittingStats[hi].label, leaders);
+    html += buildLeaderCard(hittingStats[hi].label, await fetchLeaders(hittingStats[hi].stat, leagueId));
   }
-  html += "</div>";
-  html += "<div class=\"leaders-group-title\">Pitching</div><div class=\"leaders-grid\">";
+  html += "</div><div class=\"leaders-group-title\">Pitching</div><div class=\"leaders-grid\">";
   for (var pi = 0; pi < pitchingStats.length; pi++) {
-    var pleaders = await fetchLeaders(pitchingStats[pi].stat, leagueId);
-    html += buildLeaderCard(pitchingStats[pi].label, pleaders);
+    html += buildLeaderCard(pitchingStats[pi].label, await fetchLeaders(pitchingStats[pi].stat, leagueId));
   }
   html += "</div>";
   document.getElementById(bodyId).innerHTML = html;
@@ -572,23 +571,9 @@ async function buildLeagueLeaders(leagueId, bodyId) {
 async function loadLeaders() {
   var container = document.getElementById("leaders-container");
   var html = "";
-
-  html += "<div class=\"sub-collapsible\">";
-  html += "<div class=\"sub-collapsible-header\" onclick=\"toggleSub('al-leaders-body', 'al-leaders-arrow')\">";
-  html += "<span>American League</span><span class=\"sub-collapsible-arrow open\" id=\"al-leaders-arrow\">&#9660;</span>";
-  html += "</div>";
-  html += "<div class=\"sub-collapsible-body open\" id=\"al-leaders-body\"><div class=\"modal-loading\">Loading...</div></div>";
-  html += "</div>";
-
-  html += "<div class=\"sub-collapsible\">";
-  html += "<div class=\"sub-collapsible-header\" onclick=\"toggleSub('nl-leaders-body', 'nl-leaders-arrow')\">";
-  html += "<span>National League</span><span class=\"sub-collapsible-arrow open\" id=\"nl-leaders-arrow\">&#9660;</span>";
-  html += "</div>";
-  html += "<div class=\"sub-collapsible-body open\" id=\"nl-leaders-body\"><div class=\"modal-loading\">Loading...</div></div>";
-  html += "</div>";
-
+  html += "<div class=\"sub-collapsible\"><div class=\"sub-collapsible-header\" onclick=\"toggleSub('al-leaders-body','al-leaders-arrow')\"><span>American League</span><span class=\"sub-collapsible-arrow open\" id=\"al-leaders-arrow\">&#9660;</span></div><div class=\"sub-collapsible-body open\" id=\"al-leaders-body\"><div class=\"modal-loading\">Loading...</div></div></div>";
+  html += "<div class=\"sub-collapsible\"><div class=\"sub-collapsible-header\" onclick=\"toggleSub('nl-leaders-body','nl-leaders-arrow')\"><span>National League</span><span class=\"sub-collapsible-arrow open\" id=\"nl-leaders-arrow\">&#9660;</span></div><div class=\"sub-collapsible-body open\" id=\"nl-leaders-body\"><div class=\"modal-loading\">Loading...</div></div></div>";
   container.innerHTML = html;
-
   try {
     await buildLeagueLeaders(103, "al-leaders-body");
     await buildLeagueLeaders(104, "nl-leaders-body");
@@ -597,11 +582,11 @@ async function loadLeaders() {
   }
 }
 
+// ---- INIT ----
 loadStandings();
 loadYesterdayGames();
 loadTodayGames();
 loadLeaders();
-
 setInterval(loadTodayGames, 300000);
 </script>
 </body>
