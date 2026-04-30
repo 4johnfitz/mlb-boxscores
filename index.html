@@ -32,7 +32,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
-      margin-bottom: 28px;
+      margin-bottom: 16px;
     }
     @media (max-width: 700px) { .games-columns { grid-template-columns: 1fr; } }
 
@@ -138,24 +138,12 @@
 <body>
 
 <div class="jump-nav">
-  <a href="#games">Games</a>
   <a href="#standings">Standings</a>
+  <a href="#games">Scores</a>
   <a href="#leaders">Leaders</a>
 </div>
 
-<section id="games">
-  <div class="games-columns">
-    <div class="games-col">
-      <h2>Yesterday's Games <span class="col-date" id="yesterdayLabel"></span></h2>
-      <div class="games-list" id="yesterday-container">Loading...</div>
-    </div>
-    <div class="games-col">
-      <h2>Today's Games <span class="col-date" id="todayLabel"></span></h2>
-      <div class="games-list" id="today-container">Loading...</div>
-    </div>
-  </div>
-</section>
-
+<!-- STANDINGS (on top, open by default) -->
 <section id="standings">
   <div class="collapsible-section">
     <div class="collapsible-header" onclick="toggleSection('standings-body', 'standings-arrow')">
@@ -168,13 +156,36 @@
   </div>
 </section>
 
+<!-- SCORES (collapsed by default) -->
+<section id="games">
+  <div class="collapsible-section">
+    <div class="collapsible-header" onclick="toggleSection('games-body', 'games-arrow')">
+      <h2>Scores</h2>
+      <span class="collapsible-arrow" id="games-arrow">&#9660;</span>
+    </div>
+    <div class="collapsible-body" id="games-body">
+      <div class="games-columns">
+        <div class="games-col">
+          <h2>Yesterday <span class="col-date" id="yesterdayLabel"></span></h2>
+          <div class="games-list" id="yesterday-container">Loading...</div>
+        </div>
+        <div class="games-col">
+          <h2>Today <span class="col-date" id="todayLabel"></span></h2>
+          <div class="games-list" id="today-container">Loading...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERS (collapsed by default) -->
 <section id="leaders">
   <div class="collapsible-section">
     <div class="collapsible-header" onclick="toggleSection('leaders-body', 'leaders-arrow')">
       <h2>League Leaders</h2>
-      <span class="collapsible-arrow open" id="leaders-arrow">&#9660;</span>
+      <span class="collapsible-arrow" id="leaders-arrow">&#9660;</span>
     </div>
-    <div class="collapsible-body open" id="leaders-body">
+    <div class="collapsible-body" id="leaders-body">
       <div id="leaders-container">Loading leaders...</div>
     </div>
   </div>
@@ -586,9 +597,9 @@ async function loadLeaders() {
   }
 }
 
+loadStandings();
 loadYesterdayGames();
 loadTodayGames();
-loadStandings();
 loadLeaders();
 
 setInterval(loadTodayGames, 300000);
