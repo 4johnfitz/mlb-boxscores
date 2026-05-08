@@ -7,139 +7,148 @@
   <style>
     * { box-sizing: border-box; }
     body { font-family: Arial, sans-serif; margin: 0; padding: 12px; background: #f9f9f9; color: #111; font-size: 15px; }
-    h1, h2 { margin-bottom: 10px; }
 
     .site-hero {
       text-align: center;
-      padding: 28px 16px 20px;
+      padding: 24px 16px 18px;
       border-bottom: 2px solid #e0e0e0;
       margin-bottom: 16px;
     }
-    .site-title {
-      font-size: clamp(1.8rem, 6vw, 2.6rem);
-      font-weight: 900;
-      color: #003087;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 6px;
+    .site-title { font-size: clamp(1.8rem, 6vw, 2.6rem); font-weight: 900; color: #003087; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 6px; }
+    .site-tagline { font-size: 0.88em; color: #888; letter-spacing: 0.04em; margin-bottom: 12px; }
+    .site-about { font-size: 0.84em; color: #555; max-width: 480px; margin: 0 auto 18px; line-height: 1.65; }
+
+    .jump-nav-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      max-width: 440px;
+      margin: 0 auto;
     }
-    .site-tagline {
-      font-size: 0.95em;
-      color: #888;
-      letter-spacing: 0.04em;
-      margin-bottom: 14px;
+    .jump-col { display: flex; flex-direction: column; gap: 5px; }
+    .jump-league {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.82em;
+      padding: 6px 12px;
+      border-radius: 20px;
+      text-align: center;
+      display: block;
     }
-    .site-about {
-      font-size: 0.85em;
-      color: #555;
-      max-width: 480px;
-      margin: 0 auto 20px;
-      line-height: 1.65;
-    }
-    .jump-nav {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .jump-nav a {
+    .jump-league.al { background: #003087; color: white; }
+    .jump-league.nl { background: #c41e1e; color: white; }
+    .jump-sub {
       text-decoration: none;
       color: #003087;
-      font-weight: bold;
-      font-size: 0.85em;
-      padding: 7px 18px;
+      font-size: 0.78em;
+      padding: 5px 12px;
       border-radius: 20px;
       background: white;
       border: 1px solid #ddd;
-      white-space: nowrap;
+      text-align: center;
+      display: block;
     }
-    .jump-nav a:hover { background: #003087; color: white; }
+    .jump-sub:hover { background: #003087; color: white; }
 
-    .collapsible-section { margin-bottom: 16px; }
-    .collapsible-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      padding: 12px 14px;
+    .league-block {
       background: white;
       border: 1px solid #ddd;
       border-radius: 8px;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
+      overflow: hidden;
+      margin-bottom: 20px;
     }
-    .collapsible-header:hover { background: #f5f8ff; }
-    .collapsible-header h2 { margin: 0; font-size: 1em; color: #003087; }
-    .collapsible-arrow { color: #003087; font-size: 1em; transition: transform 0.2s; flex-shrink: 0; }
-    .collapsible-arrow.open { transform: rotate(180deg); }
-    .collapsible-body { display: none; padding-top: 12px; }
-    .collapsible-body.open { display: block; }
+    .league-header {
+      padding: 10px 14px;
+      font-size: 0.88em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+    .league-header.al { border-bottom: 2px solid #003087; color: #003087; }
+    .league-header.nl { border-bottom: 2px solid #c41e1e; color: #c41e1e; }
 
-    .sub-collapsible { margin-bottom: 12px; }
-    .sub-collapsible-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      padding: 8px 12px;
-      background: #f0f4ff;
-      border: 1px solid #ccd6f0;
+    .subsection { padding: 12px 14px; border-bottom: 1px solid #f0f0f0; }
+    .subsection:last-child { border-bottom: none; }
+    .subsection-title {
+      font-size: 0.72em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .standings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    @media (max-width: 600px) { .standings-grid { grid-template-columns: 1fr; } }
+
+    .division-card {
+      background: #f9f9f9;
+      border: 1px solid #eee;
       border-radius: 6px;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
+      padding: 8px 10px;
+      overflow-x: auto;
     }
-    .sub-collapsible-header:hover { background: #e0e8ff; }
-    .sub-collapsible-header span { font-weight: bold; font-size: 0.9em; color: #003087; text-transform: uppercase; letter-spacing: 0.05em; }
-    .sub-collapsible-arrow { color: #003087; font-size: 0.85em; transition: transform 0.2s; flex-shrink: 0; }
-    .sub-collapsible-arrow.open { transform: rotate(180deg); }
-    .sub-collapsible-body { display: none; padding-top: 10px; }
-    .sub-collapsible-body.open { display: block; }
+    .division-title {
+      font-size: 0.72em;
+      font-weight: bold;
+      color: #003087;
+      margin-bottom: 6px;
+      white-space: nowrap;
+    }
+    .div-table { width: 100%; border-collapse: collapse; font-size: 0.75em; min-width: 200px; }
+    .div-table th { color: #aaa; font-weight: normal; text-align: right; padding: 2px 3px; white-space: nowrap; }
+    .div-table th.left { text-align: left; }
+    .div-table td { text-align: right; padding: 3px 3px; border-bottom: 1px solid #f5f5f5; white-space: nowrap; }
+    .div-table td.left { text-align: left; }
+    .div-table tr:last-child td { border-bottom: none; }
+    .team-logo-xs { width: 14px; height: 14px; vertical-align: middle; margin-right: 3px; }
+    .team-link { color: #003087; text-decoration: none; border-bottom: 1px dotted #003087; cursor: pointer; font-size: 0.95em; }
 
-    .standings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    @media (max-width: 800px) { .standings-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 500px) { .standings-grid { grid-template-columns: 1fr; } }
+    .games-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    @media (max-width: 600px) { .games-grid { grid-template-columns: repeat(2, 1fr); } }
 
-    .division-block { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px; overflow-x: auto; }
-    .division-block h3 { margin: 0 0 8px 0; font-size: 0.9em; color: #003087; border-bottom: 1px solid #eee; padding-bottom: 6px; white-space: nowrap; }
-    .standings-table { width: 100%; border-collapse: collapse; font-size: 0.8em; min-width: 280px; }
-    .standings-table th { text-align: left; color: #888; font-weight: normal; padding: 3px 4px; white-space: nowrap; }
-    .standings-table th.num, .standings-table td.num { text-align: right; }
-    .standings-table td { padding: 4px 4px; white-space: nowrap; }
-    .standings-table tr:nth-child(even) td { background: #f5f5f5; }
-    .team-logo { width: 16px; height: 16px; vertical-align: middle; margin-right: 4px; }
-    .team-link { color: #003087; text-decoration: none; border-bottom: 1px dotted #003087; cursor: pointer; font-size: 0.85em; }
-    .team-link:hover { color: #0055aa; }
+    .game-card {
+      background: #f9f9f9;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.8em;
+      line-height: 1.9;
+      text-decoration: none;
+      color: #111;
+      display: block;
+    }
+    .game-card:hover { background: #f0f4ff; }
+    .game-card a { text-decoration: none; color: inherit; display: block; }
+    .game-time { font-size: 0.85em; color: #888; }
+    .game-live { font-size: 0.82em; color: #c41e1e; font-weight: bold; }
+    .game-final { font-size: 0.82em; color: #aaa; }
 
-    .games-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 8px; }
-    @media (max-width: 600px) { .games-columns { grid-template-columns: 1fr; } }
+    .leaders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    @media (max-width: 600px) { .leaders-grid { grid-template-columns: repeat(2, 1fr); } }
 
-    .games-col h2 { font-size: 0.95em; color: #003087; margin-bottom: 8px; }
-    .games-col .col-date { font-size: 0.78em; color: #888; margin-left: 6px; font-weight: normal; }
-
-    .games-list { background: white; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; font-size: 0.88em; }
-    .games-list-item { padding: 9px 12px; border-bottom: 1px solid #f0f0f0; line-height: 1.4; }
-    .games-list-item:last-child { border-bottom: none; }
-    .games-list-item:nth-child(even) { background: #f9f9f9; }
-    .games-list-item a { text-decoration: none; color: #003087; display: block; }
-    .games-list-item a:hover { text-decoration: underline; }
-
-    .game-time { font-size: 0.75em; color: #888; }
-    .game-live { font-size: 0.72em; color: #c41e1e; font-weight: bold; }
-    .game-final { font-size: 0.72em; color: #888; }
-
-    .leaders-group-title { font-size: 0.78em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em; color: #555; margin: 14px 0 6px; }
-    .leaders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    @media (max-width: 700px) { .leaders-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 400px) { .leaders-grid { grid-template-columns: 1fr; } }
-
-    .leader-card { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px; }
-    .leader-card-title { font-size: 0.72em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.07em; color: #003087; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 8px; }
-    .leader-row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font-size: 0.82em; }
-    .leader-row img.headshot { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; border: 1px solid #eee; flex-shrink: 0; }
-    .leader-row img.tlogo { width: 14px; height: 14px; vertical-align: middle; flex-shrink: 0; }
+    .leader-card {
+      background: #f9f9f9;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      padding: 8px 10px;
+    }
+    .leader-card-title {
+      font-size: 0.7em;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #003087;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 4px;
+      margin-bottom: 6px;
+    }
+    .leader-row { display: flex; align-items: center; gap: 5px; margin-bottom: 5px; font-size: 0.78em; }
+    .leader-row img.headshot { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; border: 1px solid #eee; flex-shrink: 0; }
+    .leader-row img.tlogo { width: 12px; height: 12px; vertical-align: middle; flex-shrink: 0; }
     .leader-name { flex: 1; color: #111; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .leader-value { font-weight: bold; color: #003087; min-width: 32px; text-align: right; flex-shrink: 0; }
-    .leader-rank { color: #aaa; font-size: 0.85em; min-width: 14px; flex-shrink: 0; }
+    .leader-value { font-weight: bold; color: #003087; min-width: 28px; text-align: right; flex-shrink: 0; }
+    .leader-rank { color: #aaa; font-size: 0.85em; min-width: 12px; flex-shrink: 0; }
 
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.45); z-index: 100; align-items: center; justify-content: center; padding: 16px; }
     .modal-overlay.open { display: flex; }
@@ -158,8 +167,8 @@
     .modal-section-title { font-size: 0.72em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.07em; color: #003087; margin: 14px 0 6px; padding-bottom: 4px; border-bottom: 1px solid #eee; }
     .modal-loading { color: #aaa; text-align: center; padding: 20px 0; }
 
-    section { margin-bottom: 20px; }
-    .scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .loading-state { color: #aaa; font-size: 0.82em; padding: 8px 0; }
+    section { margin-bottom: 0; }
   </style>
 </head>
 <body>
@@ -168,58 +177,88 @@
   <div class="site-title">That Baseball Site</div>
   <div class="site-tagline">Baseball. Simplified.</div>
   <div class="site-about">No ads. No autoplay. No noise. Just scores, standings, and leaders — for old-school fans, kids, and anyone who finds the game more enjoyable without the chaos.</div>
-  <nav class="jump-nav">
-    <a href="#standings">Standings</a>
-    <a href="#games">Scores</a>
-    <a href="#leaders">Leaders</a>
-  </nav>
+
+  <div class="jump-nav-grid">
+    <div class="jump-col">
+      <a class="jump-league al" href="#al">American League</a>
+      <a class="jump-sub" href="#al-standings">Standings</a>
+      <a class="jump-sub" href="#al-scores">Scores</a>
+      <a class="jump-sub" href="#al-schedule">Schedule</a>
+      <a class="jump-sub" href="#al-batting">Batting Leaders</a>
+      <a class="jump-sub" href="#al-pitching">Pitching Leaders</a>
+    </div>
+    <div class="jump-col">
+      <a class="jump-league nl" href="#nl">National League</a>
+      <a class="jump-sub" href="#nl-standings">Standings</a>
+      <a class="jump-sub" href="#nl-scores">Scores</a>
+      <a class="jump-sub" href="#nl-schedule">Schedule</a>
+      <a class="jump-sub" href="#nl-batting">Batting Leaders</a>
+      <a class="jump-sub" href="#nl-pitching">Pitching Leaders</a>
+    </div>
+  </div>
 </div>
 
-<section id="standings">
-  <div class="collapsible-section">
-    <div class="collapsible-header" onclick="toggleSection('standings-body', 'standings-arrow')">
-      <h2>Standings</h2>
-      <span class="collapsible-arrow open" id="standings-arrow">&#9660;</span>
-    </div>
-    <div class="collapsible-body open" id="standings-body">
-      <div id="standings-container">Loading standings...</div>
-    </div>
-  </div>
-</section>
+<!-- AMERICAN LEAGUE -->
+<div class="league-block" id="al">
+  <div class="league-header al">American League</div>
 
-<section id="games">
-  <div class="collapsible-section">
-    <div class="collapsible-header" onclick="toggleSection('games-body', 'games-arrow')">
-      <h2>Scores</h2>
-      <span class="collapsible-arrow open" id="games-arrow">&#9660;</span>
-    </div>
-    <div class="collapsible-body open" id="games-body">
-      <div class="games-columns">
-        <div class="games-col">
-          <h2>Yesterday <span class="col-date" id="yesterdayLabel"></span></h2>
-          <div class="games-list" id="yesterday-container">Loading...</div>
-        </div>
-        <div class="games-col">
-          <h2>Today <span class="col-date" id="todayLabel"></span></h2>
-          <div class="games-list" id="today-container">Loading...</div>
-        </div>
-      </div>
-    </div>
+  <div class="subsection" id="al-standings">
+    <div class="subsection-title">Standings</div>
+    <div class="standings-grid" id="al-standings-grid"><div class="loading-state">Loading...</div></div>
   </div>
-</section>
 
-<section id="leaders">
-  <div class="collapsible-section">
-    <div class="collapsible-header" onclick="toggleSection('leaders-body', 'leaders-arrow')">
-      <h2>League Leaders</h2>
-      <span class="collapsible-arrow open" id="leaders-arrow">&#9660;</span>
-    </div>
-    <div class="collapsible-body open" id="leaders-body">
-      <div id="leaders-container">Loading leaders...</div>
-    </div>
+  <div class="subsection" id="al-scores">
+    <div class="subsection-title">Yesterday's Scores</div>
+    <div class="games-grid" id="al-scores-grid"><div class="loading-state">Loading...</div></div>
   </div>
-</section>
 
+  <div class="subsection" id="al-schedule">
+    <div class="subsection-title">Today's Schedule</div>
+    <div class="games-grid" id="al-schedule-grid"><div class="loading-state">Loading...</div></div>
+  </div>
+
+  <div class="subsection" id="al-batting">
+    <div class="subsection-title">Batting Leaders</div>
+    <div class="leaders-grid" id="al-batting-grid"><div class="loading-state">Loading...</div></div>
+  </div>
+
+  <div class="subsection" id="al-pitching">
+    <div class="subsection-title">Pitching Leaders</div>
+    <div class="leaders-grid" id="al-pitching-grid"><div class="loading-state">Loading...</div></div>
+  </div>
+</div>
+
+<!-- NATIONAL LEAGUE -->
+<div class="league-block" id="nl">
+  <div class="league-header nl">National League</div>
+
+  <div class="subsection" id="nl-standings">
+    <div class="subsection-title">Standings</div>
+    <div class="standings-grid" id="nl-standings-grid"><div class="loading-state">Loading...</div></div>
+  </div>
+
+  <div class="subsection" id="nl-scores">
+    <div class="subsection-title">Yesterday's Scores</div>
+    <div class="games-grid" id="nl-scores-grid"><div class="loading-state">Loading...</div></div>
+  </div>
+
+  <div class="subsection" id="nl-schedule">
+    <div class="subsection-title">Today's Schedule</div>
+    <div class="games-grid" id="nl-schedule-grid"><div class="loading-state">Loading...</div></div>
+  </div>
+
+  <div class="subsection" id="nl-batting">
+    <div class="subsection-title">Batting Leaders</div>
+    <div class="leaders-grid" id="nl-batting-grid"><div class="loading-state">Loading...</div></div>
+  </div>
+
+  <div class="subsection" id="nl-pitching">
+    <div class="subsection-title">Pitching Leaders</div>
+    <div class="leaders-grid" id="nl-pitching-grid"><div class="loading-state">Loading...</div></div>
+  </div>
+</div>
+
+<!-- TEAM MODAL -->
 <div class="modal-overlay" id="teamModal">
   <div class="modal">
     <div class="modal-header">
@@ -237,18 +276,18 @@
 </div>
 
 <script>
-function toggleSection(bodyId, arrowId) {
-  var body = document.getElementById(bodyId);
-  var arrow = document.getElementById(arrowId);
-  body.classList.toggle("open");
-  arrow.classList.toggle("open");
+// ---- AL/NL team IDs ----
+var AL_TEAMS = [110,111,147,139,141,114,116,118,142,145,117,133,108,136,140];
+var NL_TEAMS = [144,112,113,134,158,109,119,137,146,121,143,138,135,115,120];
+
+function logoImg(teamId, size) {
+  size = size || 14;
+  return "<img src='https://www.mlbstatic.com/team-logos/" + teamId + ".svg' style='width:" + size + "px;height:" + size + "px;vertical-align:middle;margin-right:3px;' onerror='this.style.display=\"none\"'>";
 }
 
-function toggleSub(bodyId, arrowId) {
-  var body = document.getElementById(bodyId);
-  var arrow = document.getElementById(arrowId);
-  body.classList.toggle("open");
-  arrow.classList.toggle("open");
+function getLocalDateStr() {
+  var now = new Date();
+  return [now.getFullYear(), String(now.getMonth()+1).padStart(2,"0"), String(now.getDate()).padStart(2,"0")].join("-");
 }
 
 function pretty(dateStr) {
@@ -256,196 +295,17 @@ function pretty(dateStr) {
   return d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
 }
 
-function getLocalDateStr() {
-  var now = new Date();
-  return [
-    now.getFullYear(),
-    String(now.getMonth() + 1).padStart(2, "0"),
-    String(now.getDate()).padStart(2, "0")
-  ].join("-");
-}
-
-function logoImg(teamId) {
-  return "<img src='https://www.mlbstatic.com/team-logos/" + teamId + ".svg' style='width:16px;height:16px;vertical-align:middle;margin-right:3px;' onerror='this.style.display=\"none\"'>";
-}
-
-async function loadYesterdayGames() {
-  var container = document.getElementById("yesterday-container");
-  var dates;
-  try {
-    var res = await fetch("/mlb-boxscores/data/index.json?t=" + Date.now());
-    if (!res.ok) throw new Error("Failed: " + res.status);
-    dates = await res.json();
-    if (!dates.length) { container.innerHTML = "<div style='padding:12px;color:#aaa;font-size:0.85em;'>No data.</div>"; return; }
-  } catch (e) {
-    container.innerHTML = "<div style='padding:12px;color:#c00;font-size:0.85em;'>Error loading.</div>";
-    return;
-  }
-
-  var date = dates.slice().sort().reverse()[0];
-  document.getElementById("yesterdayLabel").textContent = pretty(date);
-
-  var games;
-  try {
-    var res2 = await fetch("/mlb-boxscores/data/boxscores-" + date + ".json?t=" + Date.now());
-    if (!res2.ok) throw new Error("Failed: " + res2.status);
-    games = await res2.json();
-  } catch (e) {
-    container.innerHTML = "<div style='padding:12px;color:#c00;font-size:0.85em;'>Error loading.</div>";
-    return;
-  }
-
-  if (!games.length) { container.innerHTML = "<div style='padding:12px;color:#aaa;font-size:0.85em;'>No games.</div>"; return; }
-
-  var html = "";
-  for (var i = 0; i < games.length; i++) {
-    var g = games[i];
-    var awayWon = g.awayScore > g.homeScore;
-    var homeWon = g.homeScore > g.awayScore;
-    var link = "/mlb-boxscores/game.html?gamePk=" + g.gamePk;
-    var awayLogo = g.awayId ? logoImg(g.awayId) : "";
-    var homeLogo = g.homeId ? logoImg(g.homeId) : "";
-    var awayStr = awayWon ? "<strong>" + awayLogo + g.away + " " + g.awayScore + "</strong>" : awayLogo + g.away + " " + g.awayScore;
-    var homeStr = homeWon ? "<strong>" + homeLogo + g.home + " " + g.homeScore + "</strong>" : homeLogo + g.home + " " + g.homeScore;
-    html += "<div class=\"games-list-item\"><a href='" + link + "'>" + awayStr + "<br>" + homeStr + "</a></div>";
-  }
-  container.innerHTML = html;
-}
-
-async function loadTodayGames() {
-  var container = document.getElementById("today-container");
-  var today = getLocalDateStr();
-  document.getElementById("todayLabel").textContent = pretty(today);
-
-  try {
-    var res = await fetch("https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=" + today + "&hydrate=linescore");
-    var data = await res.json();
-    var games = data.dates && data.dates[0] ? data.dates[0].games : [];
-
-    if (!games.length) {
-      container.innerHTML = "<div style='padding:12px;color:#aaa;font-size:0.85em;'>No games today.</div>";
-      return;
-    }
-
-    var html = "";
-    for (var i = 0; i < games.length; i++) {
-      var g = games[i];
-      var gamePk = g.gamePk;
-      var away = g.teams.away.team.name;
-      var home = g.teams.home.team.name;
-      var awayId = g.teams.away.team.id;
-      var homeId = g.teams.home.team.id;
-      var status = g.status.abstractGameState;
-      var gameLink = "https://www.mlb.com/gameday/" + gamePk;
-      var awayScore = g.teams.away.score !== undefined ? g.teams.away.score : null;
-      var homeScore = g.teams.home.score !== undefined ? g.teams.home.score : null;
-      var awayLogo = logoImg(awayId);
-      var homeLogo = logoImg(homeId);
-      var awayLine = "";
-      var homeLine = "";
-      var badge = "";
-
-      if (status === "Final") {
-        var awayWon = awayScore > homeScore;
-        var homeWon = homeScore > awayScore;
-        awayLine = awayWon ? "<strong>" + awayLogo + away + " " + awayScore + "</strong>" : awayLogo + away + " " + awayScore;
-        homeLine = homeWon ? "<strong>" + homeLogo + home + " " + homeScore + "</strong>" : homeLogo + home + " " + homeScore;
-        badge = "<span class=\"game-final\">Final</span>";
-      } else if (status === "Live") {
-        var inning = g.linescore ? (g.linescore.isTopInning ? "Top " : "Bot ") + g.linescore.currentInning : "";
-        awayLine = awayLogo + away + " " + (awayScore !== null ? awayScore : "0");
-        homeLine = homeLogo + home + " " + (homeScore !== null ? homeScore : "0");
-        badge = "<span class=\"game-live\">LIVE " + inning + "</span>";
-      } else {
-        var gameTime = "";
-        if (g.gameDate) {
-          var d = new Date(g.gameDate);
-          gameTime = d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
-        }
-        awayLine = awayLogo + away;
-        homeLine = homeLogo + home;
-        badge = "<span class=\"game-time\">" + gameTime + "</span>";
-      }
-
-      html += "<div class=\"games-list-item\">";
-      html += "<a href='" + gameLink + "' target='_blank'>" + awayLine + "<br>" + homeLine + "</a> " + badge;
-      html += "</div>";
-    }
-    container.innerHTML = html;
-  } catch(e) {
-    container.innerHTML = "<div style='padding:12px;color:#c00;font-size:0.85em;'>Could not load.</div>";
-  }
-}
-
-document.getElementById("teamModal").addEventListener("click", function(e) {
-  if (e.target === this) closeTeamModal();
-});
-
-function closeTeamModal() {
-  document.getElementById("teamModal").classList.remove("open");
-}
-
-function makeStatRow(label, value) {
-  return "<div class=\"modal-stat-row\"><span class=\"modal-stat-label\">" + label + "</span><span class=\"modal-stat-value\">" + value + "</span></div>";
-}
-
-async function showTeam(teamId, teamName, wins, losses, pct, lastTen) {
-  var logoEl = document.getElementById("modalTeamLogo");
-  logoEl.src = "https://www.mlbstatic.com/team-logos/" + teamId + ".svg";
-  logoEl.style.display = "block";
-  document.getElementById("modalTeamName").textContent = teamName;
-  document.getElementById("modalTeamRecord").textContent = wins + "-" + losses;
-  document.getElementById("modalTeamBody").innerHTML = "<div class=\"modal-loading\">Loading...</div>";
-  document.getElementById("teamModal").classList.add("open");
-
-  var html = "";
-  html += makeStatRow("Record", wins + "-" + losses);
-  html += makeStatRow("PCT", pct);
-  html += makeStatRow("Last 10", lastTen);
-
-  try {
-    var indexRes = await fetch("/mlb-boxscores/data/index.json?t=" + Date.now());
-    var dates = await indexRes.json();
-    dates = dates.slice().sort().reverse();
-    var foundGame = null;
-    for (var i = 0; i < dates.length; i++) {
-      var res = await fetch("/mlb-boxscores/data/boxscores-" + dates[i] + ".json?t=" + Date.now());
-      var games = await res.json();
-      for (var j = 0; j < games.length; j++) {
-        var g = games[j];
-        if (g.awayId === teamId || g.homeId === teamId) { foundGame = g; break; }
-      }
-      if (foundGame) break;
-    }
-
-    if (foundGame) {
-      var awayWon = foundGame.awayScore > foundGame.homeScore;
-      var homeWon = foundGame.homeScore > foundGame.awayScore;
-      var awayStr = awayWon ? "<strong>" + foundGame.away + " " + foundGame.awayScore + "</strong>" : foundGame.away + " " + foundGame.awayScore;
-      var homeStr = homeWon ? "<strong>" + foundGame.home + " " + foundGame.homeScore + "</strong>" : foundGame.home + " " + foundGame.homeScore;
-      html += "<div class=\"modal-section-title\">Latest Game</div>";
-      html += "<div style='padding:6px 0;'><a href='/mlb-boxscores/game.html?gamePk=" + foundGame.gamePk + "' style='color:#003087;text-decoration:none;'>" + awayStr + " — " + homeStr + "</a></div>";
-    }
-  } catch(e) {}
-
-  document.getElementById("modalTeamBody").innerHTML = html;
-}
-
+// ---- STANDINGS ----
 async function loadStandings() {
-  var container = document.getElementById("standings-container");
   var divisionNames = { 200: "AL West", 201: "AL East", 202: "AL Central", 203: "NL West", 204: "NL East", 205: "NL Central" };
   var alOrder = [201, 202, 200];
   var nlOrder = [204, 205, 203];
 
   try {
     var res = await fetch("https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason");
-    if (!res.ok) throw new Error("Failed: " + res.status);
     var data = await res.json();
-
     var recMap = {};
-    for (var i = 0; i < data.records.length; i++) {
-      recMap[data.records[i].division.id] = data.records[i];
-    }
+    data.records.forEach(function(r) { recMap[r.division.id] = r; });
 
     function getRecord(splits, type) {
       if (!splits) return "0-0";
@@ -455,54 +315,138 @@ async function loadStandings() {
       return "0-0";
     }
 
-    function buildDivisions(divOrder) {
-      var html = "<div class=\"standings-grid\">";
-      for (var i = 0; i < divOrder.length; i++) {
-        var rec = recMap[divOrder[i]];
-        if (!rec) continue;
-        var divName = divisionNames[divOrder[i]] || ("Division " + divOrder[i]);
-        var teams = rec.teamRecords.slice().sort(function(a, b) {
-          return parseFloat(b.winningPercentage) - parseFloat(a.winningPercentage);
-        });
-        html += "<div class=\"division-block\"><h3>" + divName + "</h3>";
-        html += "<div class=\"scroll-x\"><table class=\"standings-table\"><thead><tr>";
-        html += "<th>Team</th><th class=\"num\">W</th><th class=\"num\">L</th><th class=\"num\">PCT</th><th class=\"num\">GB</th><th class=\"num\">L10</th><th class=\"num\">Strk</th>";
+    function buildDivGrid(divOrder) {
+      var html = "";
+      divOrder.forEach(function(divId) {
+        var rec = recMap[divId];
+        if (!rec) return;
+        var teams = rec.teamRecords.slice().sort(function(a,b) { return parseFloat(b.winningPercentage) - parseFloat(a.winningPercentage); });
+        html += "<div class=\"division-card\">";
+        html += "<div class=\"division-title\">" + (divisionNames[divId] || "") + "</div>";
+        html += "<div style='overflow-x:auto;'><table class=\"div-table\"><thead><tr>";
+        html += "<th class=\"left\">Team</th><th>W</th><th>L</th><th>PCT</th><th>GB</th><th>L10</th><th>Strk</th>";
         html += "</tr></thead><tbody>";
-
-        for (var j = 0; j < teams.length; j++) {
-          var t = teams[j];
-          var gb = t.gamesBack === "-" ? "-" : t.gamesBack;
-          var streak = t.streak && t.streak.streakCode ? t.streak.streakCode : "-";
-          var logoUrl = "https://www.mlbstatic.com/team-logos/" + t.team.id + ".svg";
+        teams.forEach(function(t) {
           var w = t.leagueRecord ? t.leagueRecord.wins : t.wins;
           var l = t.leagueRecord ? t.leagueRecord.losses : t.losses;
           var pct = t.winningPercentage || ".000";
+          var gb = t.gamesBack === "-" ? "-" : t.gamesBack;
+          var streak = t.streak && t.streak.streakCode ? t.streak.streakCode : "-";
           var splits = t.records ? t.records.splitRecords : null;
           var lastTen = getRecord(splits, "lastTen");
-
-          html += "<tr><td>";
-          html += "<img class=\"team-logo\" src=\"" + logoUrl + "\" alt=\"\" onerror=\"this.style.display='none'\">";
-          html += "<a class=\"team-link\" onclick=\"showTeam(" + t.team.id + ", '" + t.team.name.replace(/'/g, "\\'") + "', " + w + ", " + l + ", '" + pct + "', '" + lastTen + "')\">" + t.team.name + "</a>";
-          html += "</td>";
-          html += "<td class=\"num\">" + w + "</td><td class=\"num\">" + l + "</td><td class=\"num\">" + pct + "</td><td class=\"num\">" + gb + "</td><td class=\"num\">" + lastTen + "</td><td class=\"num\">" + streak + "</td>";
-          html += "</tr>";
-        }
+          html += "<tr><td class=\"left\">";
+          html += logoImg(t.team.id, 14);
+          html += "<a class=\"team-link\" onclick=\"showTeam(" + t.team.id + ",'" + t.team.name.replace(/'/g,"\\'") + "'," + w + "," + l + ",'" + pct + "','" + lastTen + "')\">" + t.team.name + "</a>";
+          html += "</td><td>" + w + "</td><td>" + l + "</td><td>" + pct + "</td><td>" + gb + "</td><td>" + lastTen + "</td><td>" + streak + "</td></tr>";
+        });
         html += "</tbody></table></div></div>";
-      }
-      html += "</div>";
+      });
       return html;
     }
 
-    var html = "";
-    html += "<div class=\"sub-collapsible\"><div class=\"sub-collapsible-header\" onclick=\"toggleSub('al-body','al-arrow')\"><span>American League</span><span class=\"sub-collapsible-arrow open\" id=\"al-arrow\">&#9660;</span></div><div class=\"sub-collapsible-body open\" id=\"al-body\">" + buildDivisions(alOrder) + "</div></div>";
-    html += "<div class=\"sub-collapsible\"><div class=\"sub-collapsible-header\" onclick=\"toggleSub('nl-body','nl-arrow')\"><span>National League</span><span class=\"sub-collapsible-arrow open\" id=\"nl-arrow\">&#9660;</span></div><div class=\"sub-collapsible-body open\" id=\"nl-body\">" + buildDivisions(nlOrder) + "</div></div>";
-    container.innerHTML = html;
-
-  } catch (e) {
-    container.innerHTML = "Error loading standings: " + e.message;
+    document.getElementById("al-standings-grid").innerHTML = buildDivGrid(alOrder);
+    document.getElementById("nl-standings-grid").innerHTML = buildDivGrid(nlOrder);
+  } catch(e) {
+    document.getElementById("al-standings-grid").innerHTML = "<div class='loading-state'>Error loading.</div>";
+    document.getElementById("nl-standings-grid").innerHTML = "<div class='loading-state'>Error loading.</div>";
   }
 }
 
+// ---- SCORES ----
+var allYesterdayGames = [];
+
+async function loadYesterdayScores() {
+  try {
+    var res = await fetch("/mlb-boxscores/data/index.json?t=" + Date.now());
+    var dates = await res.json();
+    if (!dates.length) return;
+    var date = dates.slice().sort().reverse()[0];
+    var res2 = await fetch("/mlb-boxscores/data/boxscores-" + date + ".json?t=" + Date.now());
+    allYesterdayGames = await res2.json();
+
+    var alGames = allYesterdayGames.filter(function(g) { return AL_TEAMS.indexOf(g.awayId) !== -1 || AL_TEAMS.indexOf(g.homeId) !== -1; });
+    var nlGames = allYesterdayGames.filter(function(g) { return NL_TEAMS.indexOf(g.awayId) !== -1 || NL_TEAMS.indexOf(g.homeId) !== -1; });
+
+    document.getElementById("al-scores-grid").innerHTML = buildScoreCards(alGames);
+    document.getElementById("nl-scores-grid").innerHTML = buildScoreCards(nlGames);
+  } catch(e) {
+    document.getElementById("al-scores-grid").innerHTML = "<div class='loading-state'>Error loading.</div>";
+    document.getElementById("nl-scores-grid").innerHTML = "<div class='loading-state'>Error loading.</div>";
+  }
+}
+
+function buildScoreCards(games) {
+  if (!games.length) return "<div class='loading-state'>No games.</div>";
+  var html = "";
+  games.forEach(function(g) {
+    var awayWon = g.awayScore > g.homeScore;
+    var homeWon = g.homeScore > g.awayScore;
+    var awayStr = awayWon ? "<strong>" + logoImg(g.awayId) + g.away + " " + g.awayScore + "</strong>" : logoImg(g.awayId) + g.away + " " + g.awayScore;
+    var homeStr = homeWon ? "<strong>" + logoImg(g.homeId) + g.home + " " + g.homeScore + "</strong>" : logoImg(g.homeId) + g.home + " " + g.homeScore;
+    html += "<a class=\"game-card\" href='/mlb-boxscores/game.html?gamePk=" + g.gamePk + "'>" + awayStr + "<br>" + homeStr + "</a>";
+  });
+  return html;
+}
+
+// ---- TODAY'S SCHEDULE ----
+async function loadTodaySchedule() {
+  var today = getLocalDateStr();
+  try {
+    var res = await fetch("https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=" + today + "&hydrate=linescore");
+    var data = await res.json();
+    var games = data.dates && data.dates[0] ? data.dates[0].games : [];
+
+    var alGames = games.filter(function(g) { return AL_TEAMS.indexOf(g.teams.away.team.id) !== -1 || AL_TEAMS.indexOf(g.teams.home.team.id) !== -1; });
+    var nlGames = games.filter(function(g) { return NL_TEAMS.indexOf(g.teams.away.team.id) !== -1 || NL_TEAMS.indexOf(g.teams.home.team.id) !== -1; });
+
+    document.getElementById("al-schedule-grid").innerHTML = buildScheduleCards(alGames);
+    document.getElementById("nl-schedule-grid").innerHTML = buildScheduleCards(nlGames);
+  } catch(e) {
+    document.getElementById("al-schedule-grid").innerHTML = "<div class='loading-state'>Error loading.</div>";
+    document.getElementById("nl-schedule-grid").innerHTML = "<div class='loading-state'>Error loading.</div>";
+  }
+}
+
+function buildScheduleCards(games) {
+  if (!games.length) return "<div class='loading-state'>No games today.</div>";
+  var html = "";
+  games.forEach(function(g) {
+    var awayId = g.teams.away.team.id;
+    var homeId = g.teams.home.team.id;
+    var away = g.teams.away.team.name;
+    var home = g.teams.home.team.name;
+    var status = g.status.abstractGameState;
+    var awayScore = g.teams.away.score;
+    var homeScore = g.teams.home.score;
+    var gameLink = "https://www.mlb.com/gameday/" + g.gamePk;
+    var awayLine = logoImg(awayId) + away;
+    var homeLine = logoImg(homeId) + home;
+    var badge = "";
+
+    if (status === "Final") {
+      var aw = awayScore > homeScore;
+      var hw = homeScore > awayScore;
+      awayLine = aw ? "<strong>" + logoImg(awayId) + away + " " + awayScore + "</strong>" : logoImg(awayId) + away + " " + awayScore;
+      homeLine = hw ? "<strong>" + logoImg(homeId) + home + " " + homeScore + "</strong>" : logoImg(homeId) + home + " " + homeScore;
+      badge = "<span class='game-final'>Final</span>";
+    } else if (status === "Live") {
+      var inning = g.linescore ? (g.linescore.isTopInning ? "Top " : "Bot ") + g.linescore.currentInning : "";
+      awayLine = logoImg(awayId) + away + " " + (awayScore !== undefined ? awayScore : 0);
+      homeLine = logoImg(homeId) + home + " " + (homeScore !== undefined ? homeScore : 0);
+      badge = "<span class='game-live'>LIVE " + inning + "</span>";
+    } else {
+      if (g.gameDate) {
+        var d = new Date(g.gameDate);
+        badge = "<span class='game-time'>" + d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }) + "</span>";
+      }
+    }
+
+    html += "<a class=\"game-card\" href='" + gameLink + "' target='_blank'>" + awayLine + "<br>" + homeLine + "<br>" + badge + "</a>";
+  });
+  return html;
+}
+
+// ---- LEADERS ----
 var hittingStats = [
   { label: "Batting Avg", stat: "avg" },
   { label: "Home Runs", stat: "homeRuns" },
@@ -520,63 +464,107 @@ async function fetchLeaders(stat, leagueId) {
   var data = await res.json();
   var leaders = (data.leagueLeaders && data.leagueLeaders[0] && data.leagueLeaders[0].leaders) ? data.leagueLeaders[0].leaders : [];
   if (stat === "era") {
-    leaders.sort(function(a, b) { return parseFloat(a.value) - parseFloat(b.value); });
+    leaders.sort(function(a,b) { return parseFloat(a.value) - parseFloat(b.value); });
   } else {
-    leaders.sort(function(a, b) { return parseFloat(b.value) - parseFloat(a.value); });
+    leaders.sort(function(a,b) { return parseFloat(b.value) - parseFloat(a.value); });
   }
   return leaders.slice(0, 5);
 }
 
 function buildLeaderCard(label, leaders) {
   var html = "<div class=\"leader-card\"><div class=\"leader-card-title\">" + label + "</div>";
-  for (var i = 0; i < leaders.length; i++) {
-    var p = leaders[i];
+  leaders.forEach(function(p, i) {
     var personId = p.person && p.person.id ? p.person.id : "";
     var teamId = p.team && p.team.id ? p.team.id : "";
     var name = p.person && p.person.fullName ? p.person.fullName : "Unknown";
     html += "<div class=\"leader-row\">";
-    html += "<span class=\"leader-rank\">" + (i + 1) + "</span>";
+    html += "<span class=\"leader-rank\">" + (i+1) + "</span>";
     if (personId) html += "<img class=\"headshot\" src=\"https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/" + personId + "/headshot/67/current\" onerror=\"this.style.display='none'\">";
     html += "<span class=\"leader-name\">" + name + (teamId ? " <img class=\"tlogo\" src=\"https://www.mlbstatic.com/team-logos/" + teamId + ".svg\" onerror=\"this.style.display='none'\">" : "") + "</span>";
     html += "<span class=\"leader-value\">" + (p.value !== undefined ? p.value : "-") + "</span>";
     html += "</div>";
-  }
+  });
   html += "</div>";
   return html;
 }
 
-async function buildLeagueLeaders(leagueId, bodyId) {
-  var html = "<div class=\"leaders-group-title\">Hitting</div><div class=\"leaders-grid\">";
-  for (var hi = 0; hi < hittingStats.length; hi++) {
-    html += buildLeaderCard(hittingStats[hi].label, await fetchLeaders(hittingStats[hi].stat, leagueId));
-  }
-  html += "</div><div class=\"leaders-group-title\">Pitching</div><div class=\"leaders-grid\">";
-  for (var pi = 0; pi < pitchingStats.length; pi++) {
-    html += buildLeaderCard(pitchingStats[pi].label, await fetchLeaders(pitchingStats[pi].stat, leagueId));
-  }
-  html += "</div>";
-  document.getElementById(bodyId).innerHTML = html;
-}
-
-async function loadLeaders() {
-  var container = document.getElementById("leaders-container");
-  var html = "";
-  html += "<div class=\"sub-collapsible\"><div class=\"sub-collapsible-header\" onclick=\"toggleSub('al-leaders-body','al-leaders-arrow')\"><span>American League</span><span class=\"sub-collapsible-arrow open\" id=\"al-leaders-arrow\">&#9660;</span></div><div class=\"sub-collapsible-body open\" id=\"al-leaders-body\"><div class=\"modal-loading\">Loading...</div></div></div>";
-  html += "<div class=\"sub-collapsible\"><div class=\"sub-collapsible-header\" onclick=\"toggleSub('nl-leaders-body','nl-leaders-arrow')\"><span>National League</span><span class=\"sub-collapsible-arrow open\" id=\"nl-leaders-arrow\">&#9660;</span></div><div class=\"sub-collapsible-body open\" id=\"nl-leaders-body\"><div class=\"modal-loading\">Loading...</div></div></div>";
-  container.innerHTML = html;
+async function loadLeaders(leagueId, battingGridId, pitchingGridId) {
   try {
-    await buildLeagueLeaders(103, "al-leaders-body");
-    await buildLeagueLeaders(104, "nl-leaders-body");
-  } catch (e) {
-    container.innerHTML = "Error loading leaders: " + e.message;
+    var battingHtml = "";
+    for (var hi = 0; hi < hittingStats.length; hi++) {
+      var leaders = await fetchLeaders(hittingStats[hi].stat, leagueId);
+      battingHtml += buildLeaderCard(hittingStats[hi].label, leaders);
+    }
+    document.getElementById(battingGridId).innerHTML = battingHtml;
+
+    var pitchingHtml = "";
+    for (var pi = 0; pi < pitchingStats.length; pi++) {
+      var pleaders = await fetchLeaders(pitchingStats[pi].stat, leagueId);
+      pitchingHtml += buildLeaderCard(pitchingStats[pi].label, pleaders);
+    }
+    document.getElementById(pitchingGridId).innerHTML = pitchingHtml;
+  } catch(e) {
+    document.getElementById(battingGridId).innerHTML = "<div class='loading-state'>Error loading.</div>";
+    document.getElementById(pitchingGridId).innerHTML = "<div class='loading-state'>Error loading.</div>";
   }
 }
 
+// ---- TEAM MODAL ----
+document.getElementById("teamModal").addEventListener("click", function(e) {
+  if (e.target === this) closeTeamModal();
+});
+
+function closeTeamModal() {
+  document.getElementById("teamModal").classList.remove("open");
+}
+
+function makeStatRow(label, value) {
+  return "<div class=\"modal-stat-row\"><span class=\"modal-stat-label\">" + label + "</span><span class=\"modal-stat-value\">" + value + "</span></div>";
+}
+
+async function showTeam(teamId, teamName, wins, losses, pct, lastTen) {
+  document.getElementById("modalTeamLogo").src = "https://www.mlbstatic.com/team-logos/" + teamId + ".svg";
+  document.getElementById("modalTeamName").textContent = teamName;
+  document.getElementById("modalTeamRecord").textContent = wins + "-" + losses;
+  document.getElementById("modalTeamBody").innerHTML = "<div class=\"modal-loading\">Loading...</div>";
+  document.getElementById("teamModal").classList.add("open");
+
+  var html = makeStatRow("Record", wins + "-" + losses) + makeStatRow("PCT", pct) + makeStatRow("Last 10", lastTen);
+
+  try {
+    var indexRes = await fetch("/mlb-boxscores/data/index.json?t=" + Date.now());
+    var dates = await indexRes.json();
+    dates = dates.slice().sort().reverse();
+    var foundGame = null;
+    for (var i = 0; i < dates.length; i++) {
+      var res = await fetch("/mlb-boxscores/data/boxscores-" + dates[i] + ".json?t=" + Date.now());
+      var games = await res.json();
+      for (var j = 0; j < games.length; j++) {
+        if (games[j].awayId === teamId || games[j].homeId === teamId) { foundGame = games[j]; break; }
+      }
+      if (foundGame) break;
+    }
+    if (foundGame) {
+      var awayWon = foundGame.awayScore > foundGame.homeScore;
+      var homeWon = foundGame.homeScore > foundGame.awayScore;
+      var awayStr = awayWon ? "<strong>" + foundGame.away + " " + foundGame.awayScore + "</strong>" : foundGame.away + " " + foundGame.awayScore;
+      var homeStr = homeWon ? "<strong>" + foundGame.home + " " + foundGame.homeScore + "</strong>" : foundGame.home + " " + foundGame.homeScore;
+      html += "<div class=\"modal-section-title\">Latest Game</div>";
+      html += "<div style='padding:6px 0;'><a href='/mlb-boxscores/game.html?gamePk=" + foundGame.gamePk + "' style='color:#003087;text-decoration:none;'>" + awayStr + " — " + homeStr + "</a></div>";
+    }
+  } catch(e) {}
+
+  document.getElementById("modalTeamBody").innerHTML = html;
+}
+
+// ---- INIT ----
 loadStandings();
-loadYesterdayGames();
-loadTodayGames();
-loadLeaders();
-setInterval(loadTodayGames, 300000);
+loadYesterdayScores();
+loadTodaySchedule();
+loadLeaders(103, "al-batting-grid", "al-pitching-grid");
+loadLeaders(104, "nl-batting-grid", "nl-pitching-grid");
+
+setInterval(loadTodaySchedule, 300000);
 </script>
 </body>
 </html>
