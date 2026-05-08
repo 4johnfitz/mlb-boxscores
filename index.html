@@ -3,19 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>MLB Boxscores</title>
+  <title>That Baseball Site</title>
   <style>
     * { box-sizing: border-box; }
     body { font-family: Arial, sans-serif; margin: 0; padding: 12px; background: #f9f9f9; color: #111; font-size: 15px; }
     h1, h2 { margin-bottom: 10px; }
 
-    /* JUMP NAV */
+    .site-hero {
+      text-align: center;
+      padding: 28px 16px 20px;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 16px;
+    }
+    .site-title {
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
+      font-weight: 900;
+      color: #003087;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .site-tagline {
+      font-size: 0.95em;
+      color: #888;
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+    .site-about {
+      font-size: 0.85em;
+      color: #555;
+      max-width: 480px;
+      margin: 0 auto 20px;
+      line-height: 1.65;
+    }
     .jump-nav {
       display: flex;
       gap: 8px;
-      margin-bottom: 16px;
-      border-bottom: 2px solid #e0e0e0;
-      padding-bottom: 10px;
+      justify-content: center;
       flex-wrap: wrap;
     }
     .jump-nav a {
@@ -23,7 +47,7 @@
       color: #003087;
       font-weight: bold;
       font-size: 0.85em;
-      padding: 6px 14px;
+      padding: 7px 18px;
       border-radius: 20px;
       background: white;
       border: 1px solid #ddd;
@@ -31,7 +55,6 @@
     }
     .jump-nav a:hover { background: #003087; color: white; }
 
-    /* COLLAPSIBLE */
     .collapsible-section { margin-bottom: 16px; }
     .collapsible-header {
       display: flex;
@@ -52,7 +75,6 @@
     .collapsible-body { display: none; padding-top: 12px; }
     .collapsible-body.open { display: block; }
 
-    /* SUB-COLLAPSIBLE */
     .sub-collapsible { margin-bottom: 12px; }
     .sub-collapsible-header {
       display: flex;
@@ -73,12 +95,7 @@
     .sub-collapsible-body { display: none; padding-top: 10px; }
     .sub-collapsible-body.open { display: block; }
 
-    /* STANDINGS */
-    .standings-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
+    .standings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     @media (max-width: 800px) { .standings-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 500px) { .standings-grid { grid-template-columns: 1fr; } }
 
@@ -93,13 +110,7 @@
     .team-link { color: #003087; text-decoration: none; border-bottom: 1px dotted #003087; cursor: pointer; font-size: 0.85em; }
     .team-link:hover { color: #0055aa; }
 
-    /* GAMES */
-    .games-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 8px;
-    }
+    .games-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 8px; }
     @media (max-width: 600px) { .games-columns { grid-template-columns: 1fr; } }
 
     .games-col h2 { font-size: 0.95em; color: #003087; margin-bottom: 8px; }
@@ -116,13 +127,8 @@
     .game-live { font-size: 0.72em; color: #c41e1e; font-weight: bold; }
     .game-final { font-size: 0.72em; color: #888; }
 
-    /* LEADERS */
     .leaders-group-title { font-size: 0.78em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em; color: #555; margin: 14px 0 6px; }
-    .leaders-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
+    .leaders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     @media (max-width: 700px) { .leaders-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 400px) { .leaders-grid { grid-template-columns: 1fr; } }
 
@@ -135,7 +141,6 @@
     .leader-value { font-weight: bold; color: #003087; min-width: 32px; text-align: right; flex-shrink: 0; }
     .leader-rank { color: #aaa; font-size: 0.85em; min-width: 14px; flex-shrink: 0; }
 
-    /* MODAL */
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.45); z-index: 100; align-items: center; justify-content: center; padding: 16px; }
     .modal-overlay.open { display: flex; }
     .modal { background: white; border-radius: 10px; width: 100%; max-width: 420px; max-height: 90vh; overflow-y: auto; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
@@ -154,20 +159,22 @@
     .modal-loading { color: #aaa; text-align: center; padding: 20px 0; }
 
     section { margin-bottom: 20px; }
-
-    /* UTILITY */
     .scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
 
-<div class="jump-nav">
-  <a href="#standings">Standings</a>
-  <a href="#games">Scores</a>
-  <a href="#leaders">Leaders</a>
+<div class="site-hero">
+  <div class="site-title">That Baseball Site</div>
+  <div class="site-tagline">Baseball. Simplified.</div>
+  <div class="site-about">No ads. No autoplay. No noise. Just scores, standings, and leaders — for old-school fans, kids, and anyone who finds the game more enjoyable without the chaos.</div>
+  <nav class="jump-nav">
+    <a href="#standings">Standings</a>
+    <a href="#games">Scores</a>
+    <a href="#leaders">Leaders</a>
+  </nav>
 </div>
 
-<!-- STANDINGS -->
 <section id="standings">
   <div class="collapsible-section">
     <div class="collapsible-header" onclick="toggleSection('standings-body', 'standings-arrow')">
@@ -180,14 +187,13 @@
   </div>
 </section>
 
-<!-- SCORES -->
 <section id="games">
   <div class="collapsible-section">
     <div class="collapsible-header" onclick="toggleSection('games-body', 'games-arrow')">
       <h2>Scores</h2>
-      <span class="collapsible-arrow" id="games-arrow">&#9660;</span>
+      <span class="collapsible-arrow open" id="games-arrow">&#9660;</span>
     </div>
-    <div class="collapsible-body" id="games-body">
+    <div class="collapsible-body open" id="games-body">
       <div class="games-columns">
         <div class="games-col">
           <h2>Yesterday <span class="col-date" id="yesterdayLabel"></span></h2>
@@ -202,20 +208,18 @@
   </div>
 </section>
 
-<!-- LEADERS -->
 <section id="leaders">
   <div class="collapsible-section">
     <div class="collapsible-header" onclick="toggleSection('leaders-body', 'leaders-arrow')">
       <h2>League Leaders</h2>
-      <span class="collapsible-arrow" id="leaders-arrow">&#9660;</span>
+      <span class="collapsible-arrow open" id="leaders-arrow">&#9660;</span>
     </div>
-    <div class="collapsible-body" id="leaders-body">
+    <div class="collapsible-body open" id="leaders-body">
       <div id="leaders-container">Loading leaders...</div>
     </div>
   </div>
 </section>
 
-<!-- TEAM MODAL -->
 <div class="modal-overlay" id="teamModal">
   <div class="modal">
     <div class="modal-header">
@@ -265,7 +269,6 @@ function logoImg(teamId) {
   return "<img src='https://www.mlbstatic.com/team-logos/" + teamId + ".svg' style='width:16px;height:16px;vertical-align:middle;margin-right:3px;' onerror='this.style.display=\"none\"'>";
 }
 
-// ---- YESTERDAY ----
 async function loadYesterdayGames() {
   var container = document.getElementById("yesterday-container");
   var dates;
@@ -304,14 +307,11 @@ async function loadYesterdayGames() {
     var homeLogo = g.homeId ? logoImg(g.homeId) : "";
     var awayStr = awayWon ? "<strong>" + awayLogo + g.away + " " + g.awayScore + "</strong>" : awayLogo + g.away + " " + g.awayScore;
     var homeStr = homeWon ? "<strong>" + homeLogo + g.home + " " + g.homeScore + "</strong>" : homeLogo + g.home + " " + g.homeScore;
-    html += "<div class=\"games-list-item\">";
-    html += "<a href='" + link + "'>" + awayStr + "<br>" + homeStr + "</a>";
-    html += "</div>";
+    html += "<div class=\"games-list-item\"><a href='" + link + "'>" + awayStr + "<br>" + homeStr + "</a></div>";
   }
   container.innerHTML = html;
 }
 
-// ---- TODAY ----
 async function loadTodayGames() {
   var container = document.getElementById("today-container");
   var today = getLocalDateStr();
@@ -341,10 +341,9 @@ async function loadTodayGames() {
       var homeScore = g.teams.home.score !== undefined ? g.teams.home.score : null;
       var awayLogo = logoImg(awayId);
       var homeLogo = logoImg(homeId);
-      var badge = "";
-
       var awayLine = "";
       var homeLine = "";
+      var badge = "";
 
       if (status === "Final") {
         var awayWon = awayScore > homeScore;
@@ -378,7 +377,6 @@ async function loadTodayGames() {
   }
 }
 
-// ---- TEAM MODAL ----
 document.getElementById("teamModal").addEventListener("click", function(e) {
   if (e.target === this) closeTeamModal();
 });
@@ -433,7 +431,6 @@ async function showTeam(teamId, teamName, wins, losses, pct, lastTen) {
   document.getElementById("modalTeamBody").innerHTML = html;
 }
 
-// ---- STANDINGS ----
 async function loadStandings() {
   var container = document.getElementById("standings-container");
   var divisionNames = { 200: "AL West", 201: "AL East", 202: "AL Central", 203: "NL West", 204: "NL East", 205: "NL Central" };
@@ -467,8 +464,7 @@ async function loadStandings() {
         var teams = rec.teamRecords.slice().sort(function(a, b) {
           return parseFloat(b.winningPercentage) - parseFloat(a.winningPercentage);
         });
-        html += "<div class=\"division-block\">";
-        html += "<h3>" + divName + "</h3>";
+        html += "<div class=\"division-block\"><h3>" + divName + "</h3>";
         html += "<div class=\"scroll-x\"><table class=\"standings-table\"><thead><tr>";
         html += "<th>Team</th><th class=\"num\">W</th><th class=\"num\">L</th><th class=\"num\">PCT</th><th class=\"num\">GB</th><th class=\"num\">L10</th><th class=\"num\">Strk</th>";
         html += "</tr></thead><tbody>";
@@ -488,12 +484,7 @@ async function loadStandings() {
           html += "<img class=\"team-logo\" src=\"" + logoUrl + "\" alt=\"\" onerror=\"this.style.display='none'\">";
           html += "<a class=\"team-link\" onclick=\"showTeam(" + t.team.id + ", '" + t.team.name.replace(/'/g, "\\'") + "', " + w + ", " + l + ", '" + pct + "', '" + lastTen + "')\">" + t.team.name + "</a>";
           html += "</td>";
-          html += "<td class=\"num\">" + w + "</td>";
-          html += "<td class=\"num\">" + l + "</td>";
-          html += "<td class=\"num\">" + pct + "</td>";
-          html += "<td class=\"num\">" + gb + "</td>";
-          html += "<td class=\"num\">" + lastTen + "</td>";
-          html += "<td class=\"num\">" + streak + "</td>";
+          html += "<td class=\"num\">" + w + "</td><td class=\"num\">" + l + "</td><td class=\"num\">" + pct + "</td><td class=\"num\">" + gb + "</td><td class=\"num\">" + lastTen + "</td><td class=\"num\">" + streak + "</td>";
           html += "</tr>";
         }
         html += "</tbody></table></div></div>";
@@ -512,7 +503,6 @@ async function loadStandings() {
   }
 }
 
-// ---- LEADERS ----
 var hittingStats = [
   { label: "Batting Avg", stat: "avg" },
   { label: "Home Runs", stat: "homeRuns" },
@@ -582,7 +572,6 @@ async function loadLeaders() {
   }
 }
 
-// ---- INIT ----
 loadStandings();
 loadYesterdayGames();
 loadTodayGames();
