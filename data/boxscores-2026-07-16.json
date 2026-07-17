@@ -1,0 +1,688 @@
+[
+  {
+    "gamePk": 823440,
+    "away": "New York Mets",
+    "home": "Philadelphia Phillies",
+    "awayId": 121,
+    "homeId": 143,
+    "awayScore": 4,
+    "homeScore": 1,
+    "state": "Final",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "New York Mets",
+        "innings": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          2,
+          0,
+          1
+        ],
+        "r": 4,
+        "h": 7,
+        "e": 1
+      },
+      "home": {
+        "name": "Philadelphia Phillies",
+        "innings": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "r": 1,
+        "h": 4,
+        "e": 1
+      }
+    },
+    "awayBatters": [
+      {
+        "id": 805999,
+        "name": "A.J. Ewing",
+        "pos": "CF",
+        "ab": 5,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 665742,
+        "name": "Juan Soto",
+        "pos": "LF",
+        "ab": 1,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 3,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 621438,
+        "name": "Tyrone Taylor",
+        "pos": "LF",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 666182,
+        "name": "Bo Bichette",
+        "pos": "3B",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 596019,
+        "name": "Francisco Lindor",
+        "pos": "SS",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 701807,
+        "name": "Carson Benge",
+        "pos": "RF",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 593871,
+        "name": "Jorge Polanco",
+        "pos": "DH",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 676724,
+        "name": "Jared Young",
+        "pos": "1B",
+        "ab": 2,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 2,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 683146,
+        "name": "Brett Baty",
+        "pos": "2B",
+        "ab": 4,
+        "r": 1,
+        "h": 2,
+        "rbi": 1,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 682626,
+        "name": "Francisco Alvarez",
+        "pos": "C",
+        "ab": 3,
+        "r": 2,
+        "h": 2,
+        "rbi": 2,
+        "bb": 1,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 681035,
+        "name": "Christian Scott",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 548384,
+        "name": "Brooks Raley",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 623211,
+        "name": "Huascar Brazobán",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 596133,
+        "name": "Luke Weaver",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 642207,
+        "name": "Devin Williams",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": null,
+        "name": "TOTALS",
+        "pos": "",
+        "ab": 32,
+        "r": 4,
+        "h": 7,
+        "rbi": 4,
+        "bb": 6,
+        "so": 8,
+        "avg": "",
+        "isTotal": true
+      }
+    ],
+    "homeBatters": [
+      {
+        "id": 607208,
+        "name": "Trea Turner",
+        "pos": "SS",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 656941,
+        "name": "Kyle Schwarber",
+        "pos": "DH",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 547180,
+        "name": "Bryce Harper",
+        "pos": "1B",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 669016,
+        "name": "Brandon Marsh",
+        "pos": "LF",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 664761,
+        "name": "Alec Bohm",
+        "pos": "3B",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 681082,
+        "name": "Bryson Stott",
+        "pos": "2B",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 592663,
+        "name": "J.T. Realmuto",
+        "pos": "C",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 687282,
+        "name": "Gabriel Rincones Jr.",
+        "pos": "RF",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 702222,
+        "name": "Justin Crawford",
+        "pos": "CF",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 605400,
+        "name": "Aaron Nola",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 680742,
+        "name": "Jonathan Bowlan",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 686751,
+        "name": "Seth Johnson",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": null,
+        "name": "TOTALS",
+        "pos": "",
+        "ab": 31,
+        "r": 1,
+        "h": 4,
+        "rbi": 1,
+        "bb": 1,
+        "so": 9,
+        "avg": "",
+        "isTotal": true
+      }
+    ],
+    "awayPitchers": [
+      {
+        "id": 681035,
+        "name": "Christian Scott",
+        "note": "W",
+        "ip": "5.2",
+        "h": 3,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 7,
+        "era": ""
+      },
+      {
+        "id": 548384,
+        "name": "Brooks Raley",
+        "note": "H",
+        "ip": "0.1",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 1,
+        "so": 1,
+        "era": ""
+      },
+      {
+        "id": 623211,
+        "name": "Huascar Brazobán",
+        "note": "H",
+        "ip": "1.0",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 0,
+        "era": ""
+      },
+      {
+        "id": 596133,
+        "name": "Luke Weaver",
+        "note": "H",
+        "ip": "1.0",
+        "h": 1,
+        "r": 1,
+        "er": 1,
+        "bb": 0,
+        "so": 0,
+        "era": ""
+      },
+      {
+        "id": 642207,
+        "name": "Devin Williams",
+        "note": "S",
+        "ip": "1.0",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 1,
+        "era": ""
+      }
+    ],
+    "homePitchers": [
+      {
+        "id": 605400,
+        "name": "Aaron Nola",
+        "note": "L",
+        "ip": "6.0",
+        "h": 6,
+        "r": 3,
+        "er": 3,
+        "bb": 4,
+        "so": 6,
+        "era": ""
+      },
+      {
+        "id": 680742,
+        "name": "Jonathan Bowlan",
+        "note": "",
+        "ip": "1.0",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 1,
+        "so": 0,
+        "era": ""
+      },
+      {
+        "id": 686751,
+        "name": "Seth Johnson",
+        "note": "",
+        "ip": "2.0",
+        "h": 1,
+        "r": 1,
+        "er": 1,
+        "bb": 1,
+        "so": 2,
+        "era": ""
+      }
+    ],
+    "notes": [
+      {
+        "title": "New York Mets BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Ewing (10, Johnson, S)."
+          },
+          {
+            "label": "HR",
+            "value": "Alvarez, F 2 (11, 3rd inning off Nola, A, 0 on, 1 out, 7th inning off Nola, A, 0 on, 0 out); Baty (5, 7th inning off Nola, A, 0 on, 0 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Alvarez, F 8; Baty 5; Benge; Ewing 2; Soto, J."
+          },
+          {
+            "label": "RBI",
+            "value": "Alvarez, F 2 (24); Baty (32); Ewing (25)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Ewing."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Taylor, T; Bichette 2; Young, J 2."
+          },
+          {
+            "label": "GIDP",
+            "value": "Bichette 2."
+          },
+          {
+            "label": "Team RISP",
+            "value": "0-for-6."
+          },
+          {
+            "label": "Team LOB",
+            "value": "7."
+          }
+        ]
+      },
+      {
+        "title": "New York Mets BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Benge (16, 2nd base off Nola, A/Realmuto)."
+          }
+        ]
+      },
+      {
+        "title": "New York Mets FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Lindor (5, throw)."
+          },
+          {
+            "label": "Pickoffs",
+            "value": "Alvarez, F (Schwarber at 2nd base)."
+          }
+        ]
+      },
+      {
+        "title": "Philadelphia Phillies BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Harper, B (18, Scott); Schwarber (10, Scott)."
+          },
+          {
+            "label": "HR",
+            "value": "Turner (11, 8th inning off Weaver, 0 on, 2 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Harper, B 2; Realmuto; Schwarber 2; Turner 4."
+          },
+          {
+            "label": "RBI",
+            "value": "Turner (34)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Turner."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Marsh; Bohm."
+          },
+          {
+            "label": "Team RISP",
+            "value": "0-for-3."
+          },
+          {
+            "label": "Team LOB",
+            "value": "4."
+          }
+        ]
+      },
+      {
+        "title": "Philadelphia Phillies BASERUNNING",
+        "fields": [
+          {
+            "label": "CS",
+            "value": "Schwarber (1, 3rd base by Raley, B/Alvarez, F)."
+          },
+          {
+            "label": "PO",
+            "value": "Schwarber (2nd base by Alvarez, F)."
+          }
+        ]
+      },
+      {
+        "title": "Philadelphia Phillies FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Turner (13, fielding)."
+          },
+          {
+            "label": "DP",
+            "value": "3 (Harper, B-Turner-Harper, B; Harper, B; Turner-Harper, B)."
+          }
+        ]
+      },
+      {
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "IBB",
+            "value": "Soto, J (by Nola, A)."
+          },
+          {
+            "label": "ABS Challenge",
+            "value": "Alvarez, F 2 (Ball-Overturned to Strike, Ball-Confirmed); Young, J (Strike-Confirmed); Rincones Jr. (Strike-Confirmed)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Scott 79-56; Raley, B 7-3; Brazobán 12-8; Weaver 9-7; Williams, D 13-8; Nola, A 97-63; Bowlan 14-10; Johnson, S 27-17."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Scott 4-2; Raley, B 0-0; Brazobán 2-1; Weaver 1-1; Williams, D 1-0; Nola, A 6-3; Bowlan 2-0; Johnson, S 1-2."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Scott 20; Raley, B 2; Brazobán 3; Weaver 4; Williams, D 3; Nola, A 27; Bowlan 3; Johnson, S 8."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Raley, B 1-0."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Dan Iassogna. 1B: Adam Beck. 2B: Felix Neon. 3B: Austin Jones. "
+          },
+          {
+            "label": "Weather",
+            "value": "94 degrees, Cloudy."
+          },
+          {
+            "label": "Wind",
+            "value": "2 mph, Out To CF."
+          },
+          {
+            "label": "First pitch",
+            "value": "6:12 PM."
+          },
+          {
+            "label": "T",
+            "value": "2:37."
+          },
+          {
+            "label": "Att",
+            "value": "40,109."
+          },
+          {
+            "label": "Venue",
+            "value": "Citizens Bank Park."
+          }
+        ]
+      }
+    ]
+  }
+]
