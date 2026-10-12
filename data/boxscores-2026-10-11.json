@@ -1,0 +1,707 @@
+[
+  {
+    "gamePk": 849809,
+    "away": "Los Angeles Dodgers",
+    "home": "Milwaukee Brewers",
+    "awayId": 119,
+    "homeId": 158,
+    "awayScore": 1,
+    "homeScore": 2,
+    "state": "Final",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "Los Angeles Dodgers",
+        "innings": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "r": 1,
+        "h": 7,
+        "e": 0
+      },
+      "home": {
+        "name": "Milwaukee Brewers",
+        "innings": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          "-"
+        ],
+        "r": 2,
+        "h": 6,
+        "e": 0
+      }
+    },
+    "awayBatters": [
+      {
+        "id": 605141,
+        "name": "Mookie Betts",
+        "pos": "SS",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 518692,
+        "name": "Freddie Freeman",
+        "pos": "1B",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 669257,
+        "name": "Will Smith",
+        "pos": "C",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 660271,
+        "name": "Shohei Ohtani",
+        "pos": "DH",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 606192,
+        "name": "Teoscar Hernández",
+        "pos": "LF",
+        "ab": 4,
+        "r": 0,
+        "h": 2,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 571970,
+        "name": "Max Muncy",
+        "pos": "3B",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 681624,
+        "name": "Andy Pages",
+        "pos": "CF",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 663656,
+        "name": "Kyle Tucker",
+        "pos": "RF",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 2,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 571771,
+        "name": "Enrique Hernández",
+        "pos": "2B",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 800543,
+        "name": "Josue De Paula",
+        "pos": "PH",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 669242,
+        "name": "Tommy Edman",
+        "pos": "PR",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 669373,
+        "name": "Tarik Skubal",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 681911,
+        "name": "Alex Vesia",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 623465,
+        "name": "Evan Phillips",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 656945,
+        "name": "Tanner Scott",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": null,
+        "name": "TOTALS",
+        "pos": "",
+        "ab": 31,
+        "r": 1,
+        "h": 7,
+        "rbi": 1,
+        "bb": 6,
+        "so": 8,
+        "avg": "",
+        "isTotal": true
+      }
+    ],
+    "homeBatters": [
+      {
+        "id": 694192,
+        "name": "Jackson Chourio",
+        "pos": "LF",
+        "ab": 4,
+        "r": 0,
+        "h": 2,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 668930,
+        "name": "Brice Turang",
+        "pos": "2B",
+        "ab": 2,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 1,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 661388,
+        "name": "William Contreras",
+        "pos": "C",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 641343,
+        "name": "Jake Bauers",
+        "pos": "1B",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 683734,
+        "name": "Andrew Vaughn",
+        "pos": "DH",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 669003,
+        "name": "Garrett Mitchell",
+        "pos": "CF",
+        "ab": 3,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 806198,
+        "name": "Cooper Pratt",
+        "pos": "SS",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 800325,
+        "name": "Luis Lara",
+        "pos": "RF",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 687401,
+        "name": "Joey Ortiz",
+        "pos": "3B",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 694819,
+        "name": "Jacob Misiorowski",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 669084,
+        "name": "DL Hall",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 682842,
+        "name": "Abner Uribe",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 676879,
+        "name": "Aaron Ashby",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 656730,
+        "name": "Trevor Megill",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": null,
+        "name": "TOTALS",
+        "pos": "",
+        "ab": 26,
+        "r": 2,
+        "h": 6,
+        "rbi": 2,
+        "bb": 5,
+        "so": 13,
+        "avg": "",
+        "isTotal": true
+      }
+    ],
+    "awayPitchers": [
+      {
+        "id": 669373,
+        "name": "Tarik Skubal",
+        "note": "L",
+        "ip": "5.0",
+        "h": 5,
+        "r": 2,
+        "er": 2,
+        "bb": 2,
+        "so": 7,
+        "era": ""
+      },
+      {
+        "id": 681911,
+        "name": "Alex Vesia",
+        "note": "",
+        "ip": "1.0",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 1,
+        "so": 2,
+        "era": ""
+      },
+      {
+        "id": 623465,
+        "name": "Evan Phillips",
+        "note": "",
+        "ip": "1.0",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 3,
+        "era": ""
+      },
+      {
+        "id": 656945,
+        "name": "Tanner Scott",
+        "note": "",
+        "ip": "1.0",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 2,
+        "so": 1,
+        "era": ""
+      }
+    ],
+    "homePitchers": [
+      {
+        "id": 694819,
+        "name": "Jacob Misiorowski",
+        "note": "",
+        "ip": "4.1",
+        "h": 5,
+        "r": 1,
+        "er": 1,
+        "bb": 3,
+        "so": 5,
+        "era": ""
+      },
+      {
+        "id": 669084,
+        "name": "DL Hall",
+        "note": "W",
+        "ip": "0.2",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 0,
+        "era": ""
+      },
+      {
+        "id": 682842,
+        "name": "Abner Uribe",
+        "note": "H",
+        "ip": "1.0",
+        "h": 2,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 2,
+        "era": ""
+      },
+      {
+        "id": 676879,
+        "name": "Aaron Ashby",
+        "note": "H",
+        "ip": "2.0",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 1,
+        "so": 1,
+        "era": ""
+      },
+      {
+        "id": 656730,
+        "name": "Trevor Megill",
+        "note": "S",
+        "ip": "1.0",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 2,
+        "so": 0,
+        "era": ""
+      }
+    ],
+    "notes": [
+      {
+        "title": "Los Angeles Dodgers BATTING",
+        "fields": [
+          {
+            "label": "TB",
+            "value": "Betts; Freeman, F; Hernández, T 2; Muncy; Ohtani; Pages, A."
+          },
+          {
+            "label": "RBI",
+            "value": "Pages, A (3)."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Tucker; Pages, A; Betts."
+          },
+          {
+            "label": "GIDP",
+            "value": "Freeman, F; Hernández, E; Smith, W."
+          },
+          {
+            "label": "Team RISP",
+            "value": "1-for-6."
+          },
+          {
+            "label": "Team LOB",
+            "value": "9."
+          }
+        ]
+      },
+      {
+        "title": "Los Angeles Dodgers FIELDING",
+        "fields": [
+          {
+            "label": "Pickoffs",
+            "value": "Vesia (Bauers at 1st base)."
+          },
+          {
+            "label": "DP",
+            "value": "(Hernández, E-Betts-Freeman, F)."
+          }
+        ]
+      },
+      {
+        "title": "Milwaukee Brewers BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Vaughn (1, Skubal)."
+          },
+          {
+            "label": "HR",
+            "value": "Turang (1, 4th inning off Skubal, 0 on, 0 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Bauers; Chourio, J 2; Lara; Turang 4; Vaughn 2."
+          },
+          {
+            "label": "RBI",
+            "value": "Lara (1); Turang (1)."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Mitchell 2; Contreras, Wm 2; Pratt."
+          },
+          {
+            "label": "SAC",
+            "value": "Pratt; Turang."
+          },
+          {
+            "label": "GIDP",
+            "value": "Vaughn."
+          },
+          {
+            "label": "Team RISP",
+            "value": "2-for-7."
+          },
+          {
+            "label": "Team LOB",
+            "value": "7."
+          }
+        ]
+      },
+      {
+        "title": "Milwaukee Brewers BASERUNNING",
+        "fields": [
+          {
+            "label": "CS",
+            "value": "Bauers (1, 2nd base by Vesia/Smith, W)."
+          },
+          {
+            "label": "PO",
+            "value": "Bauers (1st base by Vesia)."
+          }
+        ]
+      },
+      {
+        "title": "Milwaukee Brewers FIELDING",
+        "fields": [
+          {
+            "label": "DP",
+            "value": "3 (2 Pratt-Turang-Bauers; Turang-Pratt-Bauers)."
+          }
+        ]
+      },
+      {
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "Balk",
+            "value": "Misiorowski."
+          },
+          {
+            "label": "IBB",
+            "value": "Contreras, Wm (by Scott); Vaughn (by Scott)."
+          },
+          {
+            "label": "ABS Challenge",
+            "value": "Betts (Strike-Overturned to Ball); Contreras, Wm 3 (Ball-Overturned to Strike, Ball-Confirmed, Ball-Overturned to Strike); Smith, W 2 (Ball-Overturned to Strike, Ball-Confirmed)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Skubal 81-53; Vesia 16-9; Phillips, E 17-11; Scott 9-6; Misiorowski 94-60; Hall, D 4-3; Uribe 15-13; Ashby 26-13; Megill 19-8."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Skubal 5-2; Vesia 0-0; Phillips, E 0-0; Scott 2-0; Misiorowski 3-3; Hall, D 1-0; Uribe 0-1; Ashby 1-2; Megill 0-1."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Skubal 21; Vesia 3; Phillips, E 4; Scott 5; Misiorowski 19; Hall, D 1; Uribe 5; Ashby 7; Megill 5."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Scott 1-0; Hall, D 1-0."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Edwin Moscoso. 1B: Mark Wegner. 2B: Ryan Additon. 3B: Alan Porter. LF: David Rackley. RF: John Tumpane. "
+          },
+          {
+            "label": "Weather",
+            "value": "71 degrees, Clear."
+          },
+          {
+            "label": "Wind",
+            "value": "5 mph, R To L."
+          },
+          {
+            "label": "First pitch",
+            "value": "7:16 PM."
+          },
+          {
+            "label": "T",
+            "value": "2:55."
+          },
+          {
+            "label": "Att",
+            "value": "42,617."
+          },
+          {
+            "label": "Venue",
+            "value": "American Family Field."
+          }
+        ]
+      }
+    ]
+  }
+]
