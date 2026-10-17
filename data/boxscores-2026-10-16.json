@@ -1,0 +1,72 @@
+[
+  {
+    "gamePk": 849817,
+    "away": "Tampa Bay Rays",
+    "home": "Cleveland Guardians",
+    "awayId": 139,
+    "homeId": 114,
+    "awayScore": 0,
+    "homeScore": 0,
+    "state": "Final",
+    "linescoreData": {
+      "innings": 0,
+      "away": {
+        "name": "Tampa Bay Rays",
+        "innings": [],
+        "r": 0,
+        "h": 0,
+        "e": 0
+      },
+      "home": {
+        "name": "Cleveland Guardians",
+        "innings": [],
+        "r": 0,
+        "h": 0,
+        "e": 0
+      }
+    },
+    "awayBatters": [
+      {
+        "id": null,
+        "name": "TOTALS",
+        "pos": "",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": "",
+        "isTotal": true
+      }
+    ],
+    "homeBatters": [
+      {
+        "id": null,
+        "name": "TOTALS",
+        "pos": "",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": "",
+        "isTotal": true
+      }
+    ],
+    "awayPitchers": [],
+    "homePitchers": [],
+    "notes": [
+      {
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "Venue",
+            "value": "Progressive Field."
+          }
+        ]
+      }
+    ]
+  }
+]
