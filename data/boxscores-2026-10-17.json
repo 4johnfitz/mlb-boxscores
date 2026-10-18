@@ -1,0 +1,851 @@
+[
+  {
+    "gamePk": 849816,
+    "away": "Tampa Bay Rays",
+    "home": "Cleveland Guardians",
+    "awayId": 139,
+    "homeId": 114,
+    "awayScore": 7,
+    "homeScore": 3,
+    "state": "Final",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "Tampa Bay Rays",
+        "innings": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          3,
+          0,
+          2
+        ],
+        "r": 7,
+        "h": 11,
+        "e": 0
+      },
+      "home": {
+        "name": "Cleveland Guardians",
+        "innings": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        "r": 3,
+        "h": 8,
+        "e": 2
+      }
+    },
+    "awayBatters": [
+      {
+        "id": 650490,
+        "name": "Yandy Díaz",
+        "pos": "DH",
+        "ab": 5,
+        "r": 2,
+        "h": 2,
+        "rbi": 2,
+        "bb": 0,
+        "so": 3,
+        "avg": ""
+      },
+      {
+        "id": 666018,
+        "name": "Jonathan Aranda",
+        "pos": "1B",
+        "ab": 4,
+        "r": 2,
+        "h": 3,
+        "rbi": 2,
+        "bb": 1,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 802415,
+        "name": "Chandler Simpson",
+        "pos": "LF",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 1,
+        "bb": 1,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 691406,
+        "name": "Junior Caminero",
+        "pos": "3B",
+        "ab": 5,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 689414,
+        "name": "Liam Hicks",
+        "pos": "C",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 810938,
+        "name": "Ben Williamson",
+        "pos": "PH",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 656775,
+        "name": "Cedric Mullins",
+        "pos": "CF",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 683748,
+        "name": "Victor Mesa Jr.",
+        "pos": "RF",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 676356,
+        "name": "Jonny DeLuca",
+        "pos": "CF",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 663743,
+        "name": "Nick Fortes",
+        "pos": "C",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 680700,
+        "name": "Richie Palacios",
+        "pos": "2B",
+        "ab": 4,
+        "r": 2,
+        "h": 3,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 670764,
+        "name": "Taylor Walls",
+        "pos": "SS",
+        "ab": 3,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 607259,
+        "name": "Nick Martinez",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 642547,
+        "name": "Freddy Peralta",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 693855,
+        "name": "Ian Seymour",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 687330,
+        "name": "Kevin Kelly",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 592155,
+        "name": "Cam Booser",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 641329,
+        "name": "Bryan Baker",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": null,
+        "name": "TOTALS",
+        "pos": "",
+        "ab": 36,
+        "r": 7,
+        "h": 11,
+        "rbi": 6,
+        "bb": 2,
+        "so": 12,
+        "avg": "",
+        "isTotal": true
+      }
+    ],
+    "homeBatters": [
+      {
+        "id": 680757,
+        "name": "Steven Kwan",
+        "pos": "CF",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 608070,
+        "name": "José Ramírez",
+        "pos": "3B",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 800050,
+        "name": "Chase DeLauter",
+        "pos": "RF",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 666176,
+        "name": "Jo Adell",
+        "pos": "DH",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 663993,
+        "name": "Nathaniel Lowe",
+        "pos": "1B",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 681807,
+        "name": "David Fry",
+        "pos": "1B",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 683953,
+        "name": "Travis Bazzana",
+        "pos": "2B",
+        "ab": 3,
+        "r": 1,
+        "h": 2,
+        "rbi": 1,
+        "bb": 1,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 672275,
+        "name": "Patrick Bailey",
+        "pos": "C",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 690984,
+        "name": "Petey Halpin",
+        "pos": "CF",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 682657,
+        "name": "Angel Martínez",
+        "pos": "LF",
+        "ab": 2,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 677587,
+        "name": "Brayan Rocchio",
+        "pos": "SS",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 542888,
+        "name": "Shawn Armstrong",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 656492,
+        "name": "Foster Griffin",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 682982,
+        "name": "Daniel Espino",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 682120,
+        "name": "Tim Herrin",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 677944,
+        "name": "Slade Cecconi",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 670036,
+        "name": "Matt Festa",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 676282,
+        "name": "Joey Cantillo",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": null,
+        "name": "TOTALS",
+        "pos": "",
+        "ab": 32,
+        "r": 3,
+        "h": 8,
+        "rbi": 3,
+        "bb": 3,
+        "so": 6,
+        "avg": "",
+        "isTotal": true
+      }
+    ],
+    "awayPitchers": [
+      {
+        "id": 607259,
+        "name": "Nick Martinez",
+        "note": "W",
+        "ip": "5.1",
+        "h": 2,
+        "r": 1,
+        "er": 1,
+        "bb": 2,
+        "so": 3,
+        "era": ""
+      },
+      {
+        "id": 642547,
+        "name": "Freddy Peralta",
+        "note": "H",
+        "ip": "0.2",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 1,
+        "so": 0,
+        "era": ""
+      },
+      {
+        "id": 693855,
+        "name": "Ian Seymour",
+        "note": "",
+        "ip": "1.0",
+        "h": 4,
+        "r": 2,
+        "er": 2,
+        "bb": 0,
+        "so": 1,
+        "era": ""
+      },
+      {
+        "id": 687330,
+        "name": "Kevin Kelly",
+        "note": "H",
+        "ip": "0.2",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 0,
+        "era": ""
+      },
+      {
+        "id": 592155,
+        "name": "Cam Booser",
+        "note": "H",
+        "ip": "0.1",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 1,
+        "era": ""
+      },
+      {
+        "id": 641329,
+        "name": "Bryan Baker",
+        "note": "",
+        "ip": "1.0",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 1,
+        "era": ""
+      }
+    ],
+    "homePitchers": [
+      {
+        "id": 542888,
+        "name": "Shawn Armstrong",
+        "note": "",
+        "ip": "1.0",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 1,
+        "era": ""
+      },
+      {
+        "id": 656492,
+        "name": "Foster Griffin",
+        "note": "",
+        "ip": "3.2",
+        "h": 4,
+        "r": 1,
+        "er": 1,
+        "bb": 0,
+        "so": 5,
+        "era": ""
+      },
+      {
+        "id": 682982,
+        "name": "Daniel Espino",
+        "note": "L",
+        "ip": "0.1",
+        "h": 1,
+        "r": 1,
+        "er": 1,
+        "bb": 2,
+        "so": 1,
+        "era": ""
+      },
+      {
+        "id": 682120,
+        "name": "Tim Herrin",
+        "note": "",
+        "ip": "1.0",
+        "h": 1,
+        "r": 1,
+        "er": 1,
+        "bb": 0,
+        "so": 1,
+        "era": ""
+      },
+      {
+        "id": 677944,
+        "name": "Slade Cecconi",
+        "note": "",
+        "ip": "1.0",
+        "h": 2,
+        "r": 2,
+        "er": 1,
+        "bb": 0,
+        "so": 2,
+        "era": ""
+      },
+      {
+        "id": 670036,
+        "name": "Matt Festa",
+        "note": "",
+        "ip": "1.1",
+        "h": 2,
+        "r": 2,
+        "er": 2,
+        "bb": 0,
+        "so": 1,
+        "era": ""
+      },
+      {
+        "id": 676282,
+        "name": "Joey Cantillo",
+        "note": "",
+        "ip": "0.2",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 1,
+        "era": ""
+      }
+    ],
+    "notes": [
+      {
+        "title": "Tampa Bay Rays BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Díaz, Y (3, Griffin); Caminero (3, Espino)."
+          },
+          {
+            "label": "HR",
+            "value": "Díaz, Y (1, 9th inning off Festa, M, 1 on, 1 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Aranda 3; Caminero 2; Díaz, Y 6; Mesa Jr.; Palacios, R 3; Walls."
+          },
+          {
+            "label": "RBI",
+            "value": "Aranda 2 (4); Caminero (2); Díaz, Y 2 (2); Simpson (4)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Aranda."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "DeLuca."
+          },
+          {
+            "label": "SAC",
+            "value": "Walls."
+          },
+          {
+            "label": "SF",
+            "value": "Simpson."
+          },
+          {
+            "label": "GIDP",
+            "value": "Walls."
+          },
+          {
+            "label": "Team RISP",
+            "value": "4-for-8."
+          },
+          {
+            "label": "Team LOB",
+            "value": "6."
+          }
+        ]
+      },
+      {
+        "title": "Tampa Bay Rays BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Palacios, R (1, 3rd base off Cecconi/Bailey); Walls (1, 2nd base off Cecconi/Bailey)."
+          }
+        ]
+      },
+      {
+        "title": "Tampa Bay Rays FIELDING",
+        "fields": [
+          {
+            "label": "Outfield assists",
+            "value": "Mesa Jr. (DeLauter at 2nd base)."
+          },
+          {
+            "label": "DP",
+            "value": "2 (Palacios, R-Walls-Aranda; Aranda-Walls)."
+          }
+        ]
+      },
+      {
+        "title": "Cleveland Guardians BATTING",
+        "fields": [
+          {
+            "label": "HR",
+            "value": "Bazzana (1, 7th inning off Seymour, I, 0 on, 2 out)."
+          },
+          {
+            "label": "TB",
+            "value": "Adell; Bailey; Bazzana 5; DeLauter; Kwan; Martínez, A; Rocchio."
+          },
+          {
+            "label": "RBI",
+            "value": "Bazzana (2); DeLauter (5); Rocchio (2)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Rocchio; Bazzana."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "DeLauter; Kwan."
+          },
+          {
+            "label": "GIDP",
+            "value": "Bailey 2."
+          },
+          {
+            "label": "Team RISP",
+            "value": "2-for-5."
+          },
+          {
+            "label": "Team LOB",
+            "value": "5."
+          }
+        ]
+      },
+      {
+        "title": "Cleveland Guardians FIELDING",
+        "fields": [
+          {
+            "label": "E",
+            "value": "Bazzana (1, fielding); DeLauter (1, fielding)."
+          },
+          {
+            "label": "DP",
+            "value": "(Rocchio-Bazzana-Lowe, N)."
+          }
+        ]
+      },
+      {
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "WP",
+            "value": "Martinez, N."
+          },
+          {
+            "label": "ABS Challenge",
+            "value": "Bailey (Ball-Confirmed)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Martinez, N 79-53; Peralta, F 9-4; Seymour, I 29-19; Kelly 16-8; Booser 4-3; Baker 12-8; Armstrong 13-9; Griffin 44-31; Espino 22-11; Herrin 14-9; Cecconi 22-16; Festa, M 21-14; Cantillo 15-9."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Martinez, N 5-4; Peralta, F 0-1; Seymour, I 2-0; Kelly 1-1; Booser 0-0; Baker 1-0; Armstrong 3-0; Griffin 4-1; Espino 0-0; Herrin 1-0; Cecconi 0-0; Festa, M 2-0; Cantillo 1-0."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Martinez, N 18; Peralta, F 3; Seymour, I 7; Kelly 3; Booser 1; Baker 3; Armstrong 4; Griffin 14; Espino 4; Herrin 4; Cecconi 5; Festa, M 6; Cantillo 3."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Peralta, F 1-0; Booser 1-0; Herrin 2-0; Cecconi 1-1."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Mark Ripperger. 1B: Chad Fairchild. 2B: Adam Hamari. 3B: Nestor Ceja. LF: Carlos Torres. RF: Bill Miller. "
+          },
+          {
+            "label": "Weather",
+            "value": "46 degrees, Partly Cloudy."
+          },
+          {
+            "label": "Wind",
+            "value": "5 mph, L To R."
+          },
+          {
+            "label": "First pitch",
+            "value": "8:08 PM."
+          },
+          {
+            "label": "T",
+            "value": "3:10."
+          },
+          {
+            "label": "Att",
+            "value": "33,355."
+          },
+          {
+            "label": "Venue",
+            "value": "Progressive Field."
+          }
+        ]
+      }
+    ]
+  }
+]
