@@ -1,0 +1,744 @@
+[
+  {
+    "gamePk": 849805,
+    "away": "Tampa Bay Rays",
+    "home": "Milwaukee Brewers",
+    "awayId": 139,
+    "homeId": 158,
+    "awayScore": 2,
+    "homeScore": 3,
+    "state": "Final",
+    "linescoreData": {
+      "innings": 9,
+      "away": {
+        "name": "Tampa Bay Rays",
+        "innings": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "r": 2,
+        "h": 7,
+        "e": 0
+      },
+      "home": {
+        "name": "Milwaukee Brewers",
+        "innings": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          "-"
+        ],
+        "r": 3,
+        "h": 8,
+        "e": 0
+      }
+    },
+    "awayBatters": [
+      {
+        "id": 650490,
+        "name": "Yandy Díaz",
+        "pos": "DH",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 666018,
+        "name": "Jonathan Aranda",
+        "pos": "1B",
+        "ab": 3,
+        "r": 1,
+        "h": 3,
+        "rbi": 0,
+        "bb": 1,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 622761,
+        "name": "Jorge Mateo",
+        "pos": "PR",
+        "ab": 0,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 802415,
+        "name": "Chandler Simpson",
+        "pos": "LF",
+        "ab": 4,
+        "r": 0,
+        "h": 2,
+        "rbi": 0,
+        "bb": 0,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 691406,
+        "name": "Junior Caminero",
+        "pos": "3B",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 1,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 689414,
+        "name": "Liam Hicks",
+        "pos": "C",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 2,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 676356,
+        "name": "Jonny DeLuca",
+        "pos": "CF",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 683748,
+        "name": "Victor Mesa Jr.",
+        "pos": "RF",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 2,
+        "avg": ""
+      },
+      {
+        "id": 810938,
+        "name": "Ben Williamson",
+        "pos": "SS",
+        "ab": 3,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 670764,
+        "name": "Taylor Walls",
+        "pos": "SS",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 668723,
+        "name": "Ryan Vilade",
+        "pos": "2B",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 607259,
+        "name": "Nick Martinez",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 571927,
+        "name": "Steven Matz",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 687330,
+        "name": "Kevin Kelly",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 664076,
+        "name": "Garrett Cleavinger",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 642121,
+        "name": "Cole Sulser",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": null,
+        "name": "TOTALS",
+        "pos": "",
+        "ab": 31,
+        "r": 2,
+        "h": 7,
+        "rbi": 2,
+        "bb": 2,
+        "so": 9,
+        "avg": "",
+        "isTotal": true
+      }
+    ],
+    "homeBatters": [
+      {
+        "id": 694192,
+        "name": "Jackson Chourio",
+        "pos": "LF",
+        "ab": 4,
+        "r": 1,
+        "h": 2,
+        "rbi": 1,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 641343,
+        "name": "Jake Bauers",
+        "pos": "1B",
+        "ab": 4,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 592885,
+        "name": "Christian Yelich",
+        "pos": "DH",
+        "ab": 4,
+        "r": 1,
+        "h": 1,
+        "rbi": 1,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 661388,
+        "name": "William Contreras",
+        "pos": "C",
+        "ab": 3,
+        "r": 0,
+        "h": 2,
+        "rbi": 1,
+        "bb": 1,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 668930,
+        "name": "Brice Turang",
+        "pos": "2B",
+        "ab": 2,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 2,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 669003,
+        "name": "Garrett Mitchell",
+        "pos": "CF",
+        "ab": 4,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 1,
+        "avg": ""
+      },
+      {
+        "id": 806198,
+        "name": "Cooper Pratt",
+        "pos": "SS",
+        "ab": 3,
+        "r": 1,
+        "h": 0,
+        "rbi": 0,
+        "bb": 1,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 686217,
+        "name": "Sal Frelick",
+        "pos": "RF",
+        "ab": 3,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 596142,
+        "name": "Gary Sánchez",
+        "pos": "PH",
+        "ab": 1,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 800325,
+        "name": "Luis Lara",
+        "pos": "RF",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 666152,
+        "name": "David Hamilton",
+        "pos": "3B",
+        "ab": 2,
+        "r": 0,
+        "h": 1,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 687401,
+        "name": "Joey Ortiz",
+        "pos": "3B",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 694819,
+        "name": "Jacob Misiorowski",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 682842,
+        "name": "Abner Uribe",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 676879,
+        "name": "Aaron Ashby",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": 656730,
+        "name": "Trevor Megill",
+        "pos": "P",
+        "ab": 0,
+        "r": 0,
+        "h": 0,
+        "rbi": 0,
+        "bb": 0,
+        "so": 0,
+        "avg": ""
+      },
+      {
+        "id": null,
+        "name": "TOTALS",
+        "pos": "",
+        "ab": 30,
+        "r": 3,
+        "h": 8,
+        "rbi": 3,
+        "bb": 4,
+        "so": 5,
+        "avg": "",
+        "isTotal": true
+      }
+    ],
+    "awayPitchers": [
+      {
+        "id": 607259,
+        "name": "Nick Martinez",
+        "note": "L",
+        "ip": "5.0",
+        "h": 5,
+        "r": 2,
+        "er": 2,
+        "bb": 0,
+        "so": 5,
+        "era": ""
+      },
+      {
+        "id": 571927,
+        "name": "Steven Matz",
+        "note": "",
+        "ip": "1.2",
+        "h": 0,
+        "r": 1,
+        "er": 1,
+        "bb": 3,
+        "so": 0,
+        "era": ""
+      },
+      {
+        "id": 687330,
+        "name": "Kevin Kelly",
+        "note": "",
+        "ip": "0.1",
+        "h": 3,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 0,
+        "era": ""
+      },
+      {
+        "id": 664076,
+        "name": "Garrett Cleavinger",
+        "note": "",
+        "ip": "0.2",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 1,
+        "so": 0,
+        "era": ""
+      },
+      {
+        "id": 642121,
+        "name": "Cole Sulser",
+        "note": "",
+        "ip": "0.1",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 0,
+        "era": ""
+      }
+    ],
+    "homePitchers": [
+      {
+        "id": 694819,
+        "name": "Jacob Misiorowski",
+        "note": "W",
+        "ip": "5.0",
+        "h": 4,
+        "r": 1,
+        "er": 1,
+        "bb": 1,
+        "so": 3,
+        "era": ""
+      },
+      {
+        "id": 682842,
+        "name": "Abner Uribe",
+        "note": "H",
+        "ip": "1.1",
+        "h": 1,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 2,
+        "era": ""
+      },
+      {
+        "id": 676879,
+        "name": "Aaron Ashby",
+        "note": "H",
+        "ip": "1.2",
+        "h": 0,
+        "r": 0,
+        "er": 0,
+        "bb": 0,
+        "so": 3,
+        "era": ""
+      },
+      {
+        "id": 656730,
+        "name": "Trevor Megill",
+        "note": "S",
+        "ip": "1.0",
+        "h": 2,
+        "r": 1,
+        "er": 1,
+        "bb": 1,
+        "so": 1,
+        "era": ""
+      }
+    ],
+    "notes": [
+      {
+        "title": "Tampa Bay Rays BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Caminero (4, Misiorowski)."
+          },
+          {
+            "label": "TB",
+            "value": "Aranda 3; Caminero 2; Mesa Jr.; Simpson 2."
+          },
+          {
+            "label": "RBI",
+            "value": "Hicks, L 2 (6)."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "DeLuca 3."
+          },
+          {
+            "label": "Team RISP",
+            "value": "0-for-6."
+          },
+          {
+            "label": "Team LOB",
+            "value": "4."
+          }
+        ]
+      },
+      {
+        "title": "Tampa Bay Rays BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Mateo (1, 3rd base off Megill/Contreras, Wm); Simpson (4, 2nd base off Megill/Contreras, Wm)."
+          },
+          {
+            "label": "CS",
+            "value": "Mesa Jr. (1, 3rd base by Misiorowski/Contreras, Wm); Aranda (1, 2nd base by Uribe/Contreras, Wm)."
+          }
+        ]
+      },
+      {
+        "title": "Tampa Bay Rays FIELDING",
+        "fields": [
+          {
+            "label": "Outfield assists",
+            "value": "Mesa Jr. (Hamilton, D at 3rd base)."
+          }
+        ]
+      },
+      {
+        "title": "Milwaukee Brewers BATTING",
+        "fields": [
+          {
+            "label": "2B",
+            "value": "Hamilton, D (1, Martinez, N)."
+          },
+          {
+            "label": "3B",
+            "value": "Yelich (1, Martinez, N)."
+          },
+          {
+            "label": "TB",
+            "value": "Bauers; Chourio, J 2; Contreras, Wm 2; Frelick; Hamilton, D 2; Yelich 3."
+          },
+          {
+            "label": "RBI",
+            "value": "Chourio, J (8); Contreras, Wm (6); Yelich (4)."
+          },
+          {
+            "label": "2-out RBI",
+            "value": "Chourio, J."
+          },
+          {
+            "label": "Runners left in scoring position, 2 out",
+            "value": "Mitchell; Sánchez; Chourio, J; Yelich."
+          },
+          {
+            "label": "SAC",
+            "value": "Hamilton, D."
+          },
+          {
+            "label": "Team RISP",
+            "value": "2-for-8."
+          },
+          {
+            "label": "Team LOB",
+            "value": "8."
+          }
+        ]
+      },
+      {
+        "title": "Milwaukee Brewers BASERUNNING",
+        "fields": [
+          {
+            "label": "SB",
+            "value": "Frelick (3, 3rd base off Martinez, N/Hicks, L)."
+          }
+        ]
+      },
+      {
+        "title": "Milwaukee Brewers FIELDING",
+        "fields": [
+          {
+            "label": "DP",
+            "value": "2 (Hamilton, D-Turang; Contreras, Wm-Pratt)."
+          }
+        ]
+      },
+      {
+        "title": "GAME INFO",
+        "fields": [
+          {
+            "label": "Pitch timer violations",
+            "value": "Misiorowski (pitcher)."
+          },
+          {
+            "label": "ABS Challenge",
+            "value": "Contreras, Wm 2 (Ball-Overturned to Strike, Ball-Overturned to Strike); Hicks, L (Ball-Confirmed)."
+          },
+          {
+            "label": "Pitches-strikes",
+            "value": "Martinez, N 73-52; Matz 31-18; Kelly 12-7; Cleavinger 10-4; Sulser 4-2; Misiorowski 78-56; Uribe 15-12; Ashby 20-14; Megill 20-13."
+          },
+          {
+            "label": "Groundouts-flyouts",
+            "value": "Martinez, N 4-4; Matz 4-0; Kelly 1-0; Cleavinger 1-0; Sulser 1-0; Misiorowski 4-3; Uribe 1-0; Ashby 1-1; Megill 2-0."
+          },
+          {
+            "label": "Batters faced",
+            "value": "Martinez, N 19; Matz 8; Kelly 4; Cleavinger 3; Sulser 1; Misiorowski 18; Uribe 4; Ashby 5; Megill 6."
+          },
+          {
+            "label": "Inherited runners-scored",
+            "value": "Kelly 1-1; Cleavinger 1-0; Sulser 2-0."
+          },
+          {
+            "label": "Umpires",
+            "value": "HP: Gabe Morales. 1B: Nic Lentz. 2B: James Hoye. 3B: Vic Carapazza. LF: Dan Bellino. RF: Tripp Gibson. "
+          },
+          {
+            "label": "Weather",
+            "value": "69 degrees, Roof Closed."
+          },
+          {
+            "label": "Wind",
+            "value": "0 mph, None."
+          },
+          {
+            "label": "First pitch",
+            "value": "7:16 PM."
+          },
+          {
+            "label": "T",
+            "value": "3:09."
+          },
+          {
+            "label": "Att",
+            "value": "43,250."
+          },
+          {
+            "label": "Venue",
+            "value": "American Family Field."
+          }
+        ]
+      }
+    ]
+  }
+]
